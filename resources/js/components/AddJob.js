@@ -24,53 +24,65 @@ import "quill/dist/quill.snow.css";
 function AddJob() {
 
 	useEffect(() => {
-// 		Quill.register({
-// 	  // "modules/toolbar": Toolbar,
-// 	  "themes/snow": Snow,
-// 	  // "formats/bold": Bold,
-// 	  // "formats/italic": Italic,
-// 	  // "formats/header": Header,
-// });
-
-		const options = {
-		  debug: 'info',
-		  modules: {
-		    toolbar: true,
-		  },
-		  placeholder: 'Compose an epic...',
-		  theme: 'snow'
-		};
-
-		setDescriptionQuill(new Quill('#description', options));
-		// setRequirementQuill(new Quill('#responsibility', options));
-		// setRequirementQuill(new Quill('#requirement', options));
-		
+		setDescriptionQuill(new Quill('#descriptions', editorOptions))
+		setResponsibilityQuill(new Quill('#responsibilities', editorOptions ))
+		setRequirementQuill(new Quill('#requirements', editorOptions ))
+				
 	}, [])
   
 
 	const [title, setTitle] = useState('Job Title');
-	const [description, setDescription] = useState('Dummy description');
 	const [location, setLocation] = useState('Islamabad');
 	const [jobType, setJobType] = useState('remote');
 	const [additionalDetails, setAdditionalDetails] = useState('descriptions')
 
-	const [jobResponsibilites, setJobResponsibilities] = useState('Dummy Responsibilities');
-	const [jobRequirements, setJobRequirements] = useState('Dummy Job Requirements');
 	const [salary, setSalary] = useState(40000);
+	const [editorOptions, setEditorOptions] = useState({
+	  debug: 'info',
+	  modules: {
+	    toolbar: true,
+	  },
+	  placeholder: 'Compose an epic...',
+	  theme: 'snow',
+	  container: '#descriptions'
+	})
+
+	const [option, setOptions] = useState({
+	  debug: 'info',
+	  modules: {
+	    toolbar: true,
+	  },
+	  placeholder: 'Compose an epic...',
+	  theme: 'snow',
+	  container: '#responsibilities'
+	})
+
+	
 	const [descriptionQuill, setDescriptionQuill] = useState();
 	const [responsibilityQuill, setResponsibilityQuill] = useState();
 	const [requirementQuill, setRequirementQuill] = useState();
+
 	
+	const handleAddtionalDetail = (event) => {
+		setAdditionalDetails(event.target.value)
+	}
 
 	async function addJob() {
 
+		console.log("Descriptions")
+		console.log(descriptionQuill.getSemanticHTML())
+		console.log("Responsibilities")
+		console.log(responsibilityQuill.getSemanticHTML())
+		console.log("Requirements")
+		console.log(requirementQuill.getSemanticHTML())
+
 		const data = {
 			title: title,
-			description: description,
+			description: descriptionQuill.getSemanticHTML(),
 			location: location,
 			job_type: jobType,
-			job_responsibilities: jobResponsibilites,
-			job_requirements: quill.getSemanticHTML(),
+			job_responsibilities: responsibilityQuill.getSemanticHTML(),
+			job_requirements: requirementQuill.getSemanticHTML(),
 			salary: salary
 		}
 		
@@ -109,13 +121,6 @@ function AddJob() {
 					</div>
 
 					<div style={{margin: '20px 0'}}>
-						<label >Description</label>
-						<textarea type="text" name="description" className="form-control" 
-							onChange={(e) => {setDescription(e.target.value)}}
-						/>
-					</div>
-
-					<div style={{margin: '20px 0'}}>
 						<label >Location</label>
 						<input type="text" name="location" className="form-control" onChange={(e) => {setLocation(e.target.value)}}/>
 					</div>
@@ -134,15 +139,9 @@ function AddJob() {
 						</select>
 					</div>
 
-
-					<div style={{margin: '20px 0'}}>
-						<label >Job Responsibilities</label>
-						<textarea type="text" name="job_responsibilities" className="form-control" onChange={(e) => {setJobResponsibilities(e.target.value)}}/>
-					</div>
-
 					<div style={{margin: '20px 0'}}>
 						<label >Additional details</label>
-						<select className="form-control" name="job_type" onChange={(e) => {setAdditionalDetails(e.target.value)}}>
+						<select className="form-control" name="job_type" onChange={handleAddtionalDetail}>
 							<option value="descriptions">Descriptions</option>
 							<option value="responsibilities">Responsibilities</option>
 							<option value="requirements">Requirements</option>
@@ -150,32 +149,30 @@ function AddJob() {
 					</div>
 
 					<div>
-						{
-							additionalDetails == 'descriptions' ?
-							<>
-								<label>Job Description</label>
-								<div id="description">
-								</div>
-							</>
-							: additionalDetails == 'responsibilities' ?
 
-							<>
-								<label>Job Responsibilities</label>
-								<div id="responsibility">
-								</div>
-							</>
+						<div style={{display: additionalDetails == 'descriptions' ? 'block' : 'none'}}>	
+							<label>Job Description</label>
+							<div id="descriptions">
+								NEW Description
+							</div>
+						</div>
 
-							:
-							<>
-								<label>Job Requirements</label>
-								<div id="requirement">
-								</div>
-							</>
-							
-						}
+						<div style={{display: additionalDetails == 'responsibilities' ? 'block' : 'none'}}>
+							<label>Job Responsibilities</label>
+							<div id="responsibilities">
+								NEW Responsibilities
+							</div>
+						</div>
+
+						<div style={{display: additionalDetails == 'requirements' ? 'block' : 'none'}}>
+							<label>Job Requirements</label>
+							<div id="requirements">
+								NEW Requirements
+							</div>
+						</div>
 					</div>
 
-					<div className="text-align-end">
+					<div className="mt-4">
 						<button className="btn btn-primary text-align-end" onClick={addJob}>Add Job</button>
 					</div>
 				</div>

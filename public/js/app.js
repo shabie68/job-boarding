@@ -9309,70 +9309,69 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function AddJob() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // 		Quill.register({
-    // 	  // "modules/toolbar": Toolbar,
-    // 	  "themes/snow": Snow,
-    // 	  // "formats/bold": Bold,
-    // 	  // "formats/italic": Italic,
-    // 	  // "formats/header": Header,
-    // });
-
-    var options = {
-      debug: 'info',
-      modules: {
-        toolbar: true
-      },
-      placeholder: 'Compose an epic...',
-      theme: 'snow'
-    };
-    setDescriptionQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#description', options));
-    // setRequirementQuill(new Quill('#responsibility', options));
-    // setRequirementQuill(new Quill('#requirement', options));
+    setDescriptionQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#descriptions', editorOptions));
+    setResponsibilityQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#responsibilities', editorOptions));
+    setRequirementQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#requirements', editorOptions));
   }, []);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Job Title'),
     _useState2 = _slicedToArray(_useState, 2),
     title = _useState2[0],
     setTitle = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Dummy description'),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Islamabad'),
     _useState4 = _slicedToArray(_useState3, 2),
-    description = _useState4[0],
-    setDescription = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Islamabad'),
+    location = _useState4[0],
+    setLocation = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('remote'),
     _useState6 = _slicedToArray(_useState5, 2),
-    location = _useState6[0],
-    setLocation = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('remote'),
+    jobType = _useState6[0],
+    setJobType = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('descriptions'),
     _useState8 = _slicedToArray(_useState7, 2),
-    jobType = _useState8[0],
-    setJobType = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('descriptions'),
+    additionalDetails = _useState8[0],
+    setAdditionalDetails = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(40000),
     _useState10 = _slicedToArray(_useState9, 2),
-    additionalDetails = _useState10[0],
-    setAdditionalDetails = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Dummy Responsibilities'),
+    salary = _useState10[0],
+    setSalary = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      debug: 'info',
+      modules: {
+        toolbar: true
+      },
+      placeholder: 'Compose an epic...',
+      theme: 'snow',
+      container: '#descriptions'
+    }),
     _useState12 = _slicedToArray(_useState11, 2),
-    jobResponsibilites = _useState12[0],
-    setJobResponsibilities = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Dummy Job Requirements'),
+    editorOptions = _useState12[0],
+    setEditorOptions = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      debug: 'info',
+      modules: {
+        toolbar: true
+      },
+      placeholder: 'Compose an epic...',
+      theme: 'snow',
+      container: '#responsibilities'
+    }),
     _useState14 = _slicedToArray(_useState13, 2),
-    jobRequirements = _useState14[0],
-    setJobRequirements = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(40000),
+    option = _useState14[0],
+    setOptions = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState16 = _slicedToArray(_useState15, 2),
-    salary = _useState16[0],
-    setSalary = _useState16[1];
+    descriptionQuill = _useState16[0],
+    setDescriptionQuill = _useState16[1];
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState18 = _slicedToArray(_useState17, 2),
-    descriptionQuill = _useState18[0],
-    setDescriptionQuill = _useState18[1];
+    responsibilityQuill = _useState18[0],
+    setResponsibilityQuill = _useState18[1];
   var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState20 = _slicedToArray(_useState19, 2),
-    responsibilityQuill = _useState20[0],
-    setResponsibilityQuill = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-    _useState22 = _slicedToArray(_useState21, 2),
-    requirementQuill = _useState22[0],
-    setRequirementQuill = _useState22[1];
+    requirementQuill = _useState20[0],
+    setRequirementQuill = _useState20[1];
+  var handleAddtionalDetail = function handleAddtionalDetail(event) {
+    setAdditionalDetails(event.target.value);
+  };
   function addJob() {
     return _addJob.apply(this, arguments);
   }
@@ -9382,13 +9381,19 @@ function AddJob() {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
+            console.log("Descriptions");
+            console.log(descriptionQuill.getSemanticHTML());
+            console.log("Responsibilities");
+            console.log(responsibilityQuill.getSemanticHTML());
+            console.log("Requirements");
+            console.log(requirementQuill.getSemanticHTML());
             data = {
               title: title,
-              description: description,
+              description: descriptionQuill.getSemanticHTML(),
               location: location,
               job_type: jobType,
-              job_responsibilities: jobResponsibilites,
-              job_requirements: quill.getSemanticHTML(),
+              job_responsibilities: responsibilityQuill.getSemanticHTML(),
+              job_requirements: requirementQuill.getSemanticHTML(),
               salary: salary
             };
             fetch("http://127.0.0.1:8000/api/add-job", {
@@ -9405,7 +9410,7 @@ function AddJob() {
             })["catch"](function (error) {
               return console.error('Error:', error);
             });
-          case 2:
+          case 8:
           case "end":
             return _context.stop();
         }
@@ -9450,20 +9455,6 @@ function AddJob() {
             className: "form-control",
             onChange: function onChange(e) {
               setTitle(e.target.value);
-            }
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-          style: {
-            margin: '20px 0'
-          },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-            children: "Description"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("textarea", {
-            type: "text",
-            name: "description",
-            className: "form-control",
-            onChange: function onChange(e) {
-              setDescription(e.target.value);
             }
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
@@ -9522,27 +9513,11 @@ function AddJob() {
             margin: '20px 0'
           },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-            children: "Job Responsibilities"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("textarea", {
-            type: "text",
-            name: "job_responsibilities",
-            className: "form-control",
-            onChange: function onChange(e) {
-              setJobResponsibilities(e.target.value);
-            }
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-          style: {
-            margin: '20px 0'
-          },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
             children: "Additional details"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
             className: "form-control",
             name: "job_type",
-            onChange: function onChange(e) {
-              setAdditionalDetails(e.target.value);
-            },
+            onChange: handleAddtionalDetail,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
               value: "descriptions",
               children: "Descriptions"
@@ -9554,28 +9529,40 @@ function AddJob() {
               children: "Requirements"
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-          children: additionalDetails == 'descriptions' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            style: {
+              display: additionalDetails == 'descriptions' ? 'block' : 'none'
+            },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
               children: "Job Description"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-              id: "description"
+              id: "descriptions",
+              children: "NEW Description"
             })]
-          }) : additionalDetails == 'responsibilities' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            style: {
+              display: additionalDetails == 'responsibilities' ? 'block' : 'none'
+            },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
               children: "Job Responsibilities"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-              id: "responsibility"
+              id: "responsibilities",
+              children: "NEW Responsibilities"
             })]
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            style: {
+              display: additionalDetails == 'requirements' ? 'block' : 'none'
+            },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
               children: "Job Requirements"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-              id: "requirement"
+              id: "requirements",
+              children: "NEW Requirements"
             })]
-          })
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-          className: "text-align-end",
+          className: "mt-4",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("button", {
             className: "btn btn-primary text-align-end",
             onClick: addJob,
