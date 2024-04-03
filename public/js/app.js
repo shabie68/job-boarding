@@ -9326,8 +9326,8 @@ function AddJob() {
       theme: 'snow'
     };
     setDescriptionQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#description', options));
-    setRequirementQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#responsibility', options));
-    setRequirementQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#requirement', options));
+    // setRequirementQuill(new Quill('#responsibility', options));
+    // setRequirementQuill(new Quill('#requirement', options));
   }, []);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('Job Title'),
     _useState2 = _slicedToArray(_useState, 2),
@@ -9345,7 +9345,7 @@ function AddJob() {
     _useState8 = _slicedToArray(_useState7, 2),
     jobType = _useState8[0],
     setJobType = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('responsibilities'),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('descriptions'),
     _useState10 = _slicedToArray(_useState9, 2),
     additionalDetails = _useState10[0],
     setAdditionalDetails = _useState10[1];
@@ -9544,18 +9544,18 @@ function AddJob() {
               setAdditionalDetails(e.target.value);
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
-              value: "remote",
-              children: "Description"
+              value: "descriptions",
+              children: "Descriptions"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
-              value: "hybrid",
+              value: "responsibilities",
               children: "Responsibilities"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
-              value: "onsite",
+              value: "requirements",
               children: "Requirements"
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-          children: additionalDetails == 'description' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+          children: additionalDetails == 'descriptions' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
               children: "Job Description"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {

@@ -42,8 +42,8 @@ function AddJob() {
 		};
 
 		setDescriptionQuill(new Quill('#description', options));
-		setRequirementQuill(new Quill('#responsibility', options));
-		setRequirementQuill(new Quill('#requirement', options));
+		// setRequirementQuill(new Quill('#responsibility', options));
+		// setRequirementQuill(new Quill('#requirement', options));
 		
 	}, [])
   
@@ -52,7 +52,7 @@ function AddJob() {
 	const [description, setDescription] = useState('Dummy description');
 	const [location, setLocation] = useState('Islamabad');
 	const [jobType, setJobType] = useState('remote');
-	const [additionalDetails, setAdditionalDetails] = useState('responsibilities')
+	const [additionalDetails, setAdditionalDetails] = useState('descriptions')
 
 	const [jobResponsibilites, setJobResponsibilities] = useState('Dummy Responsibilities');
 	const [jobRequirements, setJobRequirements] = useState('Dummy Job Requirements');
@@ -143,16 +143,15 @@ function AddJob() {
 					<div style={{margin: '20px 0'}}>
 						<label >Additional details</label>
 						<select className="form-control" name="job_type" onChange={(e) => {setAdditionalDetails(e.target.value)}}>
-							<option value="remote">Description</option>
-							<option value="hybrid">Responsibilities</option>
-							<option value="onsite">Requirements</option>
+							<option value="descriptions">Descriptions</option>
+							<option value="responsibilities">Responsibilities</option>
+							<option value="requirements">Requirements</option>
 						</select>
 					</div>
 
-
 					<div>
 						{
-							additionalDetails == 'description' ?
+							additionalDetails == 'descriptions' ?
 							<>
 								<label>Job Description</label>
 								<div id="description">
@@ -174,10 +173,7 @@ function AddJob() {
 							</>
 							
 						}
-
-						
 					</div>
-
 
 					<div className="text-align-end">
 						<button className="btn btn-primary text-align-end" onClick={addJob}>Add Job</button>

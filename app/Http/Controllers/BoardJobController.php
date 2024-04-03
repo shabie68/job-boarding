@@ -43,7 +43,4 @@ class BoardJobController extends Controller
             "job" => $job
         ]);
     }
-
-
-    
 }
