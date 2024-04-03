@@ -31,7 +31,7 @@ const Login = (props) => {
         <div>
             {
             !loggedIn ?
-                <>
+                <div className="container pt-4">
                     <div className="row justify-content-center">
                         <div className="col-md-8">
                             <div className="card">
@@ -72,23 +72,17 @@ const Login = (props) => {
                                         </div>
 
                                         <div class="row mb-0">
-                                        <div class="col-md-8 offset-md-4">
-                                            <button type="submit" className="btn btn-primary">Login</button>
+                                            <div class="col-md-8 offset-md-4">
+                                                <button type="submit" className="btn btn-primary">Login</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                        
-                                        
-                                        
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
-
                     
-                    
-                </>
+                </div>
             :
                 window.location = '/home'
 
