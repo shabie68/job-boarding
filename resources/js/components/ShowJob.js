@@ -14,10 +14,9 @@ import apiClient from '../services/apiClient';
 
 function ShowJob() {
 
-
-    const [addJob, setAddJob] = useState(false)
     const [jobs, setJobs] = useState([]);
     const [job, setJob] = useState(null);
+    const [addJob, setAddJob] = useState(false)
 
     function getJobs() {
        apiClient.get('http://127.0.0.1:8000/api/show-jobs')
@@ -46,49 +45,52 @@ function ShowJob() {
             setJob(response.data.job)
         })
 
-        
-
     }
 
 
     return(
-        <div>
+        <div className="my-4">
+                <div>
+                    <div className="d-flex justify-content-between">
+                        <h4>Add New Job </h4>
+                         <div className="">
+                            <Link to="/add-job">
+                                <button type="button" className="btn btn-primary">Add Job</button>
+                            </Link>
+                        </div>
+                    </div>
 
-                {addJob ? 
+                
+                    <div className="d-flex gap-3">
+                         <div className="w-40" style={{width: '45%'}}>
+                             {jobs.map(_job => (
 
-             <AddJob/>
-             : 
-             <div className="d-flex gap-3">
-                 <div className="w-40" style={{width: '45%'}}>
-                     {jobs.map(_job => (
-
-                       <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
-                       onClick={()=> {getJob(_job.id)}}>
-                         <h3 className="card-header">{_job.title}</h3>
-                         <div className="card-body">
-                             <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
-                             <ul>
-                                 <li><h4>Description:</h4>{_job.description}</li>
-                                 <li><h4>Responsibilities</h4>{_job.job_responsibilities}</li>
-                                 <li><h4>Requirements</h4>{_job.job_requirements}</li>
-                             </ul>
+                               <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
+                               onClick={()=> {getJob(_job.id)}}>
+                                 <h3 className="card-header">{_job.title}</h3>
+                                 <div className="card-body">
+                                     <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
+                                     <ul>
+                                         <li><h4>Description:</h4>{_job.description}</li>
+                                         <li><h4>Responsibilities</h4>{_job.job_responsibilities}</li>
+                                         <li><h4>Requirements</h4>{_job.job_requirements}</li>
+                                     </ul>
+                                 </div>
+                             </div>
+                             ))}
                          </div>
-                     </div>
-                     ))}
-                 </div>
 
-                 {job ?
-                     <SingleJob job={job} setAddJob={setAddJob}/>
-                     : ''
-                 }
-                    
-             </div>
-            }
+                         {job ?
+                            <>
+                             <SingleJob job={job}/>
+                             </>
+                             : ''
+
+                        }
+                    </div>
+                </div>
                 
         </div>
-
-         
-        
     )
 }
 
