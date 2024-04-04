@@ -9294,7 +9294,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-// import Quill from "quill/core";
 
 
 
@@ -9303,13 +9302,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+/**
 
-// Or if you only need the core build
-// import Quill from 'quill/core';
+
+**/
 
 function AddJob() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setDescriptionQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#descriptions', editorOptions));
+    setDescriptionQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#description', editorOptions));
     setResponsibilityQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#responsibilities', editorOptions));
     setRequirementQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#requirements', editorOptions));
   }, []);
@@ -9323,9 +9323,9 @@ function AddJob() {
     setLocation = _useState4[1];
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('remote'),
     _useState6 = _slicedToArray(_useState5, 2),
-    jobType = _useState6[0],
-    setJobType = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('descriptions'),
+    type = _useState6[0],
+    setType = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('description'),
     _useState8 = _slicedToArray(_useState7, 2),
     additionalDetails = _useState8[0],
     setAdditionalDetails = _useState8[1];
@@ -9340,7 +9340,7 @@ function AddJob() {
       },
       placeholder: 'Compose an epic...',
       theme: 'snow',
-      container: '#descriptions'
+      container: '#description'
     }),
     _useState12 = _slicedToArray(_useState11, 2),
     editorOptions = _useState12[0],
@@ -9381,19 +9381,13 @@ function AddJob() {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
-            console.log("Descriptions");
-            console.log(descriptionQuill.getSemanticHTML());
-            console.log("Responsibilities");
-            console.log(responsibilityQuill.getSemanticHTML());
-            console.log("Requirements");
-            console.log(requirementQuill.getSemanticHTML());
             data = {
               title: title,
               description: descriptionQuill.getSemanticHTML(),
               location: location,
-              job_type: jobType,
-              job_responsibilities: responsibilityQuill.getSemanticHTML(),
-              job_requirements: requirementQuill.getSemanticHTML(),
+              type: type,
+              responsibilities: responsibilityQuill.getSemanticHTML(),
+              requirements: requirementQuill.getSemanticHTML(),
               salary: salary
             };
             fetch("http://127.0.0.1:8000/api/add-job", {
@@ -9405,12 +9399,10 @@ function AddJob() {
               body: JSON.stringify(data)
             }).then(function (response) {
               return response.json();
-            }).then(function (data) {
-              return console.log(data);
-            })["catch"](function (error) {
+            }).then(window.location = '/home')["catch"](function (error) {
               return console.error('Error:', error);
             });
-          case 8:
+          case 2:
           case "end":
             return _context.stop();
         }
@@ -9490,12 +9482,12 @@ function AddJob() {
             margin: '20px 0'
           },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-            children: "Job Type"
+            children: "Type"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
             className: "form-control",
-            name: "job_type",
+            name: "type",
             onChange: function onChange(e) {
-              setJobType(e.target.value);
+              setType(e.target.value);
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
               value: "remote",
@@ -9516,11 +9508,11 @@ function AddJob() {
             children: "Additional details"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
             className: "form-control",
-            name: "job_type",
+            name: "type",
             onChange: handleAddtionalDetail,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
-              value: "descriptions",
-              children: "Descriptions"
+              value: "description",
+              children: "Description"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
               value: "responsibilities",
               children: "Responsibilities"
@@ -9532,12 +9524,12 @@ function AddJob() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             style: {
-              display: additionalDetails == 'descriptions' ? 'block' : 'none'
+              display: additionalDetails == 'description' ? 'block' : 'none'
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-              children: "Job Description"
+              children: "Description"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-              id: "descriptions",
+              id: "description",
               children: "NEW Description"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
@@ -9545,7 +9537,7 @@ function AddJob() {
               display: additionalDetails == 'responsibilities' ? 'block' : 'none'
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-              children: "Job Responsibilities"
+              children: "Responsibilities"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               id: "responsibilities",
               children: "NEW Responsibilities"
@@ -9555,7 +9547,7 @@ function AddJob() {
               display: additionalDetails == 'requirements' ? 'block' : 'none'
             },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-              children: "Job Requirements"
+              children: "Requirements"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               id: "requirements",
               children: "NEW Requirements"
@@ -9895,20 +9887,18 @@ function ShowJob() {
                 className: "card-body",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                   children: "Will join the startup and design the website for startup. You will work with Eurpean clients"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                      children: "Description:"
-                    }), _job.description]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                      children: "Responsibilities"
-                    }), _job.job_responsibilities]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                      children: "Requirements"
-                    }), _job.job_requirements]
-                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  dangerouslySetInnerHTML: {
+                    __html: _job === null || _job === void 0 ? void 0 : _job.description
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  dangerouslySetInnerHTML: {
+                    __html: _job === null || _job === void 0 ? void 0 : _job.responsibilities
+                  }
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  dangerouslySetInnerHTML: {
+                    __html: _job === null || _job === void 0 ? void 0 : _job.requirements
+                  }
                 })]
               })]
             }, "job-" + _job.id);
@@ -9923,40 +9913,6 @@ function ShowJob() {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ShowJob);
-
-/**
-
-// {addJob ? 
-
-//              <AddJob/>
-//              : 
-//              <div className="d-flex gap-3">
-//                  <div className="w-40" style={{width: '45%'}}>
-//                      {jobs.map(_job => (
-
-//                        <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
-//                        onClick={()=> {getJob(_job.id)}}>
-//                          <h3 className="card-header">{_job.title}</h3>
-//                          <div className="card-body">
-//                              <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
-//                              <ul>
-//                                  <li><h4>Description:</h4>{_job.description}</li>
-//                                  <li><h4>Responsibilities</h4>{_job.job_responsibilities}</li>
-//                                  <li><h4>Requirements</h4>{_job.job_requirements}</li>
-//                              </ul>
-//                          </div>
-//                      </div>
-//                      ))}
-//                  </div>
-
-//                  {job ?
-//                      <SingleJob job={job} setAddJob={setAddJob}/>
-//                      : ''
-//                  }
-                    
-//              </div>
-//             }
-**/
 
 /***/ }),
 
@@ -10014,17 +9970,17 @@ function SingleJob(props) {
         style: {
           height: '400px'
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-          children: props === null || props === void 0 ? void 0 : props.job.description
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
-          children: "Job Responsibilities"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-          children: props === null || props === void 0 ? void 0 : props.job.job_responsibilities
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
-          children: "JOBING******"
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+          dangerouslySetInnerHTML: {
+            __html: props.job.description
+          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
           dangerouslySetInnerHTML: {
-            __html: props.job.job_responsibilities
+            __html: props.job.responsibilities
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+          dangerouslySetInnerHTML: {
+            __html: props.job.requirements
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
           children: [" Salary:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("b", {

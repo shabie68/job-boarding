@@ -23,13 +23,11 @@ function SingleJob(props) {
 				</div>
 			
 				<div className="card-body overflow-auto position-sticky" style={{height: '400px'}}>
-					<p>{props?.job.description}</p>
+					<div dangerouslySetInnerHTML={{__html:props.job.description}}></div>
 
-					<strong>Job Responsibilities</strong>
-					<p>{props?.job.job_responsibilities}</p>
+					<div dangerouslySetInnerHTML={{__html:props.job.responsibilities}} />
 
-					<strong>JOBING******</strong>
-					<div dangerouslySetInnerHTML={{__html:props.job.job_responsibilities}} />
+					<div dangerouslySetInnerHTML={{__html:props.job.requirements}} />
 
 					<span> Salary:<b> {props?.job.salary} </b></span>
 					<br />
