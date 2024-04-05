@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\BoardJob;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class BoardJobController extends Controller
 {
@@ -42,6 +43,17 @@ class BoardJobController extends Controller
 
         return response()->json([
             "job" => $job
+        ]);
+    }
+
+    function filterJobs(Request $request) {
+
+        $jobs = DB::table('board_jobs')
+                    ->where('title', 'like', '%' . $request->title . '%')
+                    ->get();
+
+        return response()->json([
+            'jobs' => $jobs
         ]);
     }
 }

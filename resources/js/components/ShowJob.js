@@ -47,20 +47,29 @@ function ShowJob() {
     }
 
 
+    async function filterJobs() {
+      apiClient.get('http://127.0.0.1:8000/api/filter-jobs?title='+encodeURIComponent(jobTitle))
+        .then(function(response) {
+            setJobs(response.data.jobs)
+        })
+    }
+
+
     return(
         <div>
             <div className="d-flex justify-content-center">
                 <div>
-                    <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">@</span>
+                    <div className="input-group mb-3">
+                          <div className="input-group-prepend">
+                            <span className="input-group-text" id="basic-addon1">@</span>
                           </div>
 
                           <input 
                             className="form-control"
                             value={jobTitle}
                             placeholder="Job title"
-                            ariaDescribedby="basic-addon1"
+                            aria-describedby="basic-addon1"
+                            onChange={(e)=>{setJobTitle(e.target.value)}}
                         />
                           
                         </div>                    
@@ -71,11 +80,12 @@ function ShowJob() {
                         className="form-control"
                         value={jobType}
                         placeholder="Job type"
+                        onChange={()=>alert("HERE")}
                     />
                 </div>
 
                 <div className="">
-                    <button className="btn btn-secondary">Search Job</button>
+                    <button className="btn btn-secondary" onClick={filterJobs}>Search Job</button>
                 </div>
             </div>
             <div className="my-5">
