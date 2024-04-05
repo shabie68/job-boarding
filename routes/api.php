@@ -23,8 +23,8 @@ Route::middleware('auth:sanctum')->get('get-user', function () {
 	return auth()->user();
 });
 
-// Route::post("add-job", [App\Http\Controllers\BoardJobController::class, 'store'])->middleware("auth:api");
 
 Route::get("show-jobs", [App\Http\Controllers\BoardJobController::class, 'show']);
+Route::get("filter-jobs", [App\Http\Controllers\BoardJobController::class, 'filterJobs']);
 
 Route::middleware('auth:sanctum')->get("single-job/{id}", [App\Http\Controllers\BoardJobController::class, 'getJob']);

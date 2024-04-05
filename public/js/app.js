@@ -10060,16 +10060,35 @@ function ShowJob() {
     }));
     return _getJob.apply(this, arguments);
   }
+  function filterJobs() {
+    return _filterJobs.apply(this, arguments);
+  }
+  function _filterJobs() {
+    _filterJobs = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/filter-jobs?title=' + encodeURIComponent(jobTitle)).then(function (response) {
+              setJobs(response.data.jobs);
+            });
+          case 1:
+          case "end":
+            return _context2.stop();
+        }
+      }, _callee2);
+    }));
+    return _filterJobs.apply(this, arguments);
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "d-flex justify-content-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          "class": "input-group mb-3",
+          className: "input-group mb-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            "class": "input-group-prepend",
+            className: "input-group-prepend",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-              "class": "input-group-text",
+              className: "input-group-text",
               id: "basic-addon1",
               children: "@"
             })
@@ -10077,19 +10096,26 @@ function ShowJob() {
             className: "form-control",
             value: jobTitle,
             placeholder: "Job title",
-            ariaDescribedby: "basic-addon1"
+            "aria-describedby": "basic-addon1",
+            onChange: function onChange(e) {
+              setJobTitle(e.target.value);
+            }
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
           className: "form-control",
           value: jobType,
-          placeholder: "Job type"
+          placeholder: "Job type",
+          onChange: function onChange() {
+            return alert("HERE");
+          }
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           className: "btn btn-secondary",
+          onClick: filterJobs,
           children: "Search Job"
         })
       })]
