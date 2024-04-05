@@ -48,9 +48,10 @@ function ShowJob() {
 
 
     return(
-        <div className="my-4">
+        <div>
+            <div className="my-5">
                 <div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between my-4">
                         <h4>Add New Job </h4>
                          <div className="">
                             <Link to="/add-job">
@@ -89,7 +90,8 @@ function ShowJob() {
                         }
                     </div>
                 </div>
-                
+                    
+            </div>
         </div>
     )
 }
