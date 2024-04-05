@@ -17,6 +17,8 @@ function ShowJob() {
     const [jobs, setJobs] = useState([]);
     const [job, setJob] = useState(null);
     const [addJob, setAddJob] = useState(false)
+    const [jobTitle, setJobTitle] = useState('')
+    const [jobType, setJobType] = useState('')
 
     function getJobs() {
        apiClient.get('http://127.0.0.1:8000/api/show-jobs')
@@ -40,8 +42,6 @@ function ShowJob() {
 
         apiClient.get('http://127.0.0.1:8000/api/single-job/'+id)
         .then(function(response) {
-            console.log("RESPONSE")
-            console.log(response)
             setJob(response.data.job)
         })
     }
@@ -49,6 +49,35 @@ function ShowJob() {
 
     return(
         <div>
+            <div className="d-flex justify-content-center">
+                <div>
+                    <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                          </div>
+
+                          <input 
+                            className="form-control"
+                            value={jobTitle}
+                            placeholder="Job title"
+                            ariaDescribedby="basic-addon1"
+                        />
+                          
+                        </div>                    
+                </div>
+
+                <div>
+                    <input 
+                        className="form-control"
+                        value={jobType}
+                        placeholder="Job type"
+                    />
+                </div>
+
+                <div className="">
+                    <button className="btn btn-secondary">Search Job</button>
+                </div>
+            </div>
             <div className="my-5">
                 <div>
                     <div className="d-flex justify-content-between my-4">
