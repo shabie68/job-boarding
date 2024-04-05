@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
 function Example() {
 
     const logout = () => {
+
         apiClient.post('http://127.0.0.1:8000/logout').then(response => {
             if (response.status === 204) {
                 window.location = '/login'
@@ -20,7 +21,6 @@ function Example() {
     return (
         <div>
             <div className="d-flex justify-content-between bg-secondary w-100 top-0 my-4" style={{padding: '8px 20px'}}>
-
                 <div onClick={logout} className=" text-primary" style={{ cursor: 'pointer'}}>
                     Logout
                 </div>
@@ -28,14 +28,13 @@ function Example() {
 
             <div className="container" >
             
-            
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/home" element={<ShowJob />} />
-                    <Route path="/add-job" element={<AddJob />} />
-                </Routes>
-            </BrowserRouter>
-        </div>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/home" element={<ShowJob />} />
+                        <Route path="/add-job" element={<AddJob />} />
+                    </Routes>
+                </BrowserRouter>
+            </div>
 
         </div>
         

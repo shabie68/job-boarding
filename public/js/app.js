@@ -10014,6 +10014,14 @@ function ShowJob() {
     _useState6 = _slicedToArray(_useState5, 2),
     addJob = _useState6[0],
     setAddJob = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState8 = _slicedToArray(_useState7, 2),
+    jobTitle = _useState8[0],
+    setJobTitle = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState10 = _slicedToArray(_useState9, 2),
+    jobType = _useState10[0],
+    setJobType = _useState10[1];
   function getJobs() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/show-jobs').then(function (response) {
       console.log("RESPONSE");
@@ -10042,8 +10050,6 @@ function ShowJob() {
           case 5:
             _job = _context.sent;
             _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/single-job/' + id).then(function (response) {
-              console.log("RESPONSE");
-              console.log(response);
               setJob(response.data.job);
             });
           case 7:
@@ -10054,8 +10060,40 @@ function ShowJob() {
     }));
     return _getJob.apply(this, arguments);
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "d-flex justify-content-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          "class": "input-group mb-3",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            "class": "input-group-prepend",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              "class": "input-group-text",
+              id: "basic-addon1",
+              children: "@"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            className: "form-control",
+            value: jobTitle,
+            placeholder: "Job title",
+            ariaDescribedby: "basic-addon1"
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          className: "form-control",
+          value: jobType,
+          placeholder: "Job type"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          className: "btn btn-secondary",
+          children: "Search Job"
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "my-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -10119,7 +10157,7 @@ function ShowJob() {
           }) : '']
         })]
       })
-    })
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ShowJob);
