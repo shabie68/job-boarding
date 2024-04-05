@@ -31,7 +31,7 @@ class BoardJobController extends Controller
 
     public function show() {
 
-        $jobs = BoardJob::all();
+        $jobs = BoardJob::paginate(2);
         return response()->json([
             "jobs" => $jobs
         ]);
@@ -50,7 +50,7 @@ class BoardJobController extends Controller
 
         $jobs = DB::table('board_jobs')
                     ->where('title', 'like', '%' . $request->title . '%')
-                    ->get();
+                    ->paginate(1);
 
         return response()->json([
             'jobs' => $jobs

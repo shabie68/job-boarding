@@ -10022,16 +10022,24 @@ function ShowJob() {
     _useState10 = _slicedToArray(_useState9, 2),
     jobType = _useState10[0],
     setJobType = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState12 = _slicedToArray(_useState11, 2),
+    currentPage = _useState12[0],
+    setCurrentPage = _useState12[1];
+  var nextPage = function nextPage() {
+    setCurrentPage(currentPage + 1);
+  };
+  var prevPage = function prevPage() {
+    setCurrentPage(currentPage - 1);
+  };
   function getJobs() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/show-jobs').then(function (response) {
-      console.log("RESPONSE");
-      console.log(response);
-      setJobs(response.data.jobs);
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/show-jobs?page=' + currentPage).then(function (response) {
+      setJobs(response.data.jobs.data);
     });
   }
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getJobs();
-  }, []);
+  }, [currentPage]);
   function getJob(_x) {
     return _getJob.apply(this, arguments);
   }
@@ -10068,8 +10076,8 @@ function ShowJob() {
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
-            _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/filter-jobs?title=' + encodeURIComponent(jobTitle)).then(function (response) {
-              setJobs(response.data.jobs);
+            _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/filter-jobs?page=' + currentPage + '?title=' + encodeURIComponent(jobTitle)).then(function (response) {
+              setJobs(response.data.jobs.data);
             });
           case 1:
           case "end":
@@ -10137,6 +10145,13 @@ function ShowJob() {
               })
             })
           })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          onClick: prevPage,
+          disabled: currentPage === 1,
+          children: "Previous"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          onClick: nextPage,
+          children: "Next"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "d-flex gap-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -10187,6 +10202,26 @@ function ShowJob() {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ShowJob);
+
+/**
+
+   // {jobs.map(_job => (
+
+                             //   <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
+                             //   onClick={()=> {getJob(_job.id)}}>
+                             //     <h3 className="card-header">{_job.title}</h3>
+                             //     <div className="card-body">
+                             //         <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
+                                 
+                             //        <div dangerouslySetInnerHTML={{__html: _job?.description}}></div>
+
+                             //        <div dangerouslySetInnerHTML={{__html: _job?.responsibilities}} />
+
+                             //        <div dangerouslySetInnerHTML={{__html: _job?.requirements}} />
+                             //     </div>
+                             // </div>
+                             // ))}
+**/
 
 /***/ }),
 
