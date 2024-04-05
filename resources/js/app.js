@@ -22,10 +22,11 @@ import { createRoot } from 'react-dom/client';
 
 import Example from './components/Example'
 import Login from './components/Login'
+import Register from './components/Register'
 
 
 
 const container = document.getElementById('app');
 const root = createRoot(container);
 
-root.render(window.location.href.includes('/login') ? <Login />: <Example />);
+root.render(window.location.href.includes('/login') ? <Login /> : window.location.href.includes('register') ? <Register /> :  <Example />);

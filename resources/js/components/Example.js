@@ -9,8 +9,26 @@ import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
 
 function Example() {
 
+    const logout = () => {
+        apiClient.post('http://127.0.0.1:8000/logout').then(response => {
+            if (response.status === 204) {
+                window.location = '/login'
+            }
+        })
+    };
+
     return (
-        <div className="container">
+        <div>
+            <div className="d-flex justify-content-between bg-secondary w-100 top-0 my-4" style={{padding: '8px 20px'}}>
+
+                <div onClick={logout} className=" text-primary" style={{ cursor: 'pointer'}}>
+                    Logout
+                </div>
+            </div>
+
+            <div className="container" >
+            
+            
             <BrowserRouter>
                 <Routes>
                     <Route path="/home" element={<ShowJob />} />
@@ -18,6 +36,9 @@ function Example() {
                 </Routes>
             </BrowserRouter>
         </div>
+
+        </div>
+        
     );
 }
 

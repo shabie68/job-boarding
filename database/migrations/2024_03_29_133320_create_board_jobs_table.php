@@ -19,9 +19,9 @@ class CreateBoardJobsTable extends Migration
             $table->string("title");
             $table->longText("description");
             $table->string("location");
-            $table->string("job_type");
-            $table->longText("job_responsibilities");
-            $table->longText("job_requirements");
+            $table->string("type");
+            $table->longText("responsibilities");
+            $table->longText("requirements");
             $table->integer("salary");
             $table->timestamps();
         });

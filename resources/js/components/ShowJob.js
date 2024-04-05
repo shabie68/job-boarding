@@ -44,14 +44,14 @@ function ShowJob() {
             console.log(response)
             setJob(response.data.job)
         })
-
     }
 
 
     return(
-        <div className="my-4">
+        <div>
+            <div className="my-5">
                 <div>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between my-4">
                         <h4>Add New Job </h4>
                          <div className="">
                             <Link to="/add-job">
@@ -70,11 +70,12 @@ function ShowJob() {
                                  <h3 className="card-header">{_job.title}</h3>
                                  <div className="card-body">
                                      <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
-                                     <ul>
-                                         <li><h4>Description:</h4>{_job.description}</li>
-                                         <li><h4>Responsibilities</h4>{_job.job_responsibilities}</li>
-                                         <li><h4>Requirements</h4>{_job.job_requirements}</li>
-                                     </ul>
+                                 
+                                    <div dangerouslySetInnerHTML={{__html: _job?.description}}></div>
+
+                                    <div dangerouslySetInnerHTML={{__html: _job?.responsibilities}} />
+
+                                    <div dangerouslySetInnerHTML={{__html: _job?.requirements}} />
                                  </div>
                              </div>
                              ))}
@@ -89,43 +90,10 @@ function ShowJob() {
                         }
                     </div>
                 </div>
-                
+                    
+            </div>
         </div>
     )
 }
 
 export default ShowJob
-
-/**
-
-// {addJob ? 
-
-//              <AddJob/>
-//              : 
-//              <div className="d-flex gap-3">
-//                  <div className="w-40" style={{width: '45%'}}>
-//                      {jobs.map(_job => (
-
-//                        <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
-//                        onClick={()=> {getJob(_job.id)}}>
-//                          <h3 className="card-header">{_job.title}</h3>
-//                          <div className="card-body">
-//                              <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
-//                              <ul>
-//                                  <li><h4>Description:</h4>{_job.description}</li>
-//                                  <li><h4>Responsibilities</h4>{_job.job_responsibilities}</li>
-//                                  <li><h4>Requirements</h4>{_job.job_requirements}</li>
-//                              </ul>
-//                          </div>
-//                      </div>
-//                      ))}
-//                  </div>
-
-//                  {job ?
-//                      <SingleJob job={job} setAddJob={setAddJob}/>
-//                      : ''
-//                  }
-                    
-//              </div>
-//             }
-**/

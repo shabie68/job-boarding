@@ -2,7 +2,6 @@ import {useState, useEffect} from 'react'
 import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
 
 import Quill from 'quill';
-// import Quill from "quill/core";
 
 import Toolbar from "quill/modules/toolbar";
 import Snow from "quill/themes/snow";
@@ -13,18 +12,19 @@ import Header from "quill/formats/header";
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 
-// Or if you only need the core build
-// import Quill from 'quill/core';
 
 
 
 
 
+/**
 
+
+**/
 function AddJob() {
 
 	useEffect(() => {
-		setDescriptionQuill(new Quill('#descriptions', editorOptions))
+		setDescriptionQuill(new Quill('#description', editorOptions))
 		setResponsibilityQuill(new Quill('#responsibilities', editorOptions ))
 		setRequirementQuill(new Quill('#requirements', editorOptions ))
 				
@@ -33,8 +33,8 @@ function AddJob() {
 
 	const [title, setTitle] = useState('Job Title');
 	const [location, setLocation] = useState('Islamabad');
-	const [jobType, setJobType] = useState('remote');
-	const [additionalDetails, setAdditionalDetails] = useState('descriptions')
+	const [type, setType] = useState('remote');
+	const [additionalDetails, setAdditionalDetails] = useState('description')
 
 	const [salary, setSalary] = useState(40000);
 	const [editorOptions, setEditorOptions] = useState({
@@ -44,7 +44,7 @@ function AddJob() {
 	  },
 	  placeholder: 'Compose an epic...',
 	  theme: 'snow',
-	  container: '#descriptions'
+	  container: '#description'
 	})
 
 	const [option, setOptions] = useState({
@@ -69,20 +69,13 @@ function AddJob() {
 
 	async function addJob() {
 
-		console.log("Descriptions")
-		console.log(descriptionQuill.getSemanticHTML())
-		console.log("Responsibilities")
-		console.log(responsibilityQuill.getSemanticHTML())
-		console.log("Requirements")
-		console.log(requirementQuill.getSemanticHTML())
-
 		const data = {
 			title: title,
 			description: descriptionQuill.getSemanticHTML(),
 			location: location,
-			job_type: jobType,
-			job_responsibilities: responsibilityQuill.getSemanticHTML(),
-			job_requirements: requirementQuill.getSemanticHTML(),
+			type: type,
+			responsibilities: responsibilityQuill.getSemanticHTML(),
+			requirements: requirementQuill.getSemanticHTML(),
 			salary: salary
 		}
 		
@@ -96,7 +89,7 @@ function AddJob() {
 		    body: JSON.stringify(data),
 		})
 	    .then(response => response.json())
-	    .then(data => console.log(data))
+	    .then(window.location = '/home')
 	    .catch(error => console.error('Error:', error));
 
 	}
@@ -131,8 +124,8 @@ function AddJob() {
 					</div>
 
 					<div style={{margin: '20px 0'}}>
-						<label >Job Type</label>
-						<select className="form-control" name="job_type" onChange={(e) => {setJobType(e.target.value)}}>
+						<label >Type</label>
+						<select className="form-control" name="type" onChange={(e) => {setType(e.target.value)}}>
 							<option value="remote">Remote</option>
 							<option value="hybrid">Hyrid</option>
 							<option value="onsite">Onsite</option>
@@ -141,8 +134,8 @@ function AddJob() {
 
 					<div style={{margin: '20px 0'}}>
 						<label >Additional details</label>
-						<select className="form-control" name="job_type" onChange={handleAddtionalDetail}>
-							<option value="descriptions">Descriptions</option>
+						<select className="form-control" name="type" onChange={handleAddtionalDetail}>
+							<option value="description">Description</option>
 							<option value="responsibilities">Responsibilities</option>
 							<option value="requirements">Requirements</option>
 						</select>
@@ -150,22 +143,22 @@ function AddJob() {
 
 					<div>
 
-						<div style={{display: additionalDetails == 'descriptions' ? 'block' : 'none'}}>	
-							<label>Job Description</label>
-							<div id="descriptions">
+						<div style={{display: additionalDetails == 'description' ? 'block' : 'none'}}>	
+							<label>Description</label>
+							<div id="description">
 								NEW Description
 							</div>
 						</div>
 
 						<div style={{display: additionalDetails == 'responsibilities' ? 'block' : 'none'}}>
-							<label>Job Responsibilities</label>
+							<label>Responsibilities</label>
 							<div id="responsibilities">
 								NEW Responsibilities
 							</div>
 						</div>
 
 						<div style={{display: additionalDetails == 'requirements' ? 'block' : 'none'}}>
-							<label>Job Requirements</label>
+							<label>Requirements</label>
 							<div id="requirements">
 								NEW Requirements
 							</div>
