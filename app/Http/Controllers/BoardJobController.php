@@ -29,9 +29,23 @@ class BoardJobController extends Controller
     	]);
     }
 
-    public function show() {
+    public function show(Request $request) {
 
-        $jobs = BoardJob::paginate(2);
+        $jobs = null;
+
+        if(!$request->has('title')) {
+            $jobs = BoardJob::paginate(2);
+            
+            return response()->json([
+                "jobs" => $jobs
+            ]);
+
+        }
+        
+        $jobs = DB::table('board_jobs')
+                    ->where('title', 'like', '%' . $request->title . '%')
+                    ->paginate(2);
+
         return response()->json([
             "jobs" => $jobs
         ]);
