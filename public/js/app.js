@@ -10022,16 +10022,39 @@ function ShowJob() {
     _useState10 = _slicedToArray(_useState9, 2),
     jobType = _useState10[0],
     setJobType = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState12 = _slicedToArray(_useState11, 2),
+    currentPage = _useState12[0],
+    setCurrentPage = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState14 = _slicedToArray(_useState13, 2),
+    nextPage = _useState14[0],
+    setNextPage = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState16 = _slicedToArray(_useState15, 2),
+    lastPage = _useState16[0],
+    setLastPage = _useState16[1];
+  var next = function next() {
+    setCurrentPage(currentPage + 1);
+  };
+  var prev = function prev() {
+    setCurrentPage(currentPage - 1);
+  };
   function getJobs() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/show-jobs').then(function (response) {
-      console.log("RESPONSE");
-      console.log(response);
-      setJobs(response.data.jobs);
+    var search = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+    var baseUrl = 'http://127.0.0.1:8000/api/show-jobs';
+    var getJobsUrl = !jobTitle ? "?page=".concat(currentPage) : "?title=".concat(encodeURIComponent(jobTitle), "&page=").concat(currentPage);
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/show-jobs' + getJobsUrl).then(function (response) {
+      setJobs(response.data.jobs.data);
+      setNextPage(response.data.jobs.next_page_url);
+      setLastPage(response.data.jobs.last_page);
     });
   }
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    getJobs();
-  }, []);
+    if (currentPage) {
+      getJobs();
+    }
+  }, [currentPage]);
   function getJob(_x) {
     return _getJob.apply(this, arguments);
   }
@@ -10068,8 +10091,10 @@ function ShowJob() {
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
-            _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/filter-jobs?title=' + encodeURIComponent(jobTitle)).then(function (response) {
-              setJobs(response.data.jobs);
+            _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].get('http://127.0.0.1:8000/api/filter-jobs?title=' + encodeURIComponent(jobTitle) + '&page=' + currentPage).then(function (response) {
+              setJobs(response.data.jobs.data);
+              setNextPage(response.data.jobs.next_page_url);
+              setLastPage(response.data.jobs.last_page);
             });
           case 1:
           case "end":
@@ -10100,6 +10125,12 @@ function ShowJob() {
             onChange: function onChange(e) {
               setJobTitle(e.target.value);
             }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            className: "btn btn-secondary",
+            onClick: function onClick() {
+              return getJobs(true);
+            },
+            children: "Search Job"
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -10112,19 +10143,15 @@ function ShowJob() {
           }
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-          className: "btn btn-secondary",
-          onClick: filterJobs,
-          children: "Search Job"
-        })
+        className: ""
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "my-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "d-flex justify-content-between my-4",
+          className: "d-flex justify-content-between align-items-center my-4 border-bottom",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+            className: "mb-0",
             children: "Add New Job "
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "",
@@ -10132,19 +10159,19 @@ function ShowJob() {
               to: "/add-job",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 type: "button",
-                className: "btn btn-primary",
+                className: "btn btn-primary mb-4",
                 children: "Add Job"
               })
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "d-flex gap-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "w-40",
             style: {
               width: '45%'
             },
-            children: jobs.map(function (_job) {
+            children: [jobs.map(function (_job) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "card mb-4 ".concat((job === null || job === void 0 ? void 0 : job.id) === _job.id ? "border border-primary" : ""),
                 style: {
@@ -10175,7 +10202,50 @@ function ShowJob() {
                   })]
                 })]
               }, "job-" + _job.id);
-            })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "d-flex gap-2 align-items-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                className: "btn btn-link",
+                onClick: prev,
+                disabled: currentPage === 1,
+                style: {
+                  border: '1px solid lightslategrey'
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "16",
+                  height: "16",
+                  fill: "currentColor",
+                  className: "bi bi-chevron-left",
+                  viewBox: "0 0 16 16",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                    fillRule: "evenodd",
+                    d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                children: ["Showing page ", currentPage, " of ", lastPage]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                className: "btn btn-link",
+                onClick: next,
+                disabled: !nextPage,
+                style: {
+                  border: '1px solid lightslategrey'
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "16",
+                  height: "16",
+                  fill: "currentColor",
+                  className: "bi bi-chevron-right",
+                  viewBox: "0 0 16 16",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                    fillRule: "evenodd",
+                    d: "M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+                  })
+                })
+              })]
+            })]
           }), job ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_SingleJob__WEBPACK_IMPORTED_MODULE_2__["default"], {
               job: job
@@ -10187,6 +10257,26 @@ function ShowJob() {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ShowJob);
+
+/**
+
+   // {jobs.map(_job => (
+
+                             //   <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
+                             //   onClick={()=> {getJob(_job.id)}}>
+                             //     <h3 className="card-header">{_job.title}</h3>
+                             //     <div className="card-body">
+                             //         <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
+                                 
+                             //        <div dangerouslySetInnerHTML={{__html: _job?.description}}></div>
+
+                             //        <div dangerouslySetInnerHTML={{__html: _job?.responsibilities}} />
+
+                             //        <div dangerouslySetInnerHTML={{__html: _job?.requirements}} />
+                             //     </div>
+                             // </div>
+                             // ))}
+**/
 
 /***/ }),
 
