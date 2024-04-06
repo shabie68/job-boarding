@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ShowJob from './ShowJob'
 import AddJob from './AddJob'
+import Apply from './Apply'
+
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
 
@@ -32,6 +34,7 @@ function Example() {
                     <Routes>
                         <Route path="/home" element={<ShowJob />} />
                         <Route path="/add-job" element={<AddJob />} />
+                        <Route path="/apply" element={<Apply />} />
                     </Routes>
                 </BrowserRouter>
             </div>
