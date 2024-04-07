@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BoardJob extends Model
+class Skill extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function skills() {
-    	return $this->hasMany(Skill::class);
+    public function boardJob() {
+    	return $this->hasMany(BoardJob::class);
     }
 }
-

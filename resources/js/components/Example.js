@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ShowJob from './ShowJob'
 import AddJob from './AddJob'
+import Apply from './Apply'
+import Resume from './Resume'
+import Experience from './Experience'
+import JobQuestions from './JobQuestions'
+
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
 
@@ -27,11 +32,14 @@ function Example() {
             </div>
 
             <div className="container" >
-            
                 <BrowserRouter>
                     <Routes>
                         <Route path="/home" element={<ShowJob />} />
                         <Route path="/add-job" element={<AddJob />} />
+                        <Route path="/apply" element={<Apply />} />
+                        <Route path="/resume" element={<Resume />} />
+                        <Route path="/experience" element={<Experience />} />
+                        <Route path="/job-questions" element={<JobQuestions />} /> 
                     </Routes>
                 </BrowserRouter>
             </div>

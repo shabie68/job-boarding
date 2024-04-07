@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 function SingleJob(props) {
 
 	return (
@@ -17,7 +18,7 @@ function SingleJob(props) {
 						</div>
 
 						<div className="ms-auto">
-							<button className="btn btn-secondary" onClick={()=>{alert("HI")}}>Apply</button>
+							<Link to="/apply"><button className="btn btn-secondary">Apply</button></Link>
 						</div>
 					</div>
 				</div>
