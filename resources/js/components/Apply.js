@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 function Apply() {
 
@@ -6,6 +7,21 @@ function Apply() {
 	const [lastName, setLastName] = useState('');
 	const [phoneNumber, setPhoneNumber] = useState('')
 	const [email, setEmail] = useState('')
+	// const history = useHistory();
+	const navigate = useNavigate();
+
+	const saveData = () => {
+		
+		// history.push('/resume');
+		navigate('/resume')
+		// axios.post('http://127.0.0.1:8000/api/apply')
+		// .then((response) => {
+		// 	window.location = '/resume'
+		// })
+		// .catch((error) => {
+
+		// })
+	}
 
 	return (
 		<div>
@@ -77,7 +93,7 @@ function Apply() {
 
 
                             <div className="mt-2 text-align-end">
-                                <button type="submit" className="btn btn-primary">Continue</button>
+                                <button type="button" className="btn btn-primary" onClick={saveData}>Continue</button>
                             </div>
 	                    </form>
 	                </div>

@@ -26,5 +26,6 @@ Route::middleware('auth:sanctum')->get('get-user', function () {
 
 Route::get("show-jobs", [App\Http\Controllers\BoardJobController::class, 'show']);
 Route::get("filter-jobs", [App\Http\Controllers\BoardJobController::class, 'filterJobs']);
+Route::post("filter-jobs", [App\Http\Controllers\BoardJobController::class, 'filterJobs']);
 
 Route::middleware('auth:sanctum')->get("single-job/{id}", [App\Http\Controllers\BoardJobController::class, 'getJob']);
