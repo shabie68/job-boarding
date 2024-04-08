@@ -1,20 +1,30 @@
-import {useNavigate} from 'react-router-dom'
+import {useContext, useState, useEffect} from 'react'
+import {useNavigate, useLocation} from 'react-router-dom'
 import apiClient from '../services/apiClient';
 
-function Resume() {
 
+function Resume(props) {
+
+	const context = useContext(BoardJobContext)
+	const location = useLocation()
 	const [resume, setResume] = useState();
-
 
 	const navigate = useNavigate();
 
+	useEffect(() => {
+		
+		console.log("EFFECT")
+		console.log(context)
+	})
+
 	const saveData = () => {
 		
-		axios.put('http://127.0.0.1:8000/api/apply', {
-			resume: resume
+		apiClient.put('http://127.0.0.1:8000/api/apply/candidate/'+location.state.job.user_id + '/job/' + submission.board_job_id, {
+			resume: resume,
+			
 		})
 		.then((response) => {
-			navigate('/experience')
+			// navigate('/experience')
 		})
 		.catch((error) => {
 
