@@ -15,7 +15,7 @@ import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
 function Example() {
 
     const [user, setUser] = useState(null)
-    const [boardJob, setBoardJob] = useState(null);
+    const [boardJob, setBoardJob] = useState({user_id: null, board_job_id: null, submission: null});
 
     const updateJobContext = (newContextValue) => {
         setBoardJob(newContextValue);
@@ -44,7 +44,7 @@ function Example() {
                 </div>
             </div>
 
-            <BoardJobContext.Provider value={{user_id: location.state.job.user_id, board_job_id: submission.board_job_id}}>
+            <BoardJobContext.Provider value={boardJob}>
 
             <div className="container">
                 <BrowserRouter>

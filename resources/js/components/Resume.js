@@ -1,6 +1,7 @@
 import {useContext, useState, useEffect} from 'react'
 import {useNavigate, useLocation} from 'react-router-dom'
 import apiClient from '../services/apiClient';
+import BoardJobContext from '../contexts/BoardJobContext'
 
 
 function Resume(props) {
@@ -9,26 +10,34 @@ function Resume(props) {
 	const location = useLocation()
 	const [resume, setResume] = useState();
 
+	const handleResume = (e) => {
+		setResume(e.target.files[0])
+	}
+
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		
-		console.log("EFFECT")
-		console.log(context)
 	})
 
-	const saveData = () => {
+	const saveData = (e) => {
+
+		e.preventDefault()
+
+		const formData = new FormData();
+	    formData.append('resume', resume);
+	    formData.append('submission', JSON.stringify(context.submission))
+	    formData.append('_method', 'put')
+
 		
-		apiClient.put('http://127.0.0.1:8000/api/apply/candidate/'+location.state.job.user_id + '/job/' + submission.board_job_id, {
-			resume: resume,
-			
-		})
+		apiClient.post('http://127.0.0.1:8000/api/apply/candidate/'+context.user_id + '/job/' + context.board_job_id, formData)
 		.then((response) => {
-			// navigate('/experience')
+			navigate('/job-questions')
 		})
 		.catch((error) => {
 
 		})
+
 	}
 
 
@@ -36,22 +45,25 @@ function Resume(props) {
 		<div>
 			<div className="w-50" style={{margin: '0 auto'}}>
 				<h4>Upload your resume</h4>
+
 				<div className="card">	
 					<div className="card-body">
+						<form onSubmit={saveData}>
 						<div className="mb-3">
 						  <label htmlFor="formFileSm" className="form-label">Small file input example</label>
 						  <input 
 						  	className="form-control form-control-sm" 
 						  	id="formFileSm" 
 						  	type="file" 
-						  	value={resume}
-						  	onClick={e => {setResume(e.target.value)}}
+						  	onChange={handleResume}
 					    />
 						</div>
 
+
 						<div className="mt-2 text-align-end">
-                            <button type="button" className="btn btn-primary" onClick={saveData}>Continue</button>
+                            <button type="submit" className="btn btn-primary">Continue</button>
                         </div>
+                        </form>
 					</div>
 				</div>
 			</div>
