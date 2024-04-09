@@ -19,13 +19,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware("auth:sanctum")->post('/add-job', [App\Http\Controllers\BoardJobController::class, 'store']);
-Route::middleware('auth:sanctum')->get('get-user', function () {
+// Route::middleware('auth:sanctum')->get('get-user', function () {
+// 	return auth()->user();
+// });
+Route::get('get-user', function() {
 	return auth()->user();
 });
+
+Route::post("add-job-data/", [App\Http\Controllers\SubmissionController::class, 'addJobData']);
 
 
 Route::get("show-jobs", [App\Http\Controllers\BoardJobController::class, 'show']);
 Route::get("filter-jobs", [App\Http\Controllers\BoardJobController::class, 'filterJobs']);
-Route::post("filter-jobs", [App\Http\Controllers\BoardJobController::class, 'filterJobs']);
+Route::put("apply/candidate/{user_id}/job/{board_id}", [App\Http\Controllers\SubmissionController::class, 'saveData']);
 
 Route::middleware('auth:sanctum')->get("single-job/{id}", [App\Http\Controllers\BoardJobController::class, 'getJob']);

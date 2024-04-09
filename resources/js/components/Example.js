@@ -9,11 +9,17 @@ import JobQuestions from './JobQuestions'
 
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
-
+import BoardJobContext from '../contexts/BoardJobContext.js'
 import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
 
 function Example() {
 
+    const [user, setUser] = useState(null)
+    const [boardJob, setBoardJob] = useState({user_id: null, board_job_id: null, submission: null});
+
+    const updateJobContext = (newContextValue) => {
+        setBoardJob(newContextValue);
+    };
     const logout = () => {
 
         apiClient.post('http://127.0.0.1:8000/logout').then(response => {
@@ -23,6 +29,13 @@ function Example() {
         })
     };
 
+    const getUser = () => {
+        apiClient.get('http://127.0.0.1:8000/api/get-user')
+        .then(response => {
+            setUser(response.data.user)
+        })
+    }
+
     return (
         <div>
             <div className="d-flex justify-content-between bg-secondary w-100 top-0 my-4" style={{padding: '8px 20px'}}>
@@ -31,19 +44,22 @@ function Example() {
                 </div>
             </div>
 
-            <div className="container" >
+            <BoardJobContext.Provider value={boardJob}>
+
+            <div className="container">
                 <BrowserRouter>
                     <Routes>
                         <Route path="/home" element={<ShowJob />} />
                         <Route path="/add-job" element={<AddJob />} />
-                        <Route path="/apply" element={<Apply />} />
-                        <Route path="/resume" element={<Resume />} />
-                        <Route path="/experience" element={<Experience />} />
-                        <Route path="/job-questions" element={<JobQuestions />} /> 
+                        <Route path="/apply" element={<Apply user={user} updateJobContext={updateJobContext} />} />
+                        <Route path="/resume" element={<Resume user={user} />} />
+                        <Route path="/experience" element={<Experience user={user} />} />
+                        <Route path="/job-questions" element={<JobQuestions user={user} />} /> 
                     </Routes>
+
                 </BrowserRouter>
             </div>
-
+            </BoardJobContext.Provider>
         </div>
         
     );

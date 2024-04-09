@@ -1,6 +1,8 @@
 import {Link} from 'react-router-dom'
 function SingleJob(props) {
 
+	
+	//create dummy record for the user and job board
 	return (
 		<div className="w-50 position-sticky end-0" style={{top: '80px', alignSelf: 'flex-start'}} >
 			<div className="card">
@@ -18,7 +20,7 @@ function SingleJob(props) {
 						</div>
 
 						<div className="ms-auto">
-							<Link to="/apply"><button className="btn btn-secondary">Apply</button></Link>
+							<Link to="/apply" state={{job: props.job}}><button className="btn btn-secondary">Apply</button></Link>
 						</div>
 					</div>
 				</div>
