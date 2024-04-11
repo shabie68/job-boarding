@@ -22,7 +22,7 @@ function JobQuestions() {
         setAbilityToCommute(context.submission.ability_to_commute)
         setSalaryExpectation(context.submission.salary_expectation)
         setNoticePeriod(context.submission.notice_period)
-        setScheduleInterview(context.submission.schedule_interview)
+        setScheduleInterview(new Date(context.submission.schedule_interview).toISOString().split('T')[0])
     }, [])
 
 	const saveData = () => {

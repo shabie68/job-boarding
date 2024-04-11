@@ -10037,7 +10037,7 @@ function JobQuestions() {
     setAbilityToCommute(context.submission.ability_to_commute);
     setSalaryExpectation(context.submission.salary_expectation);
     setNoticePeriod(context.submission.notice_period);
-    setScheduleInterview(context.submission.schedule_interview);
+    setScheduleInterview(new Date(context.submission.schedule_interview).toISOString().split('T')[0]);
   }, []);
   var saveData = function saveData() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].put('http://127.0.0.1:8000/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, {
@@ -10339,7 +10339,7 @@ var Login = function Login(props) {
                   className: "row mb-3",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     htmlFor: "email",
-                    "class": "col-md-4 col-form-label text-md-end",
+                    className: "col-md-4 col-form-label text-md-end",
                     children: "Email Address"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     className: "col-md-6",
@@ -10359,7 +10359,7 @@ var Login = function Login(props) {
                   className: "row mb-3",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     htmlFor: "email",
-                    "class": "col-md-4 col-form-label text-md-end",
+                    className: "col-md-4 col-form-label text-md-end",
                     children: "Password"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     className: "col-md-6",
@@ -10376,9 +10376,9 @@ var Login = function Login(props) {
                     })
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                  "class": "row mb-0",
+                  className: "row mb-0",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    "class": "col-md-8 offset-md-4",
+                    className: "col-md-8 offset-md-4",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                       type: "submit",
                       className: "btn btn-primary",

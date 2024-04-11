@@ -39,7 +39,7 @@ const Login = (props) => {
                             <div className="card-body">
                                 <form onSubmit={handleSubmit}>
                                     <div className="row mb-3">
-                                        <label htmlFor="email" class="col-md-4 col-form-label text-md-end">Email Address</label>
+                                        <label htmlFor="email" className="col-md-4 col-form-label text-md-end">Email Address</label>
                                         <div className="col-md-6">
                                             <input
                                                 type="email"
@@ -54,7 +54,7 @@ const Login = (props) => {
                                     </div>
 
                                     <div className="row mb-3">
-                                        <label htmlFor="email" class="col-md-4 col-form-label text-md-end">Password</label>
+                                        <label htmlFor="email" className="col-md-4 col-form-label text-md-end">Password</label>
                                         <div className="col-md-6">
                                             <input
                                                 type="password"
@@ -68,8 +68,8 @@ const Login = (props) => {
                                         </div>
                                     </div>
 
-                                    <div class="row mb-0">
-                                        <div class="col-md-8 offset-md-4">
+                                    <div className="row mb-0">
+                                        <div className="col-md-8 offset-md-4">
                                             <button type="submit" className="btn btn-primary">Login</button>
                                         </div>
                                     </div>
