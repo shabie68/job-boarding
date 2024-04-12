@@ -1,0 +1,21 @@
+.form-container {
+	width: 50%;
+	margin: 0 auto;
+	border-radius: 10px;
+	border: 2px solid gray;
+	background-color: white;
+	padding: 20px;
+
+
+}
+
+.form-container input {
+	background-color: white;	
+}
+
+.bg-white {
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+	border-color: white;
+}
