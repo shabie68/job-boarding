@@ -9300,13 +9300,45 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function AddCompany() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setCompanyDescription(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#company-description', editorOptions));
+    setDescription(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#company-description', editorOptions));
   }, []);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState2 = _slicedToArray(_useState, 2),
-    companyDescription = _useState2[0],
-    setCompanyDescription = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    title = _useState2[0],
+    setTitle = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState4 = _slicedToArray(_useState3, 2),
+    description = _useState4[0],
+    setDescription = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState6 = _slicedToArray(_useState5, 2),
+    logo = _useState6[0],
+    setLogo = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState8 = _slicedToArray(_useState7, 2),
+    locations = _useState8[0],
+    setLocations = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState10 = _slicedToArray(_useState9, 2),
+    email = _useState10[0],
+    setEmail = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState12 = _slicedToArray(_useState11, 2),
+    totalEmployees = _useState12[0],
+    setTotalEmployees = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState14 = _slicedToArray(_useState13, 2),
+    websiteUrl = _useState14[0],
+    setWebsiteUrl = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState16 = _slicedToArray(_useState15, 2),
+    phoneNumber = _useState16[0],
+    setPhoneNumber = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState18 = _slicedToArray(_useState17, 2),
+    Industry = _useState18[0],
+    setIndustry = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       debug: 'info',
       modules: {
         toolbar: true
@@ -9315,9 +9347,9 @@ function AddCompany() {
       theme: 'snow',
       container: '#description'
     }),
-    _useState4 = _slicedToArray(_useState3, 2),
-    editorOptions = _useState4[0],
-    setEditorOptions = _useState4[1];
+    _useState20 = _slicedToArray(_useState19, 2),
+    editorOptions = _useState20[0],
+    setEditorOptions = _useState20[1];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
     className: "d-flex gap-3 bg-white",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
@@ -9332,13 +9364,18 @@ function AddCompany() {
           className: "form-control",
           id: "title",
           "aria-describedby": "titleHelp",
-          placeholder: "Enter title"
+          placeholder: "Enter title",
+          value: title,
+          onChange: function onChange(e) {
+            return setTitle(e.target.value);
+          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("small", {
           id: "titleHelp",
           className: "form-text text-muted",
           children: "Enter the title for the company"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        className: "mb-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
           children: "Description"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
@@ -9355,19 +9392,28 @@ function AddCompany() {
           className: "form-control",
           id: "locations",
           "aria-describedby": "locationHelp",
-          placeholder: "Enter descritions"
+          placeholder: "Enter descritions",
+          value: locations,
+          onChange: function onChange(e) {
+            return setLocations(e.target.value);
+          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("small", {
           id: "locationHelp",
           className: "form-text text-muted",
           children: "Enter locations of the company. Can be multiple"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "form-group mb-3",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
           type: "text",
           className: "form-control",
-          readOnly: true
-        })
+          readOnly: true,
+          value: locations
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("small", {
+          id: "allLocations",
+          className: "form-text text-muted",
+          children: "Selected Locations"
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "form-group mb-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
@@ -9378,7 +9424,11 @@ function AddCompany() {
           className: "form-control",
           id: "employees",
           "aria-describedby": "employeesHelp",
-          placeholder: "Total Employees"
+          placeholder: "Total Employees",
+          value: totalEmployees,
+          onChange: function onChange(e) {
+            return setTotalEmployees(e.target.value);
+          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("small", {
           id: "employeesHelp",
           className: "form-text text-muted",
@@ -9395,13 +9445,17 @@ function AddCompany() {
         className: "form-group mb-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
           htmlFor: "website-url",
-          children: "Title"
+          children: "Website Url"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
           type: "text",
           className: "form-control",
           id: "website-url",
           "aria-describedby": "website-url",
-          placeholder: "Enter title"
+          placeholder: "Enter website url",
+          value: websiteUrl,
+          onChange: function onChange(e) {
+            return setWebsiteUrl(e.target.value);
+          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("small", {
           id: "website-url",
           className: "form-text text-muted",
@@ -9410,66 +9464,22 @@ function AddCompany() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "form-group mb-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-          htmlFor: "desc",
-          children: "Contact information"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
-          type: "text",
-          className: "form-control",
-          id: "desc",
-          "aria-describedby": "descHelp",
-          placeholder: "Enter descritions"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("small", {
-          id: "descHelp",
-          className: "form-text text-muted",
-          children: "Details about the company"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-        className: "form-group mb-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
           htmlFor: "companyEmail",
-          children: "Locations"
+          children: "Email"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
           type: "email",
           className: "form-control",
           id: "companyEmail",
           "aria-describedby": "companyEmailHelp",
-          placeholder: "Enter descritions"
+          placeholder: "Locations",
+          value: email,
+          onChange: function onChange(e) {
+            return setEmail(e.target.value);
+          }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("small", {
           id: "companyEmailHelp",
           className: "form-text text-muted",
-          children: "Email of the company"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-        className: "form-group mb-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-          htmlFor: "companyPhone",
-          children: "Locations"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
-          type: "tel",
-          className: "form-control",
-          id: "companyPhone",
-          "aria-describedby": "companyPhoneHelp",
-          placeholder: "Enter descritions"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("small", {
-          id: "companyPhoneHelp",
-          className: "form-text text-muted",
-          children: "Phone of the company"
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-        className: "form-group mb-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
-          htmlFor: "title",
-          children: "Title"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("input", {
-          type: "text",
-          className: "form-control",
-          id: "title",
-          "aria-describedby": "titleHelp",
-          placeholder: "Enter title"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("small", {
-          id: "title",
-          className: "form-text text-muted",
-          children: "Enter the title for the company"
+          children: "Email of the company. (Separated by commas)"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         style: {
@@ -9480,6 +9490,9 @@ function AddCompany() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("select", {
           className: "form-control",
           name: "type",
+          onChange: function onChange(e) {
+            return setIndustry(e.target.value);
+          },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
             value: "electronics",
             children: "Electronics"
@@ -9491,7 +9504,7 @@ function AddCompany() {
             children: "Educations"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
             value: "marketing",
-            children: "Mrketing"
+            children: "Marketing"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("option", {
             value: "food-store",
             children: "Food Store"

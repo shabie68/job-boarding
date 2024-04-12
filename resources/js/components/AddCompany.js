@@ -14,12 +14,21 @@ import "quill/dist/quill.snow.css";
 function AddCompany() {
 
 	useEffect(() => {
-		setCompanyDescription(new Quill('#company-description', editorOptions))
+		setDescription(new Quill('#company-description', editorOptions))
 				
 	}, [])
 
+	const [title, setTitle] = useState();
+	const [description, setDescription] = useState();
+	const [logo, setLogo] = useState();
+	const [locations, setLocations] = useState('');
+	const [email, setEmail] = useState();
+	const [totalEmployees, setTotalEmployees] = useState();
+	const [websiteUrl, setWebsiteUrl] = useState();
+	const [phoneNumber, setPhoneNumber] = useState();
+	const [Industry, setIndustry] = useState();
 
-	const [companyDescription, setCompanyDescription] = useState();
+
 	const [editorOptions, setEditorOptions] = useState({
 	  debug: 'info',
 	  modules: {
@@ -36,12 +45,20 @@ function AddCompany() {
 			<div className="w-50">
 				<div className="form-group mb-3">
 				    <label htmlFor="title">Title</label>
-				    <input type="text" className="form-control" id="title" aria-describedby="titleHelp" placeholder="Enter title" />
+				    <input 
+				    	type="text"
+				    	className="form-control" 
+				    	id="title" 
+				    	aria-describedby="titleHelp"
+				    	placeholder="Enter title"
+				    	value={title}
+				    	onChange={(e) => setTitle(e.target.value)}
+				    />
 			    	<small id="titleHelp" className="form-text text-muted">Enter the title for the company</small>
 			  	</div>
 
 
-			  	<div>	
+			  	<div className="mb-3">	
 					<label>Description</label>
 					<div id="company-description">
 						NEW Description
@@ -50,17 +67,34 @@ function AddCompany() {
 
 			  	<div className="form-group mb-3">
 				    <label htmlFor="desc">Locations</label>
-				    <input type="text" className="form-control" id="locations" aria-describedby="locationHelp" placeholder="Enter descritions" />
+				    <input 
+				    	type="text" 
+				    	className="form-control" 
+				    	id="locations" 
+				    	aria-describedby="locationHelp" 
+				    	placeholder="Enter descritions"
+				    	value={locations}
+				    	onChange={(e) => setLocations(e.target.value)}
+				   	/>
 			    	<small id="locationHelp" className="form-text text-muted">Enter locations of the company. Can be multiple</small>
 			  	</div>
 
 			  	<div className="form-group mb-3">
-				    <input type="text" className="form-control" readOnly />
+				    <input type="text" className="form-control" readOnly value={locations} />
+				    <small id="allLocations" className="form-text text-muted">Selected Locations</small>
 			  	</div>
 
 			  	<div className="form-group mb-3">
 				    <label htmlFor="title">Total Employees</label>
-				    <input type="number" className="form-control" id="employees" aria-describedby="employeesHelp" placeholder="Total Employees" />
+				    <input 
+				    	type="number" 
+				    	className="form-control" 
+				    	id="employees" 
+				    	aria-describedby="employeesHelp" 
+				    	placeholder="Total Employees" 
+				    	value={totalEmployees}
+				    	onChange={(e) => setTotalEmployees(e.target.value)}
+				    />
 			    	<small id="employeesHelp" className="form-text text-muted">Total employees in the company</small>
 			  	</div>
 			</div>
@@ -71,45 +105,44 @@ function AddCompany() {
 
 			<div className="w-50">
 				<div className="form-group mb-3">
-				    <label htmlFor="website-url">Title</label>
-				    <input type="text" className="form-control" id="website-url" aria-describedby="website-url" placeholder="Enter title" />
+				    <label htmlFor="website-url">Website Url</label>
+				    <input 
+				    	type="text" 
+				    	className="form-control" 
+				    	id="website-url" 
+				    	aria-describedby="website-url" 
+				    	placeholder="Enter website url" 
+				    	value={websiteUrl}
+				    	onChange={(e) => setWebsiteUrl(e.target.value)}
+				    />
 			    	<small id="website-url" className="form-text text-muted">Website Url if any</small>
 			  	</div>
 
-
 			  	<div className="form-group mb-3">
-				    <label htmlFor="desc">Contact information</label>
-				    <input type="text" className="form-control" id="desc" aria-describedby="descHelp" placeholder="Enter descritions" />
-			    	<small id="descHelp" className="form-text text-muted">Details about the company</small>
+				    <label htmlFor="companyEmail">Email</label>
+				    <input 
+				    	type="email" 
+				    	className="form-control" 
+				    	id="companyEmail" 
+				    	aria-describedby="companyEmailHelp" 
+				    	placeholder="Locations" 
+				    	value={email}
+				    	onChange={(e) => setEmail(e.target.value)}
+				    />
+			    	<small id="companyEmailHelp" className="form-text text-muted">Email of the company. (Separated by commas)</small>
 			  	</div>
-
-			  	<div className="form-group mb-3">
-				    <label htmlFor="companyEmail">Locations</label>
-				    <input type="email" className="form-control" id="companyEmail" aria-describedby="companyEmailHelp" placeholder="Enter descritions" />
-			    	<small id="companyEmailHelp" className="form-text text-muted">Email of the company</small>
-			  	</div>
-
-			  	<div className="form-group mb-3">
-				    <label htmlFor="companyPhone">Locations</label>
-				    <input type="tel" className="form-control" id="companyPhone" aria-describedby="companyPhoneHelp" placeholder="Enter descritions" />
-			    	<small id="companyPhoneHelp" className="form-text text-muted">Phone of the company</small>
-			  	</div>
-
-
-			  	<div className="form-group mb-3">
-				    <label htmlFor="title">Title</label>
-				    <input type="text" className="form-control" id="title" aria-describedby="titleHelp" placeholder="Enter title" />
-			    	<small id="title" className="form-text text-muted">Enter the title for the company</small>
-			  	</div>
-
 			  	
 				<div style={{margin: '20px 0'}}>
 					<label>Choose Industry</label>
-					<select className="form-control" name="type">
+					<select 
+						className="form-control" 
+						name="type"
+						onChange={(e) => setIndustry(e.target.value)}
+					>
 						<option value="electronics">Electronics</option>
 						<option value="ecommerce">Ecommererce</option>
 						<option value="education">Educations</option>
-						<option value="marketing">Mrketing</option>
+						<option value="marketing">Marketing</option>
 						<option value="food-store">Food Store</option>
 					</select>
 				</div>
