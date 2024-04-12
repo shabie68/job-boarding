@@ -6,6 +6,7 @@ import Apply from './Apply'
 import Resume from './Resume'
 import Experience from './Experience'
 import JobQuestions from './JobQuestions'
+import AddCompany from './AddCompany'
 
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
@@ -49,7 +50,8 @@ function Example() {
             <div className="container">
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/home" element={<ShowJob />} />
+                        <Route path="/home" element={<AddCompany />} />
+                        // <Route path="/home" element={<ShowJob />} />
                         <Route path="/add-job" element={<AddJob />} />
                         <Route path="/apply" element={<Apply user={user} updateJobContext={updateJobContext} />} />
                         <Route path="/resume" element={<Resume user={user} />} />
