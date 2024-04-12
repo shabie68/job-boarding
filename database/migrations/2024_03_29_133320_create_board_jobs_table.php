@@ -23,6 +23,7 @@ class CreateBoardJobsTable extends Migration
             $table->longText("responsibilities");
             $table->longText("requirements");
             $table->integer("salary");
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

@@ -27,7 +27,6 @@ class CreateSubmissionsTable extends Migration
             $table->string('ability_to_commute');
             $table->decimal('salary_expectation', 10, 2);
             $table->string('notice_period')->nullable();
-
             $table->datetime('schedule_interview')->nullable();
             $table->timestamps();
         });

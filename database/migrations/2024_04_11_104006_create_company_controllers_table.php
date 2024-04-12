@@ -15,6 +15,14 @@ class CreateCompanyControllersTable extends Migration
     {
         Schema::create('company_controllers', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('logo');
+            $table->text('description');
+            $table->string('locations');
+            $table->integer('total_employees');
+            $table->string('website');
+            $table->json('contact_information');
+            $table->string('industry');
             $table->timestamps();
         });
     }
