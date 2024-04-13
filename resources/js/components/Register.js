@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState} from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 
@@ -7,15 +7,17 @@ import Example from './Example'
  
 const Register = (props) => {
 
-    const [name, setName] = React.useState('');
-    const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
-    const [password_confirmation, setPasswordConfirmation] = React.useState('')
+    const [name, setName] =  useState('');
+    const [email, setEmail] =  useState('');
+    const [password, setPassword] =  useState('');
+    const [password_confirmation, setPasswordConfirmation] = useState('');
+    const [loading, setLoading] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie')
 	    .then(response => {
+            setLoading(true)
 	        apiClient.post('http://127.0.0.1:8000/register', {
 	        	name: name,
 	            email: email,
@@ -25,7 +27,6 @@ const Register = (props) => {
                 if(response.status===201) {  
                     window.location = '/home'
                 }
-	  
 	        })
 	    });
     }
@@ -111,7 +112,20 @@ const Register = (props) => {
 
                                     <div className="row mb-0">
                                         <div className="col-md-8 offset-md-4">
-                                            <button type="submit" className="btn btn-primary">Register</button>
+
+                                            <button type="submit" className="btn btn-primary">
+                                                {
+                                                    !loading ?
+                                                    <div>
+                                                        Register
+                                                    </div>
+                                                    :
+                                                    <div>
+                                                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                                        Loading...
+                                                    </div>
+                                                }
+                                            </button>
                                         </div>
                                     </div>
                                 </form>

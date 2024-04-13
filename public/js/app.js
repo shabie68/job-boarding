@@ -9306,43 +9306,47 @@ function AddCompany() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setDescription(new quill__WEBPACK_IMPORTED_MODULE_2__["default"]('#company-description', editorOptions));
   }, []);
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
-    title = _useState2[0],
-    setTitle = _useState2[1];
+    loading = _useState2[0],
+    setLoading = _useState2[1];
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState4 = _slicedToArray(_useState3, 2),
-    description = _useState4[0],
-    setDescription = _useState4[1];
+    title = _useState4[0],
+    setTitle = _useState4[1];
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState6 = _slicedToArray(_useState5, 2),
-    logo = _useState6[0],
-    setLogo = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    description = _useState6[0],
+    setDescription = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState8 = _slicedToArray(_useState7, 2),
-    locations = _useState8[0],
-    setLocations = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    logo = _useState8[0],
+    setLogo = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState10 = _slicedToArray(_useState9, 2),
-    email = _useState10[0],
-    setEmail = _useState10[1];
+    locations = _useState10[0],
+    setLocations = _useState10[1];
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState12 = _slicedToArray(_useState11, 2),
-    totalEmployees = _useState12[0],
-    setTotalEmployees = _useState12[1];
+    email = _useState12[0],
+    setEmail = _useState12[1];
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState14 = _slicedToArray(_useState13, 2),
-    websiteUrl = _useState14[0],
-    setWebsiteUrl = _useState14[1];
+    totalEmployees = _useState14[0],
+    setTotalEmployees = _useState14[1];
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState16 = _slicedToArray(_useState15, 2),
-    phoneNumber = _useState16[0],
-    setPhoneNumber = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('ecommerce'),
+    websiteUrl = _useState16[0],
+    setWebsiteUrl = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState18 = _slicedToArray(_useState17, 2),
-    industry = _useState18[0],
-    setIndustry = _useState18[1];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    phoneNumber = _useState18[0],
+    setPhoneNumber = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('ecommerce'),
+    _useState20 = _slicedToArray(_useState19, 2),
+    industry = _useState20[0],
+    setIndustry = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       debug: 'info',
       modules: {
         toolbar: true
@@ -9351,10 +9355,11 @@ function AddCompany() {
       theme: 'snow',
       container: '#description'
     }),
-    _useState20 = _slicedToArray(_useState19, 2),
-    editorOptions = _useState20[0],
-    setEditorOptions = _useState20[1];
+    _useState22 = _slicedToArray(_useState21, 2),
+    editorOptions = _useState22[0],
+    setEditorOptions = _useState22[1];
   function saveCompany() {
+    setLoading(true);
     var contactInformation = {
       phone_number: phoneNumber,
       email: email
@@ -9370,7 +9375,7 @@ function AddCompany() {
     formData.append('contact_information', JSON.stringify(contactInformation));
     formData.append('_method', 'put');
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/company/store', formData).then(function (response) {
-      alert("RECORD CREATED");
+      window.locations = '/companies';
     })["catch"](function () {});
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
@@ -9597,7 +9602,15 @@ function AddCompany() {
             type: "button",
             className: "btn btn-primary",
             onClick: saveCompany,
-            children: "Register"
+            children: !loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              children: "Save"
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+                "class": "spinner-grow spinner-grow-sm",
+                role: "status",
+                "aria-hidden": "true"
+              }), "Loading..."]
+            })
           })
         })
       })]
@@ -10797,17 +10810,22 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Login = function Login(props) {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState(false),
     _React$useState2 = _slicedToArray(_React$useState, 2),
-    loggedIn = _React$useState2[0],
-    setLoggedIn = _React$useState2[1];
-  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(''),
+    loading = _React$useState2[0],
+    setLoading = _React$useState2[1];
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(false),
     _React$useState4 = _slicedToArray(_React$useState3, 2),
-    email = _React$useState4[0],
-    setEmail = _React$useState4[1];
+    loggedIn = _React$useState4[0],
+    setLoggedIn = _React$useState4[1];
   var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(''),
     _React$useState6 = _slicedToArray(_React$useState5, 2),
-    password = _React$useState6[0],
-    setPassword = _React$useState6[1];
+    email = _React$useState6[0],
+    setEmail = _React$useState6[1];
+  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(''),
+    _React$useState8 = _slicedToArray(_React$useState7, 2),
+    password = _React$useState8[0],
+    setPassword = _React$useState8[1];
   var handleSubmit = function handleSubmit(e) {
+    setLoading(true);
     e.preventDefault();
     axios__WEBPACK_IMPORTED_MODULE_1___default().get('http://127.0.0.1:8000/sanctum/csrf-cookie').then(function (response) {
       _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].post('http://127.0.0.1:8000/login', {
@@ -10883,7 +10901,15 @@ var Login = function Login(props) {
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                       type: "submit",
                       className: "btn btn-primary",
-                      children: "Login"
+                      children: !loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                        children: "Login"
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                          "class": "spinner-grow spinner-grow-sm",
+                          role: "status",
+                          "aria-hidden": "true"
+                        }), "Loading..."]
+                      })
                     })
                   })
                 })]
@@ -10935,25 +10961,30 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Register = function Register(props) {
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState(''),
-    _React$useState2 = _slicedToArray(_React$useState, 2),
-    name = _React$useState2[0],
-    setName = _React$useState2[1];
-  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(''),
-    _React$useState4 = _slicedToArray(_React$useState3, 2),
-    email = _React$useState4[0],
-    setEmail = _React$useState4[1];
-  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(''),
-    _React$useState6 = _slicedToArray(_React$useState5, 2),
-    password = _React$useState6[0],
-    setPassword = _React$useState6[1];
-  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(''),
-    _React$useState8 = _slicedToArray(_React$useState7, 2),
-    password_confirmation = _React$useState8[0],
-    setPasswordConfirmation = _React$useState8[1];
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState2 = _slicedToArray(_useState, 2),
+    name = _useState2[0],
+    setName = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState4 = _slicedToArray(_useState3, 2),
+    email = _useState4[0],
+    setEmail = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState6 = _slicedToArray(_useState5, 2),
+    password = _useState6[0],
+    setPassword = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState8 = _slicedToArray(_useState7, 2),
+    password_confirmation = _useState8[0],
+    setPasswordConfirmation = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState10 = _slicedToArray(_useState9, 2),
+    loading = _useState10[0],
+    setLoading = _useState10[1];
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
     axios__WEBPACK_IMPORTED_MODULE_1___default().get('http://127.0.0.1:8000/sanctum/csrf-cookie').then(function (response) {
+      setLoading(true);
       _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].post('http://127.0.0.1:8000/register', {
         name: name,
         email: email,
@@ -11069,7 +11100,15 @@ var Register = function Register(props) {
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                       type: "submit",
                       className: "btn btn-primary",
-                      children: "Register"
+                      children: !loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                        children: "Register"
+                      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                          "class": "spinner-grow spinner-grow-sm",
+                          role: "status",
+                          "aria-hidden": "true"
+                        }), "Loading..."]
+                      })
                     })
                   })
                 })]

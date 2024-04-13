@@ -29,10 +29,8 @@ class CompanyController extends Controller
         }
 
     	$company = Company::create([
-
             "logo" => $logo,
     		"title" => $request->title,
-            "logo" => 'testing.png',
     		"description" => $request->description,
     		"locations" => $request->locations,
     		"total_employees" => $request->total_employees,

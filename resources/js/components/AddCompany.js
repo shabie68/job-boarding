@@ -17,6 +17,8 @@ function AddCompany() {
 		setDescription(new Quill('#company-description', editorOptions))		
 	}, [])
 
+	const [loading, setLoading] = useState(false)
+
 	const [title, setTitle] = useState();
 	const [description, setDescription] = useState();
 	const [logo, setLogo] = useState();
@@ -39,10 +41,12 @@ function AddCompany() {
 
 	function saveCompany() {
 
+		setLoading(true)
 		let contactInformation = {
 			phone_number: phoneNumber,
 			email: email
 		}
+
 
 		const formData = new FormData();
 
@@ -58,7 +62,7 @@ function AddCompany() {
 
 		apiClient.post('http://127.0.0.1:8000/api/company/store', formData)
 		.then((response) => {
-			alert("RECORD CREATED")
+			window.locations = '/companies'
 		})
 		.catch(() => {
 
@@ -223,7 +227,19 @@ function AddCompany() {
 				
 				<div className="row mb-0 text-end">
 		            <div className="col-md-8 offset-md-4 ">
-		                <button type="button" className="btn btn-primary" onClick={saveCompany}>Register</button>
+		                <button type="button" className="btn btn-primary" onClick={saveCompany}>
+		                	{
+                                !loading ?
+                                <div>
+                                    Save
+                                </div>
+                                :
+                                <div>
+                                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                    Loading...
+                                </div>
+                            }
+		                </button>
 		            </div>
 		        </div>
 	        </div>
