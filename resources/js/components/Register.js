@@ -109,10 +109,6 @@ const Register = (props) => {
 			                            </div>
 			                        </div>
 
-
-
-
-
                                     <div className="row mb-0">
                                         <div className="col-md-8 offset-md-4">
                                             <button type="submit" className="btn btn-primary">Register</button>
