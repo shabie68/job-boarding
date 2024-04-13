@@ -41,12 +41,12 @@ function Company() {
                     </div>
 
                     <div className="">
-                         <div className="grid">
+                         <div className="row">
                             {companies?.map(company => (
 
-                               <div className="card mb-4 g-col-6 g-col-md-4"  key={"company--"+company.id} style={{cursor: 'pointer'}}>
-                                 <h3 className="card-header">{company.title}</h3>
-                                 <div className="card-body">
+                               <div className="mb-4 col-4 rounded border-dark"  key={"company--"+company.id} style={{cursor: 'pointer'}}>
+                                 <h3 className="">{company.title}</h3>
+                                 <div className="">
                                      <p>{company.title}</p>
                                 
                                     <div dangerouslySetInnerHTML={{__html: company?.description}}></div>
