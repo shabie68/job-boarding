@@ -113,7 +113,9 @@ function ShowJob() {
                         <h4 className="mb-0">Add New Job </h4>
                          <div className="">
                             <Link to="/add-job">
-                                <button type="button" className="btn btn-primary mb-4">Add Job</button>
+                                <button type="button" className="btn btn-primary mb-4">
+                                    Add Job
+                                </button>
                             </Link>
                         </div>
                     </div>

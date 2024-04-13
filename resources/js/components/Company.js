@@ -45,13 +45,30 @@ function Company() {
                     {companies?.map(company => (
 
                          <div className="mb-4 col-3 bg-white rounded border-white"  key={"company--"+company.id}>
-                           <h3 className="">{company.title}</h3>
-                           <div className="">
-                               <p>{company.title}</p>
-                          
-                              <div dangerouslySetInnerHTML={{__html: company?.description}}></div>
+                            <div className="d-flex gap-4 align-items-center">
+                              <div className="w-25">
+                                <img src={'uploads/images/' + company.logo} className="w-100" />
+                              </div>
 
-                           </div>
+                              <div className="w-75">
+                                <h3 className="">{company.title}</h3>
+                                 <div className="">
+                                    <p>{company.title}</p>
+                                 </div>
+
+                                  {!company.feedback
+                                ?
+                                <button type="button" className="btn btn-secondary">Add Review</button>
+                                : ''
+
+                              }
+                              </div>
+
+                             
+                              
+                            </div>
+
+
                        </div>
                      ))}
 

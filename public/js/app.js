@@ -10211,21 +10211,33 @@ function Company() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "row gap-3",
             children: [companies === null || companies === void 0 ? void 0 : companies.map(function (company) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "mb-4 col-3 bg-white rounded border-white",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-                  className: "",
-                  children: company.title
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                  className: "",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                    children: company.title
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                    dangerouslySetInnerHTML: {
-                      __html: company === null || company === void 0 ? void 0 : company.description
-                    }
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "d-flex gap-4 align-items-center",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "w-25",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                      src: 'uploads/images/' + company.logo,
+                      className: "w-100"
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                    className: "w-75",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                      className: "",
+                      children: company.title
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                      className: "",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                        children: company.title
+                      })
+                    }), !company.feedback ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                      type: "button",
+                      className: "btn btn-secondary",
+                      children: "Add Review"
+                    }) : '']
                   })]
-                })]
+                })
               }, "company--" + company.id);
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "d-flex gap-2 align-items-center",
@@ -10977,10 +10989,14 @@ var Register = function Register(props) {
     _useState8 = _slicedToArray(_useState7, 2),
     password_confirmation = _useState8[0],
     setPasswordConfirmation = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('recruiter'),
     _useState10 = _slicedToArray(_useState9, 2),
-    loading = _useState10[0],
-    setLoading = _useState10[1];
+    type = _useState10[0],
+    setType = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState12 = _slicedToArray(_useState11, 2),
+    loading = _useState12[0],
+    setLoading = _useState12[1];
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
     axios__WEBPACK_IMPORTED_MODULE_1___default().get('http://127.0.0.1:8000/sanctum/csrf-cookie').then(function (response) {
@@ -11092,6 +11108,40 @@ var Register = function Register(props) {
                       className: "form-control",
                       name: "password_confirmation"
                     }, "required", true), "autoComplete", "new-password"))
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                  "class": "form-check",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                    "class": "form-check-input",
+                    type: "radio",
+                    name: "account_type",
+                    id: "recruiter",
+                    onChange: function onChange(e) {
+                      setType(e.target.value);
+                    },
+                    value: "recruiter",
+                    checked: type == 'recruiter' ? true : false
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                    "class": "form-check-label",
+                    "for": "recruiter",
+                    children: "Recruiter"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                  "class": "form-check",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                    "class": "form-check-input",
+                    type: "radio",
+                    name: "account_type",
+                    id: "job_seeker",
+                    onChange: function onChange(e) {
+                      setType(e.target.value);
+                    },
+                    value: "job_seeker",
+                    checked: type == 'job_seeker' ? true : false
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                    "class": "form-check-label",
+                    "for": "job_seeker",
+                    children: "Job Seeker"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "row mb-0",

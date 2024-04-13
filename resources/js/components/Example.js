@@ -8,8 +8,6 @@ import Experience from './Experience'
 import JobQuestions from './JobQuestions'
 import Company from './Company'
 import AddCompany from './AddCompany'
-
-
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
 import BoardJobContext from '../contexts/BoardJobContext.js'
@@ -42,16 +40,15 @@ function Example() {
     return (
 
         <BoardJobContext.Provider value={boardJob}>
-
-                <BrowserRouter>
-                    <div className="d-flex justify-content-around bg-secondary w-100 top-0 my-4 py-2 text-light">
-                        <Link className="text-decoration-none text-light" to="/home">Home</Link>
-                        <Link className="text-decoration-none text-light" to="/companies">Companies</Link>
-                        <div onClick={logout} className=" text-light" style={{ cursor: 'pointer'}}>
-                            Logout
-                        </div>
+            <BrowserRouter>
+                <div className="d-flex justify-content-around bg-secondary w-100 top-0 my-4 py-2 text-light">
+                    <Link className="text-decoration-none text-light" to="/home">Home</Link>
+                    <Link className="text-decoration-none text-light" to="/companies">Companies</Link>
+                    <div onClick={logout} className=" text-light" style={{ cursor: 'pointer'}}>
+                        Logout
                     </div>
-                
+                </div>
+            
 
                 <div className="container">
                     <Routes>
@@ -65,7 +62,8 @@ function Example() {
                         <Route path="/job-questions" element={<JobQuestions user={user} />} /> 
                     </Routes>
                 </div>
-                </BrowserRouter>
+
+            </BrowserRouter>
             
         </BoardJobContext.Provider>
     

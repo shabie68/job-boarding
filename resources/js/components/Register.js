@@ -11,7 +11,9 @@ const Register = (props) => {
     const [email, setEmail] =  useState('');
     const [password, setPassword] =  useState('');
     const [password_confirmation, setPasswordConfirmation] = useState('');
+    const [type, setType] = useState('recruiter')
     const [loading, setLoading] = useState(false)
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -30,6 +32,8 @@ const Register = (props) => {
 	        })
 	    });
     }
+
+
     return (
 
         <div>
@@ -58,7 +62,6 @@ const Register = (props) => {
                                             />
                                         </div>
                                     </div>
-
 
                                     <div className="row mb-3">
                                         <label htmlFor="email" className="col-md-4 col-form-label text-md-end">Email Address</label>
@@ -109,6 +112,20 @@ const Register = (props) => {
 			                               		autoComplete="new-password" />
 			                            </div>
 			                        </div>
+
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="account_type" id="recruiter" onChange={(e) => {setType(e.target.value)}} value="recruiter" checked={type=='recruiter' ? true : false} />
+                                      <label class="form-check-label" for="recruiter">
+                                        Recruiter
+                                      </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="account_type" id="job_seeker" onChange={(e) => {setType(e.target.value)}} value="job_seeker" checked={type=='job_seeker' ? true : false} />
+                                      <label class="form-check-label" for="job_seeker">
+                                        Job Seeker
+                                      </label>
+                                    </div>
 
                                     <div className="row mb-0">
                                         <div className="col-md-8 offset-md-4">
