@@ -10,7 +10,8 @@ class CompanyController extends Controller
     
     public function show() {
 
-    	$Companies = Company::paginate(5);
+    	$companies = Company::all();
+
     	return response()->json([
     		"companies" => $companies
     	]);

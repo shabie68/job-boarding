@@ -1,14 +1,6 @@
-import {
-  BrowserRouter as Router,
-  
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import {useState, useEffect} from 'react'
-import AddJob from './AddJob'
 import SingleJob from './SingleJob'
 import apiClient from '../services/apiClient';
 

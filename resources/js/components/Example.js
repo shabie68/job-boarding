@@ -6,6 +6,7 @@ import Apply from './Apply'
 import Resume from './Resume'
 import Experience from './Experience'
 import JobQuestions from './JobQuestions'
+import Company from './Company'
 import AddCompany from './AddCompany'
 
 
@@ -39,35 +40,35 @@ function Example() {
     }
 
     return (
-        <div>
 
-            <BoardJobContext.Provider value={boardJob}>
+        <BoardJobContext.Provider value={boardJob}>
 
-            <div className="container">
                 <BrowserRouter>
-                    <div className="d-flex justify-content-between bg-secondary w-100 top-0 my-4">
-                        <Link to="/home">Home</Link>
-                        <Link to="/add-job">Add Job</Link>
-                        <div onClick={logout} className=" text-primary" style={{ cursor: 'pointer'}}>
+                    <div className="d-flex justify-content-around bg-secondary w-100 top-0 my-4 py-2 text-light">
+                        <Link className="text-decoration-none text-light" to="/home">Home</Link>
+                        <Link className="text-decoration-none text-light" to="/companies">Companies</Link>
+                        <div onClick={logout} className=" text-light" style={{ cursor: 'pointer'}}>
                             Logout
                         </div>
                     </div>
                 
 
+                <div className="container">
                     <Routes>
                         <Route path="/home" element={<ShowJob />} />
                         <Route path="/add-job" element={<AddJob />} />
+                        <Route path="/companies" element={<Company />} />
+                        <Route path="/add-company" element={<AddCompany />} />
                         <Route path="/apply" element={<Apply user={user} updateJobContext={updateJobContext} />} />
                         <Route path="/resume" element={<Resume user={user} />} />
                         <Route path="/experience" element={<Experience user={user} />} />
                         <Route path="/job-questions" element={<JobQuestions user={user} />} /> 
                     </Routes>
-
+                </div>
                 </BrowserRouter>
-            </div>
-            </BoardJobContext.Provider>
-        </div>
-        
+            
+        </BoardJobContext.Provider>
+    
     );
 }
 
