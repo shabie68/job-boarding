@@ -19,8 +19,18 @@ class CompanyController extends Controller
 
     public function store(Request $request) {
 
+        $logo = null;
+
+        if($request->file('logo')) {
+            $destinationPath = 'uploads\images';
+            $logo = $request->file('logo')->getClientOriginalName();
+            $request->file('logo')->move(public_path($destinationPath), $logo);  
+             
+        }
+
     	$company = Company::create([
 
+            "logo" => $logo,
     		"title" => $request->title,
             "logo" => 'testing.png',
     		"description" => $request->description,

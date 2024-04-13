@@ -44,7 +44,7 @@ function Company() {
                  <div className="row gap-3">
                     {companies?.map(company => (
 
-                         <div className="mb-4 col-4 bg-white rounded border-white"  key={"company--"+company.id}>
+                         <div className="mb-4 col-3 bg-white rounded border-white"  key={"company--"+company.id}>
                            <h3 className="">{company.title}</h3>
                            <div className="">
                                <p>{company.title}</p>

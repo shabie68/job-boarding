@@ -25,7 +25,7 @@ function AddCompany() {
 	const [totalEmployees, setTotalEmployees] = useState();
 	const [websiteUrl, setWebsiteUrl] = useState();
 	const [phoneNumber, setPhoneNumber] = useState();
-	const [industry, setIndustry] = useState();
+	const [industry, setIndustry] = useState('ecommerce');
 
 	const [editorOptions, setEditorOptions] = useState({
 	  debug: 'info',
@@ -39,40 +39,29 @@ function AddCompany() {
 
 	function saveCompany() {
 
-		let contact = {
+		let contactInformation = {
 			phone_number: phoneNumber,
 			email: email
 		}
 
 		const formData = new FormData();
-	    formData.append('logo', resume);
-	    formData.append('submission', JSON.stringify(context.submission))
+
+		formData.append('title', title)
+	    formData.append('logo', logo);
 	    formData.append('description', description.getSemanticHTML())
 	    formData.append('website_url', websiteUrl)
 	    formData.append('industry', industry)
 	    formData.append('total_employees', totalEmployees)
 	    formData.append('locations', locations)
-	    formData.append('contact_information', JSON.stringify(contact))
-
+	    formData.append('contact_information', JSON.stringify(contactInformation))
 	    formData.append('_method', 'put')
 
-
-		apiClient.post('http://127.0.0.1:8000/api/company/store', {
-			title: title,
-			description: description.getSemanticHTML(),
-			total_employees: totalEmployees,
-			website_url: websiteUrl,
-			industry, industry,
-			// logo: '',
-			locations: locations,
-			contact_information: {
-				phone_number: phoneNumber,
-				email: email
-			}
-			
-		})
+		apiClient.post('http://127.0.0.1:8000/api/company/store', formData)
 		.then((response) => {
 			alert("RECORD CREATED")
+		})
+		.catch(() => {
+
 		})
 
 	}
@@ -93,17 +82,6 @@ function AddCompany() {
 			<div className="bg-white mb-3">
 				<div className="d-flex gap-3">
 					<div className="w-50">
-
-						<div className="mb-3">
-						  <label htmlFor="formFileSm" className="form-label">Small file input example</label>
-						  <input 
-						  	className="form-control form-control-sm" 
-						  	id="formFileSm" 
-						  	type="file" 
-						  	onChange={(e) => {setLogo(e.target.value)}}
-					    />
-						</div>
-
 						<div className="form-group mb-3">
 						    <label htmlFor="title">Title</label>
 						    <input 
@@ -118,14 +96,17 @@ function AddCompany() {
 					    	<small id="titleHelp" className="form-text text-muted">Enter the title for the company</small>
 					  	</div>
 
-					  	<div className="mb-3">	
-							<label>Description</label>
-							<div id="company-description">
-								NEW Description
-							</div>
+					  	<div className="mb-3">
+						  <label htmlFor="formFileSm" className="form-label">Small file input example</label>
+						  <input 
+						  	className="form-control form-control-sm" 
+						  	id="formFileSm" 
+						  	type="file" 
+						  	onChange={(e) => {setLogo(e.target.files[0])}}
+					    />
 						</div>
 
-					  	<div className="form-group mb-3">
+						<div className="form-group mb-3">
 						    <label htmlFor="desc">Locations</label>
 						    <input 
 						    	type="text" 
@@ -153,6 +134,13 @@ function AddCompany() {
 
 					  		</span>
 					  	</div>
+
+					  	<div className="mb-3">	
+							<label>Description</label>
+							<div id="company-description">
+								NEW Description
+							</div>
+						</div>
 					</div>
 
 					<div style={{borderRight: '1px solid #e5eaef'}}>
@@ -200,6 +188,20 @@ function AddCompany() {
 						    	onChange={(e) => setEmail(e.target.value)}
 						    />
 					    	<small id="companyEmailHelp" className="form-text text-muted">Email of the company.</small>
+					  	</div>
+
+					  	<div className="form-group mb-3">
+						    <label htmlFor="companyPhone">Phone Number</label>
+						    <input 
+						    	type="tel" 
+						    	className="form-control" 
+						    	id="companyPhone" 
+						    	aria-describedby="companyPhoneHelp" 
+						    	placeholder="Email" 
+						    	value={phoneNumber}
+						    	onChange={(e) => setPhoneNumber(e.target.value)}
+						    />
+					    	<small id="companyEmailHelp" className="form-text text-muted">Phone No of the company.</small>
 					  	</div>
 					  	
 						<div style={{margin: '20px 0'}}>

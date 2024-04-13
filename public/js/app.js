@@ -9284,10 +9284,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var quill_dist_quill_core_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! quill/dist/quill.core.css */ "./node_modules/quill/dist/quill.core.css");
 /* harmony import */ var quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! quill/dist/quill.snow.css */ "./node_modules/quill/dist/quill.snow.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -9342,7 +9338,7 @@ function AddCompany() {
     _useState16 = _slicedToArray(_useState15, 2),
     phoneNumber = _useState16[0],
     setPhoneNumber = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('ecommerce'),
     _useState18 = _slicedToArray(_useState17, 2),
     industry = _useState18[0],
     setIndustry = _useState18[1];
@@ -9359,32 +9355,23 @@ function AddCompany() {
     editorOptions = _useState20[0],
     setEditorOptions = _useState20[1];
   function saveCompany() {
-    var contact = {
+    var contactInformation = {
       phone_number: phoneNumber,
       email: email
     };
     var formData = new FormData();
-    formData.append('logo', resume);
-    formData.append('submission', JSON.stringify(context.submission));
+    formData.append('title', title);
+    formData.append('logo', logo);
     formData.append('description', description.getSemanticHTML());
     formData.append('website_url', websiteUrl);
     formData.append('industry', industry);
     formData.append('total_employees', totalEmployees);
     formData.append('locations', locations);
-    formData.append('contact_information', JSON.stringify(contact));
+    formData.append('contact_information', JSON.stringify(contactInformation));
     formData.append('_method', 'put');
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/company/store', _defineProperty(_defineProperty(_defineProperty({
-      title: title,
-      description: description.getSemanticHTML(),
-      total_employees: totalEmployees,
-      website_url: websiteUrl,
-      industry: industry
-    }, "industry", industry), "locations", locations), "contact_information", {
-      phone_number: phoneNumber,
-      email: email
-    })).then(function (response) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/company/store', formData).then(function (response) {
       alert("RECORD CREATED");
-    });
+    })["catch"](function () {});
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -9412,20 +9399,6 @@ function AddCompany() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "w-50",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "mb-3",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-              htmlFor: "formFileSm",
-              className: "form-label",
-              children: "Small file input example"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-              className: "form-control form-control-sm",
-              id: "formFileSm",
-              type: "file",
-              onChange: function onChange(e) {
-                setLogo(e.target.value);
-              }
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "form-group mb-3",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
               htmlFor: "title",
@@ -9448,10 +9421,16 @@ function AddCompany() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "mb-3",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-              children: "Description"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              id: "company-description",
-              children: "NEW Description"
+              htmlFor: "formFileSm",
+              className: "form-label",
+              children: "Small file input example"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+              className: "form-control form-control-sm",
+              id: "formFileSm",
+              type: "file",
+              onChange: function onChange(e) {
+                setLogo(e.target.files[0]);
+              }
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "form-group mb-3",
@@ -9483,6 +9462,14 @@ function AddCompany() {
               }) : ''
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
               className: "p-4"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            className: "mb-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+              children: "Description"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              id: "company-description",
+              children: "NEW Description"
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -9550,6 +9537,26 @@ function AddCompany() {
               id: "companyEmailHelp",
               className: "form-text text-muted",
               children: "Email of the company."
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            className: "form-group mb-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+              htmlFor: "companyPhone",
+              children: "Phone Number"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+              type: "tel",
+              className: "form-control",
+              id: "companyPhone",
+              "aria-describedby": "companyPhoneHelp",
+              placeholder: "Email",
+              value: phoneNumber,
+              onChange: function onChange(e) {
+                return setPhoneNumber(e.target.value);
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
+              id: "companyEmailHelp",
+              className: "form-text text-muted",
+              children: "Phone No of the company."
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             style: {
@@ -10192,7 +10199,7 @@ function Company() {
             className: "row gap-3",
             children: [companies === null || companies === void 0 ? void 0 : companies.map(function (company) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "mb-4 col-4 bg-white rounded border-white",
+                className: "mb-4 col-3 bg-white rounded border-white",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
                   className: "",
                   children: company.title
