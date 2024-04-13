@@ -22,6 +22,7 @@ class CreateCompaniesTable extends Migration
             $table->integer('total_employees');
             $table->string('website');
             $table->json('contact_information');
+            $table->json('feedback')->nullable();
             $table->string('industry');
             $table->timestamps();
         });
