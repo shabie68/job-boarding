@@ -36,5 +36,5 @@ Route::put("apply/candidate/{user_id}/job/{board_id}", [App\Http\Controllers\Sub
 Route::middleware('auth:sanctum')->get("single-job/{id}", [App\Http\Controllers\BoardJobController::class, 'getJob']);
 Route::group(['prefix' => 'company', 'as' => 'company'], function() {
 	Route::post('show-companies', [\App\Http\Controllers\CompanyController::class, 'show'])->name('show.company');
-	Route::post('store-company', [\App\Http\Controllers\CompanyController::class, 'store'])->name('add.company');
+	Route::post('/store', [\App\Http\Controllers\CompanyController::class, 'store'])->name('add.company');
 });

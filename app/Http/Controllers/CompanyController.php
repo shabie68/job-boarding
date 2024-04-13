@@ -21,6 +21,7 @@ class CompanyController extends Controller
     	$company = Company::create([
 
     		"title" => $request->title,
+            "logo" => 'testing.png',
     		"description" => $request->description,
     		"locations" => $request->locations,
     		"total_employees" => $request->total_employees,
@@ -28,5 +29,9 @@ class CompanyController extends Controller
     		"contact_information" => $request->contact_information,
     		"industry" => $request->industry
     	]);
+
+        return response()->json([
+            "company" => $company
+        ]);
     }
 }

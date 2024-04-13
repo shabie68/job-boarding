@@ -1,10 +1,8 @@
 import {useState, useEffect} from 'react'
 import apiClient from '../services/apiClient';
 import Quill from 'quill';
-
 import Toolbar from "quill/modules/toolbar";
 import Snow from "quill/themes/snow";
-
 import Bold from "quill/formats/bold";
 import Italic from "quill/formats/italic";
 import Header from "quill/formats/header";
@@ -12,12 +10,10 @@ import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 
 
-
 function AddCompany() {
 
 	useEffect(() => {
-		setDescription(new Quill('#company-description', editorOptions))
-				
+		setDescription(new Quill('#company-description', editorOptions))		
 	}, [])
 
 	const [title, setTitle] = useState();
@@ -28,8 +24,7 @@ function AddCompany() {
 	const [totalEmployees, setTotalEmployees] = useState();
 	const [websiteUrl, setWebsiteUrl] = useState();
 	const [phoneNumber, setPhoneNumber] = useState();
-	const [Industry, setIndustry] = useState();
-
+	const [industry, setIndustry] = useState();
 
 	const [editorOptions, setEditorOptions] = useState({
 	  debug: 'info',
@@ -41,19 +36,26 @@ function AddCompany() {
 	  container: '#description'
 	})
 
-	apiClient.post('127.0.0.1:8000/api/add-company', {
-		title: title,
-		description: description,
-		logo: logo,
-		locations: locations,
-		email, email,
-		total_employees: totalEmployees,
-		website_url: websiteUrl,
-		phone_number: phoneNumber,
-		industry, industry
-	})
+	function saveCompany() {
+		apiClient.post('http://127.0.0.1:8000/api/company/store', {
+			title: title,
+			description: description.getSemanticHTML(),
+			total_employees: totalEmployees,
+			website_url: websiteUrl,
+			industry, industry,
+			// logo: '',
+			locations: locations,
+			contact_information: {
+				phone_number: phoneNumber,
+				email: email
+			}
+			
+		})
+		.then((response) => {
+			alert("RECORD CREATED")
+		})
 
-
+	}
 
 
 	return (
@@ -109,20 +111,6 @@ function AddCompany() {
 
 				  		</span>
 				  	</div>
-
-				  	<div className="form-group mb-3">
-					    <label htmlFor="title">Total Employees</label>
-					    <input 
-					    	type="number" 
-					    	className="form-control" 
-					    	id="employees" 
-					    	aria-describedby="employeesHelp" 
-					    	placeholder="Total Employees" 
-					    	value={totalEmployees}
-					    	onChange={(e) => setTotalEmployees(e.target.value)}
-					    />
-				    	<small id="employeesHelp" className="form-text text-muted">Total employees in the company</small>
-				  	</div>
 				</div>
 
 				<div style={{borderRight: '1px solid #e5eaef'}}>
@@ -145,6 +133,20 @@ function AddCompany() {
 				  	</div>
 
 				  	<div className="form-group mb-3">
+					    <label htmlFor="title">Total Employees</label>
+					    <input 
+					    	type="number" 
+					    	className="form-control" 
+					    	id="employees" 
+					    	aria-describedby="employeesHelp" 
+					    	placeholder="Total Employees" 
+					    	value={totalEmployees}
+					    	onChange={(e) => setTotalEmployees(e.target.value)}
+					    />
+				    	<small id="employeesHelp" className="form-text text-muted">Total employees in the company</small>
+				  	</div>
+
+				  	<div className="form-group mb-3">
 					    <label htmlFor="companyEmail">Email</label>
 					    <input 
 					    	type="email" 
@@ -155,7 +157,7 @@ function AddCompany() {
 					    	value={email}
 					    	onChange={(e) => setEmail(e.target.value)}
 					    />
-				    	<small id="companyEmailHelp" className="form-text text-muted">Email of the company. (Separated by commas)</small>
+				    	<small id="companyEmailHelp" className="form-text text-muted">Email of the company.</small>
 				  	</div>
 				  	
 					<div style={{margin: '20px 0'}}>
@@ -175,9 +177,9 @@ function AddCompany() {
 				</div>
 			</div>
 			
-			<div className="row mb-0">
-	            <div className="col-md-8 offset-md-4">
-	                <button type="submit" className="btn btn-primary" onClick={saveCompany}>Register</button>
+			<div className="row mb-0 text-end">
+	            <div className="col-md-8 offset-md-4 ">
+	                <button type="button" className="btn btn-primary" onClick={saveCompany}>Register</button>
 	            </div>
 	        </div>
         </div>

@@ -9342,7 +9342,7 @@ function AddCompany() {
     setPhoneNumber = _useState16[1];
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState18 = _slicedToArray(_useState17, 2),
-    Industry = _useState18[0],
+    industry = _useState18[0],
     setIndustry = _useState18[1];
   var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       debug: 'info',
@@ -9356,13 +9356,20 @@ function AddCompany() {
     _useState20 = _slicedToArray(_useState19, 2),
     editorOptions = _useState20[0],
     setEditorOptions = _useState20[1];
-  _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('127.0.0.1:8000/api/add-company', _defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty(_defineProperty({
-    title: title,
-    description: description,
-    logo: logo,
-    locations: locations,
-    email: email
-  }, "email", email), "total_employees", totalEmployees), "website_url", websiteUrl), "phone_number", phoneNumber), "industry", industry), "industry", industry));
+  function saveCompany() {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/company/store', _defineProperty(_defineProperty(_defineProperty({
+      title: title,
+      description: description.getSemanticHTML(),
+      total_employees: totalEmployees,
+      website_url: websiteUrl,
+      industry: industry
+    }, "industry", industry), "locations", locations), "contact_information", {
+      phone_number: phoneNumber,
+      email: email
+    })).then(function (response) {
+      alert("RECORD CREATED");
+    });
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
     className: "bg-white mb-3",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -9428,26 +9435,6 @@ function AddCompany() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
             className: "p-4"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "form-group mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-            htmlFor: "title",
-            children: "Total Employees"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-            type: "number",
-            className: "form-control",
-            id: "employees",
-            "aria-describedby": "employeesHelp",
-            placeholder: "Total Employees",
-            value: totalEmployees,
-            onChange: function onChange(e) {
-              return setTotalEmployees(e.target.value);
-            }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
-            id: "employeesHelp",
-            className: "form-text text-muted",
-            children: "Total employees in the company"
-          })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         style: {
@@ -9478,6 +9465,26 @@ function AddCompany() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "form-group mb-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+            htmlFor: "title",
+            children: "Total Employees"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+            type: "number",
+            className: "form-control",
+            id: "employees",
+            "aria-describedby": "employeesHelp",
+            placeholder: "Total Employees",
+            value: totalEmployees,
+            onChange: function onChange(e) {
+              return setTotalEmployees(e.target.value);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
+            id: "employeesHelp",
+            className: "form-text text-muted",
+            children: "Total employees in the company"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+          className: "form-group mb-3",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
             htmlFor: "companyEmail",
             children: "Email"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
@@ -9493,7 +9500,7 @@ function AddCompany() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
             id: "companyEmailHelp",
             className: "form-text text-muted",
-            children: "Email of the company. (Separated by commas)"
+            children: "Email of the company."
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           style: {
@@ -9527,11 +9534,11 @@ function AddCompany() {
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "row mb-0",
+      className: "row mb-0 text-end",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-        className: "col-md-8 offset-md-4",
+        className: "col-md-8 offset-md-4 ",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-          type: "submit",
+          type: "button",
           className: "btn btn-primary",
           onClick: saveCompany,
           children: "Register"
@@ -10134,30 +10141,30 @@ function Example() {
       setUser(response.data.user);
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-      className: "d-flex justify-content-between bg-secondary w-100 top-0 my-4",
-      style: {
-        padding: '8px 20px'
-      },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-        onClick: logout,
-        className: " text-primary",
-        style: {
-          cursor: 'pointer'
-        },
-        children: "Logout"
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_10__["default"].Provider, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_10__["default"].Provider, {
       value: boardJob,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
         className: "container",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.BrowserRouter, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Routes, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.BrowserRouter, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            className: "d-flex justify-content-between bg-secondary w-100 top-0 my-4",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Link, {
+              to: "/home",
+              children: "Home"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Link, {
+              to: "/add-job",
+              children: "Add Job"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+              onClick: logout,
+              className: " text-primary",
+              style: {
+                cursor: 'pointer'
+              },
+              children: "Logout"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Routes, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
-              path: "/home",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_AddCompany__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-            }), "// ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
               path: "/home",
               element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ShowJob__WEBPACK_IMPORTED_MODULE_2__["default"], {})
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
@@ -10185,10 +10192,10 @@ function Example() {
                 user: user
               })
             })]
-          })
+          })]
         })
       })
-    })]
+    })
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Example);

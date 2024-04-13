@@ -8,6 +8,7 @@ import Experience from './Experience'
 import JobQuestions from './JobQuestions'
 import AddCompany from './AddCompany'
 
+
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
 import BoardJobContext from '../contexts/BoardJobContext.js'
@@ -39,19 +40,22 @@ function Example() {
 
     return (
         <div>
-            <div className="d-flex justify-content-between bg-secondary w-100 top-0 my-4" style={{padding: '8px 20px'}}>
-                <div onClick={logout} className=" text-primary" style={{ cursor: 'pointer'}}>
-                    Logout
-                </div>
-            </div>
 
             <BoardJobContext.Provider value={boardJob}>
 
             <div className="container">
                 <BrowserRouter>
+                    <div className="d-flex justify-content-between bg-secondary w-100 top-0 my-4">
+                        <Link to="/home">Home</Link>
+                        <Link to="/add-job">Add Job</Link>
+                        <div onClick={logout} className=" text-primary" style={{ cursor: 'pointer'}}>
+                            Logout
+                        </div>
+                    </div>
+                
+
                     <Routes>
-                        <Route path="/home" element={<AddCompany />} />
-                        // <Route path="/home" element={<ShowJob />} />
+                        <Route path="/home" element={<ShowJob />} />
                         <Route path="/add-job" element={<AddJob />} />
                         <Route path="/apply" element={<Apply user={user} updateJobContext={updateJobContext} />} />
                         <Route path="/resume" element={<Resume user={user} />} />
