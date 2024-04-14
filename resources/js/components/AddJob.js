@@ -89,7 +89,7 @@ function AddJob() {
 		    body: JSON.stringify(data),
 		})
 	    .then(response => response.json())
-	    .then(window.location = '/home')
+	    // .then(window.location = '/home')
 	    .catch(error => console.error('Error:', error));
 
 	}

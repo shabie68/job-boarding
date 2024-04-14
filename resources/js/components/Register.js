@@ -11,7 +11,9 @@ const Register = (props) => {
     const [email, setEmail] =  useState('');
     const [password, setPassword] =  useState('');
     const [password_confirmation, setPasswordConfirmation] = useState('');
+    const [role, setRole] = useState(1)
     const [loading, setLoading] = useState(false)
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +24,8 @@ const Register = (props) => {
 	        	name: name,
 	            email: email,
 	            password: password,
-	            password_confirmation: password_confirmation
+	            password_confirmation: password_confirmation,
+                role: role
 	        }).then(response => {
                 if(response.status===201) {  
                     window.location = '/home'
@@ -30,6 +33,8 @@ const Register = (props) => {
 	        })
 	    });
     }
+
+
     return (
 
         <div>
@@ -58,7 +63,6 @@ const Register = (props) => {
                                             />
                                         </div>
                                     </div>
-
 
                                     <div className="row mb-3">
                                         <label htmlFor="email" className="col-md-4 col-form-label text-md-end">Email Address</label>
@@ -109,6 +113,22 @@ const Register = (props) => {
 			                               		autoComplete="new-password" />
 			                            </div>
 			                        </div>
+
+
+                                    {role} is the role
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="account_type" id="recruiter" onChange={(e) => {setRole(e.target.value)}} value="1" checked={role== 1 ? true : false} />
+                                      <label class="form-check-label" htmlFor="recruiter">
+                                        Recruiter
+                                      </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="account_type" id="job_seeker" onChange={(e) => {setRole(e.target.value)}} value="2" checked={role== 2 ? true : false} />
+                                      <label class="form-check-label" htmlFor="job_seeker">
+                                        Job Seeker
+                                      </label>
+                                    </div>
 
                                     <div className="row mb-0">
                                         <div className="col-md-8 offset-md-4">

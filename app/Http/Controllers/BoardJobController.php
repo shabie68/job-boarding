@@ -37,7 +37,8 @@ class BoardJobController extends Controller
             $jobs = BoardJob::paginate(2);
             
             return response()->json([
-                "jobs" => $jobs
+                "jobs" => $jobs,
+                "role" => auth()->user()->role
             ]);
 
         }
