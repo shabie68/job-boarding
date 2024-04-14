@@ -107,28 +107,32 @@ const Register = (props) => {
                                                 onChange={e => setPasswordConfirmation(e.target.value)}
                                                 required
                                                 className="form-control"
-                                           
 			                               		name="password_confirmation" 
 			                               		required 
 			                               		autoComplete="new-password" />
 			                            </div>
 			                        </div>
 
+                                    <div className="row">
+                                        <div className="col-md-4 col-form-label text-md-end"> Role: </div>
 
-                                    {role} is the role
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="account_type" id="recruiter" onChange={(e) => {setRole(e.target.value)}} value="1" checked={role== 1 ? true : false} />
-                                      <label class="form-check-label" htmlFor="recruiter">
-                                        Recruiter
-                                      </label>
-                                    </div>
+                                        <div className="col-md-6 d-flex gap-4 align-items-center">
+                                            <div className="form-check">
+                                              <input className="form-check-input" type="radio" name="account_type" id="recruiter" onChange={(e) => {setRole(e.target.value)}} value="1" checked={role== 1 ? true : false} />
+                                              <label className="form-check-label" htmlFor="recruiter">
+                                                Recruiter
+                                              </label>
+                                            </div>
 
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="account_type" id="job_seeker" onChange={(e) => {setRole(e.target.value)}} value="2" checked={role== 2 ? true : false} />
-                                      <label class="form-check-label" htmlFor="job_seeker">
-                                        Job Seeker
-                                      </label>
+                                            <div className="form-check">
+                                              <input className="form-check-input" type="radio" name="account_type" id="job_seeker" onChange={(e) => {setRole(e.target.value)}} value="2" checked={role== 2 ? true : false} />
+                                              <label className="form-check-label" htmlFor="job_seeker">
+                                                Job Seeker
+                                              </label>
+                                            </div>
+                                        </div>
                                     </div>
+                                    
 
                                     <div className="row mb-0">
                                         <div className="col-md-8 offset-md-4">
@@ -141,7 +145,7 @@ const Register = (props) => {
                                                     </div>
                                                     :
                                                     <div>
-                                                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                                        <span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                                                         Loading...
                                                     </div>
                                                 }

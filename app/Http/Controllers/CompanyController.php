@@ -29,6 +29,7 @@ class CompanyController extends Controller
         }
 
     	$company = Company::create([
+            "user_id" => auth()->user()->id,
             "logo" => $logo,
     		"title" => $request->title,
     		"description" => $request->description,

@@ -11155,39 +11155,48 @@ var Register = function Register(props) {
                       name: "password_confirmation"
                     }, "required", true), "autoComplete", "new-password"))
                   })]
-                }), role, " is the role", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                  "class": "form-check",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-                    "class": "form-check-input",
-                    type: "radio",
-                    name: "account_type",
-                    id: "recruiter",
-                    onChange: function onChange(e) {
-                      setRole(e.target.value);
-                    },
-                    value: "1",
-                    checked: role == 1 ? true : false
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
-                    "class": "form-check-label",
-                    htmlFor: "recruiter",
-                    children: "Recruiter"
-                  })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                  "class": "form-check",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-                    "class": "form-check-input",
-                    type: "radio",
-                    name: "account_type",
-                    id: "job_seeker",
-                    onChange: function onChange(e) {
-                      setRole(e.target.value);
-                    },
-                    value: "2",
-                    checked: role == 2 ? true : false
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
-                    "class": "form-check-label",
-                    htmlFor: "job_seeker",
-                    children: "Job Seeker"
+                  className: "row",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    className: "col-md-4 col-form-label text-md-end",
+                    children: " Role: "
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    className: "col-md-6 d-flex gap-4 align-items-center",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                      className: "form-check",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                        className: "form-check-input",
+                        type: "radio",
+                        name: "account_type",
+                        id: "recruiter",
+                        onChange: function onChange(e) {
+                          setRole(e.target.value);
+                        },
+                        value: "1",
+                        checked: role == 1 ? true : false
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                        className: "form-check-label",
+                        htmlFor: "recruiter",
+                        children: "Recruiter"
+                      })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                      className: "form-check",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                        className: "form-check-input",
+                        type: "radio",
+                        name: "account_type",
+                        id: "job_seeker",
+                        onChange: function onChange(e) {
+                          setRole(e.target.value);
+                        },
+                        value: "2",
+                        checked: role == 2 ? true : false
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                        className: "form-check-label",
+                        htmlFor: "job_seeker",
+                        children: "Job Seeker"
+                      })]
+                    })]
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "row mb-0",
@@ -11200,7 +11209,7 @@ var Register = function Register(props) {
                         children: "Register"
                       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-                          "class": "spinner-grow spinner-grow-sm",
+                          className: "spinner-grow spinner-grow-sm",
                           role: "status",
                           "aria-hidden": "true"
                         }), "Loading..."]
