@@ -9762,7 +9762,9 @@ function AddJob() {
               body: JSON.stringify(data)
             }).then(function (response) {
               return response.json();
-            }).then(window.location = '/home')["catch"](function (error) {
+            })
+            // .then(window.location = '/home')
+            ["catch"](function (error) {
               return console.error('Error:', error);
             });
           case 2:
@@ -10360,11 +10362,6 @@ function Example() {
       }
     });
   };
-  var getUser = function getUser() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_10__["default"].get('http://127.0.0.1:8000/api/get-user').then(function (response) {
-      setUser(response.data.user);
-    });
-  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_11__["default"].Provider, {
     value: boardJob,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.BrowserRouter, {
@@ -10391,7 +10388,9 @@ function Example() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Routes, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             path: "/home",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_ShowJob__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_ShowJob__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              user: user
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
             path: "/add-job",
             element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_AddJob__WEBPACK_IMPORTED_MODULE_3__["default"], {})
@@ -10989,10 +10988,10 @@ var Register = function Register(props) {
     _useState8 = _slicedToArray(_useState7, 2),
     password_confirmation = _useState8[0],
     setPasswordConfirmation = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('recruiter'),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState10 = _slicedToArray(_useState9, 2),
-    type = _useState10[0],
-    setType = _useState10[1];
+    role = _useState10[0],
+    setRole = _useState10[1];
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState12 = _slicedToArray(_useState11, 2),
     loading = _useState12[0],
@@ -11005,7 +11004,8 @@ var Register = function Register(props) {
         name: name,
         email: email,
         password: password,
-        password_confirmation: password_confirmation
+        password_confirmation: password_confirmation,
+        role: role
       }).then(function (response) {
         if (response.status === 201) {
           window.location = '/home';
@@ -11109,7 +11109,7 @@ var Register = function Register(props) {
                       name: "password_confirmation"
                     }, "required", true), "autoComplete", "new-password"))
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                }), role, " is the role", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   "class": "form-check",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
                     "class": "form-check-input",
@@ -11117,13 +11117,13 @@ var Register = function Register(props) {
                     name: "account_type",
                     id: "recruiter",
                     onChange: function onChange(e) {
-                      setType(e.target.value);
+                      setRole(e.target.value);
                     },
-                    value: "recruiter",
-                    checked: type == 'recruiter' ? true : false
+                    value: "1",
+                    checked: role == 1 ? true : false
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     "class": "form-check-label",
-                    "for": "recruiter",
+                    htmlFor: "recruiter",
                     children: "Recruiter"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -11134,13 +11134,13 @@ var Register = function Register(props) {
                     name: "account_type",
                     id: "job_seeker",
                     onChange: function onChange(e) {
-                      setType(e.target.value);
+                      setRole(e.target.value);
                     },
-                    value: "job_seeker",
-                    checked: type == 'job_seeker' ? true : false
+                    value: "2",
+                    checked: role == 2 ? true : false
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     "class": "form-check-label",
-                    "for": "job_seeker",
+                    htmlFor: "job_seeker",
                     children: "Job Seeker"
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -11305,34 +11305,38 @@ function ShowJob() {
     _useState2 = _slicedToArray(_useState, 2),
     jobs = _useState2[0],
     setJobs = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState4 = _slicedToArray(_useState3, 2),
-    job = _useState4[0],
-    setJob = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    role = _useState4[0],
+    setRole = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState6 = _slicedToArray(_useState5, 2),
-    addJob = _useState6[0],
-    setAddJob = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    job = _useState6[0],
+    setJob = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState8 = _slicedToArray(_useState7, 2),
-    jobTitle = _useState8[0],
-    setJobTitle = _useState8[1];
+    addJob = _useState8[0],
+    setAddJob = _useState8[1];
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState10 = _slicedToArray(_useState9, 2),
-    jobType = _useState10[0],
-    setJobType = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    jobTitle = _useState10[0],
+    setJobTitle = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState12 = _slicedToArray(_useState11, 2),
-    currentPage = _useState12[0],
-    setCurrentPage = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    jobType = _useState12[0],
+    setJobType = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState14 = _slicedToArray(_useState13, 2),
-    nextPage = _useState14[0],
-    setNextPage = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    currentPage = _useState14[0],
+    setCurrentPage = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState16 = _slicedToArray(_useState15, 2),
-    lastPage = _useState16[0],
-    setLastPage = _useState16[1];
+    nextPage = _useState16[0],
+    setNextPage = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState18 = _slicedToArray(_useState17, 2),
+    lastPage = _useState18[0],
+    setLastPage = _useState18[1];
   var next = function next() {
     setCurrentPage(currentPage + 1);
   };
@@ -11348,6 +11352,8 @@ function ShowJob() {
       setNextPage(response.data.jobs.next_page_url);
       setLastPage(response.data.jobs.last_page);
       setJob(response.data.jobs.data[0]);
+      setRole(response.data.role);
+      console.log(response.data);
       if (search) {
         setCurrentPage(1);
       }
@@ -11461,7 +11467,7 @@ function ShowJob() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "my-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "d-flex justify-content-between align-items-center my-4 border-bottom",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
             className: "mb-0",
@@ -11477,7 +11483,7 @@ function ShowJob() {
               })
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "d-flex gap-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "w-40",

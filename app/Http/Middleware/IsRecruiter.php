@@ -16,6 +16,11 @@ class IsRecruiter
      */
     public function handle(Request $request, Closure $next)
     {
+        if(auth()->user()->role != 1 ) {
+            return response()->json([
+                "error" => "YOU CANNOT ADD JOB"
+            ]);
+        }
         return $next($request);
     }
 }

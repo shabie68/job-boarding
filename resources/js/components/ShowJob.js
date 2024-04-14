@@ -7,6 +7,7 @@ import apiClient from '../services/apiClient';
 function ShowJob() {
 
     const [jobs, setJobs] = useState([]);
+    const [role, setRole] = useState(1);
     const [job, setJob] = useState(null);
     const [addJob, setAddJob] = useState(false)
     const [jobTitle, setJobTitle] = useState('')
@@ -34,6 +35,8 @@ function ShowJob() {
             setNextPage(response.data.jobs.next_page_url)
             setLastPage(response.data.jobs.last_page)
             setJob(response.data.jobs.data[0])
+            setRole(response.data.role)
+            console.log(response.data)
             if(search) {
               setCurrentPage(1)
             }
@@ -70,6 +73,7 @@ function ShowJob() {
 
     return(
         <div>
+
             <div className="d-flex justify-content-center">
                 <div>
                     <div className="input-group mb-3">
@@ -92,6 +96,7 @@ function ShowJob() {
                        <button className="btn btn-secondary" onClick={() => getJobs(true, 'first-time')}>Search Job</button>
                         
                       </div>                    
+                
                 </div>
 
                 <div>
@@ -107,18 +112,25 @@ function ShowJob() {
                    
                 </div>
             </div>
+
             <div className="my-5">
                 <div>
-                    <div className="d-flex justify-content-between align-items-center my-4 border-bottom">
-                        <h4 className="mb-0">Add New Job </h4>
-                         <div className="">
-                            <Link to="/add-job">
-                                <button type="button" className="btn btn-primary mb-4">
-                                    Add Job
-                                </button>
-                            </Link>
+                    {
+                        role == 1 ?
+
+                        <div className="d-flex justify-content-between align-items-center my-4 border-bottom">
+                            <h4 className="mb-0">Add New Job </h4>
+                             <div className="">
+                                <Link to="/add-job">
+                                    <button type="button" className="btn btn-primary mb-4">
+                                        Add Job
+                                    </button>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
+                        : ''
+                    }
+                    
 
                     <div className="d-flex gap-3">
                          <div className="w-40" style={{width: '45%'}}>

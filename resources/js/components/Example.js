@@ -30,13 +30,6 @@ function Example() {
         })
     };
 
-    const getUser = () => {
-        apiClient.get('http://127.0.0.1:8000/api/get-user')
-        .then(response => {
-            setUser(response.data.user)
-        })
-    }
-
     return (
 
         <BoardJobContext.Provider value={boardJob}>
@@ -49,10 +42,9 @@ function Example() {
                     </div>
                 </div>
             
-
                 <div className="container">
                     <Routes>
-                        <Route path="/home" element={<ShowJob />} />
+                        <Route path="/home" element={<ShowJob user={user}/>} />
                         <Route path="/add-job" element={<AddJob />} />
                         <Route path="/companies" element={<Company />} />
                         <Route path="/add-company" element={<AddCompany />} />
