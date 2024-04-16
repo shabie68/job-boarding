@@ -30,6 +30,7 @@ class SubmissionController extends Controller
                 'salary_expectation' => '40000',
                 'notice_period' => '14',
                 'schedule_interview' => Carbon::now()
+                
             ]);
         }
     	

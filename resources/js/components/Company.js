@@ -7,6 +7,7 @@ function Company() {
 	const [companies, setCompanies] = useState([]);
 	const [nextPage, setNextPage] = useState(null)
 	const [lastPage, setLastPage] = useState(1);
+	const [role, setRole] = useState(0);
 
 	useEffect(() => {
 		getCompanies()
@@ -19,26 +20,29 @@ function Company() {
 	   apiClient.get('http://127.0.0.1:8000/api/company/show-companies')
 		.then(function(response) {
 			setCompanies(response.data.companies)
-			
+			setRole(response.data.role)
 		})
 		.catch((error) => {
 
 		})
 	}
 
-
 	return(
 		<div>
 			<div className="my-5">
 				<div>
-				  	<div className="d-flex justify-content-between align-items-center my-4 border-bottom">
-					  <h4 className="mb-0">Add New Company </h4>
-					   <div className="">
-						  <Link to="/add-company">
-							  <button type="button" className="btn btn-primary mb-4">Add Company</button>
-						  </Link>
-					  </div>
-				  	</div>
+					{role == 1 ?
+						<div className="d-flex justify-content-between align-items-center my-4 border-bottom">
+						  <h4 className="mb-0">Add New Company </h4>
+						   <div className="">
+							  <Link to="/add-company">
+								  <button type="button" className="btn btn-primary mb-4">Add Company</button>
+							  </Link>
+						  </div>
+					  	</div>
+					  	: ''
+					}
+				  	
 
 				  	<div className="">
 						<div className="row gap-3">

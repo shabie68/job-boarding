@@ -13,10 +13,6 @@ import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 
 
-
-
-
-
 /**
 
 
@@ -92,7 +88,7 @@ function AddJob() {
 	    .then(response => response.json())
 	    .then(navigate('/home'))
 	    .catch(error => console.error('Error:', error));
-	    //window.location = '/home'
+
 	}
 
 

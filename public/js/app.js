@@ -9770,7 +9770,6 @@ function AddJob() {
             }).then(navigate('/home'))["catch"](function (error) {
               return console.error('Error:', error);
             });
-            //window.location = '/home'
           case 2:
           case "end":
             return _context.stop();
@@ -10182,6 +10181,10 @@ function Company() {
     _useState6 = _slicedToArray(_useState5, 2),
     lastPage = _useState6[0],
     setLastPage = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState8 = _slicedToArray(_useState7, 2),
+    role = _useState8[0],
+    setRole = _useState8[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getCompanies();
   }, []);
@@ -10190,13 +10193,14 @@ function Company() {
 
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].get('http://127.0.0.1:8000/api/company/show-companies').then(function (response) {
       setCompanies(response.data.companies);
+      setRole(response.data.role);
     })["catch"](function (error) {});
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "my-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "d-flex justify-content-between align-items-center my-4 border-bottom",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
             className: "mb-0",
@@ -10212,7 +10216,7 @@ function Company() {
               })
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "row gap-3",
@@ -11360,7 +11364,7 @@ function ShowJob() {
     _useState2 = _slicedToArray(_useState, 2),
     jobs = _useState2[0],
     setJobs = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState4 = _slicedToArray(_useState3, 2),
     role = _useState4[0],
     setRole = _useState4[1];
@@ -11392,6 +11396,10 @@ function ShowJob() {
     _useState18 = _slicedToArray(_useState17, 2),
     lastPage = _useState18[0],
     setLastPage = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState20 = _slicedToArray(_useState19, 2),
+    company = _useState20[0],
+    setCompany = _useState20[1];
   var next = function next() {
     setCurrentPage(currentPage + 1);
   };
@@ -11408,7 +11416,7 @@ function ShowJob() {
       setLastPage(response.data.jobs.last_page);
       setJob(response.data.jobs.data[0]);
       setRole(response.data.role);
-      console.log(response.data);
+      setCompany(response.data.company);
       if (search) {
         setCurrentPage(1);
       }
@@ -11554,9 +11562,18 @@ function ShowJob() {
                 onClick: function onClick() {
                   getJob(_job.id);
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
-                  className: "card-header",
-                  children: _job.title
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: "d-flex card-header align-items-center",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                    className: "",
+                    children: _job.title
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
+                    className: "ml-end",
+                    style: {
+                      marginLeft: 'auto'
+                    },
+                    children: company
+                  })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                   className: "card-body",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
@@ -11622,7 +11639,8 @@ function ShowJob() {
             })]
           }), job ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_SingleJob__WEBPACK_IMPORTED_MODULE_1__["default"], {
-              job: job
+              job: job,
+              company: company
             })
           }) : '']
         })]
@@ -11681,8 +11699,13 @@ function SingleJob(props) {
       className: "card",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: "card-header",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
-          children: props === null || props === void 0 ? void 0 : props.job.title
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          className: "",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+            children: props === null || props === void 0 ? void 0 : props.job.title
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
+            children: props.company
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
           className: "d-flex",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {

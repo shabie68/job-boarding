@@ -12,9 +12,9 @@ class BoardJobController extends Controller
     
     public function store(Request $request) {
 
-
     	$job = BoardJob::create([
             "user_id" => auth()->user()->id,
+            "company_id" => auth()->user()->company->id,
     		"title" => $request->title,
     		"description" => $request->description,
     		"location" => $request->location,
@@ -38,7 +38,8 @@ class BoardJobController extends Controller
             
             return response()->json([
                 "jobs" => $jobs,
-                "role" => auth()->user()->role
+                "role" => auth()->user()->role,
+                "company" => auth()->user()->company->title
             ]);
 
         }

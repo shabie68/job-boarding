@@ -13,7 +13,8 @@ class CompanyController extends Controller
     	$companies = Company::all();
 
     	return response()->json([
-    		"companies" => $companies
+    		"companies" => $companies,
+            "role" => auth()->user()->role
     	]);
     }
 
