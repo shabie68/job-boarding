@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Link, Route, useNavigate } from "react-router-dom";
 
 import Quill from 'quill';
 
@@ -11,10 +11,6 @@ import Italic from "quill/formats/italic";
 import Header from "quill/formats/header";
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
-
-
-
-
 
 
 /**
@@ -58,6 +54,7 @@ function AddJob() {
 	})
 
 	
+	const navigate = useNavigate()
 	const [descriptionQuill, setDescriptionQuill] = useState();
 	const [responsibilityQuill, setResponsibilityQuill] = useState();
 	const [requirementQuill, setRequirementQuill] = useState();
@@ -89,7 +86,7 @@ function AddJob() {
 		    body: JSON.stringify(data),
 		})
 	    .then(response => response.json())
-	    // .then(window.location = '/home')
+	    .then(navigate('/home'))
 	    .catch(error => console.error('Error:', error));
 
 	}

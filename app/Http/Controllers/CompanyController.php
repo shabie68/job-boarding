@@ -13,7 +13,8 @@ class CompanyController extends Controller
     	$companies = Company::all();
 
     	return response()->json([
-    		"companies" => $companies
+    		"companies" => $companies,
+            "role" => auth()->user()->role
     	]);
     }
 
@@ -29,6 +30,7 @@ class CompanyController extends Controller
         }
 
     	$company = Company::create([
+            "user_id" => auth()->user()->id,
             "logo" => $logo,
     		"title" => $request->title,
     		"description" => $request->description,

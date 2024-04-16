@@ -7,7 +7,8 @@ import apiClient from '../services/apiClient';
 function ShowJob() {
 
     const [jobs, setJobs] = useState([]);
-    const [role, setRole] = useState(1);
+    const [role, setRole] = useState(0);
+    
     const [job, setJob] = useState(null);
     const [addJob, setAddJob] = useState(false)
     const [jobTitle, setJobTitle] = useState('')
@@ -15,6 +16,7 @@ function ShowJob() {
     const [currentPage, setCurrentPage] = useState(1)
     const [nextPage, setNextPage] = useState(null)
     const [lastPage, setLastPage] = useState(1);
+    const [company, setCompany] = useState();
 
 
     const next = () => {
@@ -36,7 +38,7 @@ function ShowJob() {
             setLastPage(response.data.jobs.last_page)
             setJob(response.data.jobs.data[0])
             setRole(response.data.role)
-            console.log(response.data)
+            setCompany(response.data.company)
             if(search) {
               setCurrentPage(1)
             }
@@ -138,7 +140,11 @@ function ShowJob() {
 
                                <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
                                onClick={()=> {getJob(_job.id)}}>
-                                 <h3 className="card-header">{_job.title}</h3>
+                                <div className="d-flex card-header align-items-center">
+                                    <h3 className="">{_job.title}</h3>
+                                    <strong className="ml-end" style={{marginLeft: 'auto'}}>{company}</strong>
+                                </div>
+                                 
                                  <div className="card-body">
                                      <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
                                  
@@ -174,7 +180,7 @@ function ShowJob() {
 
                          {job ?
                             <>
-                             <SingleJob job={job}/>
+                             <SingleJob job={job} company={company}/>
                              </>
                              : ''
 

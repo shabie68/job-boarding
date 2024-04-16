@@ -7,7 +7,11 @@ function SingleJob(props) {
 		<div className="w-50 position-sticky end-0" style={{top: '80px', alignSelf: 'flex-start'}} >
 			<div className="card">
 				<div className="card-header">
-					<h3>{props?.job.title}</h3>
+					<div className="">
+						<h3>{props?.job.title}</h3>
+						<strong>{props.company}</strong>
+					</div>
+					
 					<div className="d-flex">
 						<div>
 							<div>

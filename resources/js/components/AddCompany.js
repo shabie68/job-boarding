@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import apiClient from '../services/apiClient';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Quill from 'quill';
 import Toolbar from "quill/modules/toolbar";
 import Snow from "quill/themes/snow";
@@ -12,6 +12,8 @@ import "quill/dist/quill.snow.css";
 
 
 function AddCompany() {
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		setDescription(new Quill('#company-description', editorOptions))		
@@ -62,7 +64,9 @@ function AddCompany() {
 
 		apiClient.post('http://127.0.0.1:8000/api/company/store', formData)
 		.then((response) => {
-			window.locations = '/companies'
+			// window.location = '/companies'
+			navigate('/companies')
+
 		})
 		.catch(() => {
 

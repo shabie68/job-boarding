@@ -14,4 +14,8 @@ class Company extends Model
     protected $casts = [
     	'contact_information' => 'array'
     ];
+
+    public function user() {
+    	return $this->belongsTo(User::class);
+    }
 }
