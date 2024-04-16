@@ -8,6 +8,7 @@ import Experience from './Experience'
 import JobQuestions from './JobQuestions'
 import Company from './Company'
 import AddCompany from './AddCompany'
+import Profile from './Profile'
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
 import BoardJobContext from '../contexts/BoardJobContext.js'
@@ -37,6 +38,7 @@ function Example() {
                 <div className="d-flex justify-content-around bg-secondary w-100 top-0 my-4 py-2 text-light">
                     <Link className="text-decoration-none text-light" to="/home">Home</Link>
                     <Link className="text-decoration-none text-light" to="/companies">Companies</Link>
+                    <Link className="text-decoration-none text-light" to="/user-profile">Proffile</Link>
                     <div onClick={logout} className=" text-light" style={{ cursor: 'pointer'}}>
                         Logout
                     </div>
@@ -52,6 +54,7 @@ function Example() {
                         <Route path="/resume" element={<Resume user={user} />} />
                         <Route path="/experience" element={<Experience user={user} />} />
                         <Route path="/job-questions" element={<JobQuestions user={user} />} /> 
+                        <Route path="/user-profile" element={<Profile/>} /> 
                     </Routes>
                 </div>
 
