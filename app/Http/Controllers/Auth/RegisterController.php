@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
 
 class RegisterController extends Controller
 {
@@ -73,6 +75,24 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             
 
+        ]);
+
+        $skills =  
+        [
+            "php" => "2 years",
+            "laravel" => "2 years",
+            "vuejs" => "1 year"
+
+        ];
+
+
+        $profile = Profile::create([
+            "user_id" => $user->id,
+            "summary" => "Developer with 3 years of experience",
+            "education" => "Bachelor of Software Engineering",
+            "phone_number" => 4893483,
+            "address" => "Passkaly Hangu, Pakistan",
+            "skills" => json_encode($skills)
         ]);
 
         return $user;
