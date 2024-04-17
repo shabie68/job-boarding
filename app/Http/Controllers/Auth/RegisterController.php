@@ -77,24 +77,6 @@ class RegisterController extends Controller
 
         ]);
 
-        $skills =  
-        [
-            "php" => "2 years",
-            "laravel" => "2 years",
-            "vuejs" => "1 year"
-
-        ];
-
-
-        $profile = Profile::create([
-            "user_id" => $user->id,
-            "summary" => "Developer with 3 years of experience",
-            "education" => "Bachelor of Software Engineering",
-            "phone_number" => 4893483,
-            "address" => "Passkaly Hangu, Pakistan",
-            "skills" => json_encode($skills)
-        ]);
-
         return $user;
     }
 }

@@ -38,7 +38,7 @@ function Example() {
                 <div className="d-flex justify-content-around bg-secondary w-100 top-0 my-4 py-2 text-light">
                     <Link className="text-decoration-none text-light" to="/home">Home</Link>
                     <Link className="text-decoration-none text-light" to="/companies">Companies</Link>
-                    <Link className="text-decoration-none text-light" to="/user-profile">Proffile</Link>
+                    <Link className="text-decoration-none text-light" to="/user-profile">Profile</Link>
                     <div onClick={logout} className=" text-light" style={{ cursor: 'pointer'}}>
                         Logout
                     </div>
