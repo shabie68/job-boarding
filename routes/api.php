@@ -30,6 +30,7 @@ Route::get('get-user', function() {
 Route::post("add-job-data/", [App\Http\Controllers\SubmissionController::class, 'addJobData'])->middleware('role');
 
 
+Route::put("save-profile/", [App\Http\Controllers\ProfileController::class, 'saveProfile'])->name('save.profile');
 Route::get("show-jobs", [App\Http\Controllers\BoardJobController::class, 'show']);
 Route::get("filter-jobs", [App\Http\Controllers\BoardJobController::class, 'filterJobs']);
 Route::put("apply/candidate/{user_id}/job/{board_id}", [App\Http\Controllers\SubmissionController::class, 'saveData']);
