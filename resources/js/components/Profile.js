@@ -20,13 +20,28 @@ function Profile() {
     const [skills, setSkills] = useState();
 
       var entries = [
-    "Apple",
-    "Banana",
-    "Orange",
-    "Grapes",
-    "Pineapple",
-    "Mango"
-  ];
+        "php",
+        "laravel",
+        "vuejs",
+        "javascript",
+        "reactjs",
+        "nodejs",
+        "html",
+        "css",
+        "c++",
+        "java",
+        "python",
+        "django",
+        "mysql",
+        "database",
+        "docker",
+        "wordpress",
+        "git",
+        "versioncontrol",
+        "webpack",
+        "bootstrap",
+        "npm"
+      ];
 
   const [searchTerm, setSearchTerm] = useState('');
   const [moreSkills, setMoreSkills] = useState([])
@@ -132,46 +147,62 @@ function Profile() {
                                 </div>
 
                                 <div className="form-group row mb-3">
-                                    <div htmlFor="skills" className="col-md-4 col-form-label text-md-end" >Selected Skills</div>
+                                    <div htmlFor="choose-skills" className="col-md-4 col-form-label text-md-end" >Choose Skills</div>
                                     <div className="col-md-6">
-                                        {
-                                                skills?.split(',').map((skill) => (
-                                                    <>
-                                                    <div key={skill} className="badge bg-secondary mx-2">{skill}</div>
-                                                    </>
-                                                ))
+                                        <div>
+                                            <input
+                                              type="text"
+                                              className="form-control"
+                                              placeholder="Search..."
+                                              value={searchTerm}
+                                              onChange={(e) => setSearchTerm(e.target.value)}
+                                            />
+                                        </div>
 
-                                            }
+                                        {
+                                            searchTerm ?
+                                            <div className="row">
+
+                                                    <div className="border rounded">
+                                                        {filterEntries().map((entry, index) => (
+                                                            <div key={entry}>
+
+                                                                <div onClick={()=> {handleAddSkills(entry)}}>{entry}</div>
+                                                            </div>
+                                                        ))}
+                                                  </div>
+                                            </div>
+                                            : ''
+                                        }
+                                        
                                     </div>
                                 </div>
 
-
-                                <div className="dropdown">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-
-        <div>
-          {filterEntries().map((entry, index) => (
-            <div key={entry}>
-
-                <div onClick={()=> {handleAddSkills(entry)}}>{entry}</div>
-            </div>
-          ))}
-        </div>
-      </div>
+                                
 
 
-      {
-        moreSkills.map((skill) => (
-            <div>{skill}</div>
-        ))
-      }
+                                <div className="form-group row mb-3">
+                                    <div htmlFor="skills" className="col-md-4 col-form-label text-md-end" >Selected Skills</div>
+                                    <div className="col-md-6">
+                                      
 
+
+                                        {
+                                        moreSkills.map((skill) => (
+
+                                            <>
+                                            <div key={skill} className="badge bg-secondary mx-2">{skill}</div>
+                                            </>
+                                        ))
+                                      }
+                                    </div>
+                                </div>
+
+                            
+
+                                
+                                        
+                               
                                 
                                 <div>
                                     <button className="btn btn-primary" onClick={saveProfile}>Save</button>

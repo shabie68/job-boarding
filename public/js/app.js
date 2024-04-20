@@ -11055,7 +11055,7 @@ function Profile() {
     _useState8 = _slicedToArray(_useState7, 2),
     skills = _useState8[0],
     setSkills = _useState8[1];
-  var entries = ["Apple", "Banana", "Orange", "Grapes", "Pineapple", "Mango"];
+  var entries = ["php", "laravel", "vuejs", "javascript", "reactjs", "nodejs", "html", "css", "c++", "java", "python", "django", "mysql", "database", "docker", "wordpress", "git", "versioncontrol", "webpack", "bootstrap", "npm"];
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState10 = _slicedToArray(_useState9, 2),
     searchTerm = _useState10[0],
@@ -11179,12 +11179,47 @@ function Profile() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                 className: "form-group row mb-3",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  htmlFor: "choose-skills",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Choose Skills"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                  className: "col-md-6",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                      type: "text",
+                      className: "form-control",
+                      placeholder: "Search...",
+                      value: searchTerm,
+                      onChange: function onChange(e) {
+                        return setSearchTerm(e.target.value);
+                      }
+                    })
+                  }), searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                    className: "row",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                      className: "border rounded",
+                      children: filterEntries().map(function (entry, index) {
+                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                            onClick: function onClick() {
+                              handleAddSkills(entry);
+                            },
+                            children: entry
+                          })
+                        }, entry);
+                      })
+                    })
+                  }) : '']
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                className: "form-group row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                   htmlFor: "skills",
                   className: "col-md-4 col-form-label text-md-end",
                   children: "Selected Skills"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                   className: "col-md-6",
-                  children: skills === null || skills === void 0 ? void 0 : skills.split(',').map(function (skill) {
+                  children: moreSkills.map(function (skill) {
                     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                         className: "badge bg-secondary mx-2",
@@ -11193,32 +11228,6 @@ function Profile() {
                     });
                   })
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                className: "dropdown",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-                  type: "text",
-                  className: "form-control",
-                  placeholder: "Search...",
-                  value: searchTerm,
-                  onChange: function onChange(e) {
-                    return setSearchTerm(e.target.value);
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                  children: filterEntries().map(function (entry, index) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                        onClick: function onClick() {
-                          handleAddSkills(entry);
-                        },
-                        children: entry
-                      })
-                    }, entry);
-                  })
-                })]
-              }), moreSkills.map(function (skill) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                  children: skill
-                });
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                   className: "btn btn-primary",
