@@ -20,3 +20,11 @@
 	border-color: white;
 }
 
+
+.jb-skill {
+	cursor: pointer
+}
+
+.jb-skill:hover{
+	color: blue;
+}
