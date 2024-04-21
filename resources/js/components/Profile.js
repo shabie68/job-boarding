@@ -161,24 +161,20 @@ function Profile() {
 
                                         {
                                             searchTerm ?
-                                            <div className="row">
 
-                                                    <div className="border rounded">
+                                                    <div className="border rounded form-control">
                                                         {filterEntries().map((entry, index) => (
                                                             <div key={entry}>
 
-                                                                <div onClick={()=> {handleAddSkills(entry)}}>{entry}</div>
+                                                                <div onClick={()=> {handleAddSkills(entry)}} className="jb-skill">{entry}</div>
                                                             </div>
                                                         ))}
                                                   </div>
-                                            </div>
                                             : ''
                                         }
                                         
                                     </div>
                                 </div>
-
-                                
 
 
                                 <div className="form-group row mb-3">

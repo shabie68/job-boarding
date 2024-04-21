@@ -11195,19 +11195,17 @@ function Profile() {
                       }
                     })
                   }), searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                    className: "row",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                      className: "border rounded",
-                      children: filterEntries().map(function (entry, index) {
-                        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                            onClick: function onClick() {
-                              handleAddSkills(entry);
-                            },
-                            children: entry
-                          })
-                        }, entry);
-                      })
+                    className: "border rounded form-control",
+                    children: filterEntries().map(function (entry, index) {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                          onClick: function onClick() {
+                            handleAddSkills(entry);
+                          },
+                          className: "jb-skill",
+                          children: entry
+                        })
+                      }, entry);
                     })
                   }) : '']
                 })]

@@ -11989,3 +11989,11 @@ textarea.form-control-lg {
 }
 
 
+.jb-skill {
+	cursor: pointer
+}
+
+.jb-skill:hover{
+	color: blue;
+}
+
