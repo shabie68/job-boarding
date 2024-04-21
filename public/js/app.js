@@ -11003,6 +11003,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quill */ "./node_modules/quill/quill.js");
 /* harmony import */ var quill_modules_toolbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill/modules/toolbar */ "./node_modules/quill/modules/toolbar.js");
 /* harmony import */ var quill_themes_snow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! quill/themes/snow */ "./node_modules/quill/themes/snow.js");
@@ -11013,11 +11014,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var quill_dist_quill_core_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! quill/dist/quill.core.css */ "./node_modules/quill/dist/quill.core.css");
 /* harmony import */ var quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! quill/dist/quill.snow.css */ "./node_modules/quill/dist/quill.snow.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
@@ -11038,32 +11039,42 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function Profile() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.useNavigate)();
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
     _useState2 = _slicedToArray(_useState, 2),
-    address = _useState2[0],
-    setAddress = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    profile = _useState2[0],
+    setProfile = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState4 = _slicedToArray(_useState3, 2),
-    phoneNumber = _useState4[0],
-    setPhoneNumber = _useState4[1];
+    address = _useState4[0],
+    setAddress = _useState4[1];
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState6 = _slicedToArray(_useState5, 2),
-    summary = _useState6[0],
-    setSummary = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    education = _useState6[0],
+    setEducation = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState8 = _slicedToArray(_useState7, 2),
-    skills = _useState8[0],
-    setSkills = _useState8[1];
-  var entries = ["php", "laravel", "vuejs", "javascript", "reactjs", "nodejs", "html", "css", "c++", "java", "python", "django", "mysql", "database", "docker", "wordpress", "git", "versioncontrol", "webpack", "bootstrap", "npm"];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    phoneNumber = _useState8[0],
+    setPhoneNumber = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState10 = _slicedToArray(_useState9, 2),
-    searchTerm = _useState10[0],
-    setSearchTerm = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    summary = _useState10[0],
+    setSummary = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState12 = _slicedToArray(_useState11, 2),
-    moreSkills = _useState12[0],
-    setMoreSkills = _useState12[1];
+    skills = _useState12[0],
+    setSkills = _useState12[1];
+  var entries = ["php", "laravel", "vuejs", "javascript", "reactjs", "nodejs", "html", "css", "c++", "java", "python", "django", "mysql", "database", "docker", "wordpress", "git", "versioncontrol", "webpack", "bootstrap", "npm"];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState14 = _slicedToArray(_useState13, 2),
+    searchTerm = _useState14[0],
+    setSearchTerm = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState16 = _slicedToArray(_useState15, 2),
+    moreSkills = _useState16[0],
+    setMoreSkills = _useState16[1];
 
   // Function to filter entries based on search term
   var filterEntries = function filterEntries() {
@@ -11072,21 +11083,38 @@ function Profile() {
     });
   };
   function saveProfile() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_7__["default"].put('http://127.0.0.1:8000/api/save-profile/', _defineProperty(_defineProperty({
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_7__["default"].put('http://127.0.0.1:8000/api/save-profile/', _defineProperty(_defineProperty(_defineProperty({
       address: address,
       phoneNumber: phoneNumber,
       summary: summary
-    }, "summary", summary), "skills", skills)).then(function (response) {});
+    }, "summary", summary), "skills", moreSkills), "education", education)).then(function (response) {
+      navigate('/home');
+    });
+  }
+  function getProfile() {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_7__["default"].get('http://127.0.0.1:8000/api/get-profile/').then(function (response) {
+      setProfile(response.data.profile);
+      setPhoneNumber(response.data.user.phone_number);
+      setAddress(response.data.user.address);
+      setSummary(response.data.user.summary);
+      setEducation(response.data.user.education);
+      console.log(_typeof(response.data.user.skills));
+      setMoreSkills(response.data.user.skills);
+    });
   }
   var handleSkills = function handleSkills(e) {
     setSkills(e.target.value);
   };
   var handleAddSkills = function handleAddSkills(value) {
-    setMoreSkills(function (prev) {
-      return [].concat(_toConsumableArray(prev), [value]);
-    });
+    if (!moreSkills.includes(value)) {
+      setMoreSkills(function (prev) {
+        return [].concat(_toConsumableArray(prev), [value]);
+      });
+    }
   };
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    getProfile();
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "container pt-4",
@@ -11115,7 +11143,8 @@ function Profile() {
                     className: "form-control",
                     onChange: function onChange(e) {
                       setSummary(e.target.value);
-                    }
+                    },
+                    children: summary
                   })
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -11153,6 +11182,26 @@ function Profile() {
                     value: address,
                     onChange: function onChange(e) {
                       setAddress(e.target.value);
+                    },
+                    required: true,
+                    className: "form-control"
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                className: "row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+                  htmlFor: "email",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Education"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  className: "col-md-6",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                    type: "text",
+                    name: "address",
+                    placeholder: "Education",
+                    value: education,
+                    onChange: function onChange(e) {
+                      setEducation(e.target.value);
                     },
                     required: true,
                     className: "form-control"
@@ -11217,7 +11266,7 @@ function Profile() {
                   children: "Selected Skills"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                   className: "col-md-6",
-                  children: moreSkills.map(function (skill) {
+                  children: moreSkills === null || moreSkills === void 0 ? void 0 : moreSkills.map(function (skill) {
                     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                         className: "badge bg-secondary mx-2",

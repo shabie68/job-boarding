@@ -12,17 +12,26 @@ class ProfileController extends Controller
 
     	$user = User::find(auth()->user()->id);
 
-    	auth()->user()->update([
+    	$user->update([
     		"summary" => $request->summary,
     		"skills" => $request->skills,
     		"phone_number" => $request->phoneNumber,
     		"address" => $request->address,
-    		"education" => "Bachelor"
+    		"education" => $request->education
 
     	]);
 
     	return response()->json([
-    		"user" =>auth()->user()
+    		"user" =>$user
+    	]);
+    }
+
+    public function getProfile(Request $request) {
+
+    	$user = User::find(auth()->user()->id);
+
+    	return response()->json([
+    		"user" =>$user
     	]);
     }
 }
