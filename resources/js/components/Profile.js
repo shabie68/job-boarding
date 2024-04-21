@@ -63,21 +63,6 @@ function Profile() {
     );
   };
 
-
-    function saveProfile() {
-        apiClient.put('http://127.0.0.1:8000/api/save-profile/', {
-            address: address,
-            phoneNumber: phoneNumber,
-            summary, summary,
-            skills: moreSkills,
-            education: education
-        })
-        .then((response) => {
-            navigate('/home')
-        })
-    }
-
-
     function getProfile() {
         apiClient.get('http://127.0.0.1:8000/api/get-profile/')
         .then((response) => {
@@ -88,8 +73,7 @@ function Profile() {
             setAddress(response.data.user.address)
             setSummary(response.data.user.summary)
             setEducation(response.data.user.education)
-            console.log(typeof(response.data.user.skills))
-
+            console.log(response.data.user)
             setMoreSkills(response.data.user.skills)
 
         })
@@ -110,22 +94,20 @@ function Profile() {
         
     };
 
-    const handleNavigation = ()=> {
-        navigate('/user-profile')
-    }
+   
 
 
     useEffect(() => {
         getProfile()
     }, [])
 
+
     return (
          <div>
             <div className="container pt-4">
 
                 <div style={{margin: '0 auto'}} className="w-50 card p-4">
-                    <div className="mb-3">{Profile}</div>
-                    <h1>{user}</h1>
+                    <h1>{user.name}</h1>
                     <div className="mb-3">{email}</div>
                     <div className="d-flex align-items-center gap-2 mb-3">
                         <div>
@@ -156,7 +138,7 @@ function Profile() {
                         }
                     </div>
                     <div className="text-end">
-                        <Link to="update-profile" state={{user:user}}><button className="btn btn-primary">Update</button></Link>
+                        <Link to="/update-profile" state={{user:user}}><button className="btn btn-primary">Update</button></Link>
                     </div>
                 </div>
                
