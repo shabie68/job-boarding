@@ -6,6 +6,7 @@ import Apply from './Apply'
 import Resume from './Resume'
 import Experience from './Experience'
 import JobQuestions from './JobQuestions'
+import UpdateProfile from './UpdateProfile'
 import Company from './Company'
 import AddCompany from './AddCompany'
 import Profile from './Profile'
@@ -55,6 +56,7 @@ function Example() {
                         <Route path="/experience" element={<Experience user={user} />} />
                         <Route path="/job-questions" element={<JobQuestions user={user} />} /> 
                         <Route path="/user-profile" element={<Profile/>} /> 
+                        <Route path="/update-profile" element={<UpdateProfile/>} /> 
                     </Routes>
                 </div>
 
