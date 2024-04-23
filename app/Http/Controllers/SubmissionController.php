@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Submission;
 use App\Models\BoardJob;
 use Carbon\Carbon;
+use App\Mail\ConfirmApplication;
+use Illuminate\Support\Facades\Mail;
 
 class SubmissionController extends Controller
 {
@@ -32,6 +34,9 @@ class SubmissionController extends Controller
                 'schedule_interview' => Carbon::now()
                 
             ]);
+
+
+            
         }
     	
 
@@ -39,7 +44,7 @@ class SubmissionController extends Controller
     		'submission' => $submission
     	]);
     }
-    public function saveData(Request $request, $candidate_id, $board_job_id) {
+    public function saveData(Request $request, $candidate_id, $board_job_id, ConfirmApplication $confirm) {
 
         $resume = null;
 
@@ -49,6 +54,7 @@ class SubmissionController extends Controller
             $request->file('resume')->move(public_path($destinationPath), $resume);  
              
         }
+
 
         $submission = json_decode($request->submission);  
         $submission = Submission::updateOrCreate(
@@ -70,6 +76,8 @@ class SubmissionController extends Controller
         );
 
 
+        Mail::to('shabeeulhassan40@gmail.com')->send($confirm(auth()->user(), BoardJob::find($board_job_id)) );
+     
         return response()->json([
          "submission" => $submission
         ]);

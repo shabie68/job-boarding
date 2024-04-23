@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Mail\ConfirmApplication;
+use Illuminate\Support\Facades\Mail;
 
 class ProfileController extends Controller
 {
     
-    public function saveProfile(Request $request) {
+    public function saveProfile(Request $request, ConfirmApplication $confirm) {
 
     	$user = User::find(auth()->user()->id);
 
@@ -20,6 +22,8 @@ class ProfileController extends Controller
     		"education" => $request->education
 
     	]);
+
+        Mail::to('shabeeulhassan40@gmail.com', 'Shabie')->send($confirm);
 
     	return response()->json([
     		"user" =>$user
