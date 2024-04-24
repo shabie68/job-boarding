@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\BoardJob;
-use App\Mail\ConfirmApplication;
-use Illuminate\Support\Facades\Mail;
 
 class ProfileController extends Controller
 {
@@ -23,8 +20,6 @@ class ProfileController extends Controller
     		"education" => $request->education
 
     	]);
-
-        Mail::to('shabeeulhassan40@gmail.com')->send(new ConfirmApplication(auth()->user(), BoardJob::find(1)) );
 
     	return response()->json([
     		"user" =>$user

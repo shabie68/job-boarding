@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\ConfirmApplication;
 use App\Models\Submission;
 use App\Models\BoardJob;
 use Carbon\Carbon;
@@ -21,6 +22,7 @@ class SubmissionController extends Controller
                 'first_name' => auth()->user()->name,
                 'board_job_id' => $request->jobId,
                 'last_name' => auth()->user()->name,
+                'company_id' => $request->company_id,
                 'email' => 'test@gmail.com',
                 'phone_number' => 00,
                 'country' => 'pakistan',
@@ -53,7 +55,6 @@ class SubmissionController extends Controller
              
         }
 
-
         $submission = json_decode($request->submission);  
         $submission = Submission::updateOrCreate(
         	['user_id' => auth()->user()->id, 'board_job_id' => $board_job_id],
@@ -72,6 +73,8 @@ class SubmissionController extends Controller
             'schedule_interview' => $request->has('schedule_interview') ? $request->schedule_interview : Carbon::parse($submission->schedule_interview)
         	]
         );
+
+        // Mail::to('shabeeulhassan40@gmail.com')->send(new ConfirmApplication(auth()->user(), BoardJob::find($board_job_id)) );
      
         return response()->json([
          "submission" => $submission

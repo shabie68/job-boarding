@@ -10014,8 +10014,10 @@ function Apply(props) {
   };
   function saveDefaultData() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/add-job-data/', {
-      jobId: location.state.job.id
+      jobId: location.state.job.id,
+      company_id: location.state.job.company_id
     }).then(function (response) {
+      console.log(response.data);
       setSubmission(response.data.submission);
       setFirstName(response.data.submission.first_name);
       setLastName(response.data.submission.last_name);
