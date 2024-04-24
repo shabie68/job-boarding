@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div>
-		<h1>Hi {{$candidate->name}} NEW JOB*********** your application for the job {{$job->title}} has been received</h1>
+		<h1>Hi {{ $candidate->name }}, We have received your application for {{ $job->title }} job.</h1>
 	</div>
 </body>
 </html>

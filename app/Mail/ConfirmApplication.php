@@ -19,8 +19,8 @@ class ConfirmApplication extends Mailable
      * @return void
      */
 
-    public $candidate;
-    public $job;
+    protected $candidate;
+    protected $job;
     public function __construct(User $user, BoardJob $job)
     {
         //

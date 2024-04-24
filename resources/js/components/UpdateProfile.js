@@ -62,7 +62,7 @@ function UpdateProfile() {
             education: education
         })
         .then((response) => {
-            navigate('/home')
+            // navigate('/home')
         })
     }
 

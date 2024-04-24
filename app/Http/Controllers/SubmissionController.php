@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Submission;
 use App\Models\BoardJob;
 use Carbon\Carbon;
-use App\Mail\ConfirmApplication;
-use Illuminate\Support\Facades\Mail;
 
 class SubmissionController extends Controller
 {
@@ -74,9 +72,6 @@ class SubmissionController extends Controller
             'schedule_interview' => $request->has('schedule_interview') ? $request->schedule_interview : Carbon::parse($submission->schedule_interview)
         	]
         );
-
-
-        Mail::to('shabeeulhassan40@gmail.com')->send($confirm(auth()->user(), BoardJob::find($board_job_id)) );
      
         return response()->json([
          "submission" => $submission

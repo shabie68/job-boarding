@@ -12062,7 +12062,7 @@ function UpdateProfile() {
       phoneNumber: phoneNumber,
       summary: summary
     }, "summary", summary), "skills", moreSkills), "education", education)).then(function (response) {
-      navigate('/home');
+      // navigate('/home')
     });
   }
 
