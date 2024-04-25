@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail\ConfirmApplication;
+use App\Mail\SendResume;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Submission;
 use App\Models\BoardJob;
 use Carbon\Carbon;
@@ -34,8 +36,6 @@ class SubmissionController extends Controller
                 'schedule_interview' => Carbon::now()
                 
             ]);
-
-
             
         }
     	
@@ -48,12 +48,15 @@ class SubmissionController extends Controller
 
         $resume = null;
 
+
         if($request->file('resume')) {
             $destinationPath = 'uploads';
             $resume = $request->file('resume')->getClientOriginalName();
             $request->file('resume')->move(public_path($destinationPath), $resume);  
              
         }
+
+
 
         $submission = json_decode($request->submission);  
         $submission = Submission::updateOrCreate(
@@ -65,7 +68,7 @@ class SubmissionController extends Controller
         		'email' => $request->has('email') ? $request->email : $submission->email,
 
         		'country' => $request->has('country') ? $request->country : $submission->country,
-        		'resume' => $request->has('resume') ? $resume : $submission->resume,
+        		'resume' => $request->file('resume') ? $resume : $submission->resume,
         		'state' => $request->has('state') ? $request->state : $submission->state,
         		'ability_to_commute' => $request->has('ability_to_commute') ? $request->ability_to_commute : $submission->ability_to_commute,
         		'salary_expectation' => $request->has('salary_expectation') ? $request->salary_expectation : $submission->salary_expectation,
@@ -74,7 +77,11 @@ class SubmissionController extends Controller
         	]
         );
 
-        // Mail::to('shabeeulhassan40@gmail.com')->send(new ConfirmApplication(auth()->user(), BoardJob::find($board_job_id)) );
+        if($request->has('country')) {
+            Mail::to('shabeeulhassan40@gmail.com')->send(new ConfirmApplication(auth()->user(), BoardJob::find($board_job_id)) ); 
+            Mail::to('shabeeulhassan40@gmail.com')->send(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path($submission->resume)));
+        }
+       
      
         return response()->json([
          "submission" => $submission
