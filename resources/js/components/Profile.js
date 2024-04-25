@@ -83,19 +83,6 @@ function Profile() {
         setSkills(e.target.value)
     }
 
-    const handleAddSkills = (value) => {
-        if(!moreSkills.includes(value)) {
-            setMoreSkills(prev => ([
-                ...prev,
-                value
-            ]));
-            setSearchTerm('')
-        }
-        
-    };
-
-   
-
 
     useEffect(() => {
         getProfile()
@@ -105,10 +92,14 @@ function Profile() {
     return (
          <div>
             <div className="container pt-4">
-
                 <div style={{margin: '0 auto'}} className="w-50 card p-4">
                     <h1>{user.name}</h1>
                     <div className="mb-3">{email}</div>
+                    <div>
+                        <h3>Summary</h3>
+                        <p className="mb-3">{summary}</p>
+                    </div>
+                    
                     <div className="d-flex align-items-center gap-2 mb-3">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-telephone-fill" viewBox="0 0 16 16">

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mail\ConfirmApplication;
+use App\Mail\SendResume;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Submission;
 use App\Models\BoardJob;
 use Carbon\Carbon;
@@ -21,6 +24,7 @@ class SubmissionController extends Controller
                 'first_name' => auth()->user()->name,
                 'board_job_id' => $request->jobId,
                 'last_name' => auth()->user()->name,
+                'company_id' => $request->company_id,
                 'email' => 'test@gmail.com',
                 'phone_number' => 00,
                 'country' => 'pakistan',
@@ -32,6 +36,7 @@ class SubmissionController extends Controller
                 'schedule_interview' => Carbon::now()
                 
             ]);
+            
         }
     	
 
@@ -39,9 +44,10 @@ class SubmissionController extends Controller
     		'submission' => $submission
     	]);
     }
-    public function saveData(Request $request, $candidate_id, $board_job_id) {
+    public function saveData(Request $request, $candidate_id, $board_job_id, ConfirmApplication $confirm) {
 
         $resume = null;
+
 
         if($request->file('resume')) {
             $destinationPath = 'uploads';
@@ -49,6 +55,8 @@ class SubmissionController extends Controller
             $request->file('resume')->move(public_path($destinationPath), $resume);  
              
         }
+
+
 
         $submission = json_decode($request->submission);  
         $submission = Submission::updateOrCreate(
@@ -60,7 +68,7 @@ class SubmissionController extends Controller
         		'email' => $request->has('email') ? $request->email : $submission->email,
 
         		'country' => $request->has('country') ? $request->country : $submission->country,
-        		'resume' => $request->has('resume') ? $resume : $submission->resume,
+        		'resume' => $request->file('resume') ? $resume : $submission->resume,
         		'state' => $request->has('state') ? $request->state : $submission->state,
         		'ability_to_commute' => $request->has('ability_to_commute') ? $request->ability_to_commute : $submission->ability_to_commute,
         		'salary_expectation' => $request->has('salary_expectation') ? $request->salary_expectation : $submission->salary_expectation,
@@ -69,7 +77,12 @@ class SubmissionController extends Controller
         	]
         );
 
-
+        if($request->has('country')) {
+            Mail::to('shabeeulhassan40@gmail.com')->send(new ConfirmApplication(auth()->user(), BoardJob::find($board_job_id)) ); 
+            Mail::to('shabeeulhassan40@gmail.com')->send(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path($submission->resume)));
+        }
+       
+     
         return response()->json([
          "submission" => $submission
         ]);

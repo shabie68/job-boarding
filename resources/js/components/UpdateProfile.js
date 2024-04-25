@@ -1,5 +1,7 @@
 import {useLocation, useNavigate} from 'react-router-dom'
 import {useState, useEffect} from 'react'
+import apiClient from '../services/apiClient';
+
 function UpdateProfile() {
 
 	const navigate = useNavigate()
@@ -60,7 +62,7 @@ function UpdateProfile() {
             education: education
         })
         .then((response) => {
-            navigate('/home')
+            // navigate('/home')
         })
     }
 

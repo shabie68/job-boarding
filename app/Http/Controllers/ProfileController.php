@@ -8,7 +8,7 @@ use App\Models\User;
 class ProfileController extends Controller
 {
     
-    public function saveProfile(Request $request) {
+    public function saveProfile(Request $request, ConfirmApplication $confirm) {
 
     	$user = User::find(auth()->user()->id);
 
