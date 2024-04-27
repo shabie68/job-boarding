@@ -12004,10 +12004,15 @@ textarea.form-control-lg {
 	}	
 }
 
-@media(min-width: 992){
+@media(min-width: 992px){
 	.jb-lg-card-w {
 		width: 45%;
-	}	
+	}
+
+	.jb-lg-form{
+		margin: 0 auto;
+		width: 50%
+	}
 }
 
 
