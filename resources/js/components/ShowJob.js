@@ -75,8 +75,7 @@ function ShowJob() {
 
     return(
         <div>
-
-            <div className="d-flex justify-content-center">
+            <div className="d-sm-block d-lg-flex justify-content-lg-center">
                 <div>
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
@@ -120,7 +119,7 @@ function ShowJob() {
                     {
                         role == 1 ?
 
-                        <div className="d-flex justify-content-between align-items-center my-4 border-bottom">
+                        <div className="d-lg-flex justify-content-lg-between align-items-lg-center my-4 border-bottom">
                             <h4 className="mb-0">Add New Job </h4>
                              <div className="">
                                 <Link to="/add-job">
@@ -134,8 +133,8 @@ function ShowJob() {
                     }
                     
 
-                    <div className="d-flex gap-3">
-                         <div className="w-40" style={{width: '45%'}}>
+                    <div className="d-sm-block d-lg-flex gap-3">
+                         <div className="w-40 jb-sm-card-w jb-lg-card-w">
                             {jobs.map(_job => (
 
                                <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}

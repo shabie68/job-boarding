@@ -10635,7 +10635,7 @@ function JobQuestions() {
       state: state,
       submission: JSON.stringify(context.submission)
     }).then(function (response) {
-      window.location = '/home';
+      // window.location = '/home'
     })["catch"](function (error) {});
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -11692,7 +11692,7 @@ function ShowJob() {
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "d-flex justify-content-center",
+      className: "d-sm-block d-lg-flex justify-content-lg-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "input-group mb-3",
@@ -11745,7 +11745,7 @@ function ShowJob() {
       className: "my-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "d-flex justify-content-between align-items-center my-4 border-bottom",
+          className: "d-lg-flex justify-content-lg-between align-items-lg-center my-4 border-bottom",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
             className: "mb-0",
             children: "Add New Job "
@@ -11761,12 +11761,9 @@ function ShowJob() {
             })
           })]
         }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "d-flex gap-3",
+          className: "d-sm-block d-lg-flex gap-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "w-40",
-            style: {
-              width: '45%'
-            },
+            className: "w-40 jb-sm-card-w jb-lg-card-w",
             children: [jobs.map(function (_job) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: "card mb-4 ".concat((job === null || job === void 0 ? void 0 : job.id) === _job.id ? "border border-primary" : ""),

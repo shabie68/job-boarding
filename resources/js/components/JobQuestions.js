@@ -37,7 +37,7 @@ function JobQuestions() {
             submission: JSON.stringify(context.submission)		
 		})
 		.then((response) => {
-			window.location = '/home'
+			// window.location = '/home'
 		})
 		.catch((error) => {
 

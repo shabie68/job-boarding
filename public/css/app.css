@@ -11997,3 +11997,17 @@ textarea.form-control-lg {
 	background: #dcdcdccf;
 }
 
+
+@media(min-width: 568){
+	.jb-sm-card-w {
+		width: 100%;
+	}	
+}
+
+@media(min-width: 992){
+	.jb-lg-card-w {
+		width: 45%;
+	}	
+}
+
+
