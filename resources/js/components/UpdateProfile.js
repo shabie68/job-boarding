@@ -205,8 +205,7 @@ function UpdateProfile() {
 	                                </div>
 	                            </div>
 
-	                            
-	                            <div>
+	                            <div class="text-align-end">
 	                                <button className="btn btn-primary" onClick={saveProfile}>Save</button>
 	                            </div>
 	                        </div>
