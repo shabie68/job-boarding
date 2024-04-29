@@ -28,3 +28,40 @@
 .jb-skill:hover{
 	background: #dcdcdccf;
 }
+
+
+@media(min-width: 568px){
+	.jb-sm-card-w {
+		width: 100%;
+	}	
+
+	.jb-all-jobs {
+		display: none
+	}
+}
+
+@media(min-width: 992px){
+	.jb-lg-card-w {
+		width: 45%;
+	}
+
+	.jb-lg-form{
+		margin: 0 auto;
+		width: 50%
+	}
+
+	.jb-all-jobs {
+		display: block
+	}
+
+	.w-lg-50 {
+		width: 50%;
+	}
+
+	.jb-back-btn {
+		display: none
+	}
+}
+
+
+

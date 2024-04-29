@@ -99,67 +99,69 @@ function AddJob() {
 				<strong>Go back</strong>
 			</div>
 
-			<div className="card" style={{margin: '0 auto', width: '50%'}}>
-				<div className="card-body">
-					<div>
-						<label>Title</label>
-						<input type="text" name="title" className="form-control" onChange={(e) => {setTitle(e.target.value)}}/>
-					</div>
+			<div className="jb-lg-form">
+				<div className="card ">
+					<div className="card-body">
+						<div>
+							<label>Title</label>
+							<input type="text" name="title" className="form-control" onChange={(e) => {setTitle(e.target.value)}}/>
+						</div>
 
-					<div style={{margin: '20px 0'}}>
-						<label >Location</label>
-						<input type="text" name="location" className="form-control" onChange={(e) => {setLocation(e.target.value)}}/>
-					</div>
+						<div style={{margin: '20px 0'}}>
+							<label >Location</label>
+							<input type="text" name="location" className="form-control" onChange={(e) => {setLocation(e.target.value)}}/>
+						</div>
 
-					<div style={{margin: '20px 0'}}>
-						<label >Salary</label>
-						<input type="number" name="salary" className="form-control" onChange={(e) => {setSalary(e.target.value)}}/>
-					</div>
+						<div style={{margin: '20px 0'}}>
+							<label >Salary</label>
+							<input type="number" name="salary" className="form-control" onChange={(e) => {setSalary(e.target.value)}}/>
+						</div>
 
-					<div style={{margin: '20px 0'}}>
-						<label >Type</label>
-						<select className="form-control" name="type" onChange={(e) => {setType(e.target.value)}}>
-							<option value="remote">Remote</option>
-							<option value="hybrid">Hyrid</option>
-							<option value="onsite">Onsite</option>
-						</select>
-					</div>
+						<div style={{margin: '20px 0'}}>
+							<label >Type</label>
+							<select className="form-control" name="type" onChange={(e) => {setType(e.target.value)}}>
+								<option value="remote">Remote</option>
+								<option value="hybrid">Hyrid</option>
+								<option value="onsite">Onsite</option>
+							</select>
+						</div>
 
-					<div style={{margin: '20px 0'}}>
-						<label >Additional details</label>
-						<select className="form-control" name="type" onChange={handleAddtionalDetail}>
-							<option value="description">Description</option>
-							<option value="responsibilities">Responsibilities</option>
-							<option value="requirements">Requirements</option>
-						</select>
-					</div>
+						<div style={{margin: '20px 0'}}>
+							<label >Additional details</label>
+							<select className="form-control" name="type" onChange={handleAddtionalDetail}>
+								<option value="description">Description</option>
+								<option value="responsibilities">Responsibilities</option>
+								<option value="requirements">Requirements</option>
+							</select>
+						</div>
 
-					<div>
+						<div>
 
-						<div style={{display: additionalDetails == 'description' ? 'block' : 'none'}}>	
-							<label>Description</label>
-							<div id="description">
-								NEW Description
+							<div style={{display: additionalDetails == 'description' ? 'block' : 'none'}}>	
+								<label>Description</label>
+								<div id="description">
+									NEW Description
+								</div>
+							</div>
+
+							<div style={{display: additionalDetails == 'responsibilities' ? 'block' : 'none'}}>
+								<label>Responsibilities</label>
+								<div id="responsibilities">
+									NEW Responsibilities
+								</div>
+							</div>
+
+							<div style={{display: additionalDetails == 'requirements' ? 'block' : 'none'}}>
+								<label>Requirements</label>
+								<div id="requirements">
+									NEW Requirements
+								</div>
 							</div>
 						</div>
 
-						<div style={{display: additionalDetails == 'responsibilities' ? 'block' : 'none'}}>
-							<label>Responsibilities</label>
-							<div id="responsibilities">
-								NEW Responsibilities
-							</div>
+						<div className="mt-4">
+							<button className="btn btn-primary text-align-end" onClick={addJob}>Add Job</button>
 						</div>
-
-						<div style={{display: additionalDetails == 'requirements' ? 'block' : 'none'}}>
-							<label>Requirements</label>
-							<div id="requirements">
-								NEW Requirements
-							</div>
-						</div>
-					</div>
-
-					<div className="mt-4">
-						<button className="btn btn-primary text-align-end" onClick={addJob}>Add Job</button>
 					</div>
 				</div>
 			</div>

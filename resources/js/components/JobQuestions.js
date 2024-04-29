@@ -37,7 +37,7 @@ function JobQuestions() {
             submission: JSON.stringify(context.submission)		
 		})
 		.then((response) => {
-			window.location = '/home'
+			// window.location = '/home'
 		})
 		.catch((error) => {
 
@@ -47,7 +47,7 @@ function JobQuestions() {
 
 	return (
 		<div>
-			<div className="w-50" style={{margin: '0 auto'}}>
+			<div className="w-lg-50" style={{margin: '0 auto'}}>
 				<h4>Upload your resume</h4>
 				<div className="card">	
 					<div className="card-body">

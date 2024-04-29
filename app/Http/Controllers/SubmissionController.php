@@ -56,10 +56,9 @@ class SubmissionController extends Controller
              
         }
 
+        $submission = json_decode($request->submission); 
 
-
-        $submission = json_decode($request->submission);  
-        $submission = Submission::updateOrCreate(
+            $submission = Submission::updateOrCreate(
         	['user_id' => auth()->user()->id, 'board_job_id' => $board_job_id],
         	[
         		'first_name' => $request->has('first_name') ? $request->first_name : $submission->first_name,
@@ -77,9 +76,12 @@ class SubmissionController extends Controller
         	]
         );
 
+
         if($request->has('country')) {
+            // return public_path($submission->resume);
             Mail::to('shabeeulhassan40@gmail.com')->send(new ConfirmApplication(auth()->user(), BoardJob::find($board_job_id)) ); 
-            Mail::to('shabeeulhassan40@gmail.com')->send(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path($submission->resume)));
+            // Mail::to('shabeeulhassan40@gmail.com')->send(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path('uploads\\' .$submission->resume)));
+             Mail::to('shabeeulhassan40@gmail.com')->queue(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path('uploads\\' .$submission->resume)));
         }
        
      

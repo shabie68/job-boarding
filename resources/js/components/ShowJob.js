@@ -42,6 +42,7 @@ function ShowJob() {
             if(search) {
               setCurrentPage(1)
             }
+
         })
     }
 
@@ -49,6 +50,8 @@ function ShowJob() {
       if(currentPage) {
         getJobs()
       }
+
+
 
     }, [currentPage])
 
@@ -60,6 +63,10 @@ function ShowJob() {
         apiClient.get('http://127.0.0.1:8000/api/single-job/'+id)
         .then(function(response) {
             setJob(response.data.job)
+            document.querySelector('.jb-single-job').classList.remove('d-sm-none')
+            document.querySelector('.jb-jobs').classList.add('jb-all-jobs')
+            document.querySelector('.jb-add-job-btn').classList.add('d-sm-none')
+
         })
     }
 
@@ -73,10 +80,11 @@ function ShowJob() {
         })
     }
 
+   
+
     return(
         <div>
-
-            <div className="d-flex justify-content-center">
+            <div className="d-sm-block d-lg-flex justify-content-lg-center">
                 <div>
                     <div className="input-group mb-3">
                         <div className="input-group-prepend">
@@ -117,10 +125,11 @@ function ShowJob() {
 
             <div className="my-5">
                 <div>
+
                     {
                         role == 1 ?
 
-                        <div className="d-flex justify-content-between align-items-center my-4 border-bottom">
+                        <div className="jb-add-job-btn d-lg-flex justify-content-lg-between align-items-lg-center my-4 border-bottom">
                             <h4 className="mb-0">Add New Job </h4>
                              <div className="">
                                 <Link to="/add-job">
@@ -134,8 +143,8 @@ function ShowJob() {
                     }
                     
 
-                    <div className="d-flex gap-3">
-                         <div className="w-40" style={{width: '45%'}}>
+                    <div className="d-sm-block d-lg-flex gap-3">
+                         <div className="w-40 jb-sm-card-w jb-lg-card-w jb-jobs">
                             {jobs.map(_job => (
 
                                <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
@@ -178,12 +187,11 @@ function ShowJob() {
                             </div>
                          </div>
 
-                         {job ?
+                        {job ?
                             <>
                              <SingleJob job={job} company={company}/>
                              </>
                              : ''
-
                         }
                     </div>
                 </div>
@@ -194,23 +202,3 @@ function ShowJob() {
 }
 
 export default ShowJob
-
-/**
-
-   // {jobs.map(_job => (
-
-                             //   <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
-                             //   onClick={()=> {getJob(_job.id)}}>
-                             //     <h3 className="card-header">{_job.title}</h3>
-                             //     <div className="card-body">
-                             //         <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
-                                 
-                             //        <div dangerouslySetInnerHTML={{__html: _job?.description}}></div>
-
-                             //        <div dangerouslySetInnerHTML={{__html: _job?.responsibilities}} />
-
-                             //        <div dangerouslySetInnerHTML={{__html: _job?.requirements}} />
-                             //     </div>
-                             // </div>
-                             // ))}
-**/
