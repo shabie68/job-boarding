@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\Submission;
 use App\Models\BoardJob;
 use Carbon\Carbon;
+use Redis;
 
 class SubmissionController extends Controller
 {
@@ -46,6 +47,8 @@ class SubmissionController extends Controller
     }
     public function saveData(Request $request, $candidate_id, $board_job_id, ConfirmApplication $confirm) {
 
+     
+  
         $resume = null;
 
 
