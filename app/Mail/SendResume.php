@@ -37,11 +37,11 @@ class SendResume extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->view('mail.resume')
-                    ->attach($this->file)
                     ->with([
 
                         "job" => $this->job,
                         "candidate" => $this->candidate
-                    ]);
+                    ])
+                    ->attach($this->file);
     }
 }
