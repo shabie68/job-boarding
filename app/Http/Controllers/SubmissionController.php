@@ -48,7 +48,7 @@ class SubmissionController extends Controller
     public function saveData(Request $request, $candidate_id, $board_job_id, ConfirmApplication $confirm) {
 
      
-  
+    
         $resume = null;
 
 
@@ -60,7 +60,7 @@ class SubmissionController extends Controller
         }
 
         $submission = json_decode($request->submission); 
-
+        // return $submission->resume;
             $submission = Submission::updateOrCreate(
         	['user_id' => auth()->user()->id, 'board_job_id' => $board_job_id],
         	[
@@ -70,7 +70,8 @@ class SubmissionController extends Controller
         		'email' => $request->has('email') ? $request->email : $submission->email,
 
         		'country' => $request->has('country') ? $request->country : $submission->country,
-        		'resume' => $request->file('resume') ? $resume : $submission->resume,
+        		// 'resume' => $request->file('resume') ? $resume : $submission->resume,
+                'resume' => 'profile.pdf',
         		'state' => $request->has('state') ? $request->state : $submission->state,
         		'ability_to_commute' => $request->has('ability_to_commute') ? $request->ability_to_commute : $submission->ability_to_commute,
         		'salary_expectation' => $request->has('salary_expectation') ? $request->salary_expectation : $submission->salary_expectation,
@@ -81,10 +82,14 @@ class SubmissionController extends Controller
 
 
         if($request->has('country')) {
-            // return public_path($submission->resume);
-            Mail::to('shabeeulhassan40@gmail.com')->send(new ConfirmApplication(auth()->user(), BoardJob::find($board_job_id)) ); 
+
+            Mail::to('test@jfdk.com')->send(new ConfirmApplication(auth()->user(), BoardJob::find($board_job_id)) ); 
             // Mail::to('shabeeulhassan40@gmail.com')->send(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path('uploads\\' .$submission->resume)));
-             Mail::to('shabeeulhassan40@gmail.com')->queue(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path('uploads\\' .$submission->resume)));
+             // Mail::to('fjdkfj@kjdf.com')->queue(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path('uploads\\' .$submission->resume)));
+
+
+
+             Mail::to('fjdkfj@kjdf.com')->queue(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path('uploads\\' .$submission->resume)));
         }
        
      
