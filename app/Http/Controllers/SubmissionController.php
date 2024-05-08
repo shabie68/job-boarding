@@ -61,6 +61,7 @@ class SubmissionController extends Controller
 
         $submission = json_decode($request->submission); 
         // return $submission->resume;
+        // return $submission->resume;
             $submission = Submission::updateOrCreate(
         	['user_id' => auth()->user()->id, 'board_job_id' => $board_job_id],
         	[
@@ -70,8 +71,8 @@ class SubmissionController extends Controller
         		'email' => $request->has('email') ? $request->email : $submission->email,
 
         		'country' => $request->has('country') ? $request->country : $submission->country,
-        		// 'resume' => $request->file('resume') ? $resume : $submission->resume,
-                'resume' => 'profile.pdf',
+        		'resume' => $request->file('resume') ? $resume : $submission->resume,
+                // 'resume' => 'profile.pdf',
         		'state' => $request->has('state') ? $request->state : $submission->state,
         		'ability_to_commute' => $request->has('ability_to_commute') ? $request->ability_to_commute : $submission->ability_to_commute,
         		'salary_expectation' => $request->has('salary_expectation') ? $request->salary_expectation : $submission->salary_expectation,

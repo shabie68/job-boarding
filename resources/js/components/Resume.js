@@ -27,12 +27,14 @@ function Resume(props) {
 		const formData = new FormData();
 	    formData.append('resume', resume);
 	    formData.append('submission', JSON.stringify(context.submission))
+
 	    formData.append('_method', 'put')
 
 		
 		apiClient.post('http://127.0.0.1:8000/api/apply/candidate/'+context.user_id + '/job/' + context.board_job_id, formData)
 		.then((response) => {
-			navigate('/job-questions')
+			props.updateJobContext({user_id: response.data.submission.user_id, board_job_id: response.data.submission.board_job_id, submission: response.data.submission})
+			navigate('/job-questions' )
 		})
 		.catch((error) => {
 

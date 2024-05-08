@@ -10464,7 +10464,8 @@ function Example() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
             path: "/resume",
             element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_Resume__WEBPACK_IMPORTED_MODULE_5__["default"], {
-              user: user
+              user: user,
+              updateJobContext: updateJobContext
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
             path: "/experience",
@@ -10474,7 +10475,8 @@ function Example() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
             path: "/job-questions",
             element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_JobQuestions__WEBPACK_IMPORTED_MODULE_7__["default"], {
-              user: user
+              user: user,
+              updateJobContext: updateJobContext
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
             path: "/user-profile",
@@ -10624,6 +10626,7 @@ function JobQuestions() {
     setSalaryExpectation(context.submission.salary_expectation);
     setNoticePeriod(context.submission.notice_period);
     setScheduleInterview(new Date(context.submission.schedule_interview).toISOString().split('T')[0]);
+    // props.updateJobContext({user_id: response.submission.user_id, board_job_id: response.submission.board_job_id, submission: response.data.submission})
   }, []);
   var saveData = function saveData() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].put('http://127.0.0.1:8000/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, {
@@ -10635,6 +10638,7 @@ function JobQuestions() {
       state: state,
       submission: JSON.stringify(context.submission)
     }).then(function (response) {
+
       // window.location = '/home'
     })["catch"](function (error) {});
   };
@@ -10650,7 +10654,7 @@ function JobQuestions() {
         className: "card",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "card-body",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: [context.submission.resume, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "",
@@ -11494,6 +11498,12 @@ function Resume(props) {
     formData.append('submission', JSON.stringify(context.submission));
     formData.append('_method', 'put');
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, formData).then(function (response) {
+      props.updateJobContext({
+        user_id: response.data.submission.user_id,
+        board_job_id: response.data.submission.board_job_id,
+        submission: response.data.submission
+      });
+      alert("HERE IT IS ");
       navigate('/job-questions');
     })["catch"](function (error) {});
   };

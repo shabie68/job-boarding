@@ -34,7 +34,7 @@ function Example() {
 
     return (
 
-        <BoardJobContext.Provider value={boardJob}>
+        <BoardJobContext.Provider value={boardJob} >
             <BrowserRouter>
                 <div className="d-flex justify-content-around bg-secondary w-100 top-0 my-4 py-2 text-light">
                     <Link className="text-decoration-none text-light" to="/home">Home</Link>
@@ -52,9 +52,9 @@ function Example() {
                         <Route path="/companies" element={<Company />} />
                         <Route path="/add-company" element={<AddCompany />} />
                         <Route path="/apply" element={<Apply user={user} updateJobContext={updateJobContext} />} />
-                        <Route path="/resume" element={<Resume user={user} />} />
+                        <Route path="/resume" element={<Resume user={user} updateJobContext={updateJobContext}/>} />
                         <Route path="/experience" element={<Experience user={user} />} />
-                        <Route path="/job-questions" element={<JobQuestions user={user} />} /> 
+                        <Route path="/job-questions" element={<JobQuestions user={user} updateJobContext={updateJobContext} />} /> 
                         <Route path="/user-profile" element={<Profile/>} /> 
                         <Route path="/update-profile" element={<UpdateProfile/>} /> 
                     </Routes>
