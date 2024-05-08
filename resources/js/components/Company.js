@@ -8,6 +8,10 @@ function Company() {
 	const [nextPage, setNextPage] = useState(null)
 	const [lastPage, setLastPage] = useState(1);
 	const [role, setRole] = useState(0);
+	const [feedback, setFeedback] = useState({
+		comment: '',
+		rating: 0
+	})
 
 	useEffect(() => {
 		getCompanies()
@@ -21,6 +25,21 @@ function Company() {
 		.then(function(response) {
 			setCompanies(response.data.companies)
 			setRole(response.data.role)
+		})
+		.catch((error) => {
+
+		})
+
+		
+	}
+
+	function addReview(id) {
+
+		apiClient.put('http://127.0.0.1:8000/api/company/add-review/'+id, {feedback: feedback})
+		.then(function(response) {
+			console.log(response)
+			// setReviews(response.data.companies)
+			// setRole(response.data.role)
 		})
 		.catch((error) => {
 
@@ -65,7 +84,10 @@ function Company() {
 										<button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target={"#exampleModal-"+company.id}>Add Review</button>
 										: ''
 
+
 									  }
+
+									  <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target={"#exampleModal-"+company.id}>Add Review</button>
 									  </div>
 									</div>
 
@@ -78,11 +100,15 @@ function Company() {
 											<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 										  </div>
 										  <div className="modal-body">
-											{company.id} is the id 
+											<div>
+												<label>Feedback</label>
+												<input type="text" name="title" className="form-control" value={feedback.comment} onChange={(e) => {setFeedback({...feedback, comment: e.target.value})}} />
+											</div>
+
 										  </div>
 										  <div className="modal-footer">
 											<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-											<button type="button" className="btn btn-primary">Save changes</button>
+											<button type="button" className="btn btn-primary" onClick={() => {addReview(company.id)}}>Save changes</button>
 										  </div>
 										</div>
 									  </div>

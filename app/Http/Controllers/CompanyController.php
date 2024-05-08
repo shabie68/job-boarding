@@ -45,4 +45,16 @@ class CompanyController extends Controller
             "company" => $company
         ]);
     }
+
+    public function addReview(Request $request, $id) {
+        $company = Company::find($id);
+
+        $company->update([
+            "feedback" => $request->feedback
+        ]);
+
+        return response()->json([
+            "company" => $company
+        ]);
+    }
 }

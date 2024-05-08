@@ -40,4 +40,5 @@ Route::middleware('auth:sanctum')->get("single-job/{id}", [App\Http\Controllers\
 Route::group(['prefix' => 'company', 'as' => 'company'], function() {
 	Route::get('show-companies', [\App\Http\Controllers\CompanyController::class, 'show'])->name('show.company');
 	Route::put('/store', [\App\Http\Controllers\CompanyController::class, 'store'])->name('add.company');
+	Route::put('add-review/{id}', [\App\Http\Controllers\CompanyController::class, 'addReview'])->name('review.company');
 });
