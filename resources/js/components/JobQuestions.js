@@ -23,6 +23,7 @@ function JobQuestions() {
         setSalaryExpectation(context.submission.salary_expectation)
         setNoticePeriod(context.submission.notice_period)
         setScheduleInterview(new Date(context.submission.schedule_interview).toISOString().split('T')[0])
+        // props.updateJobContext({user_id: response.submission.user_id, board_job_id: response.submission.board_job_id, submission: response.data.submission})
     }, [])
 
 	const saveData = () => {
@@ -37,6 +38,7 @@ function JobQuestions() {
             submission: JSON.stringify(context.submission)		
 		})
 		.then((response) => {
+
 			// window.location = '/home'
 		})
 		.catch((error) => {
@@ -51,7 +53,7 @@ function JobQuestions() {
 				<h4>Upload your resume</h4>
 				<div className="card">	
 					<div className="card-body">
-
+                        {context.submission.resume}
                         <div className="">
 
                             <div className="">
