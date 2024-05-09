@@ -47,6 +47,7 @@ function Company() {
 		.then(function(response) {
 			setCompanies(response.data.companies)
 			setRole(response.data.role)
+			// console.log(response.data.compan)
 		})
 		.catch((error) => {
 
@@ -61,10 +62,7 @@ function Company() {
 
 		apiClient.put('http://127.0.0.1:8000/api/company/add-review/'+id, {feedback: feedback})
 		.then(function(response) {
-			console.log(response)
-			// document.getElementById('exampleModal-' + id).style.display = 'none'
-			// setReviews(response.data.companies)
-			// setRole(response.data.role)
+			setFeedback(response.data.company.feedback)
 		})
 		.catch((error) => {
 
@@ -88,11 +86,12 @@ function Company() {
 					}
 				  	
 
+
 				  	<div className="">
 						<div className="row gap-3">
 							{companies?.map(company => (
 
-								 <div className="mb-4 col-3 bg-white rounded border-white"  key={"company--"+company.id}>
+								 <div className=" col-3 bg-white rounded border-white"  key={"company--"+company.id}>
 									<div className="d-flex gap-4 align-items-center">
 									  <div className="w-25">
 										<img src={'uploads/images/' + company.logo} className="w-100" />
@@ -104,21 +103,20 @@ function Company() {
 											<p>{company.title}</p>
 										 </div>
 
-										  {!company.feedback
+										{JSON.parse(company.feedback)
 										?
 										<button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target={"#exampleModal-"+company.id}>Add Review</button>
 										: ''
+									}
 
-
-									  }
-
-
-									  <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target={"#exampleModal-"+company.id}>Add Review</button>
-									  	Here it is 
-									  	{renderStars(4)}
-									  </div>
+									<div className="mb-2">
+										{renderStars(JSON.parse(company.feedback)?.rating)}
+									</div>
+								
+									  	
 									</div>
 
+									</div>
 
 									<div className="modal fade" id={"exampleModal-"+company.id} tabindex="-1" aria-labelledby={"exampleModalLabel-"+company.id} aria-hidden="true">
 									  <div className="modal-dialog">

@@ -10227,16 +10227,14 @@ function Company() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].get('http://127.0.0.1:8000/api/company/show-companies').then(function (response) {
       setCompanies(response.data.companies);
       setRole(response.data.role);
+      // console.log(response.data.compan)
     })["catch"](function (error) {});
   }
   function addReview(id) {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/company/add-review/' + id, {
       feedback: feedback
     }).then(function (response) {
-      console.log(response);
-      // document.getElementById('exampleModal-' + id).style.display = 'none'
-      // setReviews(response.data.companies)
-      // setRole(response.data.role)
+      setFeedback(response.data.company.feedback);
     })["catch"](function (error) {});
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -10264,8 +10262,9 @@ function Company() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "row gap-3",
             children: [companies === null || companies === void 0 ? void 0 : companies.map(function (company) {
+              var _JSON$parse;
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "mb-4 col-3 bg-white rounded border-white",
+                className: " col-3 bg-white rounded border-white",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   className: "d-flex gap-4 align-items-center",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -10284,19 +10283,16 @@ function Company() {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
                         children: company.title
                       })
-                    }), !company.feedback ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                    }), JSON.parse(company.feedback) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                       type: "button",
                       className: "btn btn-secondary",
                       "data-bs-toggle": "modal",
                       "data-bs-target": "#exampleModal-" + company.id,
                       children: "Add Review"
-                    }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                      type: "button",
-                      className: "btn btn-secondary",
-                      "data-bs-toggle": "modal",
-                      "data-bs-target": "#exampleModal-" + company.id,
-                      children: "Add Review"
-                    }), "Here it is", renderStars(4)]
+                    }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                      className: "mb-2",
+                      children: renderStars((_JSON$parse = JSON.parse(company.feedback)) === null || _JSON$parse === void 0 ? void 0 : _JSON$parse.rating)
+                    })]
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                   className: "modal fade",
