@@ -12,7 +12,29 @@ function Company() {
 		comment: '',
 		rating: 0
 	})
-
+  const renderStars = (num) => {
+    const stars = [];
+    for (let i = 0; i < num; i++) {
+    	console.log("START" + i)
+      stars.push(
+        <span key={i} style={{ color: 'orange' }}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-star"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"
+            />
+          </svg>
+        </span>
+      );
+    }
+    return stars;
+  };
 	useEffect(() => {
 		getCompanies()
 	}, [])
@@ -33,11 +55,14 @@ function Company() {
 		
 	}
 
+
+
 	function addReview(id) {
 
 		apiClient.put('http://127.0.0.1:8000/api/company/add-review/'+id, {feedback: feedback})
 		.then(function(response) {
 			console.log(response)
+			// document.getElementById('exampleModal-' + id).style.display = 'none'
 			// setReviews(response.data.companies)
 			// setRole(response.data.role)
 		})
@@ -87,7 +112,10 @@ function Company() {
 
 									  }
 
+
 									  <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target={"#exampleModal-"+company.id}>Add Review</button>
+									  	Here it is 
+									  	{renderStars(4)}
 									  </div>
 									</div>
 
@@ -96,19 +124,51 @@ function Company() {
 									  <div className="modal-dialog">
 										<div className="modal-content">
 										  <div className="modal-header">
-											<h1 className="modal-title fs-5" id={"exampleModalLabel-"+company.id}>Modal title</h1>
+											<h1 className="modal-title fs-5" id={"exampleModalLabel-"+company.id}> Add Review</h1>
 											<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 										  </div>
 										  <div className="modal-body">
+										  	<div className="text-center">
+										  		<h3>Review this company</h3>
+										  		<span onClick={() => {setFeedback({...feedback, rating: 1})}} style={{color: 'blue'}}>
+											  		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+													  <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+													</svg>
+												</span>
+
+												<span onClick={() => {setFeedback({...feedback, rating: 2})}} style={{color: 'blue'}}>
+											  		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+													  <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+													</svg>
+												</span>
+
+												<span onClick={() => {setFeedback({...feedback, rating: 3})}} style={{color: 'blue'}}>
+											  		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+													  <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+													</svg>
+												</span>
+
+												<span onClick={() => {setFeedback({...feedback, rating: 4})}} style={{color: 'blue'}}>
+											  		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+													  <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+													</svg>
+												</span>
+
+												<span onClick={() => {setFeedback({...feedback, rating: 5})}} style={{color: 'blue'}}>
+											  		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+													  <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+													</svg>
+												</span>
+										  	</div>
 											<div>
 												<label>Feedback</label>
-												<input type="text" name="title" className="form-control" value={feedback.comment} onChange={(e) => {setFeedback({...feedback, comment: e.target.value})}} />
+												<textarea type="text" name="title" className="form-control" rows="3" className="form-control" onChange={(e) => {setFeedback({...feedback, comment: e.target.value})}} defaultValue={feedback.comment}></textarea>
+										
 											</div>
-
 										  </div>
 										  <div className="modal-footer">
-											<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-											<button type="button" className="btn btn-primary" onClick={() => {addReview(company.id)}}>Save changes</button>
+											<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+											<button type="button" className="btn btn-primary" onClick={() => {addReview(company.id)}}>Add review</button>
 										  </div>
 										</div>
 									  </div>
