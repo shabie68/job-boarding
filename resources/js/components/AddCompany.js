@@ -36,9 +36,9 @@ function AddCompany() {
 	  modules: {
 	    toolbar: true,
 	  },
-	  placeholder: 'Compose an epic...',
+	  placeholder: 'Company details...',
 	  theme: 'snow',
-	  container: '#description'
+	  container: '#company-description'
 	})
 
 	function saveCompany() {
@@ -146,7 +146,6 @@ function AddCompany() {
 					  	<div className="mb-3">	
 							<label>Description</label>
 							<div id="company-description">
-								NEW Description
 							</div>
 						</div>
 					</div>
@@ -205,7 +204,7 @@ function AddCompany() {
 						    	className="form-control" 
 						    	id="companyPhone" 
 						    	aria-describedby="companyPhoneHelp" 
-						    	placeholder="Email" 
+						    	placeholder="Phone Number" 
 						    	value={phoneNumber}
 						    	onChange={(e) => setPhoneNumber(e.target.value)}
 						    />

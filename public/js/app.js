@@ -9353,9 +9353,9 @@ function AddCompany() {
       modules: {
         toolbar: true
       },
-      placeholder: 'Compose an epic...',
+      placeholder: 'Company details...',
       theme: 'snow',
-      container: '#description'
+      container: '#company-description'
     }),
     _useState22 = _slicedToArray(_useState21, 2),
     editorOptions = _useState22[0],
@@ -9476,8 +9476,7 @@ function AddCompany() {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
               children: "Description"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              id: "company-description",
-              children: "NEW Description"
+              id: "company-description"
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -9556,7 +9555,7 @@ function AddCompany() {
               className: "form-control",
               id: "companyPhone",
               "aria-describedby": "companyPhoneHelp",
-              placeholder: "Email",
+              placeholder: "Phone Number",
               value: phoneNumber,
               onChange: function onChange(e) {
                 return setPhoneNumber(e.target.value);
@@ -9700,7 +9699,7 @@ function AddJob() {
       modules: {
         toolbar: true
       },
-      placeholder: 'Compose an epic...',
+      placeholder: "Details...",
       theme: 'snow',
       container: '#description'
     }),
@@ -9712,7 +9711,7 @@ function AddJob() {
       modules: {
         toolbar: true
       },
-      placeholder: 'Compose an epic...',
+      placeholder: 'Job responsibilities...',
       theme: 'snow',
       container: '#responsibilities'
     }),
@@ -9893,7 +9892,7 @@ function AddJob() {
               children: "Description"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               id: "description",
-              children: "NEW Description"
+              children: "Description"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             style: {
@@ -9903,7 +9902,7 @@ function AddJob() {
               children: "Responsibilities"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               id: "responsibilities",
-              children: "NEW Responsibilities"
+              children: "Responsibilities"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             style: {
@@ -9913,7 +9912,7 @@ function AddJob() {
               children: "Requirements"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
               id: "requirements",
-              children: "NEW Requirements"
+              children: "Requirements"
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {

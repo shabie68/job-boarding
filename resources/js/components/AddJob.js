@@ -34,7 +34,7 @@ function AddJob() {
 	  modules: {
 	    toolbar: true,
 	  },
-	  placeholder: 'Compose an epic...',
+	  placeholder: `Details...`,
 	  theme: 'snow',
 	  container: '#description'
 	})
@@ -44,7 +44,7 @@ function AddJob() {
 	  modules: {
 	    toolbar: true,
 	  },
-	  placeholder: 'Compose an epic...',
+	  placeholder: 'Job responsibilities...',
 	  theme: 'snow',
 	  container: '#responsibilities'
 	})
@@ -139,21 +139,21 @@ function AddJob() {
 						<div style={{display: additionalDetails == 'description' ? 'block' : 'none'}}>	
 							<label>Description</label>
 							<div id="description">
-								NEW Description
+								Description
 							</div>
 						</div>
 
 						<div style={{display: additionalDetails == 'responsibilities' ? 'block' : 'none'}}>
 							<label>Responsibilities</label>
 							<div id="responsibilities">
-								NEW Responsibilities
+								Responsibilities
 							</div>
 						</div>
 
 						<div style={{display: additionalDetails == 'requirements' ? 'block' : 'none'}}>
 							<label>Requirements</label>
 							<div id="requirements">
-								NEW Requirements
+								Requirements
 							</div>
 						</div>
 					</div>
