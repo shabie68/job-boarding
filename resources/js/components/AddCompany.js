@@ -78,15 +78,16 @@ function AddCompany() {
 	return (
 
 		<>
-			<div className="d-flex gap-4 mb-3">
+			<div className="d-flex gap-4 mb-3 align-items-center">
 				<Link to="/companies">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+					<svg style={{color: 'black'}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
 					  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
 					</svg>
 				</Link>
 				<strong>Go back</strong>
 			</div>
 
+			<h2>Add Company</h2>
 			<div className="bg-white mb-3">
 				<div className="d-flex gap-3">
 					<div className="w-50">
@@ -222,6 +223,13 @@ function AddCompany() {
 								<option value="ecommerce">Ecommererce</option>
 								<option value="education">Educations</option>
 								<option value="marketing">Marketing</option>
+								<option value="real-state">Real State</option>
+								<option value="entertainment">Enterainment</option>
+								<option value="logistics">Transportattion and Logistics</option>
+								<option value="energy">Energy</option>
+								<option value="finance">Finance</option>
+								<option value="health-care">Health Care</option>
+								<option value="technology">Technology</option>
 								<option value="food-store">Food Store</option>
 							</select>
 						</div>
