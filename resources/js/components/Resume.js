@@ -45,26 +45,30 @@ function Resume(props) {
 
 	return (
 		<div>
+			<div className="progress mb-4" style={{height: '7px'}}>
+              <div className="progress-bar" id="jb-resume-pbar" role="progressbar" style={{width: "66%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
 			<div className="w-50" style={{margin: '0 auto'}}>
-				<h4>Upload your resume</h4>
+				<h2>Upload your resume</h2>
 
 				<div className="card">	
 					<div className="card-body">
 						<form onSubmit={saveData}>
-						<div className="mb-3">
-						  <label htmlFor="formFileSm" className="form-label">Small file input example</label>
-						  <input 
-						  	className="form-control form-control-sm" 
-						  	id="formFileSm" 
-						  	type="file" 
-						  	onChange={handleResume}
-					    />
-						</div>
+							<div className="mb-3">
+							  <label htmlFor="formFileSm" className="form-label">Choose resume</label>
+							  <input 
+							  	className="form-control form-control-sm" 
+							  	id="formFileSm" 
+							  	type="file" 
+							  	onChange={handleResume}
+						    />
+							</div>
 
 
-						<div className="mt-2 text-align-end">
-                            <button type="submit" className="btn btn-primary">Continue</button>
-                        </div>
+							<div className="mt-2 text-align-end">
+	                            <button type="submit" className="btn btn-primary">Continue</button>
+	                        </div>
                         </form>
 					</div>
 				</div>

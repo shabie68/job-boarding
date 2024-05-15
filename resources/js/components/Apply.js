@@ -60,8 +60,11 @@ function Apply(props) {
 	return (
 		
 		<div>
+            <div className="progress mb-4" style={{height: '7px'}}>
+              <div className="progress-bar" id="jb-apply-pbar" role="progressbar" style={{width: "33%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
 			<div className="w-50" style={{margin: '0 auto'}}>
-				<h4>Add your resume</h4>
+				<h2>Personal Information</h2>
 				<div className="card">
 					<div className="card-body">
                     	<div className="">

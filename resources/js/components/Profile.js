@@ -95,7 +95,7 @@ function Profile() {
                 <section style={{margin: '0 auto'}} className="w-50">
                     <h2>Profile</h2>
                     <div className="card p-4">
-                        <h1>{user.name}</h1>
+                        <h3>{user.name}</h3>
                         <div className="mb-3">{email}</div>
                         <div>
                             <h3>Summary</h3>
@@ -120,7 +120,7 @@ function Profile() {
                         </div>
                         
                         <div className="mb-3">
-                            <h1>Skills</h1>
+                            <h3>Skills</h3>
                             {
                                 moreSkills?.map((skill) => (
 

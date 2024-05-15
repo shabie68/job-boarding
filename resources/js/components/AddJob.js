@@ -23,8 +23,8 @@ function AddJob() {
 	}, [])
   
 
-	const [title, setTitle] = useState('Job Title');
-	const [location, setLocation] = useState('Islamabad');
+	const [title, setTitle] = useState('Job title');
+	const [location, setLocation] = useState('islamabad');
 	const [type, setType] = useState('remote');
 	const [additionalDetails, setAdditionalDetails] = useState('description')
 
@@ -104,7 +104,6 @@ function AddJob() {
 				<div className="card">
 
 					<div className="card-body">
-
 						<div>
 							<label>Title</label>
 							<input type="text" name="title" className="form-control" onChange={(e) => {setTitle(e.target.value)}}/>
@@ -120,6 +119,7 @@ function AddJob() {
 							<input type="number" name="salary" className="form-control" onChange={(e) => {setSalary(e.target.value)}}/>
 						</div>
 
+						{type} is the type
 						<div style={{margin: '20px 0'}}>
 							<label >Type</label>
 							<select className="form-control" name="type" onChange={(e) => {setType(e.target.value)}}>

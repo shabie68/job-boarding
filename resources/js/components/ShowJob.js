@@ -119,8 +119,8 @@ function ShowJob() {
                     {
                         role == 1 ?
 
-                        <div className="d-lg-flex justify-content-lg-between align-items-lg-center my-4 border-bottom">
-                            <h4 className="mb-0">Add New Job </h4>
+                        <div className="d-lg-flex justify-content-lg-between my-4 border-bottom">
+                            <h1 className="mb-0">Jobs</h1>
                              <div className="">
                                 <Link to="/add-job">
                                     <button type="button" className="btn btn-primary mb-4">
