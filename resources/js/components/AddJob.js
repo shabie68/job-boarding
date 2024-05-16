@@ -1,16 +1,42 @@
 import {useState, useEffect} from 'react'
 import { BrowserRouter, Routes, Link, Route, useNavigate } from "react-router-dom";
+import { useFormik } from 'formik';
 
 import Quill from 'quill';
 
 import Toolbar from "quill/modules/toolbar";
 import Snow from "quill/themes/snow";
+import Form from './Form'
 
 import Bold from "quill/formats/bold";
 import Italic from "quill/formats/italic";
 import Header from "quill/formats/header";
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
+
+const validate = values => {
+  const errors = {};
+
+  if (!values.title) {
+    errors.title = 'Required';
+  } else if (values.title.length > 15) {
+    errors.title = 'Must be 15 characters or less';
+  }
+
+  if (!values.location) {
+    errors.location = 'Required';
+  } else if (values.location.length > 20) {
+    errors.location = 'Must be 20 characters or less';
+  }
+
+  if (!values.email) {
+    errors.email = 'Required';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
+
+  return errors;
+};
 
 
 function AddJob() {
@@ -24,7 +50,7 @@ function AddJob() {
   
 
 	const [title, setTitle] = useState('Job title');
-	const [location, setLocation] = useState('islamabad');
+	const [location, setLocation] = useState('Islamabad');
 	const [type, setType] = useState('remote');
 	const [additionalDetails, setAdditionalDetails] = useState('description')
 
@@ -49,6 +75,19 @@ function AddJob() {
 	  container: '#responsibilities'
 	})
 
+	const formik = useFormik({
+	    initialValues: {
+	      title: '',
+	      lastName: '',
+	      email: '',
+	    },
+	    validate,
+	    onSubmit: values => {
+	    	alert("HI THER")
+	      // alert(JSON.stringify(values, null, 2));
+	    },
+  	});
+
 	
 	const navigate = useNavigate()
 	const [descriptionQuill, setDescriptionQuill] = useState();
@@ -63,9 +102,9 @@ function AddJob() {
 	async function addJob() {
 
 		const data = {
-			title: title,
+			title: formik.values.title,
 			description: descriptionQuill.getSemanticHTML(),
-			location: location,
+			location: formik.values.location,
 			type: type,
 			responsibilities: responsibilityQuill.getSemanticHTML(),
 			requirements: requirementQuill.getSemanticHTML(),
@@ -104,14 +143,35 @@ function AddJob() {
 				<div className="card">
 
 					<div className="card-body">
+					<form onSubmit={formik.handleSubmit}>
+						{formik.values.title} is the title
 						<div>
 							<label>Title</label>
-							<input type="text" name="title" className="form-control" onChange={(e) => {setTitle(e.target.value)}}/>
+							<input type="text" 
+								name="title" 
+								className="form-control" 
+								onChange={formik.handleChange}
+						        onBlur={formik.handleBlur}
+						        value={formik.values.title} />
+
+						        {formik.touched.title && formik.errors.title ? (
+							        <div>{formik.errors.title}</div>
+							      ) : null}
 						</div>
 
 						<div style={{margin: '20px 0'}}>
 							<label >Location</label>
-							<input type="text" name="location" className="form-control" onChange={(e) => {setLocation(e.target.value)}}/>
+							<input 
+								type="text"
+								name="location"
+								className="form-control" 
+								onChange={formik.handleChange}
+						        onBlur={formik.handleBlur}
+						        value={formik.values.location}/>
+
+						        {formik.touched.location && formik.errors.location ? (
+							        <div>{formik.errors.location}</div>
+							      ) : null}
 						</div>
 
 						<div style={{margin: '20px 0'}}>
@@ -163,8 +223,10 @@ function AddJob() {
 						</div>
 
 						<div className="mt-4">
-							<button className="btn btn-primary text-align-end" onClick={addJob}>Add Job</button>
+							<button className="btn btn-primary text-align-end" type="submit">Add Job</button>
 						</div>
+
+						</form>
 					</div>
 				</div>
 
