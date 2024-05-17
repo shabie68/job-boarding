@@ -1,18 +1,9 @@
-import {useState, useEffect} from 'react'
-import { BrowserRouter, Routes, Link, Route, useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from 'formik';
-
 import Quill from 'quill';
-
-import Toolbar from "quill/modules/toolbar";
-import Snow from "quill/themes/snow";
-import Form from './Form'
-
-import Bold from "quill/formats/bold";
-import Italic from "quill/formats/italic";
-import Header from "quill/formats/header";
-import "quill/dist/quill.core.css";
-import "quill/dist/quill.snow.css";
+import 'quill/dist/quill.core.css';
+import 'quill/dist/quill.snow.css';
 
 const validate = values => {
   const errors = {};
@@ -29,211 +20,175 @@ const validate = values => {
     errors.location = 'Must be 20 characters or less';
   }
 
-  if (!values.email) {
-    errors.email = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
-  }
-
   return errors;
 };
 
-
 function AddJob() {
+  const navigate = useNavigate();
 
-	useEffect(() => {
-		setDescriptionQuill(new Quill('#description', editorOptions))
-		setResponsibilityQuill(new Quill('#responsibilities', editorOptions ))
-		setRequirementQuill(new Quill('#requirements', editorOptions ))
-				
-	}, [])
-  
+  const [descriptionQuill, setDescriptionQuill] = useState();
+  const [responsibilityQuill, setResponsibilityQuill] = useState();
+  const [requirementQuill, setRequirementQuill] = useState();
+  const [additionalDetails, setAdditionalDetails] = useState('description');
 
-	const [title, setTitle] = useState('Job title');
-	const [location, setLocation] = useState('Islamabad');
-	const [type, setType] = useState('remote');
-	const [additionalDetails, setAdditionalDetails] = useState('description')
+  useEffect(() => {
+    setDescriptionQuill(new Quill('#description', {
+      modules: { toolbar: true },
+      theme: 'snow',
+      placeholder: 'Job description...',
+    }));
+    setResponsibilityQuill(new Quill('#responsibilities', {
+      modules: { toolbar: true },
+      theme: 'snow',
+      placeholder: 'Job responsibilities...',
+    }));
+    setRequirementQuill(new Quill('#requirements', {
+      modules: { toolbar: true },
+      theme: 'snow',
+      placeholder: 'Job requirements...',
+    }));
+  }, []);
 
-	const [salary, setSalary] = useState(40000);
-	const [editorOptions, setEditorOptions] = useState({
-	  debug: 'info',
-	  modules: {
-	    toolbar: true,
-	  },
-	  placeholder: `Details...`,
-	  theme: 'snow',
-	  container: '#description'
-	})
+  const formik = useFormik({
+    initialValues: {
+      title: '',
+      location: '',
+      type: 'remote',
+      salary: 40000,
+    },
+    validate,
+    onSubmit: values => {
+      const data = {
+        title: values.title,
+        description: descriptionQuill.root.innerHTML,
+        location: values.location,
+        type: values.type,
+        responsibilities: responsibilityQuill.root.innerHTML,
+        requirements: requirementQuill.root.innerHTML,
+        salary: values.salary,
+      };
 
-	const [option, setOptions] = useState({
-	  debug: 'info',
-	  modules: {
-	    toolbar: true,
-	  },
-	  placeholder: 'Job responsibilities...',
-	  theme: 'snow',
-	  container: '#responsibilities'
-	})
+      fetch("http://127.0.0.1:8000/api/add-job", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        },
+        body: JSON.stringify(data),
+      })
+        .then(response => response.json())
+        .then(() => navigate('/home'))
+        .catch(error => console.error('Error:', error));
+    },
+  });
 
-	const formik = useFormik({
-	    initialValues: {
-	      title: '',
-	      lastName: '',
-	      email: '',
-	    },
-	    validate,
-	    onSubmit: values => {
-	    	alert("HI THER")
-	      // alert(JSON.stringify(values, null, 2));
-	    },
-  	});
+  return (
+    <div className="mt-4">
+      <div className="d-flex gap-4 align-items-center">
+        <Link to="/home">
+          <svg style={{ color: 'black' }} xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+          </svg>
+        </Link>
+        <strong>Go back</strong>
+      </div>
 
-	
-	const navigate = useNavigate()
-	const [descriptionQuill, setDescriptionQuill] = useState();
-	const [responsibilityQuill, setResponsibilityQuill] = useState();
-	const [requirementQuill, setRequirementQuill] = useState();
+      <section style={{ margin: '0 auto', width: '50%' }}>
+        <h2>Add Job</h2>
+        <div className="card">
+          <div className="card-body">
+            <form onSubmit={formik.handleSubmit}>
+              <div>
+                <label>Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  className="form-control"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.title}
+                />
+                {formik.touched.title && formik.errors.title ? (
+                  <div>{formik.errors.title}</div>
+                ) : null}
+              </div>
 
-	
-	const handleAddtionalDetail = (event) => {
-		setAdditionalDetails(event.target.value)
-	}
+              <div style={{ margin: '20px 0' }}>
+                <label>Location</label>
+                <input
+                  type="text"
+                  name="location"
+                  className="form-control"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.location}
+                />
+                {formik.touched.location && formik.errors.location ? (
+                  <div>{formik.errors.location}</div>
+                ) : null}
+              </div>
 
-	async function addJob() {
+              <div style={{ margin: '20px 0' }}>
+                <label>Salary</label>
+                <input
+                  type="number"
+                  name="salary"
+                  className="form-control"
+                  onChange={(e) => formik.setFieldValue('salary', e.target.value)}
+                  value={formik.values.salary}
+                />
+              </div>
 
-		const data = {
-			title: formik.values.title,
-			description: descriptionQuill.getSemanticHTML(),
-			location: formik.values.location,
-			type: type,
-			responsibilities: responsibilityQuill.getSemanticHTML(),
-			requirements: requirementQuill.getSemanticHTML(),
-			salary: salary
-		}
-		
+              <div style={{ margin: '20px 0' }}>
+                <label>Type</label>
+                <select
+                  className="form-control"
+                  name="type"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.type}
+                >
+                  <option value="remote">Remote</option>
+                  <option value="hybrid">Hybrid</option>
+                  <option value="onsite">Onsite</option>
+                </select>
+              </div>
 
-		fetch("http://127.0.0.1:8000/api/add-job", {
-		    method: 'POST',
-		    headers: {
-		        'Content-Type': 'application/json',
-		        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-		    },
-		    body: JSON.stringify(data),
-		})
-	    .then(response => response.json())
-	    .then(navigate('/home'))
-	    .catch(error => console.error('Error:', error));
+              <div style={{ margin: '20px 0' }}>
+                <label>Additional details</label>
+                <select className="form-control" onChange={e => setAdditionalDetails(e.target.value)}>
+                  <option value="description">Description</option>
+                  <option value="responsibilities">Responsibilities</option>
+                  <option value="requirements">Requirements</option>
+                </select>
+              </div>
 
-	}
+              <div>
+                <div style={{ display: additionalDetails === 'description' ? 'block' : 'none' }}>
+                  <label>Description</label>
+                  <div id="description">Description</div>
+                </div>
 
+                <div style={{ display: additionalDetails === 'responsibilities' ? 'block' : 'none' }}>
+                  <label>Responsibilities</label>
+                  <div id="responsibilities">Responsibilities</div>
+                </div>
 
-	return (
-		<div className="mt-4">
-			<div className="d-flex gap-4 align-items-center">
-				<Link to="/home">
-					<svg style={{color: 'black'}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-					  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
-					</svg>
-				</Link>
-				<strong>Go back</strong>
-			</div>
+                <div style={{ display: additionalDetails === 'requirements' ? 'block' : 'none' }}>
+                  <label>Requirements</label>
+                  <div id="requirements">Requirements</div>
+                </div>
+              </div>
 
-			<section style={{margin: '0 auto', width: '50%'}}>
-				<h2>Add Job</h2>
-				<div className="card">
-
-					<div className="card-body">
-					<form onSubmit={formik.handleSubmit}>
-						{formik.values.title} is the title
-						<div>
-							<label>Title</label>
-							<input type="text" 
-								name="title" 
-								className="form-control" 
-								onChange={formik.handleChange}
-						        onBlur={formik.handleBlur}
-						        value={formik.values.title} />
-
-						        {formik.touched.title && formik.errors.title ? (
-							        <div>{formik.errors.title}</div>
-							      ) : null}
-						</div>
-
-						<div style={{margin: '20px 0'}}>
-							<label >Location</label>
-							<input 
-								type="text"
-								name="location"
-								className="form-control" 
-								onChange={formik.handleChange}
-						        onBlur={formik.handleBlur}
-						        value={formik.values.location}/>
-
-						        {formik.touched.location && formik.errors.location ? (
-							        <div>{formik.errors.location}</div>
-							      ) : null}
-						</div>
-
-						<div style={{margin: '20px 0'}}>
-							<label >Salary</label>
-							<input type="number" name="salary" className="form-control" onChange={(e) => {setSalary(e.target.value)}}/>
-						</div>
-
-						{type} is the type
-						<div style={{margin: '20px 0'}}>
-							<label >Type</label>
-							<select className="form-control" name="type" onChange={(e) => {setType(e.target.value)}}>
-								<option value="remote">Remote</option>
-								<option value="hybrid">Hyrid</option>
-								<option value="onsite">Onsite</option>
-							</select>
-						</div>
-
-						<div style={{margin: '20px 0'}}>
-							<label >Additional details</label>
-							<select className="form-control" name="type" onChange={handleAddtionalDetail}>
-								<option value="description">Description</option>
-								<option value="responsibilities">Responsibilities</option>
-								<option value="requirements">Requirements</option>
-							</select>
-						</div>
-
-						<div>
-
-							<div style={{display: additionalDetails == 'description' ? 'block' : 'none'}}>	
-								<label>Description</label>
-								<div id="description">
-									Description
-								</div>
-							</div>
-
-							<div style={{display: additionalDetails == 'responsibilities' ? 'block' : 'none'}}>
-								<label>Responsibilities</label>
-								<div id="responsibilities">
-									Responsibilities
-								</div>
-							</div>
-
-							<div style={{display: additionalDetails == 'requirements' ? 'block' : 'none'}}>
-								<label>Requirements</label>
-								<div id="requirements">
-									Requirements
-								</div>
-							</div>
-						</div>
-
-						<div className="mt-4">
-							<button className="btn btn-primary text-align-end" type="submit">Add Job</button>
-						</div>
-
-						</form>
-					</div>
-				</div>
-
-			</section>
-		</div>
-	)
+              <div className="mt-4">
+                <button className="btn btn-primary text-align-end" type="submit">Add Job</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
 
 export default AddJob;
-
