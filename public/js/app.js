@@ -9312,7 +9312,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var validate = function validate(values) {
   var errors = {};
   if (!values.title) {
-    errors.firstName = 'Required';
+    errors.title = 'Required';
   } else if (values.title.length > 15) {
     errors.title = 'Must be 15 characters or less';
   }
@@ -9328,23 +9328,23 @@ var validate = function validate(values) {
   }
   if (!values.totalEmployees) {
     errors.totalEmployees = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.totalEmployees)) {
-    errors.totalEmployees = 'Invalid email address';
+  } else if (values.totalEmployees.length > 20) {
+    errors.totalEmployees = 'Invalid empolyees address';
   }
   if (!values.websiteUrl) {
     errors.websiteUrl = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.websiteUrl)) {
-    errors.websiteUrl = 'Invalid email address';
+  } else if (values.websiteUrl > 20) {
+    errors.websiteUrl = 'Invalid website address';
   }
   if (!values.phoneNumber) {
     errors.phoneNumber = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.phoneNumber)) {
-    errors.phoneNumber = 'Invalid email address';
+  } else if (values.phoneNumber.length > 20) {
+    errors.phoneNumber = 'Invalid phone address';
   }
   if (!values.industry) {
     errors.industry = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.industry)) {
-    errors.industry = 'Invalid email address';
+  } else if (values.industry.length > 20) {
+    errors.industry = 'Invalid industry address';
   }
   return errors;
 };
@@ -9364,7 +9364,26 @@ function AddCompany() {
     },
     validate: validate,
     onSubmit: function onSubmit(values) {
-      alert("HI");
+      alert("SUBMITTING");
+      setLoading(true);
+      var contactInformation = {
+        phone_number: phoneNumber,
+        email: email
+      };
+      var formData = new FormData();
+      formData.append('title', title);
+      formData.append('logo', logo);
+      formData.append('description', description.root.innerHTML);
+      formData.append('website_url', websiteUrl);
+      formData.append('industry', industry);
+      formData.append('total_employees', totalEmployees);
+      formData.append('locations', locations);
+      formData.append('contact_information', JSON.stringify(contactInformation));
+      formData.append('_method', 'put');
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/company/store', formData).then(function (response) {
+        // window.location = '/companies'
+        navigate('/companies');
+      })["catch"](function () {});
     }
   });
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -9487,13 +9506,15 @@ function AddCompany() {
                 "aria-describedby": "titleHelp",
                 placeholder: "Enter title",
                 value: formik.values.title,
-                onChange: formik.values.title,
+                onChange: formik.handleChange,
                 onBlur: formik.handleBlur
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
                 id: "titleHelp",
                 className: "form-text text-muted",
                 children: "Enter the title for the company"
-              })]
+              }), formik.touched.title && formik.errors.title ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                children: formik.errors.title
+              }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "mb-3",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
@@ -9519,13 +9540,16 @@ function AddCompany() {
                 id: "locations",
                 "aria-describedby": "locationHelp",
                 placeholder: "Enter locations",
-                value: locations,
-                onChange: formik.values.locations
+                value: formik.values.locations,
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
                 id: "locationHelp",
                 className: "form-text text-muted",
                 children: "Enter locations of the company. Can be multiple"
-              })]
+              }), formik.touched.locations && formik.errors.locations ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                children: formik.errors.locations
+              }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "form-group mb-3",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("ul", {
@@ -9556,81 +9580,85 @@ function AddCompany() {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
                 htmlFor: "website-url",
                 children: "Website Url"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", _defineProperty({
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
                 type: "text",
                 className: "form-control",
                 id: "website-url",
                 "aria-describedby": "website-url",
                 placeholder: "Enter website url",
-                value: websiteUrl,
-                onChange: function onChange(e) {
-                  return setWebsiteUrl(e.target.value);
-                }
-              }, "onChange", formik.values.websiteUrl)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.websiteUrl
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
                 id: "website-url",
                 className: "form-text text-muted",
                 children: "Website Url if any"
-              })]
+              }), formik.touched.websiteUrl && formik.errors.websiteUrl ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                children: formik.errors.websiteUrl
+              }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "form-group mb-3",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
                 htmlFor: "title",
                 children: "Total Employees"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", _defineProperty({
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
                 type: "number",
                 className: "form-control",
                 id: "employees",
                 "aria-describedby": "employeesHelp",
                 placeholder: "Total Employees",
-                value: totalEmployees,
-                onChange: function onChange(e) {
-                  return setTotalEmployees(e.target.value);
-                }
-              }, "onChange", formik.values.totalEmployees)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.totalEmployees
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
                 id: "employeesHelp",
                 className: "form-text text-muted",
                 children: "Total employees in the company"
-              })]
+              }), formik.touched.totalEmployees && formik.errors.totalEmployees ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                children: formik.errors.totalEmployees
+              }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "form-group mb-3",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
                 htmlFor: "companyEmail",
                 children: "Email"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", _defineProperty({
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
                 type: "email",
                 className: "form-control",
                 id: "companyEmail",
                 "aria-describedby": "companyEmailHelp",
                 placeholder: "Email",
-                value: email,
-                onChange: function onChange(e) {
-                  return setEmail(e.target.value);
-                }
-              }, "onChange", formik.values.email)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.email
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
                 id: "companyEmailHelp",
                 className: "form-text text-muted",
                 children: "Email of the company."
-              })]
+              }), formik.touched.email && formik.errors.email ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                children: formik.errors.email
+              }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "form-group mb-3",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
                 htmlFor: "companyPhone",
                 children: "Phone Number"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", _defineProperty({
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
                 type: "tel",
                 className: "form-control",
                 id: "companyPhone",
                 "aria-describedby": "companyPhoneHelp",
                 placeholder: "Phone Number",
-                value: phoneNumber,
-                onChange: function onChange(e) {
-                  return setPhoneNumber(e.target.value);
-                }
-              }, "onChange", formik.values.phoneNumber)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.phoneNumber
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
                 id: "companyEmailHelp",
                 className: "form-text text-muted",
                 children: "Phone No of the company."
-              })]
+              }), formik.touched.phoneNumber && formik.errors.phoneNumber ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                children: formik.errors.phoneNumber
+              }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               style: {
                 margin: '20px 0'
@@ -9641,6 +9669,7 @@ function AddCompany() {
                 className: "form-control",
                 name: "type",
                 onChange: formik.values.industry,
+                onBlur: formik.handleBlur,
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
                   value: "electronics",
                   children: "Electronics"

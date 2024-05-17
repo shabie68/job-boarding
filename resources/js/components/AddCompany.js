@@ -15,7 +15,7 @@ const validate = values => {
   const errors = {};
 
   if (!values.title) {
-    errors.firstName = 'Required';
+    errors.title = 'Required';
   } else if (values.title.length > 15) {
     errors.title = 'Must be 15 characters or less';
   }
@@ -34,26 +34,26 @@ const validate = values => {
 
   if (!values.totalEmployees) {
     errors.totalEmployees = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.totalEmployees)) {
-    errors.totalEmployees = 'Invalid email address';
+  } else if (values.totalEmployees.length > 20) {
+    errors.totalEmployees = 'Invalid empolyees address';
   }
 
   if (!values.websiteUrl) {
     errors.websiteUrl = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.websiteUrl)) {
-    errors.websiteUrl = 'Invalid email address';
+  } else if (values.websiteUrl > 20) {
+    errors.websiteUrl = 'Invalid website address';
   }
 
   if (!values.phoneNumber) {
     errors.phoneNumber = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.phoneNumber)) {
-    errors.phoneNumber = 'Invalid email address';
+  } else if (values.phoneNumber.length>20) {
+    errors.phoneNumber = 'Invalid phone address';
   }
 
   if (!values.industry) {
     errors.industry = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.industry)) {
-    errors.industry = 'Invalid email address';
+  } else if (values.industry.length > 20) {
+    errors.industry = 'Invalid industry address';
   }
 
   return errors;
@@ -79,7 +79,35 @@ function AddCompany() {
     },
     validate,
     onSubmit: values => {
-      alert("HI")
+    	alert("SUBMITTING")
+      setLoading(true)
+		let contactInformation = {
+			phone_number: phoneNumber,
+			email: email
+		}
+
+
+		const formData = new FormData();
+
+		formData.append('title', title)
+	    formData.append('logo', logo);
+	    formData.append('description', description.root.innerHTML)
+	    formData.append('website_url', websiteUrl)
+	    formData.append('industry', industry)
+	    formData.append('total_employees', totalEmployees)
+	    formData.append('locations', locations)
+	    formData.append('contact_information', JSON.stringify(contactInformation))
+	    formData.append('_method', 'put')
+
+		apiClient.post('http://127.0.0.1:8000/api/company/store', formData)
+		.then((response) => {
+			// window.location = '/companies'
+			navigate('/companies')
+
+		})
+		.catch(() => {
+
+		})
     },
   });
 
@@ -174,11 +202,14 @@ function AddCompany() {
 							    	aria-describedby="titleHelp"
 							    	placeholder="Enter title"
 							    	value={formik.values.title}
-							    	onChange={formik.values.title}
+							    	onChange={formik.handleChange}
 							    	onBlur={formik.handleBlur}
 
 							    />
 						    	<small id="titleHelp" className="form-text text-muted">Enter the title for the company</small>
+						    	{formik.touched.title && formik.errors.title ? (
+				                  <div>{formik.errors.title}</div>
+				                ) : null}
 						  	</div>
 
 						  	<div className="mb-3">
@@ -188,7 +219,6 @@ function AddCompany() {
 							  	id="formFileSm" 
 							  	type="file" 
 							  	onChange={(e) => {setLogo(e.target.files[0])}}
-
 						    />
 							</div>
 
@@ -200,10 +230,16 @@ function AddCompany() {
 							    	id="locations" 
 							    	aria-describedby="locationHelp" 
 							    	placeholder="Enter locations"
-							    	value={locations}
-							    	onChange={formik.values.locations}
+							    	value={formik.values.locations}
+							    	onChange={formik.handleChange}
+							    	onBlur={formik.handleBlur}
+
+
 							   	/>
 						    	<small id="locationHelp" className="form-text text-muted">Enter locations of the company. Can be multiple</small>
+						  		{formik.touched.locations && formik.errors.locations ? (
+				                  <div>{formik.errors.locations}</div>
+				                ) : null}
 						  	</div>
 
 						  	<div className="form-group mb-3">
@@ -241,11 +277,14 @@ function AddCompany() {
 							    	id="website-url" 
 							    	aria-describedby="website-url" 
 							    	placeholder="Enter website url" 
-							    	value={websiteUrl}
-							    	onChange={(e) => setWebsiteUrl(e.target.value)}
-							    	onChange={formik.values.websiteUrl}
+							    	onChange={formik.handleChange}
+							    	onBlur={formik.handleBlur}
+							    	value={formik.values.websiteUrl}
 							    />
 						    	<small id="website-url" className="form-text text-muted">Website Url if any</small>
+						    	{formik.touched.websiteUrl && formik.errors.websiteUrl ? (
+				                  <div>{formik.errors.websiteUrl}</div>
+				                ) : null}
 						  	</div>
 
 						  	<div className="form-group mb-3">
@@ -256,11 +295,14 @@ function AddCompany() {
 							    	id="employees" 
 							    	aria-describedby="employeesHelp" 
 							    	placeholder="Total Employees" 
-							    	value={totalEmployees}
-							    	onChange={(e) => setTotalEmployees(e.target.value)}
-							    	onChange={formik.values.totalEmployees}
+							    	onChange={formik.handleChange}
+							    	onBlur={formik.handleBlur}
+							    	value={formik.values.totalEmployees}
 							    />
 						    	<small id="employeesHelp" className="form-text text-muted">Total employees in the company</small>
+						    	{formik.touched.totalEmployees && formik.errors.totalEmployees ? (
+				                  <div>{formik.errors.totalEmployees}</div>
+				                ) : null}
 						  	</div>
 
 						  	<div className="form-group mb-3">
@@ -271,11 +313,14 @@ function AddCompany() {
 							    	id="companyEmail" 
 							    	aria-describedby="companyEmailHelp" 
 							    	placeholder="Email" 
-							    	value={email}
-							    	onChange={(e) => setEmail(e.target.value)}
-							    	onChange={formik.values.email}
+							    	onChange={formik.handleChange}
+							    	onBlur={formik.handleBlur}
+							    	value={formik.values.email}
 							    />
 						    	<small id="companyEmailHelp" className="form-text text-muted">Email of the company.</small>
+						    	{formik.touched.email && formik.errors.email ? (
+				                  <div>{formik.errors.email}</div>
+				                ) : null}
 						  	</div>
 
 						  	<div className="form-group mb-3">
@@ -286,11 +331,14 @@ function AddCompany() {
 							    	id="companyPhone" 
 							    	aria-describedby="companyPhoneHelp" 
 							    	placeholder="Phone Number" 
-							    	value={phoneNumber}
-							    	onChange={(e) => setPhoneNumber(e.target.value)}
-							    	onChange={formik.values.phoneNumber}
+							    	onChange={formik.handleChange}
+							    	onBlur={formik.handleBlur}
+							    	value={formik.values.phoneNumber}
 							    />
 						    	<small id="companyEmailHelp" className="form-text text-muted">Phone No of the company.</small>
+						    	{formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+				                  <div>{formik.errors.phoneNumber}</div>
+				                ) : null}
 						  	</div>
 						  	
 							<div style={{margin: '20px 0'}}>
@@ -299,6 +347,7 @@ function AddCompany() {
 									className="form-control" 
 									name="type"
 									onChange={formik.values.industry}
+									onBlur={formik.handleBlur}
 								>
 									<option value="electronics">Electronics</option>
 									<option value="ecommerce">Ecommererce</option>
