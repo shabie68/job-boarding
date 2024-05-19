@@ -9313,13 +9313,9 @@ var validate = function validate(values) {
   var errors = {};
   if (!values.title) {
     errors.title = 'Title field is required';
-  } else if (values.title.length > 15) {
-    errors.title = 'Must be 15 characters or less';
   }
   if (!values.locations) {
     errors.locations = 'Locations field is Required';
-  } else if (values.locations.length > 20) {
-    errors.locations = 'Must be 20 characters or less';
   }
   if (!values.email) {
     errors.email = 'Email field is Required';
@@ -9776,13 +9772,9 @@ var validate = function validate(values) {
   var errors = {};
   if (!values.title) {
     errors.title = 'Title field is required';
-  } else if (values.title.length > 15) {
-    errors.title = 'Must be 15 characters or less';
   }
   if (!values.location) {
     errors.location = 'Location field is required';
-  } else if (values.location.length > 20) {
-    errors.location = 'Must be 20 characters or less';
   }
   if (!values.salary) {
     errors.salary = 'Salary field is required';

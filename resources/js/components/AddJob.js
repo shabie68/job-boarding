@@ -10,14 +10,10 @@ const validate = values => {
 
   if (!values.title) {
     errors.title = 'Title field is required';
-  } else if (values.title.length > 15) {
-    errors.title = 'Must be 15 characters or less';
-  }
+  } 
 
   if (!values.location) {
     errors.location = 'Location field is required';
-  } else if (values.location.length > 20) {
-    errors.location = 'Must be 20 characters or less';
   }
 
   if (!values.salary) {
