@@ -8,7 +8,7 @@ function ShowJob() {
 
     const [jobs, setJobs] = useState([]);
     const [role, setRole] = useState(0);
-    
+
     const [job, setJob] = useState(null);
     const [addJob, setAddJob] = useState(false)
     const [jobTitle, setJobTitle] = useState('')
@@ -56,7 +56,7 @@ function ShowJob() {
     }, [currentPage])
 
     async function getJob(id) {
-        
+
         const response = await fetch('http://127.0.0.1:8000/api/single-job/'+id);
         const _job = await response.json();
 
@@ -80,7 +80,7 @@ function ShowJob() {
         })
     }
 
-   
+
 
     return(
         <div>
@@ -95,7 +95,7 @@ function ShowJob() {
                           </span>
                         </div>
 
-                        <input 
+                        <input
                           className="form-control"
                           value={jobTitle}
                           placeholder="Job title"
@@ -104,13 +104,13 @@ function ShowJob() {
                         />
 
                        <button className="btn btn-secondary" onClick={() => getJobs(true, 'first-time')}>Search Job</button>
-                        
-                      </div>                    
-                
+
+                      </div>
+
                 </div>
 
                 <div>
-                    <input 
+                    <input
                         className="form-control"
                         value={jobType}
                         placeholder="Job type"
@@ -119,7 +119,7 @@ function ShowJob() {
                 </div>
 
                 <div className="">
-                   
+
                 </div>
             </div>
 
@@ -129,8 +129,8 @@ function ShowJob() {
                     {
                         role == 1 ?
 
-                        <div className="jb-add-job-btn d-lg-flex justify-content-lg-between align-items-lg-center my-4 border-bottom">
-                            <h4 className="mb-0">Add New Job </h4>
+                        <div className="d-lg-flex justify-content-lg-between my-4 border-bottom">
+                            <h1 className="mb-0">Jobs</h1>
                              <div className="">
                                 <Link to="/add-job">
                                     <button type="button" className="btn btn-primary mb-4">
@@ -141,7 +141,7 @@ function ShowJob() {
                         </div>
                         : ''
                     }
-                    
+
 
                     <div className="d-sm-block d-lg-flex gap-3">
                          <div className="w-40 jb-sm-card-w jb-lg-card-w jb-jobs">
@@ -153,10 +153,10 @@ function ShowJob() {
                                     <h3 className="">{_job.title}</h3>
                                     <strong className="ml-end" style={{marginLeft: 'auto'}}>{company}</strong>
                                 </div>
-                                 
+
                                  <div className="card-body">
                                      <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
-                                 
+
                                     <div dangerouslySetInnerHTML={{__html: _job?.description}}></div>
 
                                     <div dangerouslySetInnerHTML={{__html: _job?.responsibilities}} />
@@ -195,7 +195,7 @@ function ShowJob() {
                         }
                     </div>
                 </div>
-                    
+
             </div>
         </div>
     )

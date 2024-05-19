@@ -12,6 +12,7 @@ class BoardJobController extends Controller
     
     public function store(Request $request) {
 
+        
     	$job = BoardJob::create([
             "user_id" => auth()->user()->id,
             "company_id" => auth()->user()->company->id,
