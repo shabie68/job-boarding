@@ -9,13 +9,13 @@ const validate = values => {
   const errors = {};
 
   if (!values.title) {
-    errors.title = 'Required';
+    errors.title = 'Title field is required';
   } else if (values.title.length > 15) {
     errors.title = 'Must be 15 characters or less';
   }
 
   if (!values.location) {
-    errors.location = 'Required';
+    errors.location = 'Location field is required';
   } else if (values.location.length > 20) {
     errors.location = 'Must be 20 characters or less';
   }
@@ -26,33 +26,66 @@ const validate = values => {
      errors.salary = 'Must be a number';
   }
 
+  if (!values.description) {
+    errors.description = 'Description field is required';
+  }
+  if(values.description=='<p><br></p>') {
+    errors.description = 'Description should not be empty'
+  } 
+
+  if (!values.responsibilities) {
+    errors.responsibilities = 'Responsibility field is required';
+  } 
+
+  if(values.responsibilities=='<p><br></p>') {
+    errors.responsibilities = 'Responsibility should not be empty'
+  }
+
+  if (!values.requirements) {
+    errors.requirements = 'Requirements field is required';
+  }
+
+  if(values.requirements=='<p><br></p>') {
+    errors.requirements = 'Requirements should not be empty'
+  } 
+
+
+
+
   return errors;
 };
 
 function AddJob() {
   const navigate = useNavigate();
 
-  const [descriptionQuill, setDescriptionQuill] = useState();
-  const [responsibilityQuill, setResponsibilityQuill] = useState();
-  const [requirementQuill, setRequirementQuill] = useState();
-  const [additionalDetails, setAdditionalDetails] = useState('description');
-
   useEffect(() => {
-    setDescriptionQuill(new Quill('#description', {
-      modules: { toolbar: true },
+    const descriptionQuill = new Quill("#description", {
       theme: 'snow',
-      placeholder: 'Job description...',
-    }));
-    setResponsibilityQuill(new Quill('#responsibilities', {
-      modules: { toolbar: true },
+    });
+
+    const requirementQuill = new Quill("#requirements", {
       theme: 'snow',
-      placeholder: 'Job responsibilities...',
-    }));
-    setRequirementQuill(new Quill('#requirements', {
-      modules: { toolbar: true },
+    });
+
+    const responsibilityQuill = new Quill("#responsibilities", {
       theme: 'snow',
-      placeholder: 'Job requirements...',
-    }));
+    });
+
+    descriptionQuill.on('text-change', () => {
+      const value = descriptionQuill.root.innerHTML;
+      formik.setFieldValue('description', value);
+    });
+
+    requirementQuill.on('text-change', () => {
+      const value = requirementQuill.root.innerHTML;
+      formik.setFieldValue('requirements', value);
+    });
+
+    responsibilityQuill.on('text-change', () => {
+      const value = responsibilityQuill.root.innerHTML;
+      formik.setFieldValue('responsibilities', value);
+    });
+
   }, []);
 
   const formik = useFormik({
@@ -61,17 +94,21 @@ function AddJob() {
       location: '',
       type: 'remote',
       salary: 40000,
+      additionalDetails: 'description',
+      description: '',
+      requirements: '',
+      responsibilities: ''
     },
     validate,
     onSubmit: values => {
       const data = {
         title: values.title,
-        description: descriptionQuill.root.innerHTML,
+        description: values.description,
         location: values.location,
         type: values.type,
-        responsibilities: responsibilityQuill.root.innerHTML,
-        requirements: requirementQuill.root.innerHTML,
-        salary: values.salary,
+        responsibilities: values.responsibilities,
+        requirements: values.requirements,
+        salary: values.salary
       };
 
       fetch("http://127.0.0.1:8000/api/add-job", {
@@ -141,6 +178,7 @@ function AddJob() {
                   name="salary"
                   className="form-control"
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   value={formik.values.salary}
                 />
 
@@ -166,7 +204,13 @@ function AddJob() {
 
               <div style={{ margin: '20px 0' }}>
                 <label>Additional details</label>
-                <select className="form-control" onChange={e => setAdditionalDetails(e.target.value)}>
+                <select
+                  name="additionalDetails"
+                  className="form-control"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.additionalDetails}
+                >
                   <option value="description">Description</option>
                   <option value="responsibilities">Responsibilities</option>
                   <option value="requirements">Requirements</option>
@@ -174,23 +218,35 @@ function AddJob() {
               </div>
 
               <div>
-                <div style={{ display: additionalDetails === 'description' ? 'block' : 'none' }}>
+                <div style={{ display: formik.values.additionalDetails === 'description' ? 'block' : 'none' }}>
                   <label>Description</label>
                   <div id="description">Description</div>
                 </div>
 
-                <div style={{ display: additionalDetails === 'responsibilities' ? 'block' : 'none' }}>
+                <div style={{ display: formik.values.additionalDetails === 'responsibilities' ? 'block' : 'none' }}>
                   <label>Responsibilities</label>
                   <div id="responsibilities">Responsibilities</div>
                 </div>
 
-                <div style={{ display: additionalDetails === 'requirements' ? 'block' : 'none' }}>
+                <div style={{ display: formik.values.additionalDetails === 'requirements' ? 'block' : 'none' }}>
                   <label>Requirements</label>
                   <div id="requirements">Requirements</div>
                 </div>
               </div>
 
-              <div className="mt-4">
+              {formik.touched.description && formik.errors.description ? (
+                  <div className="text-danger">{formik.errors.description}</div>
+                ) : null}
+
+                {formik.touched.requirements && formik.errors.requirements ? (
+                  <div className="text-danger">{formik.errors.requirements}</div>
+                ) : null}
+
+                {formik.touched.responsibilities && formik.errors.responsibilities ? (
+                  <div className="text-danger">{formik.errors.responsibilities}</div>
+                ) : null}
+
+              <div className="mt-4 text-end">
                 <button className="btn btn-primary text-align-end" type="submit">Add Job</button>
               </div>
             </form>

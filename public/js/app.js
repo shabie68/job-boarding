@@ -9765,12 +9765,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var quill_dist_quill_core_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill/dist/quill.core.css */ "./node_modules/quill/dist/quill.core.css");
 /* harmony import */ var quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! quill/dist/quill.snow.css */ "./node_modules/quill/dist/quill.snow.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -9781,12 +9775,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var validate = function validate(values) {
   var errors = {};
   if (!values.title) {
-    errors.title = 'Required';
+    errors.title = 'Title field is required';
   } else if (values.title.length > 15) {
     errors.title = 'Must be 15 characters or less';
   }
   if (!values.location) {
-    errors.location = 'Required';
+    errors.location = 'Location field is required';
   } else if (values.location.length > 20) {
     errors.location = 'Must be 20 characters or less';
   }
@@ -9796,65 +9790,71 @@ var validate = function validate(values) {
     // Ensure totalEmployees is a number
     errors.salary = 'Must be a number';
   }
+  if (!values.description) {
+    errors.description = 'Description field is required';
+  }
+  if (values.description == '<p><br></p>') {
+    errors.description = 'Description should not be empty';
+  }
+  if (!values.responsibilities) {
+    errors.responsibilities = 'Responsibility field is required';
+  }
+  if (values.responsibilities == '<p><br></p>') {
+    errors.responsibilities = 'Responsibility should not be empty';
+  }
+  if (!values.requirements) {
+    errors.requirements = 'Requirements field is required';
+  }
+  if (values.requirements == '<p><br></p>') {
+    errors.requirements = 'Requirements should not be empty';
+  }
   return errors;
 };
 function AddJob() {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-    _useState2 = _slicedToArray(_useState, 2),
-    descriptionQuill = _useState2[0],
-    setDescriptionQuill = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-    _useState4 = _slicedToArray(_useState3, 2),
-    responsibilityQuill = _useState4[0],
-    setResponsibilityQuill = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-    _useState6 = _slicedToArray(_useState5, 2),
-    requirementQuill = _useState6[0],
-    setRequirementQuill = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('description'),
-    _useState8 = _slicedToArray(_useState7, 2),
-    additionalDetails = _useState8[0],
-    setAdditionalDetails = _useState8[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    setDescriptionQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#description', {
-      modules: {
-        toolbar: true
-      },
-      theme: 'snow',
-      placeholder: 'Job description...'
-    }));
-    setResponsibilityQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#responsibilities', {
-      modules: {
-        toolbar: true
-      },
-      theme: 'snow',
-      placeholder: 'Job responsibilities...'
-    }));
-    setRequirementQuill(new quill__WEBPACK_IMPORTED_MODULE_1__["default"]('#requirements', {
-      modules: {
-        toolbar: true
-      },
-      theme: 'snow',
-      placeholder: 'Job requirements...'
-    }));
+    var descriptionQuill = new quill__WEBPACK_IMPORTED_MODULE_1__["default"]("#description", {
+      theme: 'snow'
+    });
+    var requirementQuill = new quill__WEBPACK_IMPORTED_MODULE_1__["default"]("#requirements", {
+      theme: 'snow'
+    });
+    var responsibilityQuill = new quill__WEBPACK_IMPORTED_MODULE_1__["default"]("#responsibilities", {
+      theme: 'snow'
+    });
+    descriptionQuill.on('text-change', function () {
+      var value = descriptionQuill.root.innerHTML;
+      formik.setFieldValue('description', value);
+    });
+    requirementQuill.on('text-change', function () {
+      var value = requirementQuill.root.innerHTML;
+      formik.setFieldValue('requirements', value);
+    });
+    responsibilityQuill.on('text-change', function () {
+      var value = responsibilityQuill.root.innerHTML;
+      formik.setFieldValue('responsibilities', value);
+    });
   }, []);
   var formik = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useFormik)({
     initialValues: {
       title: '',
       location: '',
       type: 'remote',
-      salary: 40000
+      salary: 40000,
+      additionalDetails: 'description',
+      description: '',
+      requirements: '',
+      responsibilities: ''
     },
     validate: validate,
     onSubmit: function onSubmit(values) {
       var data = {
         title: values.title,
-        description: descriptionQuill.root.innerHTML,
+        description: values.description,
         location: values.location,
         type: values.type,
-        responsibilities: responsibilityQuill.root.innerHTML,
-        requirements: requirementQuill.root.innerHTML,
+        responsibilities: values.responsibilities,
+        requirements: values.requirements,
         salary: values.salary
       };
       fetch("http://127.0.0.1:8000/api/add-job", {
@@ -9951,6 +9951,7 @@ function AddJob() {
                 name: "salary",
                 className: "form-control",
                 onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
                 value: formik.values.salary
               }), formik.touched.salary && formik.errors.salary ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "text-danger",
@@ -9986,10 +9987,11 @@ function AddJob() {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                 children: "Additional details"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                name: "additionalDetails",
                 className: "form-control",
-                onChange: function onChange(e) {
-                  return setAdditionalDetails(e.target.value);
-                },
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.additionalDetails,
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                   value: "description",
                   children: "Description"
@@ -10004,7 +10006,7 @@ function AddJob() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 style: {
-                  display: additionalDetails === 'description' ? 'block' : 'none'
+                  display: formik.values.additionalDetails === 'description' ? 'block' : 'none'
                 },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                   children: "Description"
@@ -10014,7 +10016,7 @@ function AddJob() {
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 style: {
-                  display: additionalDetails === 'responsibilities' ? 'block' : 'none'
+                  display: formik.values.additionalDetails === 'responsibilities' ? 'block' : 'none'
                 },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                   children: "Responsibilities"
@@ -10024,7 +10026,7 @@ function AddJob() {
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 style: {
-                  display: additionalDetails === 'requirements' ? 'block' : 'none'
+                  display: formik.values.additionalDetails === 'requirements' ? 'block' : 'none'
                 },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                   children: "Requirements"
@@ -10033,8 +10035,17 @@ function AddJob() {
                   children: "Requirements"
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "mt-4",
+            }), formik.touched.description && formik.errors.description ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "text-danger",
+              children: formik.errors.description
+            }) : null, formik.touched.requirements && formik.errors.requirements ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "text-danger",
+              children: formik.errors.requirements
+            }) : null, formik.touched.responsibilities && formik.errors.responsibilities ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "text-danger",
+              children: formik.errors.responsibilities
+            }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "mt-4 text-end",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 className: "btn btn-primary text-align-end",
                 type: "submit",
