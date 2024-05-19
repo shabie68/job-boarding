@@ -10,7 +10,7 @@ const validate = values => {
 
   if (!values.title) {
     errors.title = 'Title field is required';
-  } 
+  }
 
   if (!values.location) {
     errors.location = 'Location field is required';
@@ -27,11 +27,11 @@ const validate = values => {
   }
   if(values.description=='<p><br></p>') {
     errors.description = 'Description should not be empty'
-  } 
+  }
 
   if (!values.responsibilities) {
     errors.responsibilities = 'Responsibility field is required';
-  } 
+  }
 
   if(values.responsibilities=='<p><br></p>') {
     errors.responsibilities = 'Responsibility should not be empty'
@@ -43,7 +43,7 @@ const validate = values => {
 
   if(values.requirements=='<p><br></p>') {
     errors.requirements = 'Requirements should not be empty'
-  } 
+  }
 
 
 
@@ -213,7 +213,7 @@ function AddJob() {
                 </select>
                 <small className="text-info">Change the option to responsibilities or requirements to set them up</small>
 
-                
+
               </div>
 
               <div>

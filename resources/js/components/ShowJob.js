@@ -8,7 +8,7 @@ function ShowJob() {
 
     const [jobs, setJobs] = useState([]);
     const [role, setRole] = useState(0);
-    
+
     const [job, setJob] = useState(null);
     const [addJob, setAddJob] = useState(false)
     const [jobTitle, setJobTitle] = useState('')
@@ -42,6 +42,7 @@ function ShowJob() {
             if(search) {
               setCurrentPage(1)
             }
+
         })
     }
 
@@ -50,16 +51,22 @@ function ShowJob() {
         getJobs()
       }
 
+
+
     }, [currentPage])
 
     async function getJob(id) {
-        
+
         const response = await fetch('http://127.0.0.1:8000/api/single-job/'+id);
         const _job = await response.json();
 
         apiClient.get('http://127.0.0.1:8000/api/single-job/'+id)
         .then(function(response) {
             setJob(response.data.job)
+            document.querySelector('.jb-single-job').classList.remove('d-sm-none')
+            document.querySelector('.jb-jobs').classList.add('jb-all-jobs')
+            document.querySelector('.jb-add-job-btn').classList.add('d-sm-none')
+
         })
     }
 
@@ -72,6 +79,8 @@ function ShowJob() {
             setLastPage(response.data.jobs.last_page)
         })
     }
+
+
 
     return(
         <div>
@@ -86,7 +95,7 @@ function ShowJob() {
                           </span>
                         </div>
 
-                        <input 
+                        <input
                           className="form-control"
                           value={jobTitle}
                           placeholder="Job title"
@@ -95,13 +104,13 @@ function ShowJob() {
                         />
 
                        <button className="btn btn-secondary" onClick={() => getJobs(true, 'first-time')}>Search Job</button>
-                        
-                      </div>                    
-                
+
+                      </div>
+
                 </div>
 
                 <div>
-                    <input 
+                    <input
                         className="form-control"
                         value={jobType}
                         placeholder="Job type"
@@ -110,12 +119,13 @@ function ShowJob() {
                 </div>
 
                 <div className="">
-                   
+
                 </div>
             </div>
 
             <div className="my-5">
                 <div>
+
                     {
                         role == 1 ?
 
@@ -131,10 +141,10 @@ function ShowJob() {
                         </div>
                         : ''
                     }
-                    
+
 
                     <div className="d-sm-block d-lg-flex gap-3">
-                         <div className="w-40 jb-sm-card-w jb-lg-card-w">
+                         <div className="w-40 jb-sm-card-w jb-lg-card-w jb-jobs">
                             {jobs.map(_job => (
 
                                <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
@@ -143,10 +153,10 @@ function ShowJob() {
                                     <h3 className="">{_job.title}</h3>
                                     <strong className="ml-end" style={{marginLeft: 'auto'}}>{company}</strong>
                                 </div>
-                                 
+
                                  <div className="card-body">
                                      <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
-                                 
+
                                     <div dangerouslySetInnerHTML={{__html: _job?.description}}></div>
 
                                     <div dangerouslySetInnerHTML={{__html: _job?.responsibilities}} />
@@ -177,39 +187,18 @@ function ShowJob() {
                             </div>
                          </div>
 
-                         {job ?
+                        {job ?
                             <>
                              <SingleJob job={job} company={company}/>
                              </>
                              : ''
-
                         }
                     </div>
                 </div>
-                    
+
             </div>
         </div>
     )
 }
 
 export default ShowJob
-
-/**
-
-   // {jobs.map(_job => (
-
-                             //   <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
-                             //   onClick={()=> {getJob(_job.id)}}>
-                             //     <h3 className="card-header">{_job.title}</h3>
-                             //     <div className="card-body">
-                             //         <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
-                                 
-                             //        <div dangerouslySetInnerHTML={{__html: _job?.description}}></div>
-
-                             //        <div dangerouslySetInnerHTML={{__html: _job?.responsibilities}} />
-
-                             //        <div dangerouslySetInnerHTML={{__html: _job?.requirements}} />
-                             //     </div>
-                             // </div>
-                             // ))}
-**/

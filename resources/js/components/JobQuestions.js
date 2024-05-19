@@ -35,7 +35,7 @@ function JobQuestions() {
 			schedule_interview: scheduleInterview,
             country: country,
             state: state,
-            submission: JSON.stringify(context.submission)		
+            submission: JSON.stringify(context.submission)
 		})
 		.then((response) => {
 
@@ -55,7 +55,9 @@ function JobQuestions() {
 
 			<div className="w-50" style={{margin: '0 auto'}}>
 				<h2>Miscelleneous</h2>
-				<div className="card">	
+			<div className="w-lg-50" style={{margin: '0 auto'}}>
+				<h4>Upload your resume</h4>
+				<div className="card">
 					<div className="card-body">
                         <div className="">
 
@@ -73,10 +75,10 @@ function JobQuestions() {
                         <div className="">
                             <label htmlFor="state" className="col-form-label"><b>State|City</b></label>
                             <div className="">
-                                
+
 
                                 <select className="form-control" name="type" value={state} onChange={(e) => {setState(e.target.value)}}>
-                                    {country == 'pakistan' ? 
+                                    {country == 'pakistan' ?
                                         <>
                                             <option value="hangu">Hangu</option>
                                             <option value="islamabad">Islamabad</option>
@@ -89,7 +91,7 @@ function JobQuestions() {
                                         <option value="manchester">manchester</option>
                                     </>
                                 }
-                                    
+
                                 </select>
                             </div>
                         </div>
@@ -102,11 +104,11 @@ function JobQuestions() {
                                     <label className="form-check-label" htmlFor="flexRadioDefault1">
                                         No
                                     </label>
-                                    <input 
-                                        className="form-check-input" 
-                                        type="radio" 
-                                        name="ability-to-commute" 
-                                        id="flexRadioDefault2" 
+                                    <input
+                                        className="form-check-input"
+                                        type="radio"
+                                        name="ability-to-commute"
+                                        id="flexRadioDefault2"
                                         value="no"
                                         onChange={e => setAbilityToCommute(e.target.value)}
                                         checked = {abilityToCommute == 'no' ? 'checked' : ''}
@@ -117,16 +119,16 @@ function JobQuestions() {
                                     <label className="form-check-label" htmlFor="flexRadioDefault1">
                                         Yes
                                     </label>
-                                    <input 
-                                        className="form-check-input" 
-                                        type="radio" 
-                                        value="yes" 
-                                        name="ability-to-commute" 
+                                    <input
+                                        className="form-check-input"
+                                        type="radio"
+                                        value="yes"
+                                        name="ability-to-commute"
                                         id="flexRadioDefault1"
                                         onChange={e => setAbilityToCommute(e.target.value)}
                                         checked = {abilityToCommute == 'yes' ? 'checked' : ''}
                                     />
-                                      
+
                                 </div>
                             </div>
                         </div>
