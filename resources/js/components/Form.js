@@ -28,9 +28,9 @@ const validate = values => {
 const Form = () => {
   const formik = useFormik({
     initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
+      title: '',
+      description: '',
+      logo: '',
     },
     validate,
     onSubmit: values => {

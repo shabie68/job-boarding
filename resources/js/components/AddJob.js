@@ -20,6 +20,12 @@ const validate = values => {
     errors.location = 'Must be 20 characters or less';
   }
 
+  if (!values.salary) {
+     errors.salary = 'Salary field is required';
+  } else if (!/^\d+$/.test(values.salary)) { // Ensure totalEmployees is a number
+     errors.salary = 'Must be a number';
+  }
+
   return errors;
 };
 
@@ -109,7 +115,7 @@ function AddJob() {
                   value={formik.values.title}
                 />
                 {formik.touched.title && formik.errors.title ? (
-                  <div>{formik.errors.title}</div>
+                  <div className="text-danger">{formik.errors.title}</div>
                 ) : null}
               </div>
 
@@ -124,7 +130,7 @@ function AddJob() {
                   value={formik.values.location}
                 />
                 {formik.touched.location && formik.errors.location ? (
-                  <div>{formik.errors.location}</div>
+                  <div className="text-danger">{formik.errors.location}</div>
                 ) : null}
               </div>
 
@@ -134,9 +140,13 @@ function AddJob() {
                   type="number"
                   name="salary"
                   className="form-control"
-                  onChange={(e) => formik.setFieldValue('salary', e.target.value)}
+                  onChange={formik.handleChange}
                   value={formik.values.salary}
                 />
+
+                {formik.touched.salary && formik.errors.salary ? (
+                  <div className="text-danger">{formik.errors.salary}</div>
+                ) : null}
               </div>
 
               <div style={{ margin: '20px 0' }}>

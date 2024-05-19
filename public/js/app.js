@@ -9312,40 +9312,51 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var validate = function validate(values) {
   var errors = {};
   if (!values.title) {
-    errors.title = 'Required';
+    errors.title = 'Title field is required';
   } else if (values.title.length > 15) {
     errors.title = 'Must be 15 characters or less';
   }
   if (!values.locations) {
-    errors.locations = 'Required';
+    errors.locations = 'Locations field is Required';
   } else if (values.locations.length > 20) {
     errors.locations = 'Must be 20 characters or less';
   }
   if (!values.email) {
-    errors.email = 'Required';
+    errors.email = 'Email field is Required';
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = 'Invalid email address';
   }
   if (!values.totalEmployees) {
-    errors.totalEmployees = 'Required';
-  } else if (values.totalEmployees.length > 20) {
-    errors.totalEmployees = 'Invalid empolyees address';
+    errors.totalEmployees = 'Total Employees field is Required';
+  } else if (!/^\d+$/.test(values.totalEmployees)) {
+    // Ensure totalEmployees is a number
+    errors.totalEmployees = 'Must be a number';
   }
   if (!values.websiteUrl) {
-    errors.websiteUrl = 'Required';
-  } else if (values.websiteUrl > 20) {
-    errors.websiteUrl = 'Invalid website address';
+    errors.websiteUrl = 'Website Url field is Required';
+  } else if (values.websiteUrl.length > 100) {
+    // Assuming a reasonable max length for URLs
+    errors.websiteUrl = 'Must be 100 characters or less';
+  } else if (!/^https?:\/\/[^\s$.?#].[^\s]*$/i.test(values.websiteUrl)) {
+    // Ensure URL format is correct
+    errors.websiteUrl = 'Invalid website URL';
   }
   if (!values.phoneNumber) {
-    errors.phoneNumber = 'Required';
-  } else if (values.phoneNumber.length > 20) {
-    errors.phoneNumber = 'Invalid phone address';
+    errors.phoneNumber = 'Phone Number field is Required';
+  } else if (!/^\+?[1-9]\d{1,14}$/.test(values.phoneNumber)) {
+    // Ensure phoneNumber matches E.164 format
+    errors.phoneNumber = 'Invalid phone number';
   }
-  if (!values.industry) {
-    errors.industry = 'Required';
-  } else if (values.industry.length > 20) {
-    errors.industry = 'Invalid industry address';
+  if (!values.logo) {
+    errors.file = 'Logo field is Required';
   }
+
+  // if (!values.industry) {
+  //   errors.industry = 'Required';
+  // } else if (values.industry.length > 20) {
+  //   errors.industry = 'Invalid industry address';
+  // }
+
   return errors;
 };
 function AddCompany() {
@@ -9360,24 +9371,24 @@ function AddCompany() {
       totalEmployees: '',
       websiteUrl: '',
       phoneNumber: '',
-      industry: ''
+      industry: 'ecommerce'
     },
     validate: validate,
     onSubmit: function onSubmit(values) {
       alert("SUBMITTING");
       setLoading(true);
       var contactInformation = {
-        phone_number: phoneNumber,
-        email: email
+        phone_number: formik.phoneNumber,
+        email: formik.email
       };
       var formData = new FormData();
-      formData.append('title', title);
-      formData.append('logo', logo);
+      formData.append('title', formik.values.title);
+      formData.append('logo', formik.values.logo);
       formData.append('description', description.root.innerHTML);
-      formData.append('website_url', websiteUrl);
-      formData.append('industry', industry);
-      formData.append('total_employees', totalEmployees);
-      formData.append('locations', locations);
+      formData.append('website_url', formik.values.websiteUrl);
+      formData.append('industry', formik.values.industry);
+      formData.append('total_employees', formik.values.totalEmployees);
+      formData.append('locations', formik.values.locations);
       formData.append('contact_information', JSON.stringify(contactInformation));
       formData.append('_method', 'put');
       _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/company/store', formData).then(function (response) {
@@ -9386,6 +9397,9 @@ function AddCompany() {
       })["catch"](function () {});
     }
   });
+  var handleFileChange = function handleFileChange(event) {
+    formik.setFieldValue('logo', event.currentTarget.files[0]);
+  };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setDescription(new quill__WEBPACK_IMPORTED_MODULE_2__["default"]('#company-description', editorOptions));
   }, []);
@@ -9513,6 +9527,7 @@ function AddCompany() {
                 className: "form-text text-muted",
                 children: "Enter the title for the company"
               }), formik.touched.title && formik.errors.title ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                className: "text-danger",
                 children: formik.errors.title
               }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -9525,10 +9540,11 @@ function AddCompany() {
                 className: "form-control form-control-sm",
                 id: "formFileSm",
                 type: "file",
-                onChange: function onChange(e) {
-                  setLogo(e.target.files[0]);
-                }
-              })]
+                onChange: handleFileChange
+              }), formik.touched.logo && formik.errors.logo ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.logo
+              }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "form-group mb-3",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
@@ -9548,6 +9564,7 @@ function AddCompany() {
                 className: "form-text text-muted",
                 children: "Enter locations of the company. Can be multiple"
               }), formik.touched.locations && formik.errors.locations ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                className: "text-danger",
                 children: formik.errors.locations
               }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -9576,87 +9593,79 @@ function AddCompany() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             className: "w-50",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "form-group mb-3",
+              style: {
+                margin: '20px 0'
+              },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-                htmlFor: "website-url",
-                children: "Website Url"
+                htmlFor: "websiteUrl",
+                children: "Website url"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                id: "websiteUrl",
+                name: "websiteUrl",
                 type: "text",
                 className: "form-control",
-                id: "website-url",
-                "aria-describedby": "website-url",
-                placeholder: "Enter website url",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.websiteUrl
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
-                id: "website-url",
-                className: "form-text text-muted",
-                children: "Website Url if any"
               }), formik.touched.websiteUrl && formik.errors.websiteUrl ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                className: "text-danger",
                 children: formik.errors.websiteUrl
               }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "form-group mb-3",
+              style: {
+                margin: '20px 0'
+              },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-                htmlFor: "title",
-                children: "Total Employees"
+                htmlFor: "email",
+                children: "Email Address"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-                type: "number",
-                className: "form-control",
-                id: "employees",
-                "aria-describedby": "employeesHelp",
-                placeholder: "Total Employees",
-                onChange: formik.handleChange,
-                onBlur: formik.handleBlur,
-                value: formik.values.totalEmployees
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
-                id: "employeesHelp",
-                className: "form-text text-muted",
-                children: "Total employees in the company"
-              }), formik.touched.totalEmployees && formik.errors.totalEmployees ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                children: formik.errors.totalEmployees
-              }) : null]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "form-group mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-                htmlFor: "companyEmail",
-                children: "Email"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                id: "email",
+                name: "email",
                 type: "email",
                 className: "form-control",
-                id: "companyEmail",
-                "aria-describedby": "companyEmailHelp",
-                placeholder: "Email",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.email
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
-                id: "companyEmailHelp",
-                className: "form-text text-muted",
-                children: "Email of the company."
               }), formik.touched.email && formik.errors.email ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                className: "text-danger",
                 children: formik.errors.email
               }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "form-group mb-3",
+              style: {
+                margin: '20px 0'
+              },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-                htmlFor: "companyPhone",
+                htmlFor: "totalEmployees",
+                children: "Total Employees"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                id: "totalEmployees",
+                name: "totalEmployees",
+                type: "number",
+                className: "form-control",
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.totalEmployees
+              }), formik.touched.totalEmployees && formik.errors.totalEmployees ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.totalEmployees
+              }) : null]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              style: {
+                margin: '20px 0'
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+                htmlFor: "phoneNumber",
                 children: "Phone Number"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                id: "phoneNumber",
+                name: "phoneNumber",
                 type: "tel",
                 className: "form-control",
-                id: "companyPhone",
-                "aria-describedby": "companyPhoneHelp",
-                placeholder: "Phone Number",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.phoneNumber
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
-                id: "companyEmailHelp",
-                className: "form-text text-muted",
-                children: "Phone No of the company."
               }), formik.touched.phoneNumber && formik.errors.phoneNumber ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                className: "text-danger",
                 children: formik.errors.phoneNumber
               }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -9667,8 +9676,8 @@ function AddCompany() {
                 children: "Choose Industry"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("select", {
                 className: "form-control",
-                name: "type",
-                onChange: formik.values.industry,
+                name: "industry",
+                onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
                   value: "electronics",
@@ -9780,6 +9789,12 @@ var validate = function validate(values) {
     errors.location = 'Required';
   } else if (values.location.length > 20) {
     errors.location = 'Must be 20 characters or less';
+  }
+  if (!values.salary) {
+    errors.salary = 'Salary field is required';
+  } else if (!/^\d+$/.test(values.salary)) {
+    // Ensure totalEmployees is a number
+    errors.salary = 'Must be a number';
   }
   return errors;
 };
@@ -9905,6 +9920,7 @@ function AddJob() {
                 onBlur: formik.handleBlur,
                 value: formik.values.title
               }), formik.touched.title && formik.errors.title ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
                 children: formik.errors.title
               }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -9921,6 +9937,7 @@ function AddJob() {
                 onBlur: formik.handleBlur,
                 value: formik.values.location
               }), formik.touched.location && formik.errors.location ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
                 children: formik.errors.location
               }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -9933,11 +9950,12 @@ function AddJob() {
                 type: "number",
                 name: "salary",
                 className: "form-control",
-                onChange: function onChange(e) {
-                  return formik.setFieldValue('salary', e.target.value);
-                },
+                onChange: formik.handleChange,
                 value: formik.values.salary
-              })]
+              }), formik.touched.salary && formik.errors.salary ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.salary
+              }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               style: {
                 margin: '20px 0'
