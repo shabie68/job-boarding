@@ -27,7 +27,7 @@ const validate = values => {
   }
 
   if (!values.description) {
-    errors.description = 'Description field is required';
+    errors.description = 'Description field is required.';
   }
   if(values.description=='<p><br></p>') {
     errors.description = 'Description should not be empty'
@@ -215,6 +215,9 @@ function AddJob() {
                   <option value="responsibilities">Responsibilities</option>
                   <option value="requirements">Requirements</option>
                 </select>
+                <small className="text-info">Change the option to responsibilities or requirements to set them up</small>
+
+                
               </div>
 
               <div>
@@ -232,9 +235,8 @@ function AddJob() {
                   <label>Requirements</label>
                   <div id="requirements">Requirements</div>
                 </div>
-              </div>
 
-              {formik.touched.description && formik.errors.description ? (
+                {formik.touched.description && formik.errors.description ? (
                   <div className="text-danger">{formik.errors.description}</div>
                 ) : null}
 
@@ -245,6 +247,7 @@ function AddJob() {
                 {formik.touched.responsibilities && formik.errors.responsibilities ? (
                   <div className="text-danger">{formik.errors.responsibilities}</div>
                 ) : null}
+              </div>
 
               <div className="mt-4 text-end">
                 <button className="btn btn-primary text-align-end" type="submit">Add Job</button>

@@ -9791,7 +9791,7 @@ var validate = function validate(values) {
     errors.salary = 'Must be a number';
   }
   if (!values.description) {
-    errors.description = 'Description field is required';
+    errors.description = 'Description field is required.';
   }
   if (values.description == '<p><br></p>') {
     errors.description = 'Description should not be empty';
@@ -10002,6 +10002,9 @@ function AddJob() {
                   value: "requirements",
                   children: "Requirements"
                 })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("small", {
+                className: "text-info",
+                children: "Change the option to responsibilities or requirements to set them up"
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -10034,17 +10037,17 @@ function AddJob() {
                   id: "requirements",
                   children: "Requirements"
                 })]
-              })]
-            }), formik.touched.description && formik.errors.description ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "text-danger",
-              children: formik.errors.description
-            }) : null, formik.touched.requirements && formik.errors.requirements ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "text-danger",
-              children: formik.errors.requirements
-            }) : null, formik.touched.responsibilities && formik.errors.responsibilities ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "text-danger",
-              children: formik.errors.responsibilities
-            }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              }), formik.touched.description && formik.errors.description ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.description
+              }) : null, formik.touched.requirements && formik.errors.requirements ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.requirements
+              }) : null, formik.touched.responsibilities && formik.errors.responsibilities ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.responsibilities
+              }) : null]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "mt-4 text-end",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                 className: "btn btn-primary text-align-end",
