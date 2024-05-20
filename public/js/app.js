@@ -12673,6 +12673,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -12692,6 +12693,29 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+var validate = function validate(values) {
+  var errors = {};
+  if (!values.summary) {
+    errors.summary = 'Summary expectation field is required';
+  }
+  if (!values.phoneNumber) {
+    errors.phoneNumber = 'Phone Number field is required';
+  } else if (!/^\+?[1-9]\d{1,14}$/.test(values.phoneNumber)) {
+    // Ensure phoneNumber matches E.164 format
+    errors.phoneNumber = 'Invalid phone number';
+  }
+  if (!values.address) {
+    errors.address = 'Notice period field is required';
+  }
+  if (!values.education) {
+    errors.education = 'Notice period field is required';
+  }
+  if (!values.searchTerm) {
+    errors.searchTerm = 'Notice period field is required';
+  }
+  return errors;
+};
 function UpdateProfile() {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
@@ -12736,6 +12760,27 @@ function UpdateProfile() {
     _useState16 = _slicedToArray(_useState15, 2),
     moreSkills = _useState16[0],
     setMoreSkills = _useState16[1];
+  var formik = (0,formik__WEBPACK_IMPORTED_MODULE_4__.useFormik)({
+    initialValues: {
+      address: '',
+      phoneNumber: '',
+      summary: '',
+      skills: '',
+      education: ''
+    },
+    validate: validate,
+    onSubmit: function onSubmit(values) {
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/save-profile/', {
+        address: formik.values.address,
+        phoneNumber: formik.values.phoneNumber,
+        summary: formik.values.summary,
+        skills: formik.values.moreSkills,
+        education: formik.values.education
+      }).then(function (response) {
+        // navigate('/home')
+      });
+    }
+  });
   function saveProfile() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/save-profile/', _defineProperty(_defineProperty(_defineProperty({
       address: address,
@@ -12794,144 +12839,155 @@ function UpdateProfile() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "card-header",
             children: "Profile"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "card-body",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "form-group row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                htmlFor: "exampleFormControlTextarea1",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Summary"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "col-md-6",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
-                  id: "exampleFormControlTextarea1",
-                  rows: "3",
-                  className: "form-control",
-                  onChange: function onChange(e) {
-                    setSummary(e.target.value);
-                  },
-                  defaultValue: summary
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                htmlFor: "email",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Phone Number"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "col-md-6",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  type: "tel",
-                  name: "phone_number",
-                  placeholder: "Phone Number",
-                  value: phoneNumber,
-                  onChange: function onChange(e) {
-                    setPhoneNumber(e.target.value);
-                  },
-                  required: true,
-                  className: "form-control"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                htmlFor: "email",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Address"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "col-md-6",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  type: "text",
-                  name: "address",
-                  placeholder: "Address",
-                  value: address,
-                  onChange: function onChange(e) {
-                    setAddress(e.target.value);
-                  },
-                  required: true,
-                  className: "form-control"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                htmlFor: "email",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Education"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "col-md-6",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  type: "text",
-                  name: "address",
-                  placeholder: "Education",
-                  value: education,
-                  onChange: function onChange(e) {
-                    setEducation(e.target.value);
-                  },
-                  required: true,
-                  className: "form-control"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "form-group row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                htmlFor: "choose-skills",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Choose Skills"
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  htmlFor: "exampleFormControlTextarea1",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Summary"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "col-md-6",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+                    id: "exampleFormControlTextarea1",
+                    name: "summary",
+                    rows: "3",
+                    className: "form-control",
+                    onBlur: formik.handleBlur,
+                    onChange: formik.handleChange,
+                    defaultValue: formik.values.summary
+                  })
+                })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "col-md-6",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  htmlFor: "email",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Phone Number"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "col-md-6",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    type: "tel",
+                    name: "phoneNumber",
+                    placeholder: "Phone Number",
+                    value: formik.values.phoneNumber,
+                    onChange: formik.handleChange,
+                    onBlur: formik.handleBlur,
+                    required: true,
+                    className: "form-control"
+                  })
+                }), formik.touched.phoneNumber && formik.errors.phoneNumber ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "text-danger",
+                  children: formik.errors.phoneNumber
+                }) : null]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  htmlFor: "email",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Address"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "col-md-6",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                     type: "text",
-                    className: "form-control",
-                    placeholder: "Search...",
-                    value: searchTerm,
-                    onChange: function onChange(e) {
-                      return setSearchTerm(e.target.value);
-                    }
+                    name: "address",
+                    placeholder: "Address",
+                    value: formik.values.address,
+                    onChange: formik.handleChange,
+                    onBlur: formik.handleBlur,
+                    required: true,
+                    className: "form-control"
                   })
-                }), searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "border rounded form-control",
-                  children: filterEntries().map(function (entry, index) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                }), formik.touched.address && formik.errors.address ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "text-danger",
+                  children: formik.errors.address
+                }) : null]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  htmlFor: "email",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Education"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "col-md-6",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    type: "text",
+                    name: "education",
+                    placeholder: "Education",
+                    value: formik.values.education,
+                    onChange: formik.handleChange,
+                    onBlur: formik.handleBlur,
+                    required: true,
+                    className: "form-control"
+                  })
+                }), formik.touched.education && formik.errors.education ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "text-danger",
+                  children: formik.errors.education
+                }) : null]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  htmlFor: "choose-skills",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Choose Skills"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "col-md-6",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                      type: "text",
+                      className: "form-control",
+                      name: "searchTerm",
+                      placeholder: "Search...",
+                      value: formik.values.searchTerm,
+                      onChange: formik.handleChange,
+                      onBlur: formik.handleBlur
+                    })
+                  }), formik.touched.searchTerm && formik.errors.searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "text-danger",
+                    children: formik.errors.searchTerm
+                  }) : null, searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "border rounded form-control",
+                    children: filterEntries().map(function (entry, index) {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                          onClick: function onClick() {
+                            handleAddSkills(entry);
+                          },
+                          className: "jb-skill",
+                          children: entry
+                        })
+                      }, entry);
+                    })
+                  }) : '']
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  htmlFor: "skills",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Selected Skills"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "col-md-6 d-flex align-items-center",
+                  children: moreSkills === null || moreSkills === void 0 ? void 0 : moreSkills.map(function (skill) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                        onClick: function onClick() {
-                          handleAddSkills(entry);
-                        },
-                        className: "jb-skill",
-                        children: entry
-                      })
-                    }, entry);
+                        className: "badge bg-secondary mx-2",
+                        children: skill
+                      }, skill)
+                    });
                   })
-                }) : '']
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "form-group row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                htmlFor: "skills",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Selected Skills"
+                })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "col-md-6 d-flex align-items-center",
-                children: moreSkills === null || moreSkills === void 0 ? void 0 : moreSkills.map(function (skill) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                      className: "badge bg-secondary mx-2",
-                      children: skill
-                    }, skill)
-                  });
+                "class": "text-align-end",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                  className: "btn btn-primary",
+                  type: "submit",
+                  children: "Save"
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              "class": "text-align-end",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                className: "btn btn-primary",
-                onClick: saveProfile,
-                children: "Save"
-              })
-            })]
+            })
           })]
         })
       })
