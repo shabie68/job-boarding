@@ -2,7 +2,23 @@ import {useState, useEffect, useContext} from 'react'
 import {useNavigate} from 'react-router-dom'
 import BoardJobContext from '../contexts/BoardJobContext.js'
 import apiClient from '../services/apiClient'
+import { useFormik } from 'formik';
 
+
+
+const validate = values => {
+  const errors = {};
+
+  if (!values.salaryExpectation) {
+    errors.salaryExpectation = 'Salary expectation field is required';
+  }
+
+  if (!values.noticePeriod) {
+    errors.noticePeriod = 'Notice period field is required';
+  }
+
+  return errors;
+};
 
 
 function JobQuestions() {
@@ -25,6 +41,41 @@ function JobQuestions() {
         setScheduleInterview(new Date(context.submission.schedule_interview).toISOString().split('T')[0])
         // props.updateJobContext({user_id: response.submission.user_id, board_job_id: response.submission.board_job_id, submission: response.data.submission})
     }, [])
+
+      const formik = useFormik({
+        initialValues: {
+          country: 'pakistan',
+          state: 'islamabad',
+          abilityToCommute: '',
+          salaryExpectation: '',
+          noticePeriod: '',
+          scheduleInterview: ''
+        },
+
+        validate,
+
+        onSubmit: values => {
+
+          apiClient.put('http://127.0.0.1:8000/api/apply/candidate/'+context.user_id + '/job/' + context.board_job_id, {
+                ability_to_commute: formik.values.abilityToCommute,
+                salary_expectation: formik.values.salaryExpectation,
+                notice_period: formik.values.noticePeriod,
+                schedule_interview: formik.values.scheduleInterview,
+                country: formik.values.country,
+                state: formik.values.state,
+                submission: JSON.stringify(context.submission)
+            })
+            .then((response) => {
+
+                window.location = '/home'
+            })
+            .catch((error) => {
+
+            })
+
+
+        },
+      });
 
 	const saveData = () => {
 
@@ -55,16 +106,13 @@ function JobQuestions() {
 
 			<div className="w-50" style={{margin: '0 auto'}}>
 				<h2>Miscelleneous</h2>
-			<div className="w-lg-50" style={{margin: '0 auto'}}>
-				<h4>Upload your resume</h4>
 				<div className="card">
 					<div className="card-body">
+                        <form onSubmit={formik.handleSubmit}>
                         <div className="">
-
                             <div className="">
-                               
                                 <label htmlFor="country" className="col-form-label"><b>Country</b></label>
-                                <select className="form-control" value={country} name="type" onChange={(e) => {setCountry(e.target.value)}}>
+                                <select name="country" className="form-control" value={formik.values.country} onChange={formik.handleChange}>
                                     <option value="pakistan">Pakistan</option>
                                     <option value="india">India</option>
                                     <option value="germany">Germany</option>
@@ -77,7 +125,7 @@ function JobQuestions() {
                             <div className="">
 
 
-                                <select className="form-control" name="type" value={state} onChange={(e) => {setState(e.target.value)}}>
+                                <select className="form-control" name="state" value={formik.values.state} onChange={formik.handleChange}>
                                     {country == 'pakistan' ?
                                         <>
                                             <option value="hangu">Hangu</option>
@@ -99,6 +147,7 @@ function JobQuestions() {
 						<div className="">
 
                             <label htmlFor="first-name" className="col-form-label"><b>Planning to relocate</b></label>
+                            {formik.values.abilityToCommute} is the alue
                             <div className="d-flex">
                                 <div>
                                     <label className="form-check-label" htmlFor="flexRadioDefault1">
@@ -107,11 +156,11 @@ function JobQuestions() {
                                     <input
                                         className="form-check-input"
                                         type="radio"
-                                        name="ability-to-commute"
+                                        name="abilityToCommute"
                                         id="flexRadioDefault2"
                                         value="no"
-                                        onChange={e => setAbilityToCommute(e.target.value)}
-                                        checked = {abilityToCommute == 'no' ? 'checked' : ''}
+                                        onChange={formik.handleChange}
+                                        checked = {formik.values.abilityToCommute == 'no' ? 'checked' : ''}
                                     />
                                 </div>
 
@@ -123,10 +172,10 @@ function JobQuestions() {
                                         className="form-check-input"
                                         type="radio"
                                         value="yes"
-                                        name="ability-to-commute"
+                                        name="abilityToCommute"
                                         id="flexRadioDefault1"
-                                        onChange={e => setAbilityToCommute(e.target.value)}
-                                        checked = {abilityToCommute == 'yes' ? 'checked' : ''}
+                                        onChange={formik.handleChange}
+                                        checked = {formik.values.abilityToCommute == 'yes' ? 'checked' : ''}
                                     />
 
                                 </div>
@@ -139,13 +188,18 @@ function JobQuestions() {
                             <div className="">
                                 <input
                                     type="number"
-                                    name="salary-expectation"
-                                    value={salaryExpectation}
-                                    onChange={e => setSalaryExpectation(e.target.value)}
+                                    name="salaryExpectation"
+                                    value={formik.values.salaryExpectation}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
                                     required
                                     className="form-control"
                                 />
                             </div>
+
+                            {formik.touched.salaryExpectation && formik.errors.salaryExpectation ? (
+                              <div className="text-danger">{formik.errors.salaryExpectation}</div>
+                            ) : null}
                         </div>
 
                         <div className="">
@@ -154,13 +208,18 @@ function JobQuestions() {
                             <div className="">
                                 <input
                                     type="number"
-                                    name="first-name"
-                                    value={noticePeriod}
-                                    onChange={e => setNoticePeriod(e.target.value)}
+                                    name="noticePeriod"
+                                    value={formik.values.noticePeriod}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
                                     required
                                     className="form-control"
                                 />
                             </div>
+
+                            {formik.touched.noticePeriod && formik.errors.noticePeriod ? (
+                              <div className="text-danger">{formik.errors.noticePeriod}</div>
+                            ) : null}
                         </div>
 
                         <div className="">
@@ -169,9 +228,10 @@ function JobQuestions() {
                             <div className="">
                                 <input
                                     type="date"
-                                    name="interview-date"
-                                    value={scheduleInterview}
-                                    onChange={e => setScheduleInterview(e.target.value)}
+                                    name="scheduleInterview"
+                                    value={formik.values.scheduleInterview}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
                                     required
                                     className="form-control"
                                 />
@@ -180,13 +240,14 @@ function JobQuestions() {
 
 
 						<div className="mt-2 text-align-end">
-                            <button type="button" className="btn btn-primary" onClick={saveData}>Continue</button>
+                            <button type="button" className="btn btn-primary" type="submit">Continue</button>
                         </div>
+                        </form>
 					</div>
 				</div>
-			</div>
 
 		</div>
+        </div>
 	)
 }
 

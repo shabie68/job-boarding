@@ -52,6 +52,8 @@ class SubmissionController extends Controller
         $resume = null;
 
 
+
+
         if($request->file('resume')) {
             $destinationPath = 'uploads';
             $resume = $request->file('resume')->getClientOriginalName();
@@ -60,8 +62,6 @@ class SubmissionController extends Controller
         }
 
         $submission = json_decode($request->submission); 
-        // return $submission->resume;
-        // return $submission->resume;
             $submission = Submission::updateOrCreate(
         	['user_id' => auth()->user()->id, 'board_job_id' => $board_job_id],
         	[
