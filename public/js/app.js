@@ -12695,6 +12695,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var validate = function validate(values) {
+  var _moreSkills;
   var errors = {};
   if (!values.summary) {
     errors.summary = 'Summary expectation field is required';
@@ -12706,13 +12707,13 @@ var validate = function validate(values) {
     errors.phoneNumber = 'Invalid phone number';
   }
   if (!values.address) {
-    errors.address = 'Notice period field is required';
+    errors.address = 'Address field is required';
   }
   if (!values.education) {
-    errors.education = 'Notice period field is required';
+    errors.education = 'Education field is required';
   }
-  if (!values.searchTerm) {
-    errors.searchTerm = 'Notice period field is required';
+  if (((_moreSkills = moreSkills) === null || _moreSkills === void 0 ? void 0 : _moreSkills.lenght) < 1) {
+    errors.searchTerm = 'Add atleast 1 skills';
   }
   return errors;
 };
@@ -12794,7 +12795,7 @@ function UpdateProfile() {
   // Function to filter entries based on search term
   var filterEntries = function filterEntries() {
     return entries.filter(function (entry) {
-      return entry.toLowerCase().includes(searchTerm.toLowerCase());
+      return entry.toLowerCase().includes(formik.values.searchTerm.toLowerCase());
     });
   };
   var handleNavigation = function handleNavigation() {
@@ -12806,6 +12807,7 @@ function UpdateProfile() {
         return [].concat(_toConsumableArray(prev), [value]);
       });
       setSearchTerm('');
+      formik.setFieldValue('searchTerm', '');
     }
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -12859,7 +12861,10 @@ function UpdateProfile() {
                     onChange: formik.handleChange,
                     defaultValue: formik.values.summary
                   })
-                })]
+                }), formik.touched.summary && formik.errors.summary ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "text-danger",
+                  children: formik.errors.summary
+                }) : null]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "row mb-3",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
@@ -12947,7 +12952,7 @@ function UpdateProfile() {
                   }), formik.touched.searchTerm && formik.errors.searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                     className: "text-danger",
                     children: formik.errors.searchTerm
-                  }) : null, searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  }) : null, formik.values.searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                     className: "border rounded form-control",
                     children: filterEntries().map(function (entry, index) {
                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -12980,7 +12985,7 @@ function UpdateProfile() {
                   })
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                "class": "text-align-end",
+                "class": "text-end",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                   className: "btn btn-primary",
                   type: "submit",

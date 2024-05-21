@@ -18,15 +18,15 @@ const validate = values => {
 
 
   if (!values.address) {
-    errors.address = 'Notice period field is required';
+    errors.address = 'Address field is required';
   }
 
   if (!values.education) {
-    errors.education = 'Notice period field is required';
+    errors.education = 'Education field is required';
   }
 
-  if (!values.searchTerm) {
-    errors.searchTerm = 'Notice period field is required';
+  if (moreSkills?.lenght < 1) {
+    errors.searchTerm = 'Add atleast 1 skills';
   }
 
   return errors;
@@ -128,8 +128,9 @@ function UpdateProfile() {
 
   // Function to filter entries based on search term
   const filterEntries = () => {
+
     return entries.filter(entry =>
-      entry.toLowerCase().includes(searchTerm.toLowerCase())
+      entry.toLowerCase().includes(formik.values.searchTerm.toLowerCase())
     );
   };
 
@@ -144,6 +145,7 @@ function UpdateProfile() {
                 value
             ]));
             setSearchTerm('')
+            formik.setFieldValue('searchTerm', '')
         }
         
     };
@@ -173,6 +175,9 @@ function UpdateProfile() {
 	                                <div className="col-md-6">
 	                                    <textarea id="exampleFormControlTextarea1" name="summary" rows="3" className="form-control" onBlur={formik.handleBlur} onChange={formik.handleChange} defaultValue={formik.values.summary}></textarea>
 	                                </div>
+	                                {formik.touched.summary && formik.errors.summary ? (
+		                              <div className="text-danger">{formik.errors.summary}</div>
+		                            ) : null}
 	                            </div>
 
 	                            <div className="row mb-3">
@@ -254,7 +259,7 @@ function UpdateProfile() {
 			                            ) : null}
 
 	                                    {
-	                                        searchTerm ?
+	                                        formik.values.searchTerm ?
 
 	                                                <div className="border rounded form-control">
 	                                                    {filterEntries().map((entry, index) => (
@@ -288,7 +293,7 @@ function UpdateProfile() {
 	                                </div>
 	                            </div>
 
-	                            <div class="text-align-end">
+	                            <div class="text-end">
 	                                <button className="btn btn-primary" type="submit">Save</button>
 	                            </div>
 
