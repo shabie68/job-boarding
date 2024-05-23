@@ -25,9 +25,9 @@ const validate = values => {
     errors.education = 'Education field is required';
   }
 
-  if (moreSkills?.lenght < 1) {
-    errors.searchTerm = 'Add atleast 1 skills';
-  }
+  // if (moreSkills?.length < 1) {
+  //   errors.searchTerm = 'Add atleast 1 skills';
+  // }
 
   return errors;
 };
@@ -174,10 +174,13 @@ function UpdateProfile() {
 	                                <label htmlFor="exampleFormControlTextarea1" className="col-md-4 col-form-label text-md-end" >Summary</label>
 	                                <div className="col-md-6">
 	                                    <textarea id="exampleFormControlTextarea1" name="summary" rows="3" className="form-control" onBlur={formik.handleBlur} onChange={formik.handleChange} defaultValue={formik.values.summary}></textarea>
+	                                	{formik.touched.summary && formik.errors.summary ? (
+		                                	<>
+			                              <div className="text-danger">{formik.errors.summary}</div>
+			                              </>
+			                            ) : null}
 	                                </div>
-	                                {formik.touched.summary && formik.errors.summary ? (
-		                              <div className="text-danger">{formik.errors.summary}</div>
-		                            ) : null}
+
 	                            </div>
 
 	                            <div className="row mb-3">
@@ -193,11 +196,10 @@ function UpdateProfile() {
 	                                        required
 	                                        className="form-control"
 	                                    />
+	                                    {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+			                              <div className="text-danger">{formik.errors.phoneNumber}</div>
+			                            ) : null}
 	                                </div>
-
-	                                {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-		                              <div className="text-danger">{formik.errors.phoneNumber}</div>
-		                            ) : null}
 	                            </div>
 
 	                            <div className="row mb-3">
@@ -213,10 +215,11 @@ function UpdateProfile() {
 	                                        required
 	                                        className="form-control"
 	                                    />
+	                                    {formik.touched.address && formik.errors.address ? (
+			                              <div className="text-danger">{formik.errors.address}</div>
+			                            ) : null}
 	                                </div>
-	                                {formik.touched.address && formik.errors.address ? (
-		                              <div className="text-danger">{formik.errors.address}</div>
-		                            ) : null}
+	                                
 	                            </div>
 
 	                            <div className="row mb-3">
@@ -232,11 +235,10 @@ function UpdateProfile() {
 	                                        required
 	                                        className="form-control"
 	                                    />
+	                                    {formik.touched.education && formik.errors.education ? (
+			                              <div className="text-danger">{formik.errors.education}</div>
+			                            ) : null}
 	                                </div>
-
-	                                {formik.touched.education && formik.errors.education ? (
-		                              <div className="text-danger">{formik.errors.education}</div>
-		                            ) : null}
 	                            </div>
 
 	                            <div className="form-group row mb-3">
@@ -252,12 +254,14 @@ function UpdateProfile() {
 	                                          onChange={formik.handleChange}
 	                                          onBlur={formik.handleBlur}
 	                                        />
+
+	                                        {formik.touched.searchTerm && formik.errors.searchTerm ? (
+				                              <div className="text-danger">{formik.errors.searchTerm}</div>
+				                            ) : null}
+
 	                                    </div>
 
-	                                    {formik.touched.searchTerm && formik.errors.searchTerm ? (
-			                              <div className="text-danger">{formik.errors.searchTerm}</div>
-			                            ) : null}
-
+	                                    
 	                                    {
 	                                        formik.values.searchTerm ?
 

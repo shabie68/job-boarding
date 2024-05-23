@@ -12695,7 +12695,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var validate = function validate(values) {
-  var _moreSkills;
   var errors = {};
   if (!values.summary) {
     errors.summary = 'Summary expectation field is required';
@@ -12712,9 +12711,11 @@ var validate = function validate(values) {
   if (!values.education) {
     errors.education = 'Education field is required';
   }
-  if (((_moreSkills = moreSkills) === null || _moreSkills === void 0 ? void 0 : _moreSkills.lenght) < 1) {
-    errors.searchTerm = 'Add atleast 1 skills';
-  }
+
+  // if (moreSkills?.length < 1) {
+  //   errors.searchTerm = 'Add atleast 1 skills';
+  // }
+
   return errors;
 };
 function UpdateProfile() {
@@ -12850,9 +12851,9 @@ function UpdateProfile() {
                   htmlFor: "exampleFormControlTextarea1",
                   className: "col-md-4 col-form-label text-md-end",
                   children: "Summary"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   className: "col-md-6",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
                     id: "exampleFormControlTextarea1",
                     name: "summary",
                     rows: "3",
@@ -12860,20 +12861,22 @@ function UpdateProfile() {
                     onBlur: formik.handleBlur,
                     onChange: formik.handleChange,
                     defaultValue: formik.values.summary
-                  })
-                }), formik.touched.summary && formik.errors.summary ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "text-danger",
-                  children: formik.errors.summary
-                }) : null]
+                  }), formik.touched.summary && formik.errors.summary ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                      className: "text-danger",
+                      children: formik.errors.summary
+                    })
+                  }) : null]
+                })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "row mb-3",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
                   htmlFor: "email",
                   className: "col-md-4 col-form-label text-md-end",
                   children: "Phone Number"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   className: "col-md-6",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                     type: "tel",
                     name: "phoneNumber",
                     placeholder: "Phone Number",
@@ -12882,20 +12885,20 @@ function UpdateProfile() {
                     onBlur: formik.handleBlur,
                     required: true,
                     className: "form-control"
-                  })
-                }), formik.touched.phoneNumber && formik.errors.phoneNumber ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "text-danger",
-                  children: formik.errors.phoneNumber
-                }) : null]
+                  }), formik.touched.phoneNumber && formik.errors.phoneNumber ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "text-danger",
+                    children: formik.errors.phoneNumber
+                  }) : null]
+                })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "row mb-3",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
                   htmlFor: "email",
                   className: "col-md-4 col-form-label text-md-end",
                   children: "Address"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   className: "col-md-6",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                     type: "text",
                     name: "address",
                     placeholder: "Address",
@@ -12904,20 +12907,20 @@ function UpdateProfile() {
                     onBlur: formik.handleBlur,
                     required: true,
                     className: "form-control"
-                  })
-                }), formik.touched.address && formik.errors.address ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "text-danger",
-                  children: formik.errors.address
-                }) : null]
+                  }), formik.touched.address && formik.errors.address ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "text-danger",
+                    children: formik.errors.address
+                  }) : null]
+                })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "row mb-3",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
                   htmlFor: "email",
                   className: "col-md-4 col-form-label text-md-end",
                   children: "Education"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   className: "col-md-6",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                     type: "text",
                     name: "education",
                     placeholder: "Education",
@@ -12926,11 +12929,11 @@ function UpdateProfile() {
                     onBlur: formik.handleBlur,
                     required: true,
                     className: "form-control"
-                  })
-                }), formik.touched.education && formik.errors.education ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "text-danger",
-                  children: formik.errors.education
-                }) : null]
+                  }), formik.touched.education && formik.errors.education ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "text-danger",
+                    children: formik.errors.education
+                  }) : null]
+                })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "form-group row mb-3",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -12939,8 +12942,8 @@ function UpdateProfile() {
                   children: "Choose Skills"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   className: "col-md-6",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                       type: "text",
                       className: "form-control",
                       name: "searchTerm",
@@ -12948,11 +12951,11 @@ function UpdateProfile() {
                       value: formik.values.searchTerm,
                       onChange: formik.handleChange,
                       onBlur: formik.handleBlur
-                    })
-                  }), formik.touched.searchTerm && formik.errors.searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                    className: "text-danger",
-                    children: formik.errors.searchTerm
-                  }) : null, formik.values.searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    }), formik.touched.searchTerm && formik.errors.searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                      className: "text-danger",
+                      children: formik.errors.searchTerm
+                    }) : null]
+                  }), formik.values.searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                     className: "border rounded form-control",
                     children: filterEntries().map(function (entry, index) {
                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
