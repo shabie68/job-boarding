@@ -104,7 +104,11 @@ function AddCompany() {
 		apiClient.post('http://127.0.0.1:8000/api/company/store', formData)
 		.then((response) => {
 			// window.location = '/companies'
-			navigate('/companies')
+			navigate('/companies', {
+				state: {
+					addCompany: true
+				}
+			})
 
 		})
 		.catch(() => {
@@ -170,7 +174,9 @@ function AddCompany() {
 		apiClient.post('http://127.0.0.1:8000/api/company/store', formData)
 		.then((response) => {
 			// window.location = '/companies'
-			navigate('/companies')
+			navigate('/companies', {
+				state: {greeting: 'hello'}
+			})
 
 		})
 		.catch(() => {

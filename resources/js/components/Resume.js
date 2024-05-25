@@ -51,10 +51,10 @@ function Resume(props) {
 
 			<div className="w-lg-50" style={{margin: '0 auto'}}>
 				<h4>Upload your resume</h4>
-
-				<div className="card">
-					<div className="card-body">
-						<form onSubmit={saveData}>
+				<form onSubmit={saveData}>
+					<div className="card">
+						<div className="card-body">
+							
 							<div className="mb-3">
 							  <label htmlFor="formFileSm" className="form-label">Choose resume</label>
 							  <input
@@ -64,14 +64,13 @@ function Resume(props) {
 							  	onChange={handleResume}
 						    />
 							</div>
-
-
-							<div className="mt-2 text-align-end">
-	                            <button type="submit" className="btn btn-primary">Continue</button>
-	                        </div>
-                        </form>
+						</div>
 					</div>
-				</div>
+
+					<div className="mt-2 text-end">
+                        <button type="submit" className="btn btn-primary">Continue</button>
+                    </div>
+				</form>
 			</div>
 
 		</div>

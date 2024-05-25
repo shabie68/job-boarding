@@ -116,7 +116,9 @@ function AddJob() {
         body: JSON.stringify(data),
       })
         .then(response => response.json())
-        .then(() => navigate('/home'))
+        .then(() => navigate('/home', {
+          state: {addJob: true}
+        }))
         .catch(error => console.error('Error:', error));
     },
   });

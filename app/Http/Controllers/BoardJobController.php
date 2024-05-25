@@ -35,7 +35,7 @@ class BoardJobController extends Controller
         $jobs = null;
 
         if(!$request->has('title')) {
-            $jobs = BoardJob::paginate(2);
+            $jobs = BoardJob::paginate(5);
             
             return response()->json([
                 "jobs" => $jobs,

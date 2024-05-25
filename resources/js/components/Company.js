@@ -1,38 +1,58 @@
 import {useState, useEffect} from 'react'
-import {Link} from "react-router-dom";
+import {Link, useLocation } from "react-router-dom";
 import apiClient from '../services/apiClient';
 
 function Company() {
 
+	const location = useLocation();
 	const [companies, setCompanies] = useState([]);
 	const [nextPage, setNextPage] = useState(null)
 	const [lastPage, setLastPage] = useState(1);
+	const [currentPage, setCurrentPage] = useState(1)
 	const [role, setRole] = useState(0);
+	const [success, setSuccess] = useState(false)
 	const [feedback, setFeedback] = useState({
 		comment: '',
 		rating: 0
 	})
+
+
  
 	useEffect(() => {
-		getCompanies()
-	}, [])
+		setSuccess(location.state?.addCompany)
+		setTimeout(() => {
+			setSuccess(false)
+		}, 3000)
+		if(currentPage) {
+			getCompanies()	
+		}
+		
+	}, [currentPage])
 
 	function getCompanies() {
 
-	  // let getJobsUrl = !jobTitle ? `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
-
-	   apiClient.get('http://127.0.0.1:8000/api/company/show-companies')
+	   // apiClient.get('http://127.0.0.1:8000/api/company/show-companies')
+	   // let getJobsUrl = `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
+	   apiClient.get(`http://127.0.0.1:8000/api/company/show-companies?page=${currentPage}`)
 		.then(function(response) {
-			setCompanies(response.data.companies)
+
+			setCompanies(response.data.companies.data)
+			setNextPage(response.data.companies.next_page_url)
+			setLastPage(response.data.companies.last_page)
 			setRole(response.data.role)
-			// console.log(response.data.compan)
 		})
 		.catch((error) => {
 
 		})
-
-		
 	}
+
+	const next = () => {
+        setCurrentPage(currentPage + 1);
+    };
+
+    const prev = () => {
+        setCurrentPage(currentPage - 1);
+    };
 
 
 
@@ -40,7 +60,14 @@ function Company() {
 
 		apiClient.put('http://127.0.0.1:8000/api/company/add-review/'+id, {feedback: feedback})
 		.then(function(response) {
-			setFeedback(response.data.company.feedback)
+			// setFeedback(response.data.company.feedback)
+			setFeedback({
+		comment: '',
+		rating: 0
+	})
+
+			getCompanies()
+			
 		})
 		.catch((error) => {
 
@@ -49,6 +76,13 @@ function Company() {
 
 	return(
 		<div>
+			{
+	  			success ?
+	  			<div className="text-success text-center" style={{backgroundColor: '#c3ff624d', padding: '8px 0'}}>
+	  				Company Created Successfully!
+	  			</div>
+	  			:''
+	  		}
 			<div className="my-5">
 				<div>
 					{role == 1 ?
@@ -65,7 +99,6 @@ function Company() {
 
 				  	<div className="">
 						<div className="row gap-3">
-
 							{companies?.map(company => (
 
 								 <div className=" col-3 bg-white rounded border-white"  key={"company--"+company.id}>
@@ -139,7 +172,7 @@ function Company() {
 										  </div>
 										  <div className="modal-footer">
 											<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-											<button type="button" className="btn btn-primary" onClick={() => {addReview(company.id)}}>Add review</button>
+											<button type="button" id={'company-' +company.id} className="btn btn-primary" onClick={() => {document.querySelector(`#company-${company.id}`).setAttribute('data-bs-dismiss', 'modal'); addReview(company.id)}}>Add review</button>
 										  </div>
 										</div>
 									  </div>
@@ -148,7 +181,7 @@ function Company() {
 						 	))}
 
 							<div className="d-flex gap-2 align-items-center">
-							   <button className="btn btn-link" style={{border: '1px solid lightslategrey'}}>
+							   <button className="btn btn-link"  onClick={prev} disabled={currentPage === 1} style={{border: '1px solid lightslategrey'}}>
 
 								  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
 								  <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
@@ -156,10 +189,10 @@ function Company() {
 							   </button>
 
 							   <span>
-								Showing page 
-							   </span>
+                                Showing page {currentPage} of {lastPage}
+                               </span>
 
-							  <button className="btn btn-link" style={{border: '1px solid lightslategrey'}}>
+							  <button className="btn btn-link" onClick={next} disabled={!nextPage} style={{border: '1px solid lightslategrey'}}>
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
 								  <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
 								</svg>

@@ -1,6 +1,37 @@
 import {useLocation, useNavigate} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import apiClient from '../services/apiClient';
+import { useFormik } from 'formik';
+
+const validate = values => {
+  const errors = {};
+
+  if (!values.summary) {
+    errors.summary = 'Summary expectation field is required';
+  }
+
+  if (!values.phoneNumber) {
+    errors.phoneNumber = 'Phone Number field is required';
+  } else if (!/^\+?[1-9]\d{1,14}$/.test(values.phoneNumber)) { // Ensure phoneNumber matches E.164 format
+    errors.phoneNumber = 'Invalid phone number';
+  }
+
+
+  if (!values.address) {
+    errors.address = 'Address field is required';
+  }
+
+  if (!values.education) {
+    errors.education = 'Education field is required';
+  }
+
+  // if (moreSkills?.length < 1) {
+  //   errors.searchTerm = 'Add atleast 1 skills';
+  // }
+
+  return errors;
+};
+
 
 function UpdateProfile() {
 
@@ -51,7 +82,34 @@ function UpdateProfile() {
       ];
 
   const [searchTerm, setSearchTerm] = useState('');
-  const [moreSkills, setMoreSkills] = useState([])
+  const [moreSkills, setMoreSkills] = useState([]);
+
+  const formik = useFormik({
+        initialValues: {
+      	  address: location.state.user.address,
+          phoneNumber: location.state.user.phone_number,
+          summary: location.state.user.summary,
+          education: location.state.user.education
+        },
+
+        validate,
+
+        onSubmit: values => {
+
+          apiClient.put('http://127.0.0.1:8000/api/save-profile/', {
+            address: formik.values.address,
+            phoneNumber: formik.values.phoneNumber,
+            summary: formik.values.summary,
+            skills: moreSkills,
+            education: formik.values.education
+        })
+        .then((response) => {
+            navigate('/user-profile', {state: {update: true}})
+        })
+
+
+        },
+      });
 
   function saveProfile() {
         apiClient.put('http://127.0.0.1:8000/api/save-profile/', {
@@ -69,8 +127,9 @@ function UpdateProfile() {
 
   // Function to filter entries based on search term
   const filterEntries = () => {
+
     return entries.filter(entry =>
-      entry.toLowerCase().includes(searchTerm.toLowerCase())
+      entry.toLowerCase().includes(formik.values.searchTerm.toLowerCase())
     );
   };
 
@@ -85,6 +144,7 @@ function UpdateProfile() {
                 value
             ]));
             setSearchTerm('')
+            formik.setFieldValue('searchTerm', '')
         }
         
     };
@@ -96,7 +156,7 @@ function UpdateProfile() {
 						  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
 						</svg>
 		            </span>
-		            <strong>Go back</strong>
+		            <strong style={{pointer: 'cursor'}}>Go back</strong>
 	            </div>
 
 	            <div className="row justify-content-center">
@@ -107,12 +167,19 @@ function UpdateProfile() {
 	                        </div>
 
 	                        <div className="card-body">
+	                        	<form onSubmit={formik.handleSubmit}>
 
 	                            <div className="form-group row mb-3">
 	                                <label htmlFor="exampleFormControlTextarea1" className="col-md-4 col-form-label text-md-end" >Summary</label>
 	                                <div className="col-md-6">
-	                                    <textarea id="exampleFormControlTextarea1" rows="3" className="form-control" onChange={(e) => {setSummary(e.target.value)}} defaultValue={summary}></textarea>
+	                                    <textarea id="exampleFormControlTextarea1" name="summary" rows="3" className="form-control" onBlur={formik.handleBlur} onChange={formik.handleChange} defaultValue={formik.values.summary}></textarea>
+	                                	{formik.touched.summary && formik.errors.summary ? (
+		                                	<>
+			                              <div className="text-danger">{formik.errors.summary}</div>
+			                              </>
+			                            ) : null}
 	                                </div>
+
 	                            </div>
 
 	                            <div className="row mb-3">
@@ -120,13 +187,17 @@ function UpdateProfile() {
 	                                <div className="col-md-6">
 	                                    <input
 	                                        type="tel"
-	                                        name="phone_number"
+	                                        name="phoneNumber"
 	                                        placeholder="Phone Number"
-	                                        value={phoneNumber}
-	                                        onChange={(e) => {setPhoneNumber(e.target.value)}}
+	                                        value={formik.values.phoneNumber}
+	                                        onChange={formik.handleChange}
+	                                        onBlur={formik.handleBlur}
 	                                        required
 	                                        className="form-control"
 	                                    />
+	                                    {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+			                              <div className="text-danger">{formik.errors.phoneNumber}</div>
+			                            ) : null}
 	                                </div>
 	                            </div>
 
@@ -137,12 +208,17 @@ function UpdateProfile() {
 	                                        type="text"
 	                                        name="address"
 	                                        placeholder="Address"
-	                                        value={address}
-	                                        onChange={(e) => { setAddress(e.target.value)}}
+	                                        value={formik.values.address}
+	                                        onChange={formik.handleChange}
+	                                        onBlur={formik.handleBlur}
 	                                        required
 	                                        className="form-control"
 	                                    />
+	                                    {formik.touched.address && formik.errors.address ? (
+			                              <div className="text-danger">{formik.errors.address}</div>
+			                            ) : null}
 	                                </div>
+	                                
 	                            </div>
 
 	                            <div className="row mb-3">
@@ -150,13 +226,17 @@ function UpdateProfile() {
 	                                <div className="col-md-6">
 	                                    <input
 	                                        type="text"
-	                                        name="address"
+	                                        name="education"
 	                                        placeholder="Education"
-	                                        value={education}
-	                                        onChange={(e) => { setEducation(e.target.value)}}
+	                                        value={formik.values.education}
+	                                        onChange={formik.handleChange}
+	                                        onBlur={formik.handleBlur}
 	                                        required
 	                                        className="form-control"
 	                                    />
+	                                    {formik.touched.education && formik.errors.education ? (
+			                              <div className="text-danger">{formik.errors.education}</div>
+			                            ) : null}
 	                                </div>
 	                            </div>
 
@@ -167,14 +247,22 @@ function UpdateProfile() {
 	                                        <input
 	                                          type="text"
 	                                          className="form-control"
+	                                          name="searchTerm"
 	                                          placeholder="Search..."
-	                                          value={searchTerm}
-	                                          onChange={(e) => setSearchTerm(e.target.value)}
+	                                          value={formik.values.searchTerm}
+	                                          onChange={formik.handleChange}
+	                                          onBlur={formik.handleBlur}
 	                                        />
+
+	                                        {formik.touched.searchTerm && formik.errors.searchTerm ? (
+				                              <div className="text-danger">{formik.errors.searchTerm}</div>
+				                            ) : null}
+
 	                                    </div>
 
+	                                    
 	                                    {
-	                                        searchTerm ?
+	                                        formik.values.searchTerm ?
 
 	                                                <div className="border rounded form-control">
 	                                                    {filterEntries().map((entry, index) => (
@@ -208,9 +296,11 @@ function UpdateProfile() {
 	                                </div>
 	                            </div>
 
-	                            <div class="text-align-end">
-	                                <button className="btn btn-primary" onClick={saveProfile}>Save</button>
+	                            <div class="text-end">
+	                                <button className="btn btn-primary" type="submit">Save</button>
 	                            </div>
+
+	                            </form>
 	                        </div>
 	                    </div>
 	                </div>

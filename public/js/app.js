@@ -9389,7 +9389,11 @@ function AddCompany() {
       formData.append('_method', 'put');
       _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/company/store', formData).then(function (response) {
         // window.location = '/companies'
-        navigate('/companies');
+        navigate('/companies', {
+          state: {
+            addCompany: true
+          }
+        });
       })["catch"](function () {});
     }
   });
@@ -9469,7 +9473,11 @@ function AddCompany() {
     formData.append('_method', 'put');
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/company/store', formData).then(function (response) {
       // window.location = '/companies'
-      navigate('/companies');
+      navigate('/companies', {
+        state: {
+          greeting: 'hello'
+        }
+      });
     })["catch"](function () {});
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
@@ -9745,9 +9753,319 @@ function AddCompany() {
 /*!*******************************************!*\
   !*** ./resources/js/components/AddJob.js ***!
   \*******************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\xamp\\htdocs\\job-boarding\\resources\\js\\components\\AddJob.js: Unexpected token (170:1)\n\n\u001b[0m \u001b[90m 168 |\u001b[39m               \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 169 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 170 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m     |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 171 |\u001b[39m               \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m style\u001b[33m=\u001b[39m{{ margin\u001b[33m:\u001b[39m \u001b[32m'20px 0'\u001b[39m }}\u001b[33m>\u001b[39m\n \u001b[90m 172 |\u001b[39m                 \u001b[33m<\u001b[39m\u001b[33mlabel\u001b[39m\u001b[33m>\u001b[39m\u001b[33mSalary\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mlabel\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 173 |\u001b[39m                 \u001b[33m<\u001b[39m\u001b[33minput\u001b[39m\u001b[0m\n    at constructor (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:353:19)\n    at JSXParserMixin.raise (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:3277:19)\n    at JSXParserMixin.unexpected (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:3297:16)\n    at JSXParserMixin.jsxParseIdentifier (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6624:12)\n    at JSXParserMixin.jsxParseNamespacedName (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6631:23)\n    at JSXParserMixin.jsxParseElementName (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6640:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6716:22)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6741:33)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6753:32)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6753:32)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6753:32)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6753:32)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6753:32)\n    at JSXParserMixin.jsxParseElement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6804:17)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6816:19)\n    at JSXParserMixin.parseExprSubscripts (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10590:23)\n    at JSXParserMixin.parseUpdate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10573:21)\n    at JSXParserMixin.parseMaybeUnary (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10551:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10405:61)\n    at JSXParserMixin.parseExprOps (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10410:23)\n    at JSXParserMixin.parseMaybeConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10387:23)\n    at JSXParserMixin.parseMaybeAssign (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10348:21)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:39\n    at JSXParserMixin.allowInAnd (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11936:12)\n    at JSXParserMixin.parseMaybeAssignAllowIn (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:17)\n    at JSXParserMixin.parseParenAndDistinguishExpression (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11199:28)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10857:23)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6821:20)\n    at JSXParserMixin.parseExprSubscripts (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10590:23)\n    at JSXParserMixin.parseUpdate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10573:21)\n    at JSXParserMixin.parseMaybeUnary (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10551:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10405:61)\n    at JSXParserMixin.parseExprOps (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10410:23)\n    at JSXParserMixin.parseMaybeConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10387:23)\n    at JSXParserMixin.parseMaybeAssign (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10348:21)\n    at JSXParserMixin.parseExpressionBase (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10302:23)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10298:39\n    at JSXParserMixin.allowInAnd (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11931:16)\n    at JSXParserMixin.parseExpression (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10298:17)\n    at JSXParserMixin.parseReturnStatement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12619:28)\n    at JSXParserMixin.parseStatementContent (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12270:21)\n    at JSXParserMixin.parseStatementLike (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12239:17)\n    at JSXParserMixin.parseStatementListItem (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12219:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12796:61)\n    at JSXParserMixin.parseBlockBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12789:10)\n    at JSXParserMixin.parseBlock (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12777:10)\n    at JSXParserMixin.parseFunctionBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11616:24)\n    at JSXParserMixin.parseFunctionBodyAndFinish (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11602:10)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12919:12\n    at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11913:14)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var quill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! quill */ "./node_modules/quill/quill.js");
+/* harmony import */ var quill_dist_quill_core_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! quill/dist/quill.core.css */ "./node_modules/quill/dist/quill.core.css");
+/* harmony import */ var quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! quill/dist/quill.snow.css */ "./node_modules/quill/dist/quill.snow.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var validate = function validate(values) {
+  var errors = {};
+  if (!values.title) {
+    errors.title = 'Title field is required';
+  }
+  if (!values.location) {
+    errors.location = 'Location field is required';
+  }
+  if (!values.salary) {
+    errors.salary = 'Salary field is required';
+  } else if (!/^\d+$/.test(values.salary)) {
+    // Ensure totalEmployees is a number
+    errors.salary = 'Must be a number';
+  }
+  if (!values.description) {
+    errors.description = 'Description field is required.';
+  }
+  if (values.description == '<p><br></p>') {
+    errors.description = 'Description should not be empty';
+  }
+  if (!values.responsibilities) {
+    errors.responsibilities = 'Responsibility field is required';
+  }
+  if (values.responsibilities == '<p><br></p>') {
+    errors.responsibilities = 'Responsibility should not be empty';
+  }
+  if (!values.requirements) {
+    errors.requirements = 'Requirements field is required';
+  }
+  if (values.requirements == '<p><br></p>') {
+    errors.requirements = 'Requirements should not be empty';
+  }
+  return errors;
+};
+function AddJob() {
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var descriptionQuill = new quill__WEBPACK_IMPORTED_MODULE_1__["default"]("#description", {
+      theme: 'snow'
+    });
+    var requirementQuill = new quill__WEBPACK_IMPORTED_MODULE_1__["default"]("#requirements", {
+      theme: 'snow'
+    });
+    var responsibilityQuill = new quill__WEBPACK_IMPORTED_MODULE_1__["default"]("#responsibilities", {
+      theme: 'snow'
+    });
+    descriptionQuill.on('text-change', function () {
+      var value = descriptionQuill.root.innerHTML;
+      formik.setFieldValue('description', value);
+    });
+    requirementQuill.on('text-change', function () {
+      var value = requirementQuill.root.innerHTML;
+      formik.setFieldValue('requirements', value);
+    });
+    responsibilityQuill.on('text-change', function () {
+      var value = responsibilityQuill.root.innerHTML;
+      formik.setFieldValue('responsibilities', value);
+    });
+  }, []);
+  var formik = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useFormik)({
+    initialValues: {
+      title: '',
+      location: '',
+      type: 'remote',
+      salary: 40000,
+      additionalDetails: 'description',
+      description: '',
+      requirements: '',
+      responsibilities: ''
+    },
+    validate: validate,
+    onSubmit: function onSubmit(values) {
+      var data = {
+        title: values.title,
+        description: values.description,
+        location: values.location,
+        type: values.type,
+        responsibilities: values.responsibilities,
+        requirements: values.requirements,
+        salary: values.salary
+      };
+      fetch("http://127.0.0.1:8000/api/add-job", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify(data)
+      }).then(function (response) {
+        return response.json();
+      }).then(function () {
+        return navigate('/home', {
+          state: {
+            addJob: true
+          }
+        });
+      })["catch"](function (error) {
+        return console.error('Error:', error);
+      });
+    }
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "mt-4",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "d-flex gap-4 align-items-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+        to: "/home",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+          style: {
+            color: 'black'
+          },
+          xmlns: "http://www.w3.org/2000/svg",
+          width: "24",
+          height: "24",
+          fill: "currentColor",
+          className: "bi bi-arrow-left-circle-fill",
+          viewBox: "0 0 16 16",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+            d: "M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+        children: "Go back"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
+      style: {
+        margin: '0 auto',
+        width: '50%'
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+        children: "Add Job"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "card",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "card-body",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+            onSubmit: formik.handleSubmit,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                children: "Title"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "text",
+                name: "title",
+                className: "form-control",
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.title
+              }), formik.touched.title && formik.errors.title ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.title
+              }) : null]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              style: {
+                margin: '20px 0'
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                children: "Location"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "text",
+                name: "location",
+                className: "form-control",
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.location
+              }), formik.touched.location && formik.errors.location ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.location
+              }) : null]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              style: {
+                margin: '20px 0'
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                children: "Salary"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "number",
+                name: "salary",
+                className: "form-control",
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.salary
+              }), formik.touched.salary && formik.errors.salary ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.salary
+              }) : null]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              style: {
+                margin: '20px 0'
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                children: "Type"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                className: "form-control",
+                name: "type",
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.type,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "remote",
+                  children: "Remote"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "hybrid",
+                  children: "Hybrid"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "onsite",
+                  children: "Onsite"
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              style: {
+                margin: '20px 0'
+              },
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                children: "Additional details"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                name: "additionalDetails",
+                className: "form-control",
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.additionalDetails,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "description",
+                  children: "Description"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "responsibilities",
+                  children: "Responsibilities"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "requirements",
+                  children: "Requirements"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("small", {
+                className: "text-info",
+                children: "Change the option to responsibilities or requirements to set them up"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                style: {
+                  display: formik.values.additionalDetails === 'description' ? 'block' : 'none'
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                  children: "Description"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  id: "description",
+                  children: "Description"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                style: {
+                  display: formik.values.additionalDetails === 'responsibilities' ? 'block' : 'none'
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                  children: "Responsibilities"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  id: "responsibilities",
+                  children: "Responsibilities"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                style: {
+                  display: formik.values.additionalDetails === 'requirements' ? 'block' : 'none'
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                  children: "Requirements"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  id: "requirements",
+                  children: "Requirements"
+                })]
+              }), formik.touched.description && formik.errors.description ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.description
+              }) : null, formik.touched.requirements && formik.errors.requirements ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.requirements
+              }) : null, formik.touched.responsibilities && formik.errors.responsibilities ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.responsibilities
+              }) : null]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "mt-4 text-end",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                className: "btn btn-primary text-align-end",
+                type: "submit",
+                children: "Add Job"
+              })
+            })]
+          })
+        })
+      })]
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddJob);
 
 /***/ }),
 
@@ -9755,9 +10073,243 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*!******************************************!*\
   !*** ./resources/js/components/Apply.js ***!
   \******************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\xamp\\htdocs\\job-boarding\\resources\\js\\components\\Apply.js: Unexpected token (63:1)\n\n\u001b[0m \u001b[90m 61 |\u001b[39m \t\t\n \u001b[90m 62 |\u001b[39m \t\t\u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 63 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 64 |\u001b[39m             \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"progress mb-4\"\u001b[39m style\u001b[33m=\u001b[39m{{height\u001b[33m:\u001b[39m \u001b[32m'7px'\u001b[39m}}\u001b[33m>\u001b[39m\n \u001b[90m 65 |\u001b[39m               \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"progress-bar\"\u001b[39m id\u001b[33m=\u001b[39m\u001b[32m\"jb-apply-pbar\"\u001b[39m role\u001b[33m=\u001b[39m\u001b[32m\"progressbar\"\u001b[39m style\u001b[33m=\u001b[39m{{width\u001b[33m:\u001b[39m \u001b[32m\"33%\"\u001b[39m}} aria\u001b[33m-\u001b[39mvaluenow\u001b[33m=\u001b[39m\u001b[32m\"100\"\u001b[39m aria\u001b[33m-\u001b[39mvaluemin\u001b[33m=\u001b[39m\u001b[32m\"0\"\u001b[39m aria\u001b[33m-\u001b[39mvaluemax\u001b[33m=\u001b[39m\u001b[32m\"100\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 66 |\u001b[39m             \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n    at constructor (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:353:19)\n    at JSXParserMixin.raise (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:3277:19)\n    at JSXParserMixin.unexpected (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:3297:16)\n    at JSXParserMixin.jsxParseIdentifier (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6624:12)\n    at JSXParserMixin.jsxParseNamespacedName (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6631:23)\n    at JSXParserMixin.jsxParseElementName (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6640:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6716:22)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6741:33)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6753:32)\n    at JSXParserMixin.jsxParseElement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6804:17)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6816:19)\n    at JSXParserMixin.parseExprSubscripts (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10590:23)\n    at JSXParserMixin.parseUpdate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10573:21)\n    at JSXParserMixin.parseMaybeUnary (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10551:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10405:61)\n    at JSXParserMixin.parseExprOps (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10410:23)\n    at JSXParserMixin.parseMaybeConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10387:23)\n    at JSXParserMixin.parseMaybeAssign (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10348:21)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:39\n    at JSXParserMixin.allowInAnd (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11936:12)\n    at JSXParserMixin.parseMaybeAssignAllowIn (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:17)\n    at JSXParserMixin.parseParenAndDistinguishExpression (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11199:28)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10857:23)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6821:20)\n    at JSXParserMixin.parseExprSubscripts (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10590:23)\n    at JSXParserMixin.parseUpdate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10573:21)\n    at JSXParserMixin.parseMaybeUnary (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10551:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10405:61)\n    at JSXParserMixin.parseExprOps (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10410:23)\n    at JSXParserMixin.parseMaybeConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10387:23)\n    at JSXParserMixin.parseMaybeAssign (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10348:21)\n    at JSXParserMixin.parseExpressionBase (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10302:23)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10298:39\n    at JSXParserMixin.allowInAnd (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11931:16)\n    at JSXParserMixin.parseExpression (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10298:17)\n    at JSXParserMixin.parseReturnStatement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12619:28)\n    at JSXParserMixin.parseStatementContent (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12270:21)\n    at JSXParserMixin.parseStatementLike (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12239:17)\n    at JSXParserMixin.parseStatementListItem (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12219:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12796:61)\n    at JSXParserMixin.parseBlockBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12789:10)\n    at JSXParserMixin.parseBlock (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12777:10)\n    at JSXParserMixin.parseFunctionBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11616:24)\n    at JSXParserMixin.parseFunctionBodyAndFinish (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11602:10)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12919:12\n    at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11913:14)\n    at JSXParserMixin.parseFunction (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12918:10)\n    at JSXParserMixin.parseFunctionStatement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12602:17)\n    at JSXParserMixin.parseStatementContent (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12263:21)\n    at JSXParserMixin.parseStatementLike (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12239:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
+/* harmony import */ var _contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contexts/BoardJobContext.js */ "./resources/js/contexts/BoardJobContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var validate = function validate(values) {
+  var errors = {};
+  if (!values.firstName) {
+    errors.firstName = 'First Name field is required';
+  }
+  if (!values.lastName) {
+    errors.lastName = 'Last Name field is required';
+  }
+  if (!values.phoneNumber) {
+    errors.phoneNumber = 'Phone Number field is required';
+  } else if (!/^\+?[1-9]\d{1,14}$/.test(values.phoneNumber)) {
+    // Ensure phoneNumber matches E.164 format
+    errors.phoneNumber = 'Invalid phone number';
+  }
+  if (!values.email) {
+    errors.email = 'Email field is required';
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address';
+  }
+  return errors;
+};
+function Apply(props) {
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)();
+  var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_2__["default"]);
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+    _useState2 = _slicedToArray(_useState, 2),
+    submission = _useState2[0],
+    setSubmission = _useState2[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    saveDefaultData();
+  }, []);
+  var saveDefaultData = function saveDefaultData() {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/add-job-data/', {
+      jobId: location.state.job.id,
+      company_id: location.state.job.company_id
+    }).then(function (response) {
+      setSubmission(response.data.submission);
+      formik.setValues({
+        firstName: response.data.submission.first_name,
+        lastName: response.data.submission.last_name,
+        phoneNumber: response.data.submission.phone_number,
+        email: response.data.submission.email
+      });
+    });
+  };
+  var formik = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useFormik)({
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      phoneNumber: '',
+      email: ''
+    },
+    validate: validate,
+    onSubmit: function onSubmit(values) {
+      var data = {
+        submission: JSON.stringify(submission),
+        first_name: values.firstName,
+        last_name: values.lastName,
+        phone_number: values.phoneNumber,
+        email: values.email
+      };
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/apply/candidate/' + location.state.job.user_id + '/job/' + submission.board_job_id, data).then(function (response) {
+        props.updateJobContext({
+          user_id: location.state.job.user_id,
+          board_job_id: submission.board_job_id,
+          submission: response.data.submission
+        });
+        navigate('/resume');
+      })["catch"](function (error) {
+        // Handle error
+      });
+    }
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "progress mb-4",
+      style: {
+        height: '7px'
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "progress-bar",
+        id: "jb-apply-pbar",
+        role: "progressbar",
+        style: {
+          width: "33%"
+        },
+        "aria-valuenow": "100",
+        "aria-valuemin": "0",
+        "aria-valuemax": "100"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "w-lg-50",
+      style: {
+        margin: '0 auto'
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+        children: "Personal Information"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        onSubmit: formik.handleSubmit,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "card",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "card-body",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                htmlFor: "firstName",
+                className: "col-form-label",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                  children: "First Name"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "text",
+                  name: "firstName",
+                  value: formik.values.firstName,
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  required: true,
+                  className: "form-control"
+                })
+              }), formik.touched.firstName && formik.errors.firstName ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.firstName
+              }) : null]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                htmlFor: "lastName",
+                className: "col-form-label",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                  children: "Last Name"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "text",
+                  name: "lastName",
+                  value: formik.values.lastName,
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  required: true,
+                  className: "form-control"
+                })
+              }), formik.touched.lastName && formik.errors.lastName ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.lastName
+              }) : null]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                htmlFor: "phoneNumber",
+                className: "col-form-label",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                  children: "Phone"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "tel",
+                  name: "phoneNumber",
+                  value: formik.values.phoneNumber,
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  required: true,
+                  className: "form-control"
+                })
+              }), formik.touched.phoneNumber && formik.errors.phoneNumber ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.phoneNumber
+              }) : null]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                htmlFor: "email",
+                className: "col-form-label",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                  children: "Email"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "email",
+                  name: "email",
+                  value: formik.values.email,
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  required: true,
+                  className: "form-control"
+                })
+              }), formik.touched.email && formik.errors.email ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.email
+              }) : null]
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "mt-2 text-end",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            type: "submit",
+            className: "btn btn-primary",
+            children: "Continue"
+          })
+        })]
+      })]
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Apply);
 
 /***/ }),
 
@@ -9774,7 +10326,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -9794,6 +10347,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Company() {
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
     companies = _useState2[0],
@@ -9806,38 +10360,72 @@ function Company() {
     _useState6 = _slicedToArray(_useState5, 2),
     lastPage = _useState6[0],
     setLastPage = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState8 = _slicedToArray(_useState7, 2),
-    role = _useState8[0],
-    setRole = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    currentPage = _useState8[0],
+    setCurrentPage = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState10 = _slicedToArray(_useState9, 2),
+    role = _useState10[0],
+    setRole = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState12 = _slicedToArray(_useState11, 2),
+    success = _useState12[0],
+    setSuccess = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       comment: '',
       rating: 0
     }),
-    _useState10 = _slicedToArray(_useState9, 2),
-    feedback = _useState10[0],
-    setFeedback = _useState10[1];
+    _useState14 = _slicedToArray(_useState13, 2),
+    feedback = _useState14[0],
+    setFeedback = _useState14[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    getCompanies();
-  }, []);
+    var _location$state;
+    setSuccess((_location$state = location.state) === null || _location$state === void 0 ? void 0 : _location$state.addCompany);
+    setTimeout(function () {
+      setSuccess(false);
+    }, 3000);
+    if (currentPage) {
+      getCompanies();
+    }
+  }, [currentPage]);
   function getCompanies() {
-    // let getJobsUrl = !jobTitle ? `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
-
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].get('http://127.0.0.1:8000/api/company/show-companies').then(function (response) {
-      setCompanies(response.data.companies);
+    // apiClient.get('http://127.0.0.1:8000/api/company/show-companies')
+    // let getJobsUrl = `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://127.0.0.1:8000/api/company/show-companies?page=".concat(currentPage)).then(function (response) {
+      setCompanies(response.data.companies.data);
+      setNextPage(response.data.companies.next_page_url);
+      setLastPage(response.data.companies.last_page);
       setRole(response.data.role);
-      // console.log(response.data.compan)
     })["catch"](function (error) {});
   }
+  var next = function next() {
+    setCurrentPage(currentPage + 1);
+  };
+  var prev = function prev() {
+    setCurrentPage(currentPage - 1);
+  };
   function addReview(id) {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/company/add-review/' + id, {
       feedback: feedback
     }).then(function (response) {
-      setFeedback(response.data.company.feedback);
+      // setFeedback(response.data.company.feedback)
+      setFeedback({
+        comment: '',
+        rating: 0
+      });
+      getCompanies();
     })["catch"](function (error) {});
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [success ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "text-success text-center",
+      style: {
+        backgroundColor: '#c3ff624d',
+        padding: '8px 0'
+      },
+      children: "Company Created Successfully!"
+    }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "my-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -9847,7 +10435,7 @@ function Company() {
             children: "Add New Company "
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
               to: "/add-company",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 type: "button",
@@ -10319,8 +10907,10 @@ function Company() {
                           children: "Cancel"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                           type: "button",
+                          id: 'company-' + company.id,
                           className: "btn btn-primary",
                           onClick: function onClick() {
+                            document.querySelector("#company-".concat(company.id)).setAttribute('data-bs-dismiss', 'modal');
                             addReview(company.id);
                           },
                           children: "Add review"
@@ -10334,6 +10924,8 @@ function Company() {
               className: "d-flex gap-2 align-items-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 className: "btn btn-link",
+                onClick: prev,
+                disabled: currentPage === 1,
                 style: {
                   border: '1px solid lightslategrey'
                 },
@@ -10349,10 +10941,12 @@ function Company() {
                     d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
                   })
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                children: "Showing page"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+                children: ["Showing page ", currentPage, " of ", lastPage]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 className: "btn btn-link",
+                onClick: next,
+                disabled: !nextPage,
                 style: {
                   border: '1px solid lightslategrey'
                 },
@@ -10373,7 +10967,7 @@ function Company() {
           })
         })]
       })
-    })
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Company);
@@ -10395,16 +10989,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _ShowJob__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ShowJob */ "./resources/js/components/ShowJob.js");
-/* harmony import */ var _ShowJob__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ShowJob__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _AddJob__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AddJob */ "./resources/js/components/AddJob.js");
-/* harmony import */ var _AddJob__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_AddJob__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _Apply__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Apply */ "./resources/js/components/Apply.js");
-/* harmony import */ var _Apply__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_Apply__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _Resume__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Resume */ "./resources/js/components/Resume.js");
-/* harmony import */ var _Resume__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_Resume__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _Experience__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Experience */ "./resources/js/components/Experience.js");
 /* harmony import */ var _JobQuestions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./JobQuestions */ "./resources/js/components/JobQuestions.js");
-/* harmony import */ var _JobQuestions__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_JobQuestions__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _UpdateProfile__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./UpdateProfile */ "./resources/js/components/UpdateProfile.js");
 /* harmony import */ var _Company__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Company */ "./resources/js/components/Company.js");
 /* harmony import */ var _AddCompany__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./AddCompany */ "./resources/js/components/AddCompany.js");
@@ -10490,12 +11079,12 @@ function Example() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Routes, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
             path: "/home",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)((_ShowJob__WEBPACK_IMPORTED_MODULE_2___default()), {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_ShowJob__WEBPACK_IMPORTED_MODULE_2__["default"], {
               user: user
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
             path: "/add-job",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)((_AddJob__WEBPACK_IMPORTED_MODULE_3___default()), {})
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_AddJob__WEBPACK_IMPORTED_MODULE_3__["default"], {})
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
             path: "/companies",
             element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_Company__WEBPACK_IMPORTED_MODULE_9__["default"], {})
@@ -10504,13 +11093,13 @@ function Example() {
             element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_AddCompany__WEBPACK_IMPORTED_MODULE_10__["default"], {})
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
             path: "/apply",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)((_Apply__WEBPACK_IMPORTED_MODULE_4___default()), {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_Apply__WEBPACK_IMPORTED_MODULE_4__["default"], {
               user: user,
               updateJobContext: updateJobContext
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
             path: "/resume",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)((_Resume__WEBPACK_IMPORTED_MODULE_5___default()), {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_Resume__WEBPACK_IMPORTED_MODULE_5__["default"], {
               user: user,
               updateJobContext: updateJobContext
             })
@@ -10521,7 +11110,7 @@ function Example() {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Route, {
             path: "/job-questions",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)((_JobQuestions__WEBPACK_IMPORTED_MODULE_7___default()), {
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_JobQuestions__WEBPACK_IMPORTED_MODULE_7__["default"], {
               user: user,
               updateJobContext: updateJobContext
             })
@@ -10615,9 +11204,338 @@ function Experience() {
 /*!*************************************************!*\
   !*** ./resources/js/components/JobQuestions.js ***!
   \*************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\xamp\\htdocs\\job-boarding\\resources\\js\\components\\JobQuestions.js: Unexpected token (52:1)\n\n\u001b[0m \u001b[90m 50 |\u001b[39m \t\u001b[36mreturn\u001b[39m (\n \u001b[90m 51 |\u001b[39m \t\t\u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 52 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 53 |\u001b[39m             \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"progress mb-4\"\u001b[39m style\u001b[33m=\u001b[39m{{height\u001b[33m:\u001b[39m \u001b[32m'7px'\u001b[39m}}\u001b[33m>\u001b[39m\n \u001b[90m 54 |\u001b[39m               \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"progress-bar\"\u001b[39m id\u001b[33m=\u001b[39m\u001b[32m\"jb-question-pbar\"\u001b[39m role\u001b[33m=\u001b[39m\u001b[32m\"progressbar\"\u001b[39m style\u001b[33m=\u001b[39m{{width\u001b[33m:\u001b[39m \u001b[32m\"100%\"\u001b[39m}} aria\u001b[33m-\u001b[39mvaluenow\u001b[33m=\u001b[39m\u001b[32m\"100\"\u001b[39m aria\u001b[33m-\u001b[39mvaluemin\u001b[33m=\u001b[39m\u001b[32m\"0\"\u001b[39m aria\u001b[33m-\u001b[39mvaluemax\u001b[33m=\u001b[39m\u001b[32m\"100\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 55 |\u001b[39m             \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n    at constructor (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:353:19)\n    at JSXParserMixin.raise (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:3277:19)\n    at JSXParserMixin.unexpected (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:3297:16)\n    at JSXParserMixin.jsxParseIdentifier (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6624:12)\n    at JSXParserMixin.jsxParseNamespacedName (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6631:23)\n    at JSXParserMixin.jsxParseElementName (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6640:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6716:22)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6741:33)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6753:32)\n    at JSXParserMixin.jsxParseElement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6804:17)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6816:19)\n    at JSXParserMixin.parseExprSubscripts (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10590:23)\n    at JSXParserMixin.parseUpdate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10573:21)\n    at JSXParserMixin.parseMaybeUnary (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10551:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10405:61)\n    at JSXParserMixin.parseExprOps (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10410:23)\n    at JSXParserMixin.parseMaybeConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10387:23)\n    at JSXParserMixin.parseMaybeAssign (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10348:21)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:39\n    at JSXParserMixin.allowInAnd (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11936:12)\n    at JSXParserMixin.parseMaybeAssignAllowIn (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:17)\n    at JSXParserMixin.parseParenAndDistinguishExpression (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11199:28)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10857:23)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6821:20)\n    at JSXParserMixin.parseExprSubscripts (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10590:23)\n    at JSXParserMixin.parseUpdate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10573:21)\n    at JSXParserMixin.parseMaybeUnary (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10551:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10405:61)\n    at JSXParserMixin.parseExprOps (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10410:23)\n    at JSXParserMixin.parseMaybeConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10387:23)\n    at JSXParserMixin.parseMaybeAssign (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10348:21)\n    at JSXParserMixin.parseExpressionBase (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10302:23)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10298:39\n    at JSXParserMixin.allowInAnd (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11931:16)\n    at JSXParserMixin.parseExpression (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10298:17)\n    at JSXParserMixin.parseReturnStatement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12619:28)\n    at JSXParserMixin.parseStatementContent (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12270:21)\n    at JSXParserMixin.parseStatementLike (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12239:17)\n    at JSXParserMixin.parseStatementListItem (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12219:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12796:61)\n    at JSXParserMixin.parseBlockBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12789:10)\n    at JSXParserMixin.parseBlock (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12777:10)\n    at JSXParserMixin.parseFunctionBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11616:24)\n    at JSXParserMixin.parseFunctionBodyAndFinish (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11602:10)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12919:12\n    at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11913:14)\n    at JSXParserMixin.parseFunction (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12918:10)\n    at JSXParserMixin.parseFunctionStatement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12602:17)\n    at JSXParserMixin.parseStatementContent (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12263:21)\n    at JSXParserMixin.parseStatementLike (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12239:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../contexts/BoardJobContext.js */ "./resources/js/contexts/BoardJobContext.js");
+/* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+var validate = function validate(values) {
+  var errors = {};
+  if (!values.salaryExpectation) {
+    errors.salaryExpectation = 'Salary expectation field is required';
+  }
+  if (!values.noticePeriod) {
+    errors.noticePeriod = 'Notice period field is required';
+  }
+  return errors;
+};
+function JobQuestions() {
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
+  var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('pakistan'),
+    _useState2 = _slicedToArray(_useState, 2),
+    country = _useState2[0],
+    setCountry = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState4 = _slicedToArray(_useState3, 2),
+    state = _useState4[0],
+    setState = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('No'),
+    _useState6 = _slicedToArray(_useState5, 2),
+    abilityToCommute = _useState6[0],
+    setAbilityToCommute = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(40000),
+    _useState8 = _slicedToArray(_useState7, 2),
+    salaryExpectation = _useState8[0],
+    setSalaryExpectation = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(10),
+    _useState10 = _slicedToArray(_useState9, 2),
+    noticePeriod = _useState10[0],
+    setNoticePeriod = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('2024-04-11'),
+    _useState12 = _slicedToArray(_useState11, 2),
+    scheduleInterview = _useState12[0],
+    setScheduleInterview = _useState12[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setCountry(context.submission.country);
+    setState(context.submission.state);
+    setAbilityToCommute(context.submission.ability_to_commute);
+    setSalaryExpectation(context.submission.salary_expectation);
+    setNoticePeriod(context.submission.notice_period);
+    setScheduleInterview(new Date(context.submission.schedule_interview).toISOString().split('T')[0]);
+    // props.updateJobContext({user_id: response.submission.user_id, board_job_id: response.submission.board_job_id, submission: response.data.submission})
+  }, []);
+  var formik = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useFormik)({
+    initialValues: {
+      country: 'pakistan',
+      state: 'islamabad',
+      abilityToCommute: '',
+      salaryExpectation: '',
+      noticePeriod: '',
+      scheduleInterview: ''
+    },
+    validate: validate,
+    onSubmit: function onSubmit(values) {
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].put('http://127.0.0.1:8000/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, {
+        ability_to_commute: formik.values.abilityToCommute,
+        salary_expectation: formik.values.salaryExpectation,
+        notice_period: formik.values.noticePeriod,
+        schedule_interview: formik.values.scheduleInterview,
+        country: formik.values.country,
+        state: formik.values.state,
+        submission: JSON.stringify(context.submission)
+      }).then(function (response) {
+        window.location = '/home';
+      })["catch"](function (error) {});
+    }
+  });
+  var saveData = function saveData() {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].put('http://127.0.0.1:8000/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, {
+      ability_to_commute: abilityToCommute,
+      salary_expectation: salaryExpectation,
+      notice_period: noticePeriod,
+      schedule_interview: scheduleInterview,
+      country: country,
+      state: state,
+      submission: JSON.stringify(context.submission)
+    }).then(function (response) {
+      window.location = '/home';
+    })["catch"](function (error) {});
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "progress mb-4",
+      style: {
+        height: '7px'
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "progress-bar",
+        id: "jb-question-pbar",
+        role: "progressbar",
+        style: {
+          width: "100%"
+        },
+        "aria-valuenow": "100",
+        "aria-valuemin": "0",
+        "aria-valuemax": "100"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "w-50",
+      style: {
+        margin: '0 auto'
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+        children: "Miscelleneous"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        onSubmit: formik.handleSubmit,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "card",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "card-body",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                className: "",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                  htmlFor: "country",
+                  className: "col-form-label",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                    children: "Country"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+                  name: "country",
+                  className: "form-control",
+                  value: formik.values.country,
+                  onChange: formik.handleChange,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                    value: "pakistan",
+                    children: "Pakistan"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                    value: "india",
+                    children: "India"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                    value: "germany",
+                    children: "Germany"
+                  })]
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                htmlFor: "state",
+                className: "col-form-label",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                  children: "State|City"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("select", {
+                  className: "form-control",
+                  name: "state",
+                  value: formik.values.state,
+                  onChange: formik.handleChange,
+                  children: country == 'pakistan' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                      value: "hangu",
+                      children: "Hangu"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                      value: "islamabad",
+                      children: "Islamabad"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                      value: "peshawar",
+                      children: "Peshawar"
+                    })]
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                      value: "berlin",
+                      children: "Berlin   "
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                      value: "mumbai",
+                      children: "mumbai"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                      value: "manchester",
+                      children: "manchester"
+                    })]
+                  })
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                htmlFor: "first-name",
+                className: "col-form-label",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                  children: "Planning to relocate"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                className: "d-flex",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                    className: "form-check-label",
+                    htmlFor: "flexRadioDefault1",
+                    children: "No"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                    className: "form-check-input",
+                    type: "radio",
+                    name: "abilityToCommute",
+                    id: "flexRadioDefault2",
+                    value: "no",
+                    onChange: formik.handleChange,
+                    checked: formik.values.abilityToCommute == 'no' ? 'checked' : ''
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                    className: "form-check-label",
+                    htmlFor: "flexRadioDefault1",
+                    children: "Yes"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                    className: "form-check-input",
+                    type: "radio",
+                    value: "yes",
+                    name: "abilityToCommute",
+                    id: "flexRadioDefault1",
+                    onChange: formik.handleChange,
+                    checked: formik.values.abilityToCommute == 'yes' ? 'checked' : ''
+                  })]
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                htmlFor: "first-name",
+                className: "col-form-label",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                  children: "Salary Expectation"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "number",
+                  name: "salaryExpectation",
+                  value: formik.values.salaryExpectation,
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  required: true,
+                  className: "form-control"
+                })
+              }), formik.touched.salaryExpectation && formik.errors.salaryExpectation ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.salaryExpectation
+              }) : null]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                htmlFor: "first-name",
+                className: "col-form-label",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                  children: "Notice Period: (days)"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "number",
+                  name: "noticePeriod",
+                  value: formik.values.noticePeriod,
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  required: true,
+                  className: "form-control"
+                })
+              }), formik.touched.noticePeriod && formik.errors.noticePeriod ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "text-danger",
+                children: formik.errors.noticePeriod
+              }) : null]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                children: "Tell us few dates where you are free"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                htmlFor: "first-name",
+                className: "col-form-label",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                  children: "Interview Date "
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  type: "date",
+                  name: "scheduleInterview",
+                  value: formik.values.scheduleInterview,
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  required: true,
+                  className: "form-control"
+                })
+              })]
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "mt-2 mb-4 text-end",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", _defineProperty(_defineProperty({
+            type: "button",
+            className: "btn btn-primary"
+          }, "type", "submit"), "children", "Continue"))
+        })]
+      })]
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (JobQuestions);
 
 /***/ }),
 
@@ -10815,6 +11733,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Profile() {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.useNavigate)();
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.useLocation)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState2 = _slicedToArray(_useState, 2),
     user = _useState2[0],
@@ -10823,43 +11742,47 @@ function Profile() {
     _useState4 = _slicedToArray(_useState3, 2),
     email = _useState4[0],
     setEmail = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState6 = _slicedToArray(_useState5, 2),
-    profile = _useState6[0],
-    setProfile = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    success = _useState6[0],
+    setSuccess = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
     _useState8 = _slicedToArray(_useState7, 2),
-    address = _useState8[0],
-    setAddress = _useState8[1];
+    profile = _useState8[0],
+    setProfile = _useState8[1];
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState10 = _slicedToArray(_useState9, 2),
-    education = _useState10[0],
-    setEducation = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    address = _useState10[0],
+    setAddress = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState12 = _slicedToArray(_useState11, 2),
-    phoneNumber = _useState12[0],
-    setPhoneNumber = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    education = _useState12[0],
+    setEducation = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState14 = _slicedToArray(_useState13, 2),
-    summary = _useState14[0],
-    setSummary = _useState14[1];
+    phoneNumber = _useState14[0],
+    setPhoneNumber = _useState14[1];
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState16 = _slicedToArray(_useState15, 2),
-    skills = _useState16[0],
-    setSkills = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    summary = _useState16[0],
+    setSummary = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState18 = _slicedToArray(_useState17, 2),
-    update = _useState18[0],
-    setUpdate = _useState18[1];
-  var entries = ["php", "laravel", "vuejs", "javascript", "reactjs", "nodejs", "html", "css", "c++", "java", "python", "django", "mysql", "database", "docker", "wordpress", "git", "versioncontrol", "webpack", "bootstrap", "npm"];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    skills = _useState18[0],
+    setSkills = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState20 = _slicedToArray(_useState19, 2),
-    searchTerm = _useState20[0],
-    setSearchTerm = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    update = _useState20[0],
+    setUpdate = _useState20[1];
+  var entries = ["php", "laravel", "vuejs", "javascript", "reactjs", "nodejs", "html", "css", "c++", "java", "python", "django", "mysql", "database", "docker", "wordpress", "git", "versioncontrol", "webpack", "bootstrap", "npm"];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState22 = _slicedToArray(_useState21, 2),
-    moreSkills = _useState22[0],
-    setMoreSkills = _useState22[1];
+    searchTerm = _useState22[0],
+    setSearchTerm = _useState22[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState24 = _slicedToArray(_useState23, 2),
+    moreSkills = _useState24[0],
+    setMoreSkills = _useState24[1];
 
   // Function to filter entries based on search term
   var filterEntries = function filterEntries() {
@@ -10884,10 +11807,22 @@ function Profile() {
     setSkills(e.target.value);
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var _location$state;
     getProfile();
+    setSuccess((_location$state = location.state) === null || _location$state === void 0 ? void 0 : _location$state.update);
+    setTimeout(function () {
+      setSuccess(false);
+    }, 3000);
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+    children: [success ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+      className: "text-success text-center",
+      style: {
+        backgroundColor: '#c3ff624d',
+        padding: '8px 0'
+      },
+      children: "Profile Successfully Updated!"
+    }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "container pt-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("section", {
         style: {
@@ -10982,7 +11917,7 @@ function Profile() {
           })]
         })]
       })
-    })
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Profile);
@@ -11240,9 +12175,114 @@ var Register = function Register(props) {
 /*!*******************************************!*\
   !*** ./resources/js/components/Resume.js ***!
   \*******************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\xamp\\htdocs\\job-boarding\\resources\\js\\components\\Resume.js: Unexpected token (48:1)\n\n\u001b[0m \u001b[90m 46 |\u001b[39m \t\u001b[36mreturn\u001b[39m (\n \u001b[90m 47 |\u001b[39m \t\t\u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m \t\t\t\u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"progress mb-4\"\u001b[39m style\u001b[33m=\u001b[39m{{height\u001b[33m:\u001b[39m \u001b[32m'7px'\u001b[39m}}\u001b[33m>\u001b[39m\n \u001b[90m 50 |\u001b[39m               \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"progress-bar\"\u001b[39m id\u001b[33m=\u001b[39m\u001b[32m\"jb-resume-pbar\"\u001b[39m role\u001b[33m=\u001b[39m\u001b[32m\"progressbar\"\u001b[39m style\u001b[33m=\u001b[39m{{width\u001b[33m:\u001b[39m \u001b[32m\"66%\"\u001b[39m}} aria\u001b[33m-\u001b[39mvaluenow\u001b[33m=\u001b[39m\u001b[32m\"100\"\u001b[39m aria\u001b[33m-\u001b[39mvaluemin\u001b[33m=\u001b[39m\u001b[32m\"0\"\u001b[39m aria\u001b[33m-\u001b[39mvaluemax\u001b[33m=\u001b[39m\u001b[32m\"100\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 51 |\u001b[39m             \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n    at constructor (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:353:19)\n    at JSXParserMixin.raise (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:3277:19)\n    at JSXParserMixin.unexpected (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:3297:16)\n    at JSXParserMixin.jsxParseIdentifier (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6624:12)\n    at JSXParserMixin.jsxParseNamespacedName (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6631:23)\n    at JSXParserMixin.jsxParseElementName (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6640:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6716:22)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6741:33)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6753:32)\n    at JSXParserMixin.jsxParseElement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6804:17)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6816:19)\n    at JSXParserMixin.parseExprSubscripts (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10590:23)\n    at JSXParserMixin.parseUpdate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10573:21)\n    at JSXParserMixin.parseMaybeUnary (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10551:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10405:61)\n    at JSXParserMixin.parseExprOps (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10410:23)\n    at JSXParserMixin.parseMaybeConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10387:23)\n    at JSXParserMixin.parseMaybeAssign (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10348:21)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:39\n    at JSXParserMixin.allowInAnd (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11936:12)\n    at JSXParserMixin.parseMaybeAssignAllowIn (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:17)\n    at JSXParserMixin.parseParenAndDistinguishExpression (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11199:28)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10857:23)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6821:20)\n    at JSXParserMixin.parseExprSubscripts (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10590:23)\n    at JSXParserMixin.parseUpdate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10573:21)\n    at JSXParserMixin.parseMaybeUnary (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10551:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10405:61)\n    at JSXParserMixin.parseExprOps (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10410:23)\n    at JSXParserMixin.parseMaybeConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10387:23)\n    at JSXParserMixin.parseMaybeAssign (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10348:21)\n    at JSXParserMixin.parseExpressionBase (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10302:23)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10298:39\n    at JSXParserMixin.allowInAnd (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11931:16)\n    at JSXParserMixin.parseExpression (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10298:17)\n    at JSXParserMixin.parseReturnStatement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12619:28)\n    at JSXParserMixin.parseStatementContent (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12270:21)\n    at JSXParserMixin.parseStatementLike (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12239:17)\n    at JSXParserMixin.parseStatementListItem (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12219:17)\n    at JSXParserMixin.parseBlockOrModuleBlockBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12796:61)\n    at JSXParserMixin.parseBlockBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12789:10)\n    at JSXParserMixin.parseBlock (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12777:10)\n    at JSXParserMixin.parseFunctionBody (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11616:24)\n    at JSXParserMixin.parseFunctionBodyAndFinish (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11602:10)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12919:12\n    at JSXParserMixin.withSmartMixTopicForbiddingContext (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11913:14)\n    at JSXParserMixin.parseFunction (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12918:10)\n    at JSXParserMixin.parseFunctionStatement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12602:17)\n    at JSXParserMixin.parseStatementContent (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12263:21)\n    at JSXParserMixin.parseStatementLike (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:12239:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
+/* harmony import */ var _contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contexts/BoardJobContext */ "./resources/js/contexts/BoardJobContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+function Resume(props) {
+  var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)();
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState2 = _slicedToArray(_useState, 2),
+    resume = _useState2[0],
+    setResume = _useState2[1];
+  var handleResume = function handleResume(e) {
+    setResume(e.target.files[0]);
+  };
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
+  var saveData = function saveData(e) {
+    e.preventDefault();
+    var formData = new FormData();
+    formData.append('resume', resume);
+    formData.append('submission', JSON.stringify(context.submission));
+    formData.append('_method', 'put');
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, formData).then(function (response) {
+      props.updateJobContext({
+        user_id: response.data.submission.user_id,
+        board_job_id: response.data.submission.board_job_id,
+        submission: response.data.submission
+      });
+      navigate('/job-questions');
+    })["catch"](function (error) {});
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "progress mb-4",
+      style: {
+        height: '7px'
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "progress-bar",
+        id: "jb-resume-pbar",
+        role: "progressbar",
+        style: {
+          width: "66%"
+        },
+        "aria-valuenow": "100",
+        "aria-valuemin": "0",
+        "aria-valuemax": "100"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "w-lg-50",
+      style: {
+        margin: '0 auto'
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+        children: "Upload your resume"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        onSubmit: saveData,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "card",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "card-body",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "mb-3",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                htmlFor: "formFileSm",
+                className: "form-label",
+                children: "Choose resume"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                className: "form-control form-control-sm",
+                id: "formFileSm",
+                type: "file",
+                onChange: handleResume
+              })]
+            })
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "mt-2 text-end",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            type: "submit",
+            className: "btn btn-primary",
+            children: "Continue"
+          })
+        })]
+      })]
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Resume);
 
 /***/ }),
 
@@ -11250,9 +12290,451 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*!********************************************!*\
   !*** ./resources/js/components/ShowJob.js ***!
   \********************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\xamp\\htdocs\\job-boarding\\resources\\js\\components\\ShowJob.js: Unexpected token (132:1)\n\n\u001b[0m \u001b[90m 130 |\u001b[39m                         role \u001b[33m==\u001b[39m \u001b[35m1\u001b[39m \u001b[33m?\u001b[39m\n \u001b[90m 131 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 132 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m     |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 133 |\u001b[39m                         \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"d-lg-flex justify-content-lg-between my-4 border-bottom\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 134 |\u001b[39m                             \u001b[33m<\u001b[39m\u001b[33mh1\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"mb-0\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mJobs\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mh1\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 135 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n    at constructor (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:353:19)\n    at JSXParserMixin.raise (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:3277:19)\n    at JSXParserMixin.unexpected (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:3297:16)\n    at JSXParserMixin.jsxParseIdentifier (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6624:12)\n    at JSXParserMixin.jsxParseNamespacedName (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6631:23)\n    at JSXParserMixin.jsxParseElementName (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6640:21)\n    at JSXParserMixin.jsxParseOpeningElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6716:22)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6741:33)\n    at JSXParserMixin.jsxParseElement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6804:17)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6816:19)\n    at JSXParserMixin.parseExprSubscripts (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10590:23)\n    at JSXParserMixin.parseUpdate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10573:21)\n    at JSXParserMixin.parseMaybeUnary (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10551:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10405:61)\n    at JSXParserMixin.parseExprOps (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10410:23)\n    at JSXParserMixin.parseMaybeConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10387:23)\n    at JSXParserMixin.parseMaybeAssign (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10348:21)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:39\n    at JSXParserMixin.allowInAnd (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11936:12)\n    at JSXParserMixin.parseMaybeAssignAllowIn (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:17)\n    at JSXParserMixin.parseConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10397:30)\n    at JSXParserMixin.parseMaybeConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10391:17)\n    at JSXParserMixin.parseMaybeAssign (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10348:21)\n    at JSXParserMixin.parseExpressionBase (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10302:23)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10298:39\n    at JSXParserMixin.allowInAnd (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11936:12)\n    at JSXParserMixin.parseExpression (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10298:17)\n    at JSXParserMixin.jsxParseExpressionContainer (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6687:31)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6766:36)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6753:32)\n    at JSXParserMixin.jsxParseElementAt (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6753:32)\n    at JSXParserMixin.jsxParseElement (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6804:17)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6816:19)\n    at JSXParserMixin.parseExprSubscripts (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10590:23)\n    at JSXParserMixin.parseUpdate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10573:21)\n    at JSXParserMixin.parseMaybeUnary (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10551:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10405:61)\n    at JSXParserMixin.parseExprOps (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10410:23)\n    at JSXParserMixin.parseMaybeConditional (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10387:23)\n    at JSXParserMixin.parseMaybeAssign (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10348:21)\n    at D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:39\n    at JSXParserMixin.allowInAnd (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11936:12)\n    at JSXParserMixin.parseMaybeAssignAllowIn (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10318:17)\n    at JSXParserMixin.parseParenAndDistinguishExpression (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:11199:28)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10857:23)\n    at JSXParserMixin.parseExprAtom (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:6821:20)\n    at JSXParserMixin.parseExprSubscripts (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10590:23)\n    at JSXParserMixin.parseUpdate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10573:21)\n    at JSXParserMixin.parseMaybeUnary (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10551:23)\n    at JSXParserMixin.parseMaybeUnaryOrPrivate (D:\\xamp\\htdocs\\job-boarding\\node_modules\\@babel\\parser\\lib\\index.js:10405:61)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _SingleJob__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SingleJob */ "./resources/js/components/SingleJob.js");
+/* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+function ShowJob() {
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)();
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    success = _useState2[0],
+    setSuccess = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState4 = _slicedToArray(_useState3, 2),
+    jobs = _useState4[0],
+    setJobs = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    _useState6 = _slicedToArray(_useState5, 2),
+    role = _useState6[0],
+    setRole = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState8 = _slicedToArray(_useState7, 2),
+    job = _useState8[0],
+    setJob = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState10 = _slicedToArray(_useState9, 2),
+    addJob = _useState10[0],
+    setAddJob = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState12 = _slicedToArray(_useState11, 2),
+    jobTitle = _useState12[0],
+    setJobTitle = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState14 = _slicedToArray(_useState13, 2),
+    jobType = _useState14[0],
+    setJobType = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState16 = _slicedToArray(_useState15, 2),
+    currentPage = _useState16[0],
+    setCurrentPage = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState18 = _slicedToArray(_useState17, 2),
+    nextPage = _useState18[0],
+    setNextPage = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState20 = _slicedToArray(_useState19, 2),
+    lastPage = _useState20[0],
+    setLastPage = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState22 = _slicedToArray(_useState21, 2),
+    company = _useState22[0],
+    setCompany = _useState22[1];
+  var next = function next() {
+    setCurrentPage(currentPage + 1);
+  };
+  var prev = function prev() {
+    setCurrentPage(currentPage - 1);
+  };
+  function getJobs() {
+    var search = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+    var baseUrl = 'http://127.0.0.1:8000/api/show-jobs';
+    var getJobsUrl = !jobTitle ? "?page=".concat(currentPage) : "?title=".concat(encodeURIComponent(jobTitle), "&page=").concat(currentPage);
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/show-jobs' + getJobsUrl).then(function (response) {
+      setJobs(response.data.jobs.data);
+      setNextPage(response.data.jobs.next_page_url);
+      setLastPage(response.data.jobs.last_page);
+      setJob(response.data.jobs.data[0]);
+      setRole(response.data.role);
+      setCompany(response.data.company);
+      if (search) {
+        setCurrentPage(1);
+      }
+    });
+  }
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var _location$state;
+    if (currentPage) {
+      getJobs();
+    }
+    setSuccess((_location$state = location.state) === null || _location$state === void 0 ? void 0 : _location$state.addJob);
+    setTimeout(function () {
+      setSuccess(false);
+    }, 3000);
+  }, [currentPage]);
+  function getJob(_x) {
+    return _getJob.apply(this, arguments);
+  }
+  function _getJob() {
+    _getJob = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(id) {
+      var response, _job;
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return fetch('http://127.0.0.1:8000/api/single-job/' + id);
+          case 2:
+            response = _context.sent;
+            _context.next = 5;
+            return response.json();
+          case 5:
+            _job = _context.sent;
+            _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/single-job/' + id).then(function (response) {
+              setJob(response.data.job);
+              document.querySelector('.jb-single-job').classList.remove('d-sm-none');
+              document.querySelector('.jb-jobs').classList.add('jb-all-jobs');
+              document.querySelector('.jb-add-job-btn').classList.add('d-sm-none');
+            });
+          case 7:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee);
+    }));
+    return _getJob.apply(this, arguments);
+  }
+  function filterJobs() {
+    return _filterJobs.apply(this, arguments);
+  }
+  function _filterJobs() {
+    _filterJobs = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/filter-jobs?title=' + encodeURIComponent(jobTitle) + '&page=' + currentPage).then(function (response) {
+              setJobs(response.data.jobs.data);
+              setNextPage(response.data.jobs.next_page_url);
+              setLastPage(response.data.jobs.last_page);
+            });
+          case 1:
+          case "end":
+            return _context2.stop();
+        }
+      }, _callee2);
+    }));
+    return _filterJobs.apply(this, arguments);
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "d-sm-block d-lg-flex justify-content-lg-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "input-group mb-3",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "input-group-prepend",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "input-group-text",
+              id: "basic-addon1",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                fill: "currentColor",
+                className: "bi bi-search",
+                viewBox: "0 0 16 16",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                  d: "M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                })
+              })
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            className: "form-control",
+            value: jobTitle,
+            placeholder: "Job title",
+            "aria-describedby": "basic-addon1",
+            onChange: function onChange(e) {
+              setJobTitle(e.target.value);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            className: "btn btn-secondary",
+            onClick: function onClick() {
+              return getJobs(true, 'first-time');
+            },
+            children: "Search Job"
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: ""
+      })]
+    }), success ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "text-success text-center",
+      style: {
+        backgroundColor: '#c3ff624d',
+        padding: '8px 0'
+      },
+      children: "Job Created Successfully!"
+    }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "my-5",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "d-lg-flex justify-content-lg-between my-4 border-bottom",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+            className: "mb-0",
+            children: "Jobs"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+              to: "/add-job",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                type: "button",
+                className: "btn btn-primary mb-4",
+                children: "Add Job"
+              })
+            })
+          })]
+        }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "d-sm-block d-lg-flex gap-3",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "w-40 jb-sm-card-w jb-lg-card-w jb-jobs",
+            children: [jobs.map(function (_job) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                className: "card mb-4 ".concat((job === null || job === void 0 ? void 0 : job.id) === _job.id ? "border border-primary" : ""),
+                style: {
+                  cursor: 'pointer'
+                },
+                onClick: function onClick() {
+                  getJob(_job.id);
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: "d-flex card-header align-items-center",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                    className: "",
+                    children: _job.title
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
+                    className: "ml-end",
+                    style: {
+                      marginLeft: 'auto'
+                    },
+                    children: company
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: "card-body",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                    children: "Will join the startup and design the website for startup. You will work with Eurpean clients"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    dangerouslySetInnerHTML: {
+                      __html: _job === null || _job === void 0 ? void 0 : _job.description
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    dangerouslySetInnerHTML: {
+                      __html: _job === null || _job === void 0 ? void 0 : _job.responsibilities
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    dangerouslySetInnerHTML: {
+                      __html: _job === null || _job === void 0 ? void 0 : _job.requirements
+                    }
+                  })]
+                })]
+              }, "job-" + _job.id);
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "d-flex gap-2 align-items-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                className: "btn btn-link",
+                onClick: prev,
+                disabled: currentPage === 1,
+                style: {
+                  border: '1px solid lightslategrey'
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "16",
+                  height: "16",
+                  fill: "currentColor",
+                  className: "bi bi-chevron-left",
+                  viewBox: "0 0 16 16",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                    fillRule: "evenodd",
+                    d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+                children: ["Showing page ", currentPage, " of ", lastPage]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                className: "btn btn-link",
+                onClick: next,
+                disabled: !nextPage,
+                style: {
+                  border: '1px solid lightslategrey'
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "16",
+                  height: "16",
+                  fill: "currentColor",
+                  className: "bi bi-chevron-right",
+                  viewBox: "0 0 16 16",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                    fillRule: "evenodd",
+                    d: "M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+                  })
+                })
+              })]
+            })]
+          }), job ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_SingleJob__WEBPACK_IMPORTED_MODULE_1__["default"], {
+              job: job,
+              company: company
+            })
+          }) : '']
+        })]
+      })
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ShowJob);
+
+/***/ }),
+
+/***/ "./resources/js/components/SingleJob.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/SingleJob.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function SingleJob(props) {
+  function handleNavigation() {
+    document.querySelector('.jb-single-job').classList.add('d-sm-none');
+    document.querySelector('.jb-jobs').classList.remove('jb-all-jobs');
+    document.querySelector('.jb-add-job-btn').classList.remove('d-sm-none');
+  }
+
+  //create dummy record for the user and job board
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    className: "jb-single-job w-lg-50 d-sm-none d-lg-block",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+      onClick: handleNavigation,
+      className: "jb-back-btn jb-back-sm-btn",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "16",
+        height: "16",
+        fill: "currentColor",
+        "class": "bi bi-arrow-left",
+        viewBox: "0 0 16 16",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+          "fill-rule": "evenodd",
+          d: "M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      className: "d-lg-block position-sticky end-0",
+      style: {
+        top: '80px',
+        alignSelf: 'flex-start'
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: "card",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          className: "card-header",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            className: "",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+              children: props === null || props === void 0 ? void 0 : props.job.title
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
+              children: props.company
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            className: "d-flex",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
+                  children: props === null || props === void 0 ? void 0 : props.job.location
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
+                  children: props === null || props === void 0 ? void 0 : props.job.job_type
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+              className: "ms-auto",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                to: "/apply",
+                state: {
+                  job: props.job
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+                  className: "btn btn-secondary",
+                  children: "Apply"
+                })
+              })
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          className: "card-body overflow-auto position-sticky",
+          style: {
+            height: '400px'
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            dangerouslySetInnerHTML: {
+              __html: props.job.description
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            dangerouslySetInnerHTML: {
+              __html: props.job.responsibilities
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            dangerouslySetInnerHTML: {
+              __html: props.job.requirements
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
+            children: [" Salary:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("b", {
+              children: [" ", props === null || props === void 0 ? void 0 : props.job.salary, " "]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
+            children: ["Ability to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("b", {
+              children: "relocate"
+            })]
+          })]
+        })]
+      })
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SingleJob);
 
 /***/ }),
 
@@ -11271,6 +12753,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -11290,6 +12773,31 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+var validate = function validate(values) {
+  var errors = {};
+  if (!values.summary) {
+    errors.summary = 'Summary expectation field is required';
+  }
+  if (!values.phoneNumber) {
+    errors.phoneNumber = 'Phone Number field is required';
+  } else if (!/^\+?[1-9]\d{1,14}$/.test(values.phoneNumber)) {
+    // Ensure phoneNumber matches E.164 format
+    errors.phoneNumber = 'Invalid phone number';
+  }
+  if (!values.address) {
+    errors.address = 'Address field is required';
+  }
+  if (!values.education) {
+    errors.education = 'Education field is required';
+  }
+
+  // if (moreSkills?.length < 1) {
+  //   errors.searchTerm = 'Add atleast 1 skills';
+  // }
+
+  return errors;
+};
 function UpdateProfile() {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
@@ -11334,6 +12842,30 @@ function UpdateProfile() {
     _useState16 = _slicedToArray(_useState15, 2),
     moreSkills = _useState16[0],
     setMoreSkills = _useState16[1];
+  var formik = (0,formik__WEBPACK_IMPORTED_MODULE_4__.useFormik)({
+    initialValues: {
+      address: location.state.user.address,
+      phoneNumber: location.state.user.phone_number,
+      summary: location.state.user.summary,
+      education: location.state.user.education
+    },
+    validate: validate,
+    onSubmit: function onSubmit(values) {
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/save-profile/', {
+        address: formik.values.address,
+        phoneNumber: formik.values.phoneNumber,
+        summary: formik.values.summary,
+        skills: moreSkills,
+        education: formik.values.education
+      }).then(function (response) {
+        navigate('/user-profile', {
+          state: {
+            update: true
+          }
+        });
+      });
+    }
+  });
   function saveProfile() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/save-profile/', _defineProperty(_defineProperty(_defineProperty({
       address: address,
@@ -11347,7 +12879,7 @@ function UpdateProfile() {
   // Function to filter entries based on search term
   var filterEntries = function filterEntries() {
     return entries.filter(function (entry) {
-      return entry.toLowerCase().includes(searchTerm.toLowerCase());
+      return entry.toLowerCase().includes(formik.values.searchTerm.toLowerCase());
     });
   };
   var handleNavigation = function handleNavigation() {
@@ -11359,6 +12891,7 @@ function UpdateProfile() {
         return [].concat(_toConsumableArray(prev), [value]);
       });
       setSearchTerm('');
+      formik.setFieldValue('searchTerm', '');
     }
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -11381,6 +12914,9 @@ function UpdateProfile() {
           })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
+        style: {
+          pointer: 'cursor'
+        },
         children: "Go back"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -11392,144 +12928,161 @@ function UpdateProfile() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "card-header",
             children: "Profile"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "card-body",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "form-group row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                htmlFor: "exampleFormControlTextarea1",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Summary"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "col-md-6",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
-                  id: "exampleFormControlTextarea1",
-                  rows: "3",
-                  className: "form-control",
-                  onChange: function onChange(e) {
-                    setSummary(e.target.value);
-                  },
-                  defaultValue: summary
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                htmlFor: "email",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Phone Number"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "col-md-6",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  type: "tel",
-                  name: "phone_number",
-                  placeholder: "Phone Number",
-                  value: phoneNumber,
-                  onChange: function onChange(e) {
-                    setPhoneNumber(e.target.value);
-                  },
-                  required: true,
-                  className: "form-control"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                htmlFor: "email",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Address"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "col-md-6",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  type: "text",
-                  name: "address",
-                  placeholder: "Address",
-                  value: address,
-                  onChange: function onChange(e) {
-                    setAddress(e.target.value);
-                  },
-                  required: true,
-                  className: "form-control"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                htmlFor: "email",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Education"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "col-md-6",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                  type: "text",
-                  name: "address",
-                  placeholder: "Education",
-                  value: education,
-                  onChange: function onChange(e) {
-                    setEducation(e.target.value);
-                  },
-                  required: true,
-                  className: "form-control"
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "form-group row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                htmlFor: "choose-skills",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Choose Skills"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "col-md-6",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                    type: "text",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+              onSubmit: formik.handleSubmit,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  htmlFor: "exampleFormControlTextarea1",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Summary"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "col-md-6",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+                    id: "exampleFormControlTextarea1",
+                    name: "summary",
+                    rows: "3",
                     className: "form-control",
-                    placeholder: "Search...",
-                    value: searchTerm,
-                    onChange: function onChange(e) {
-                      return setSearchTerm(e.target.value);
-                    }
-                  })
-                }), searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "border rounded form-control",
-                  children: filterEntries().map(function (entry, index) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                        onClick: function onClick() {
-                          handleAddSkills(entry);
-                        },
-                        className: "jb-skill",
-                        children: entry
-                      })
-                    }, entry);
-                  })
-                }) : '']
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "form-group row mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                htmlFor: "skills",
-                className: "col-md-4 col-form-label text-md-end",
-                children: "Selected Skills"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "col-md-6 d-flex align-items-center",
-                children: moreSkills === null || moreSkills === void 0 ? void 0 : moreSkills.map(function (skill) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+                    onBlur: formik.handleBlur,
+                    onChange: formik.handleChange,
+                    defaultValue: formik.values.summary
+                  }), formik.touched.summary && formik.errors.summary ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                      className: "badge bg-secondary mx-2",
-                      children: skill
-                    }, skill)
-                  });
+                      className: "text-danger",
+                      children: formik.errors.summary
+                    })
+                  }) : null]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  htmlFor: "email",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Phone Number"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "col-md-6",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    type: "tel",
+                    name: "phoneNumber",
+                    placeholder: "Phone Number",
+                    value: formik.values.phoneNumber,
+                    onChange: formik.handleChange,
+                    onBlur: formik.handleBlur,
+                    required: true,
+                    className: "form-control"
+                  }), formik.touched.phoneNumber && formik.errors.phoneNumber ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "text-danger",
+                    children: formik.errors.phoneNumber
+                  }) : null]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  htmlFor: "email",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Address"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "col-md-6",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    type: "text",
+                    name: "address",
+                    placeholder: "Address",
+                    value: formik.values.address,
+                    onChange: formik.handleChange,
+                    onBlur: formik.handleBlur,
+                    required: true,
+                    className: "form-control"
+                  }), formik.touched.address && formik.errors.address ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "text-danger",
+                    children: formik.errors.address
+                  }) : null]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                  htmlFor: "email",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Education"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "col-md-6",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    type: "text",
+                    name: "education",
+                    placeholder: "Education",
+                    value: formik.values.education,
+                    onChange: formik.handleChange,
+                    onBlur: formik.handleBlur,
+                    required: true,
+                    className: "form-control"
+                  }), formik.touched.education && formik.errors.education ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "text-danger",
+                    children: formik.errors.education
+                  }) : null]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  htmlFor: "choose-skills",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Choose Skills"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "col-md-6",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                      type: "text",
+                      className: "form-control",
+                      name: "searchTerm",
+                      placeholder: "Search...",
+                      value: formik.values.searchTerm,
+                      onChange: formik.handleChange,
+                      onBlur: formik.handleBlur
+                    }), formik.touched.searchTerm && formik.errors.searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                      className: "text-danger",
+                      children: formik.errors.searchTerm
+                    }) : null]
+                  }), formik.values.searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "border rounded form-control",
+                    children: filterEntries().map(function (entry, index) {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                          onClick: function onClick() {
+                            handleAddSkills(entry);
+                          },
+                          className: "jb-skill",
+                          children: entry
+                        })
+                      }, entry);
+                    })
+                  }) : '']
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "form-group row mb-3",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  htmlFor: "skills",
+                  className: "col-md-4 col-form-label text-md-end",
+                  children: "Selected Skills"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "col-md-6 d-flex align-items-center",
+                  children: moreSkills === null || moreSkills === void 0 ? void 0 : moreSkills.map(function (skill) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                        className: "badge bg-secondary mx-2",
+                        children: skill
+                      }, skill)
+                    });
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                "class": "text-end",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                  className: "btn btn-primary",
+                  type: "submit",
+                  children: "Save"
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              "class": "text-align-end",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                className: "btn btn-primary",
-                onClick: saveProfile,
-                children: "Save"
-              })
-            })]
+            })
           })]
         })
       })
