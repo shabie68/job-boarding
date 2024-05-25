@@ -148,7 +148,6 @@ function JobQuestions() {
     						<div className="">
 
                                 <label htmlFor="first-name" className="col-form-label"><b>Planning to relocate</b></label>
-                                {formik.values.abilityToCommute} is the alue
                                 <div className="d-flex">
                                     <div>
                                         <label className="form-check-label" htmlFor="flexRadioDefault1">
