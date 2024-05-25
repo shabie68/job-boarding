@@ -89,7 +89,6 @@ function UpdateProfile() {
       	  address: '',
           phoneNumber: '',
           summary: '',
-          skills: '',
           education: ''
         },
 
@@ -101,7 +100,7 @@ function UpdateProfile() {
             address: formik.values.address,
             phoneNumber: formik.values.phoneNumber,
             summary: formik.values.summary,
-            skills: formik.values.moreSkills,
+            skills: moreSkills,
             education: formik.values.education
         })
         .then((response) => {
@@ -168,7 +167,7 @@ function UpdateProfile() {
 	                        </div>
 
 	                        <div className="card-body">
-	                        	<form>
+	                        	<form onSubmit={formik.handleSubmit}>
 
 	                            <div className="form-group row mb-3">
 	                                <label htmlFor="exampleFormControlTextarea1" className="col-md-4 col-form-label text-md-end" >Summary</label>

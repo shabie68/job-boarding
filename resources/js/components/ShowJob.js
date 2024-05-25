@@ -1,10 +1,12 @@
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 import {useState, useEffect} from 'react'
 import SingleJob from './SingleJob'
 import apiClient from '../services/apiClient';
 
 function ShowJob() {
+    const location = useLocation();
+    const [success, setSuccess] = useState(false)
 
     const [jobs, setJobs] = useState([]);
     const [role, setRole] = useState(0);
@@ -50,6 +52,11 @@ function ShowJob() {
       if(currentPage) {
         getJobs()
       }
+
+      setSuccess(location.state?.addJob)
+      setTimeout(() => {
+        setSuccess(false)
+      }, 3000)
 
 
 
@@ -122,6 +129,14 @@ function ShowJob() {
 
                 </div>
             </div>
+
+            {
+              success ?
+              <div className="text-success text-center" style={{backgroundColor: '#c3ff624d', padding: '8px 0'}}>
+                Job Created Successfully!
+              </div>
+              :''
+            }
 
             <div className="my-5">
                 <div>

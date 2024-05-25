@@ -1,19 +1,27 @@
 import {useState, useEffect} from 'react'
-import {Link} from "react-router-dom";
+import {Link, useLocation } from "react-router-dom";
 import apiClient from '../services/apiClient';
 
 function Company() {
 
+	const location = useLocation();
 	const [companies, setCompanies] = useState([]);
 	const [nextPage, setNextPage] = useState(null)
 	const [lastPage, setLastPage] = useState(1);
 	const [role, setRole] = useState(0);
+	const [success, setSuccess] = useState(false)
 	const [feedback, setFeedback] = useState({
 		comment: '',
 		rating: 0
 	})
+
+
  
 	useEffect(() => {
+		setSuccess(location.state?.addCompany)
+		setTimeout(() => {
+			setSuccess(false)
+		}, 3000)
 		getCompanies()
 	}, [])
 
@@ -30,10 +38,7 @@ function Company() {
 		.catch((error) => {
 
 		})
-
-		
 	}
-
 
 
 	function addReview(id) {
@@ -49,6 +54,13 @@ function Company() {
 
 	return(
 		<div>
+			{
+	  			success ?
+	  			<div className="text-success text-center" style={{backgroundColor: '#c3ff624d', padding: '8px 0'}}>
+	  				Company Created Successfully!
+	  			</div>
+	  			:''
+	  		}
 			<div className="my-5">
 				<div>
 					{role == 1 ?
@@ -65,7 +77,6 @@ function Company() {
 
 				  	<div className="">
 						<div className="row gap-3">
-
 							{companies?.map(company => (
 
 								 <div className=" col-3 bg-white rounded border-white"  key={"company--"+company.id}>
