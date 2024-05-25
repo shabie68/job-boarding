@@ -1,5 +1,5 @@
 import {useState, useEffect, useCallback, useContext} from 'react'
-import {useNavigate, Link} from 'react-router-dom'
+import {useNavigate, Link, useLocation} from 'react-router-dom'
 import Quill from 'quill';
 
 import Toolbar from "quill/modules/toolbar";
@@ -16,9 +16,10 @@ import "quill/dist/quill.snow.css";
 function Profile() {
 
     const navigate = useNavigate()
+    const location = useLocation()
     const [user, setUser] = useState('')
     const [email, setEmail] = useState('')
-
+    const [success, setSuccess] = useState(false)
     const [profile, setProfile] = useState({})
     const [address, setAddress] = useState();
 
@@ -86,11 +87,23 @@ function Profile() {
 
     useEffect(() => {
         getProfile()
+        setSuccess(location.state?.update)
+        setTimeout(() => {
+            setSuccess(false)
+        }, 3000)
     }, [])
 
 
     return (
          <div>
+            {
+                success ?
+                <div className="text-success text-center" style={{backgroundColor: '#c3ff624d', padding: '8px 0'}}>
+                    Profile Successfully Updated!
+                </div>
+                :''
+            }
+            
             <div className="container pt-4">
                 <section style={{margin: '0 auto'}} className="w-50">
                     <h2>Profile</h2>

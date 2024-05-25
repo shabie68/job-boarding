@@ -111,18 +111,8 @@ function ShowJob() {
                         />
 
                        <button className="btn btn-secondary" onClick={() => getJobs(true, 'first-time')}>Search Job</button>
+                    </div>
 
-                      </div>
-
-                </div>
-
-                <div>
-                    <input
-                        className="form-control"
-                        value={jobType}
-                        placeholder="Job type"
-                        onChange={()=>alert("HERE")}
-                    />
                 </div>
 
                 <div className="">

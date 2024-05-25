@@ -106,147 +106,147 @@ function JobQuestions() {
 
 			<div className="w-50" style={{margin: '0 auto'}}>
 				<h2>Miscelleneous</h2>
-				<div className="card">
-					<div className="card-body">
-                        <form onSubmit={formik.handleSubmit}>
-                        <div className="">
+                 <form onSubmit={formik.handleSubmit}>
+    				<div className="card">
+    					<div className="card-body">
+                           
                             <div className="">
-                                <label htmlFor="country" className="col-form-label"><b>Country</b></label>
-                                <select name="country" className="form-control" value={formik.values.country} onChange={formik.handleChange}>
-                                    <option value="pakistan">Pakistan</option>
-                                    <option value="india">India</option>
-                                    <option value="germany">Germany</option>
-                                </select>
+                                <div className="">
+                                    <label htmlFor="country" className="col-form-label"><b>Country</b></label>
+                                    <select name="country" className="form-control" value={formik.values.country} onChange={formik.handleChange}>
+                                        <option value="pakistan">Pakistan</option>
+                                        <option value="india">India</option>
+                                        <option value="germany">Germany</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="">
-                            <label htmlFor="state" className="col-form-label"><b>State|City</b></label>
                             <div className="">
+                                <label htmlFor="state" className="col-form-label"><b>State|City</b></label>
+                                <div className="">
 
 
-                                <select className="form-control" name="state" value={formik.values.state} onChange={formik.handleChange}>
-                                    {country == 'pakistan' ?
+                                    <select className="form-control" name="state" value={formik.values.state} onChange={formik.handleChange}>
+                                        {country == 'pakistan' ?
+                                            <>
+                                                <option value="hangu">Hangu</option>
+                                                <option value="islamabad">Islamabad</option>
+                                                <option value="peshawar">Peshawar</option>
+                                            </>
+                                        :
                                         <>
-                                            <option value="hangu">Hangu</option>
-                                            <option value="islamabad">Islamabad</option>
-                                            <option value="peshawar">Peshawar</option>
+                                            <option value="berlin">Berlin   </option>
+                                            <option value="mumbai">mumbai</option>
+                                            <option value="manchester">manchester</option>
                                         </>
-                                    :
-                                    <>
-                                        <option value="berlin">Berlin   </option>
-                                        <option value="mumbai">mumbai</option>
-                                        <option value="manchester">manchester</option>
-                                    </>
-                                }
+                                    }
 
-                                </select>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-						<div className="">
+    						<div className="">
 
-                            <label htmlFor="first-name" className="col-form-label"><b>Planning to relocate</b></label>
-                            {formik.values.abilityToCommute} is the alue
-                            <div className="d-flex">
-                                <div>
-                                    <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                        No
-                                    </label>
+                                <label htmlFor="first-name" className="col-form-label"><b>Planning to relocate</b></label>
+                                {formik.values.abilityToCommute} is the alue
+                                <div className="d-flex">
+                                    <div>
+                                        <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                            No
+                                        </label>
+                                        <input
+                                            className="form-check-input"
+                                            type="radio"
+                                            name="abilityToCommute"
+                                            id="flexRadioDefault2"
+                                            value="no"
+                                            onChange={formik.handleChange}
+                                            checked = {formik.values.abilityToCommute == 'no' ? 'checked' : ''}
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                            Yes
+                                        </label>
+                                        <input
+                                            className="form-check-input"
+                                            type="radio"
+                                            value="yes"
+                                            name="abilityToCommute"
+                                            id="flexRadioDefault1"
+                                            onChange={formik.handleChange}
+                                            checked = {formik.values.abilityToCommute == 'yes' ? 'checked' : ''}
+                                        />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="">
+
+                                <label htmlFor="first-name" className="col-form-label"><b>Salary Expectation</b></label>
+                                <div className="">
                                     <input
-                                        className="form-check-input"
-                                        type="radio"
-                                        name="abilityToCommute"
-                                        id="flexRadioDefault2"
-                                        value="no"
+                                        type="number"
+                                        name="salaryExpectation"
+                                        value={formik.values.salaryExpectation}
                                         onChange={formik.handleChange}
-                                        checked = {formik.values.abilityToCommute == 'no' ? 'checked' : ''}
+                                        onBlur={formik.handleBlur}
+                                        required
+                                        className="form-control"
                                     />
                                 </div>
 
-                                <div>
-                                    <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                        Yes
-                                    </label>
-                                    <input
-                                        className="form-check-input"
-                                        type="radio"
-                                        value="yes"
-                                        name="abilityToCommute"
-                                        id="flexRadioDefault1"
-                                        onChange={formik.handleChange}
-                                        checked = {formik.values.abilityToCommute == 'yes' ? 'checked' : ''}
-                                    />
+                                {formik.touched.salaryExpectation && formik.errors.salaryExpectation ? (
+                                  <div className="text-danger">{formik.errors.salaryExpectation}</div>
+                                ) : null}
+                            </div>
 
+                            <div className="">
+
+                                <label htmlFor="first-name" className="col-form-label"><b>Notice Period: (days)</b></label>
+                                <div className="">
+                                    <input
+                                        type="number"
+                                        name="noticePeriod"
+                                        value={formik.values.noticePeriod}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        required
+                                        className="form-control"
+                                    />
+                                </div>
+
+                                {formik.touched.noticePeriod && formik.errors.noticePeriod ? (
+                                  <div className="text-danger">{formik.errors.noticePeriod}</div>
+                                ) : null}
+                            </div>
+
+                            <div className="">
+                            	<p>Tell us few dates where you are free</p>
+                                <label htmlFor="first-name" className="col-form-label"><b>Interview Date </b></label>
+                                <div className="">
+                                    <input
+                                        type="date"
+                                        name="scheduleInterview"
+                                        value={formik.values.scheduleInterview}
+                                        onChange={formik.handleChange}
+                                        onBlur={formik.handleBlur}
+                                        required
+                                        className="form-control"
+                                    />
                                 </div>
                             </div>
-                        </div>
+    					</div>
+    				</div>
 
-                        <div className="">
+                    <div className="mt-2 mb-4 text-end">
+                        <button type="button" className="btn btn-primary" type="submit">Continue</button>
+                    </div>
+                </form>
 
-                            <label htmlFor="first-name" className="col-form-label"><b>Salary Expectation</b></label>
-                            <div className="">
-                                <input
-                                    type="number"
-                                    name="salaryExpectation"
-                                    value={formik.values.salaryExpectation}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    required
-                                    className="form-control"
-                                />
-                            </div>
-
-                            {formik.touched.salaryExpectation && formik.errors.salaryExpectation ? (
-                              <div className="text-danger">{formik.errors.salaryExpectation}</div>
-                            ) : null}
-                        </div>
-
-                        <div className="">
-
-                            <label htmlFor="first-name" className="col-form-label"><b>Notice Period: (days)</b></label>
-                            <div className="">
-                                <input
-                                    type="number"
-                                    name="noticePeriod"
-                                    value={formik.values.noticePeriod}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    required
-                                    className="form-control"
-                                />
-                            </div>
-
-                            {formik.touched.noticePeriod && formik.errors.noticePeriod ? (
-                              <div className="text-danger">{formik.errors.noticePeriod}</div>
-                            ) : null}
-                        </div>
-
-                        <div className="">
-                        	<p>Tell us few dates where you are free</p>
-                            <label htmlFor="first-name" className="col-form-label"><b>Interview Date </b></label>
-                            <div className="">
-                                <input
-                                    type="date"
-                                    name="scheduleInterview"
-                                    value={formik.values.scheduleInterview}
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    required
-                                    className="form-control"
-                                />
-                            </div>
-                        </div>
-
-
-						<div className="mt-2 text-align-end">
-                            <button type="button" className="btn btn-primary" type="submit">Continue</button>
-                        </div>
-                        </form>
-					</div>
-				</div>
-
-		</div>
+		    </div>
         </div>
 	)
 }

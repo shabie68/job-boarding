@@ -8,6 +8,7 @@ function Company() {
 	const [companies, setCompanies] = useState([]);
 	const [nextPage, setNextPage] = useState(null)
 	const [lastPage, setLastPage] = useState(1);
+	const [currentPage, setCurrentPage] = useState(1)
 	const [role, setRole] = useState(0);
 	const [success, setSuccess] = useState(false)
 	const [feedback, setFeedback] = useState({
@@ -27,18 +28,26 @@ function Company() {
 
 	function getCompanies() {
 
-	  // let getJobsUrl = !jobTitle ? `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
-
-	   apiClient.get('http://127.0.0.1:8000/api/company/show-companies')
+	   // apiClient.get('http://127.0.0.1:8000/api/company/show-companies')
+	   // let getJobsUrl = `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
+	   apiClient.get(`http://127.0.0.1:8000/api/company/show-companies?page=${currentPage}`)
 		.then(function(response) {
-			setCompanies(response.data.companies)
+			setCompanies(response.data.companies.data)
 			setRole(response.data.role)
-			// console.log(response.data.compan)
 		})
 		.catch((error) => {
 
 		})
 	}
+
+	const next = () => {
+        setCurrentPage(currentPage + 1);
+    };
+
+    const prev = () => {
+        setCurrentPage(currentPage - 1);
+    };
+
 
 
 	function addReview(id) {

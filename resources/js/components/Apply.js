@@ -95,83 +95,87 @@ function Apply(props) {
       </div>
       <div className="w-lg-50" style={{margin: '0 auto'}}>
         <h2>Personal Information</h2>
-        <div className="card">
-          <div className="card-body">
-            <form onSubmit={formik.handleSubmit}>
-              <div className="">
-                <label htmlFor="firstName" className="col-form-label"><b>First Name</b></label>
+        <form onSubmit={formik.handleSubmit}>
+          <div className="card">
+            <div className="card-body">
+              
                 <div className="">
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formik.values.firstName}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    required
-                    className="form-control"
-                  />
+                  <label htmlFor="firstName" className="col-form-label"><b>First Name</b></label>
+                  <div className="">
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formik.values.firstName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      required
+                      className="form-control"
+                    />
+                  </div>
+                  {formik.touched.firstName && formik.errors.firstName ? (
+                    <div className="text-danger">{formik.errors.firstName}</div>
+                  ) : null}
                 </div>
-                {formik.touched.firstName && formik.errors.firstName ? (
-                  <div className="text-danger">{formik.errors.firstName}</div>
-                ) : null}
-              </div>
-              <div className="">
-                <label htmlFor="lastName" className="col-form-label"><b>Last Name</b></label>
                 <div className="">
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formik.values.lastName}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    required
-                    className="form-control"
-                  />
+                  <label htmlFor="lastName" className="col-form-label"><b>Last Name</b></label>
+                  <div className="">
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formik.values.lastName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      required
+                      className="form-control"
+                    />
+                  </div>
+                  {formik.touched.lastName && formik.errors.lastName ? (
+                    <div className="text-danger">{formik.errors.lastName}</div>
+                  ) : null}
                 </div>
-                {formik.touched.lastName && formik.errors.lastName ? (
-                  <div className="text-danger">{formik.errors.lastName}</div>
-                ) : null}
-              </div>
-              <div className="">
-                <label htmlFor="phoneNumber" className="col-form-label"><b>Phone</b></label>
                 <div className="">
-                  <input
-                    type="tel"
-                    name="phoneNumber"
-                    value={formik.values.phoneNumber}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    required
-                    className="form-control"
-                  />
+                  <label htmlFor="phoneNumber" className="col-form-label"><b>Phone</b></label>
+                  <div className="">
+                    <input
+                      type="tel"
+                      name="phoneNumber"
+                      value={formik.values.phoneNumber}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      required
+                      className="form-control"
+                    />
+                  </div>
+                  {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+                    <div className="text-danger">{formik.errors.phoneNumber}</div>
+                  ) : null}
                 </div>
-                {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-                  <div className="text-danger">{formik.errors.phoneNumber}</div>
-                ) : null}
-              </div>
-              <div className="">
-                <label htmlFor="email" className="col-form-label"><b>Email</b></label>
                 <div className="">
-                  <input
-                    type="email"
-                    name="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    required
-                    className="form-control"
-                  />
+                  <label htmlFor="email" className="col-form-label"><b>Email</b></label>
+                  <div className="">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      required
+                      className="form-control"
+                    />
+                  </div>
+                  {formik.touched.email && formik.errors.email ? (
+                    <div className="text-danger">{formik.errors.email}</div>
+                  ) : null}
                 </div>
-                {formik.touched.email && formik.errors.email ? (
-                  <div className="text-danger">{formik.errors.email}</div>
-                ) : null}
-              </div>
-              <div className="mt-2 text-align-end">
-                <button type="submit" className="btn btn-primary">Continue</button>
-              </div>
-            </form>
-          </div>
+                
+            </div>
         </div>
+
+        <div className="mt-2 text-end">
+          <button type="submit" className="btn btn-primary">Continue</button>
+        </div>
+      </form>
+
       </div>
     </div>
   );

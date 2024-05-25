@@ -10197,12 +10197,12 @@ function Apply(props) {
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
         children: "Personal Information"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "card",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "card-body",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-            onSubmit: formik.handleSubmit,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        onSubmit: formik.handleSubmit,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "card",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "card-body",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
@@ -10295,16 +10295,16 @@ function Apply(props) {
                 className: "text-danger",
                 children: formik.errors.email
               }) : null]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "mt-2 text-align-end",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                type: "submit",
-                className: "btn btn-primary",
-                children: "Continue"
-              })
             })]
           })
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "mt-2 text-end",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            type: "submit",
+            className: "btn btn-primary",
+            children: "Continue"
+          })
+        })]
       })]
     })]
   });
@@ -10360,21 +10360,25 @@ function Company() {
     _useState6 = _slicedToArray(_useState5, 2),
     lastPage = _useState6[0],
     setLastPage = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState8 = _slicedToArray(_useState7, 2),
-    role = _useState8[0],
-    setRole = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    currentPage = _useState8[0],
+    setCurrentPage = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState10 = _slicedToArray(_useState9, 2),
-    success = _useState10[0],
-    setSuccess = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    role = _useState10[0],
+    setRole = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState12 = _slicedToArray(_useState11, 2),
+    success = _useState12[0],
+    setSuccess = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       comment: '',
       rating: 0
     }),
-    _useState12 = _slicedToArray(_useState11, 2),
-    feedback = _useState12[0],
-    setFeedback = _useState12[1];
+    _useState14 = _slicedToArray(_useState13, 2),
+    feedback = _useState14[0],
+    setFeedback = _useState14[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var _location$state;
     setSuccess((_location$state = location.state) === null || _location$state === void 0 ? void 0 : _location$state.addCompany);
@@ -10384,14 +10388,19 @@ function Company() {
     getCompanies();
   }, []);
   function getCompanies() {
-    // let getJobsUrl = !jobTitle ? `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
-
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].get('http://127.0.0.1:8000/api/company/show-companies').then(function (response) {
-      setCompanies(response.data.companies);
+    // apiClient.get('http://127.0.0.1:8000/api/company/show-companies')
+    // let getJobsUrl = `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://127.0.0.1:8000/api/company/show-companies?page=".concat(currentPage)).then(function (response) {
+      setCompanies(response.data.companies.data);
       setRole(response.data.role);
-      // console.log(response.data.compan)
     })["catch"](function (error) {});
   }
+  var next = function next() {
+    setCurrentPage(currentPage + 1);
+  };
+  var prev = function prev() {
+    setCurrentPage(currentPage - 1);
+  };
   function addReview(id) {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/company/add-review/' + id, {
       feedback: feedback
@@ -11317,12 +11326,12 @@ function JobQuestions() {
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
         children: "Miscelleneous"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "card",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "card-body",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-            onSubmit: formik.handleSubmit,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        onSubmit: formik.handleSubmit,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "card",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "card-body",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               className: "",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -11498,15 +11507,15 @@ function JobQuestions() {
                   className: "form-control"
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "mt-2 text-align-end",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", _defineProperty(_defineProperty({
-                type: "button",
-                className: "btn btn-primary"
-              }, "type", "submit"), "children", "Continue"))
             })]
           })
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "mt-2 mb-4 text-end",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", _defineProperty(_defineProperty({
+            type: "button",
+            className: "btn btn-primary"
+          }, "type", "submit"), "children", "Continue"))
+        })]
       })]
     })]
   });
@@ -11709,6 +11718,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Profile() {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.useNavigate)();
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.useLocation)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState2 = _slicedToArray(_useState, 2),
     user = _useState2[0],
@@ -11717,43 +11727,47 @@ function Profile() {
     _useState4 = _slicedToArray(_useState3, 2),
     email = _useState4[0],
     setEmail = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState6 = _slicedToArray(_useState5, 2),
-    profile = _useState6[0],
-    setProfile = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    success = _useState6[0],
+    setSuccess = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({}),
     _useState8 = _slicedToArray(_useState7, 2),
-    address = _useState8[0],
-    setAddress = _useState8[1];
+    profile = _useState8[0],
+    setProfile = _useState8[1];
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState10 = _slicedToArray(_useState9, 2),
-    education = _useState10[0],
-    setEducation = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    address = _useState10[0],
+    setAddress = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState12 = _slicedToArray(_useState11, 2),
-    phoneNumber = _useState12[0],
-    setPhoneNumber = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    education = _useState12[0],
+    setEducation = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState14 = _slicedToArray(_useState13, 2),
-    summary = _useState14[0],
-    setSummary = _useState14[1];
+    phoneNumber = _useState14[0],
+    setPhoneNumber = _useState14[1];
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState16 = _slicedToArray(_useState15, 2),
-    skills = _useState16[0],
-    setSkills = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    summary = _useState16[0],
+    setSummary = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState18 = _slicedToArray(_useState17, 2),
-    update = _useState18[0],
-    setUpdate = _useState18[1];
-  var entries = ["php", "laravel", "vuejs", "javascript", "reactjs", "nodejs", "html", "css", "c++", "java", "python", "django", "mysql", "database", "docker", "wordpress", "git", "versioncontrol", "webpack", "bootstrap", "npm"];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    skills = _useState18[0],
+    setSkills = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState20 = _slicedToArray(_useState19, 2),
-    searchTerm = _useState20[0],
-    setSearchTerm = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    update = _useState20[0],
+    setUpdate = _useState20[1];
+  var entries = ["php", "laravel", "vuejs", "javascript", "reactjs", "nodejs", "html", "css", "c++", "java", "python", "django", "mysql", "database", "docker", "wordpress", "git", "versioncontrol", "webpack", "bootstrap", "npm"];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState22 = _slicedToArray(_useState21, 2),
-    moreSkills = _useState22[0],
-    setMoreSkills = _useState22[1];
+    searchTerm = _useState22[0],
+    setSearchTerm = _useState22[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState24 = _slicedToArray(_useState23, 2),
+    moreSkills = _useState24[0],
+    setMoreSkills = _useState24[1];
 
   // Function to filter entries based on search term
   var filterEntries = function filterEntries() {
@@ -11778,10 +11792,22 @@ function Profile() {
     setSkills(e.target.value);
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var _location$state;
     getProfile();
+    setSuccess((_location$state = location.state) === null || _location$state === void 0 ? void 0 : _location$state.update);
+    setTimeout(function () {
+      setSuccess(false);
+    }, 3000);
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+    children: [success ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+      className: "text-success text-center",
+      style: {
+        backgroundColor: '#c3ff624d',
+        padding: '8px 0'
+      },
+      children: "Profile Successfully Updated!"
+    }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "container pt-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("section", {
         style: {
@@ -11876,7 +11902,7 @@ function Profile() {
           })]
         })]
       })
-    })
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Profile);
@@ -12209,13 +12235,13 @@ function Resume(props) {
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
         children: "Upload your resume"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "card",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "card-body",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-            onSubmit: saveData,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        onSubmit: saveData,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "card",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "card-body",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "mb-3",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
                 htmlFor: "formFileSm",
@@ -12227,16 +12253,16 @@ function Resume(props) {
                 type: "file",
                 onChange: handleResume
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "mt-2 text-align-end",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                type: "submit",
-                className: "btn btn-primary",
-                children: "Continue"
-              })
-            })]
+            })
           })
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "mt-2 text-end",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            type: "submit",
+            className: "btn btn-primary",
+            children: "Continue"
+          })
+        })]
       })]
     })]
   });
@@ -12446,15 +12472,6 @@ function ShowJob() {
             },
             children: "Search Job"
           })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-          className: "form-control",
-          value: jobType,
-          placeholder: "Job type",
-          onChange: function onChange() {
-            return alert("HERE");
-          }
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: ""
@@ -12812,10 +12829,10 @@ function UpdateProfile() {
     setMoreSkills = _useState16[1];
   var formik = (0,formik__WEBPACK_IMPORTED_MODULE_4__.useFormik)({
     initialValues: {
-      address: '',
-      phoneNumber: '',
-      summary: '',
-      education: ''
+      address: location.state.user.address,
+      phoneNumber: location.state.user.phone_number,
+      summary: location.state.user.summary,
+      education: location.state.user.education
     },
     validate: validate,
     onSubmit: function onSubmit(values) {
@@ -12826,7 +12843,11 @@ function UpdateProfile() {
         skills: moreSkills,
         education: formik.values.education
       }).then(function (response) {
-        // navigate('/home')
+        navigate('/user-profile', {
+          state: {
+            update: true
+          }
+        });
       });
     }
   });
@@ -12878,6 +12899,9 @@ function UpdateProfile() {
           })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
+        style: {
+          pointer: 'cursor'
+        },
         children: "Go back"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
