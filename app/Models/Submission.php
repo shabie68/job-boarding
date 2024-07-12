@@ -10,4 +10,8 @@ class Submission extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function boardJob() {
+    	return $this->belongsTo(BoardJob::class);
+    }
 }

@@ -3,6 +3,9 @@ import {Link, useLocation} from "react-router-dom";
 import {useState, useEffect} from 'react'
 import SingleJob from './SingleJob'
 import apiClient from '../services/apiClient';
+import Pusher from 'pusher-js';
+// import {Pusher} from 'https://js.pusher.com/8.0.1/pusher.min.js'
+
 
 function ShowJob() {
     const location = useLocation();
@@ -21,6 +24,28 @@ function ShowJob() {
     const [company, setCompany] = useState();
 
 
+       const value = `; ${document.cookie}`
+      const parts = value.split(`; XSRF-TOKEN=`)
+      const xsrfToken = parts.pop().split(';').shift()
+
+      const pusher = new Pusher('de34f80f0848257e88e9', {
+        cluster: 'ap2',
+        encrypted: true,
+         authEndpoint: 'api/broadcasting/auth',
+         withCredentials: true,
+        enableStats: false,
+        enabledTransports: ['ws', 'wss'],
+               auth: {
+                headers: {
+            'X-XSRF-TOKEN':decodeURIComponent(xsrfToken),
+          },
+
+        }
+      });
+
+      
+
+
     const next = () => {
         setCurrentPage(currentPage + 1);
     };
@@ -31,10 +56,15 @@ function ShowJob() {
 
     function getJobs(search = false) {
 
+      
+   
+
       let baseUrl = 'http://127.0.0.1:8000/api/show-jobs';
       let getJobsUrl = !jobTitle ? `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
        apiClient.get('http://127.0.0.1:8000/api/show-jobs'+getJobsUrl)
         .then(function(response) {
+
+            
             setJobs(response.data.jobs.data)
             setNextPage(response.data.jobs.next_page_url)
             setLastPage(response.data.jobs.last_page)
@@ -43,7 +73,19 @@ function ShowJob() {
             setCompany(response.data.company)
             if(search) {
               setCurrentPage(1)
+              return
             }
+
+
+
+            const channel = pusher.subscribe('private-company.'+response.data.company_id )
+            channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
+              alert("GOOD NEWS")
+              console.log(data)
+          })
+
+
+
 
         })
     }

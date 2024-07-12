@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'summary', 'skills', 'phone_number', 'address', 'education'
+        'name', 'email', 'password', 'role', 'summary', 'skills', 'phone_number', 'address', 'education', 'recruiter_of'
     ];
 
     /**
@@ -47,5 +47,12 @@ class User extends Authenticatable
 
     public function profile() {
         return $this->hasOne(Profile::class);
+    }
+
+     public function receivesBroadcastNotificationsOn()
+    {
+        
+        // return 'my-channel';
+        return 'company.' . $this->company->id; 
     }
 }

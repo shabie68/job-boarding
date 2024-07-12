@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\BoardJob;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\ApplicationSubmitted;
 use DB;
 
 class BoardJobController extends Controller
 {
     
     public function store(Request $request) {
-
-        
     	$job = BoardJob::create([
             "user_id" => auth()->user()->id,
             "company_id" => auth()->user()->company->id,
@@ -31,8 +30,15 @@ class BoardJobController extends Controller
     }
 
     public function show(Request $request) {
+        // event(new \App\Events\StatusLiked("HELLO"));
+        
+        // auth()->user()->notify(new ApplicationSubmitted(auth()->user()->name));
+        // \App\Models\User::find(1)->notify(new ApplicationSubmitted(auth()->user()->name));
+        // \App\Models\User::find(5)->notify(new ApplicationSubmitted(auth()->user()->name));
+        
 
         $jobs = null;
+        // event(new \App\Events\StatusLiked(auth()->user()->name));
 
         if(!$request->has('title')) {
             $jobs = BoardJob::paginate(5);
@@ -40,7 +46,9 @@ class BoardJobController extends Controller
             return response()->json([
                 "jobs" => $jobs,
                 "role" => auth()->user()->role,
-                "company" => auth()->user()->company->title
+                "name" => auth()->user()->name,
+                "company_id" => auth()->user()->company ? auth()->user()->company->id : -1
+                // "company" => auth()->user()->company->title
             ]);
 
         }
@@ -50,7 +58,8 @@ class BoardJobController extends Controller
                     ->paginate(2);
 
         return response()->json([
-            "jobs" => $jobs
+            "jobs" => $jobs,
+            "name" => auth()->user()->name
         ]);
     }  
 

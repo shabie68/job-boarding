@@ -10,6 +10,7 @@ import UpdateProfile from './UpdateProfile'
 import Company from './Company'
 import AddCompany from './AddCompany'
 import Profile from './Profile'
+import YourJob from './YourJob'
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
 import BoardJobContext from '../contexts/BoardJobContext.js'
@@ -40,6 +41,7 @@ function Example() {
                     <Link className="text-decoration-none text-light" to="/home">Home</Link>
                     <Link className="text-decoration-none text-light" to="/companies">Companies</Link>
                     <Link className="text-decoration-none text-light" to="/user-profile">Profile</Link>
+                    <Link className="text-decoration-none text-light" to="/your-jobs">Your jobs</Link>
                     <div onClick={logout} className=" text-light" style={{ cursor: 'pointer'}}>
                         Logout
                     </div>
@@ -57,6 +59,7 @@ function Example() {
                         <Route path="/job-questions" element={<JobQuestions user={user} updateJobContext={updateJobContext} />} /> 
                         <Route path="/user-profile" element={<Profile/>} /> 
                         <Route path="/update-profile" element={<UpdateProfile/>} /> 
+                        <Route path="/your-jobs" element={<YourJob/>} /> 
                     </Routes>
                 </div>
 
