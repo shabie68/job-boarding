@@ -10,6 +10,7 @@ import Pusher from 'pusher-js';
 function ShowJob() {
     const location = useLocation();
     const [success, setSuccess] = useState(false)
+    const [userName, setUserName] = useState("")
 
     const [jobs, setJobs] = useState([]);
     const [role, setRole] = useState(0);
@@ -22,13 +23,36 @@ function ShowJob() {
     const [nextPage, setNextPage] = useState(null)
     const [lastPage, setLastPage] = useState(1);
     const [company, setCompany] = useState();
+    const [users, setUsers] = useState([])
+
+    const [selectedUser, setSelectedUser] = useState(1);
+    const [authenticatedUser, setAuthenticatedUser] = useState(-1)
 
 
        const value = `; ${document.cookie}`
       const parts = value.split(`; XSRF-TOKEN=`)
       const xsrfToken = parts.pop().split(';').shift()
 
-      const pusher = new Pusher('de34f80f0848257e88e9', {
+      // const pusher = new Pusher('de34f80f0848257e88e9', {
+      //   cluster: 'ap2',
+      //   encrypted: true,
+      //    authEndpoint: 'api/broadcasting/auth',
+      //    withCredentials: true,
+      //   enableStats: false,
+      //   enabledTransports: ['ws', 'wss'],
+      //          auth: {
+      //           headers: {
+      //       'X-XSRF-TOKEN':decodeURIComponent(xsrfToken),
+      //     },
+
+      //   }
+      // });
+
+
+
+      function startChat() {
+
+         const pusher = new Pusher('de34f80f0848257e88e9', {
         cluster: 'ap2',
         encrypted: true,
          authEndpoint: 'api/broadcasting/auth',
@@ -42,9 +66,21 @@ function ShowJob() {
 
         }
       });
+         apiClient.post('http://127.0.0.1:8000/api/start-chat/', {
+          id: selectedUser
+         })
+         .then(() => {
+            let channel = pusher.subscribe('private-msg.'+selectedUser)
 
-      
 
+              channel.bind('msg-event', (data) => {
+              alert("CHECKING")
+              console.log('Received data:', data);
+            });
+
+         })
+        
+      }
 
     const next = () => {
         setCurrentPage(currentPage + 1);
@@ -59,6 +95,20 @@ function ShowJob() {
       
    
 
+       const pusher = new Pusher('de34f80f0848257e88e9', {
+        cluster: 'ap2',
+        encrypted: true,
+         authEndpoint: 'api/broadcasting/auth',
+         withCredentials: true,
+        enableStats: false,
+        enabledTransports: ['ws', 'wss'],
+               auth: {
+                headers: {
+            'X-XSRF-TOKEN':decodeURIComponent(xsrfToken),
+          },
+
+        }
+      });
       let baseUrl = 'http://127.0.0.1:8000/api/show-jobs';
       let getJobsUrl = !jobTitle ? `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
        apiClient.get('http://127.0.0.1:8000/api/show-jobs'+getJobsUrl)
@@ -71,12 +121,14 @@ function ShowJob() {
             setJob(response.data.jobs.data[0])
             setRole(response.data.role)
             setCompany(response.data.company)
+            setUsers(response.data.users)
+            setAuthenticatedUser(response.data.authenticatedUser)
             if(search) {
               setCurrentPage(1)
               return
             }
 
-
+            setUserName(response.data.name)
 
             const channel = pusher.subscribe('private-company.'+response.data.company_id )
             channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
@@ -133,6 +185,23 @@ function ShowJob() {
 
     return(
         <div>
+
+          {
+            users ?
+            <select value={selectedUser} onChange={(e)=> {setSelectedUser(e.target.value)}}>    
+              {
+                users.map((user) => (
+                <option key={user.id} value={user.id}>{user.name}</option>
+              ))
+            }
+
+            </select>
+            : ''
+          }
+
+          <button onClick={startChat}>Start conversation</button>
+
+
             <div className="d-sm-block d-lg-flex justify-content-lg-center">
                 <div>
                     <div className="input-group mb-3">

@@ -43,6 +43,7 @@ Route::get("show-jobs", [App\Http\Controllers\BoardJobController::class, 'show']
 Route::get("filter-jobs", [App\Http\Controllers\BoardJobController::class, 'filterJobs']);
 Route::put("apply/candidate/{user_id}/job/{board_id}", [App\Http\Controllers\SubmissionController::class, 'saveData']);
 Route::get("get-submissions", [App\Http\Controllers\SubmissionController::class, 'getSubmissions']);
+Route::post('start-chat', [App\Http\Controllers\BoardJobController::class, 'startChat']);
 
 Route::middleware('auth:sanctum')->get("single-job/{id}", [App\Http\Controllers\BoardJobController::class, 'getJob']);
 Route::group(['prefix' => 'company', 'as' => 'company'], function() {

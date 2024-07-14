@@ -47,8 +47,10 @@ class BoardJobController extends Controller
                 "jobs" => $jobs,
                 "role" => auth()->user()->role,
                 "name" => auth()->user()->name,
-                "company_id" => auth()->user()->company ? auth()->user()->company->id : -1
+                "company_id" => auth()->user()->company ? auth()->user()->company->id : -1,
                 // "company" => auth()->user()->company->title
+                "users" => \App\Models\User::all(),
+                "authenticatedUser" => auth()->user()->id
             ]);
 
         }
@@ -59,7 +61,9 @@ class BoardJobController extends Controller
 
         return response()->json([
             "jobs" => $jobs,
-            "name" => auth()->user()->name
+            "name" => auth()->user()->name,
+            "users" => \App\Models\User::all(),
+            "authenticatedUser" => auth()->user()
         ]);
     }  
 
@@ -81,5 +85,14 @@ class BoardJobController extends Controller
         return response()->json([
             'jobs' => $jobs
         ]);
+    }
+
+    function startChat(Request $request) {
+
+        event(new \App\Events\StatusLiked(auth()->user()->id, $request->id));
+
+
+ 
+        // event(new \App\Events\StatusLiked("Test"))
     }
 }

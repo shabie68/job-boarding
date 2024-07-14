@@ -12,20 +12,22 @@ class StatusLiked implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $username;
+    public $recepient;
 
     public $message;
+    public $userId;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($msg, $username)
+    public function __construct($userId, $recepient)
     {
-        $this->username = $username;
+        $this->recepient = $recepient;
+        $this->userId = $userId;
         // $this->message  = "{$username} liked your status";
-        $this->message = $msg;
+        // $this->message = $msg;
     }
 
     /**
@@ -37,7 +39,8 @@ class StatusLiked implements ShouldBroadcast
     {
         // return ['my-channel-'.$this->username];
         // return ['msg.' . $this->username];
-        return new PrivateChannel('msg.' .$this->username);
+        \Log::info("CHANNEL NAME", ["channel " => new PrivateChannel('msg.' . $this->recepient)]);
+        return new PrivateChannel('msg.' . $this->recepient);
 
         // return ['role-1'];
 
