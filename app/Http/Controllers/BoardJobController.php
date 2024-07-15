@@ -89,9 +89,10 @@ class BoardJobController extends Controller
 
     function startChat(Request $request) {
 
-        event(new \App\Events\StatusLiked(auth()->user()->id, $request->id));
+        // event(new \App\Events\StatusLiked(auth()->user()->id, $request->id));
+        event(new \App\Events\StatusLiked(auth()->user()->name, $request));
 
-
+        return "event sent";
  
         // event(new \App\Events\StatusLiked("Test"))
     }

@@ -15,19 +15,19 @@ class StatusLiked implements ShouldBroadcast
     public $recepient;
 
     public $message;
-    public $userId;
+    public $name;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($userId, $recepient)
+    public function __construct($name, $request)
     {
-        $this->recepient = $recepient;
-        $this->userId = $userId;
+        $this->recepient = $request['id'];
+        $this->name = $name;
         // $this->message  = "{$username} liked your status";
-        // $this->message = $msg;
+        $this->message = $request['message'];
     }
 
     /**
@@ -37,14 +37,7 @@ class StatusLiked implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        // return ['my-channel-'.$this->username];
-        // return ['msg.' . $this->username];
-        \Log::info("CHANNEL NAME", ["channel " => new PrivateChannel('msg.' . $this->recepient)]);
         return new PrivateChannel('msg.' . $this->recepient);
-
-        // return ['role-1'];
-
-        // return ['role-2'];
     }
 
       /**

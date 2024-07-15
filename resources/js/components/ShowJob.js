@@ -11,6 +11,9 @@ function ShowJob() {
     const location = useLocation();
     const [success, setSuccess] = useState(false)
     const [userName, setUserName] = useState("")
+    const [receivedMessage, setReceivedMessage] = useState([])
+    const [isMsgReceived, setIsMsgRecevied] = useState(false)
+    const [senderName, setSenderName] = useState('')
 
     const [jobs, setJobs] = useState([]);
     const [role, setRole] = useState(0);
@@ -27,32 +30,13 @@ function ShowJob() {
 
     const [selectedUser, setSelectedUser] = useState(1);
     const [authenticatedUser, setAuthenticatedUser] = useState(-1)
+    const [message, setMessage] = useState('')
 
 
        const value = `; ${document.cookie}`
       const parts = value.split(`; XSRF-TOKEN=`)
       const xsrfToken = parts.pop().split(';').shift()
-
-      // const pusher = new Pusher('de34f80f0848257e88e9', {
-      //   cluster: 'ap2',
-      //   encrypted: true,
-      //    authEndpoint: 'api/broadcasting/auth',
-      //    withCredentials: true,
-      //   enableStats: false,
-      //   enabledTransports: ['ws', 'wss'],
-      //          auth: {
-      //           headers: {
-      //       'X-XSRF-TOKEN':decodeURIComponent(xsrfToken),
-      //     },
-
-      //   }
-      // });
-
-
-
-      function startChat() {
-
-         const pusher = new Pusher('de34f80f0848257e88e9', {
+      const pusher = new Pusher('de34f80f0848257e88e9', {
         cluster: 'ap2',
         encrypted: true,
          authEndpoint: 'api/broadcasting/auth',
@@ -66,20 +50,26 @@ function ShowJob() {
 
         }
       });
+
+
+
+
+      const channelSubscription = () => {
+        let channel = pusher.subscribe('private-msg.' + selectedUser)
+        return channel
+      }
+
+      function startChat() {
+
          apiClient.post('http://127.0.0.1:8000/api/start-chat/', {
-          id: selectedUser
+          id: selectedUser,
+          message: message
          })
-         .then(() => {
-            let channel = pusher.subscribe('private-msg.'+selectedUser)
+         .then((data) => {
 
-
-              channel.bind('msg-event', (data) => {
-              alert("CHECKING")
-              console.log('Received data:', data);
-            });
-
+           setMessage('')
          })
-        
+
       }
 
     const next = () => {
@@ -92,8 +82,6 @@ function ShowJob() {
 
     function getJobs(search = false) {
 
-      
-   
 
        const pusher = new Pusher('de34f80f0848257e88e9', {
         cluster: 'ap2',
@@ -132,13 +120,19 @@ function ShowJob() {
 
             const channel = pusher.subscribe('private-company.'+response.data.company_id )
             channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
-              alert("GOOD NEWS")
+                alert("GOOD NEWS")
+                console.log(data)
+            })
+
+            const msgChannel = pusher.subscribe('private-msg.' + response.data.authenticatedUser)
+            msgChannel.bind('msg-event', (data) => {
+              console.log(data['message'])
+              // setReceivedMessage(data['message'])
+              setReceivedMessage((prevMessages) => [...prevMessages, data['message']]);
+              setIsMsgRecevied(true)
               console.log(data)
-          })
-
-
-
-
+              setSenderName(data['name'])
+            })
         })
     }
 
@@ -154,7 +148,8 @@ function ShowJob() {
 
 
 
-    }, [currentPage])
+
+    }, [currentPage, selectedUser])
 
     async function getJob(id) {
 
@@ -188,7 +183,7 @@ function ShowJob() {
 
           {
             users ?
-            <select value={selectedUser} onChange={(e)=> {setSelectedUser(e.target.value)}}>    
+            <select value={selectedUser} onChange={(e) => {setSelectedUser(e.target.value)}}>    
               {
                 users.map((user) => (
                 <option key={user.id} value={user.id}>{user.name}</option>
@@ -200,6 +195,31 @@ function ShowJob() {
           }
 
           <button onClick={startChat}>Start conversation</button>
+
+
+          <div>
+            <label>Your message </label>
+            <textarea onChange={(e) => {setMessage(e.target.value)}} value={message}>
+            </textarea>
+          </div>
+
+
+          {
+            isMsgReceived?
+            receivedMessage.map((msg) => (
+              <div style={{background: 'lightslategrey'}}>
+                <span>By {senderName}</span>
+                <div>
+                  {msg}
+                </div>
+                
+
+               </div>
+
+              ))
+            :''
+            }
+          
 
 
             <div className="d-sm-block d-lg-flex justify-content-lg-center">
