@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+Route::get('test', function () {
+    event(new App\Events\StatusLiked('Someone'));
+    return "Event has been sent!";
+});
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Broadcast;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,23 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+
+
+Broadcast::channel('company.{id}', function($user, $id) {
+	\Log::info("MESS", ["ID****" => $id]);
+	return $user->company ? $user->company->id == $id : -1 == 4;
+});
+
+
+Broadcast::channel('msg.{recepient}' , function($user, $recepient) {
+	\Log::info("ID****", ["CHECKING" => (int) $recepient]);
+	\Log::info("recepient", ["ID****" => 4 == $recepient]);
+	return $user->id == $recepient;
+});
+
+Broadcast::channel('candidate.{recep}' , function($user, $recep) {
+	\Log::info("SENDING");
+	// \Log::info("NEW ID****", ["CHECKING" => (int) $recep]);
+	// \Log::info("NEW CHECKING", ["ID***" => (int)$recep]);
+	return $user->id == $recep;
 });

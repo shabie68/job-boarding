@@ -10,6 +10,7 @@ import UpdateProfile from './UpdateProfile'
 import Company from './Company'
 import AddCompany from './AddCompany'
 import Profile from './Profile'
+import YourJob from './YourJob'
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
 import BoardJobContext from '../contexts/BoardJobContext.js'
@@ -18,7 +19,7 @@ import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
 function Example() {
 
     const [user, setUser] = useState(null)
-    const [boardJob, setBoardJob] = useState({user_id: null, board_job_id: null, submission: null});
+    const [boardJob, setBoardJob] = useState({user_id: null, board_job_id: null, submission: null, message: null});
 
     const updateJobContext = (newContextValue) => {
         setBoardJob(newContextValue);
@@ -40,6 +41,7 @@ function Example() {
                     <Link className="text-decoration-none text-light" to="/home">Home</Link>
                     <Link className="text-decoration-none text-light" to="/companies">Companies</Link>
                     <Link className="text-decoration-none text-light" to="/user-profile">Profile</Link>
+                    <Link className="text-decoration-none text-light" to="/your-jobs">Your jobs</Link>
                     <div onClick={logout} className=" text-light" style={{ cursor: 'pointer'}}>
                         Logout
                     </div>
@@ -47,7 +49,7 @@ function Example() {
             
                 <div className="container">
                     <Routes>
-                        <Route path="/home" element={<ShowJob user={user}/>} />
+                        <Route path="/home" element={<ShowJob user={user} updateJobContext={updateJobContext}/>} />
                         <Route path="/add-job" element={<AddJob />} />
                         <Route path="/companies" element={<Company />} />
                         <Route path="/add-company" element={<AddCompany />} />
@@ -57,6 +59,7 @@ function Example() {
                         <Route path="/job-questions" element={<JobQuestions user={user} updateJobContext={updateJobContext} />} /> 
                         <Route path="/user-profile" element={<Profile/>} /> 
                         <Route path="/update-profile" element={<UpdateProfile/>} /> 
+                        <Route path="/your-jobs" element={<YourJob/>} /> 
                     </Routes>
                 </div>
 

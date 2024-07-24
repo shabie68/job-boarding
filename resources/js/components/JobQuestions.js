@@ -56,17 +56,17 @@ function JobQuestions() {
 
         onSubmit: values => {
 
-          apiClient.put('http://127.0.0.1:8000/api/apply/candidate/'+context.user_id + '/job/' + context.board_job_id, {
+          apiClient.post('http://127.0.0.1:8000/api/apply/candidate/'+context.user_id + '/job/' + context.board_job_id, {
                 ability_to_commute: formik.values.abilityToCommute,
                 salary_expectation: formik.values.salaryExpectation,
                 notice_period: formik.values.noticePeriod,
                 schedule_interview: formik.values.scheduleInterview,
                 country: formik.values.country,
                 state: formik.values.state,
-                submission: JSON.stringify(context.submission)
+                submission: JSON.stringify(context.submission),
+                _method: 'put'
             })
             .then((response) => {
-
                 window.location = '/home'
             })
             .catch((error) => {

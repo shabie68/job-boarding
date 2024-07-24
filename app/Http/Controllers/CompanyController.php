@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Company;
+use App\Models\User;
 
 class CompanyController extends Controller
 {
@@ -41,8 +42,17 @@ class CompanyController extends Controller
     		"industry" => $request->industry
     	]);
 
+       
+        $user = User::find(auth()->user()->id);
+        $user->recruiter_of = auth()->user()->name . '-' . $company->title;
+        $user->save();
+
+// 
+        // auth()->user()->recruiter_of = auth()->user()->name . '-' . $company->title;
+
         return response()->json([
-            "company" => $company
+            "company" => $company,
+            "user" => auth()->user()
         ]);
     }
 

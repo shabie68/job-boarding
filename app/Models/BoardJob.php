@@ -11,8 +11,14 @@ class BoardJob extends Model
 
     protected $guarded = [];
 
+
     public function skills() {
     	return $this->hasMany(Skill::class);
     }
+
+    public function submissions() {
+    	return $this->hasMany(Submission::class);
+    }
+
 }
 

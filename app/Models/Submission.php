@@ -10,4 +10,12 @@ class Submission extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function boardJob() {
+    	return $this->belongsTo(BoardJob::class);
+    }
+
+    public function company() {
+    	return $this->belongsTo(Company::class);
+    }
 }

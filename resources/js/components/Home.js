@@ -3,6 +3,7 @@ import ShowJob from './ShowJob'
 function Home() {
 	return (
 		<div>
+		
 			
 			<ul className="nav nav-tabs" id="myTab" role="tablist">
 			  <li className="nav-item" role="presentation">

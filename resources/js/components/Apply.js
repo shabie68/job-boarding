@@ -37,11 +37,13 @@ function Apply(props) {
   const [submission, setSubmission] = useState({});
 
   useEffect(() => {
+
     saveDefaultData();
   }, []);
 
+
   const saveDefaultData = () => {
-    apiClient.post('http://127.0.0.1:8000/api/add-job-data/', {
+    apiClient.post('http://127.0.0.1:8000/api/add-job-data', {
       jobId: location.state.job.id,
       company_id: location.state.job.company_id
     })
@@ -70,10 +72,11 @@ function Apply(props) {
         first_name: values.firstName,
         last_name: values.lastName,
         phone_number: values.phoneNumber,
-        email: values.email
+        email: values.email,
+        _method: 'put'
       };
 
-      apiClient.put('http://127.0.0.1:8000/api/apply/candidate/' + location.state.job.user_id + '/job/' + submission.board_job_id, data)
+      apiClient.post('http://127.0.0.1:8000/api/apply/candidate/' + location.state.job.user_id + '/job/' + submission.board_job_id, data)
         .then((response) => {
           props.updateJobContext({
             user_id: location.state.job.user_id,
@@ -171,6 +174,7 @@ function Apply(props) {
             </div>
         </div>
 
+       
         <div className="mt-2 text-end">
           <button type="submit" className="btn btn-primary">Continue</button>
         </div>

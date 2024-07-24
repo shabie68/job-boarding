@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
 
 // Route::middleware("auth:sanctum")->post('/add-job', [App\Http\Controllers\BoardJobController::class, 'store']);
+// Broadcast::routes(['middleware' => 'auth:sanctum']);
 Route::middleware(["auth:sanctum", "role"])->post('/add-job', [App\Http\Controllers\BoardJobController::class, 'store']);
+
 // Route::middleware('auth:sanctum')->get('get-user', function () {
 // 	return auth()->user();
 // });
@@ -27,7 +30,11 @@ Route::get('get-user', function() {
 	return auth()->user();
 });
 
-Route::post("add-job-data/", [App\Http\Controllers\SubmissionController::class, 'addJobData'])->middleware('role');
+Broadcast::routes(['middleware' => 'auth:sanctum']);
+
+// Route::post("add-job-data/", [App\Http\Controllers\SubmissionController::class, 'addJobData'])->middleware('role');
+
+Route::post("add-job-data/", [App\Http\Controllers\SubmissionController::class, 'addJobData']);
 
 
 Route::put("save-profile/", [App\Http\Controllers\ProfileController::class, 'saveProfile'])->name('save.profile');
@@ -35,6 +42,10 @@ Route::get("get-profile/", [App\Http\Controllers\ProfileController::class, 'getP
 Route::get("show-jobs", [App\Http\Controllers\BoardJobController::class, 'show']);
 Route::get("filter-jobs", [App\Http\Controllers\BoardJobController::class, 'filterJobs']);
 Route::put("apply/candidate/{user_id}/job/{board_id}", [App\Http\Controllers\SubmissionController::class, 'saveData']);
+Route::get("get-submissions", [App\Http\Controllers\SubmissionController::class, 'getSubmissions']);
+Route::post('start-chat', [App\Http\Controllers\BoardJobController::class, 'startChat']);
+
+Route::post('send-msg', [App\Http\Controllers\BoardJobController::class, 'sendMessage']);
 
 Route::middleware('auth:sanctum')->get("single-job/{id}", [App\Http\Controllers\BoardJobController::class, 'getJob']);
 Route::group(['prefix' => 'company', 'as' => 'company'], function() {
