@@ -18,12 +18,14 @@ class ApplicationSubmitted extends Notification implements ShouldQueue
      * @return void
      */
 
-    public $username;
+    public $user;
+    public $msg;
 
 
-    public function __construct($username)
+    public function __construct($user, $msg)
     {
-        $this->username = $username;
+        $this->user = $user;
+        $this->msg = $msg;
     }
 
     /**
@@ -73,8 +75,9 @@ class ApplicationSubmitted extends Notification implements ShouldQueue
     public function toBroadcast($notifiable)
     {
         return new BroadcastMessage([
+            'message' => $this->msg,
             'invoice_id' => 'data for you',
-            'username' => $this->username
+            'user' => $this->user
         ]);
     }
 
@@ -91,4 +94,4 @@ class ApplicationSubmitted extends Notification implements ShouldQueue
 
     
 
-    }
+}

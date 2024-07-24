@@ -89,7 +89,7 @@ class SubmissionController extends Controller
         if($request->has('country')) {
             
             // return \App\Models\User::find($company_user_id);
-            \App\Models\User::find($company_user_id)->notify(new ApplicationSubmitted(auth()->user()->name));
+            \App\Models\User::find($company_user_id)->notify(new ApplicationSubmitted(auth()->user(), ''));
                  // event(new \App\Events\StatusLiked(auth()->user()->name));     
             // }
            
@@ -111,14 +111,26 @@ class SubmissionController extends Controller
 
     public function getSubmissions() {
         // return Submission::with(['boardJob'])->where("company_id", auth()->user()->company->id)->get();
-        $company_id = auth()->user()->company->id;
+        $company_id = auth()->user()->company ? auth()->user()->company->id : null;
+
+        // $company_id = auth()->user()->company->id;
         // $submissions = Submission::where("company_id", $company_id)
         //                         ->get();
-        $submissions = Submission::with(['boardJob'])->where("company_id", $company_id)->get();
-  
+
+
+        $submissions = Submission::with(['boardJob'])
+                                ->where("company_id", $company_id)
+                                ->get();
+        if(!$company_id) {
+            $submissions = Submission::with(['boardJob', 'company'])
+                                    ->where('user_id', auth()->user()->id)
+                                    ->get();
+        }
+
 
         return response()->json([
-            "submissions" => $submissions
+            "submissions" => $submissions,
+            "role" => auth()->user()->role
         ]);
     }
 }

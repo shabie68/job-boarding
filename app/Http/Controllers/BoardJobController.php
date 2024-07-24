@@ -63,7 +63,8 @@ class BoardJobController extends Controller
             "jobs" => $jobs,
             "name" => auth()->user()->name,
             "users" => \App\Models\User::all(),
-            "authenticatedUser" => auth()->user()
+            "authenticatedUser" => auth()->user()->id,
+            'role' => auth()->user()->role
         ]);
     }  
 
@@ -95,5 +96,19 @@ class BoardJobController extends Controller
         return "event sent";
  
         // event(new \App\Events\StatusLiked("Test"))
+    }
+
+    function sendMessage(Request $request) {
+        
+        if(auth()->user()->role == 2) {
+            \App\Models\User::find($request->id)->notify(new ApplicationSubmitted(auth()->user(), $request->message));
+            return "Message sent";
+        }
+
+
+        
+        event(new \App\Events\MessageEvent(auth()->user()->name, $request));
+        return 'Recruiter sent message';
+        
     }
 }

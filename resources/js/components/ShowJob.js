@@ -7,7 +7,7 @@ import Pusher from 'pusher-js';
 // import {Pusher} from 'https://js.pusher.com/8.0.1/pusher.min.js'
 
 
-function ShowJob() {
+function ShowJob(props) {
     const location = useLocation();
     const [success, setSuccess] = useState(false)
     const [userName, setUserName] = useState("")
@@ -83,26 +83,26 @@ function ShowJob() {
     function getJobs(search = false) {
 
 
-       const pusher = new Pusher('de34f80f0848257e88e9', {
-        cluster: 'ap2',
-        encrypted: true,
-         authEndpoint: 'api/broadcasting/auth',
-         withCredentials: true,
-        enableStats: false,
-        enabledTransports: ['ws', 'wss'],
-               auth: {
-                headers: {
-            'X-XSRF-TOKEN':decodeURIComponent(xsrfToken),
-          },
-
-        }
-      });
+       
       let baseUrl = 'http://127.0.0.1:8000/api/show-jobs';
       let getJobsUrl = !jobTitle ? `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
        apiClient.get('http://127.0.0.1:8000/api/show-jobs'+getJobsUrl)
         .then(function(response) {
 
-            
+            const pusher = new Pusher('de34f80f0848257e88e9', {
+            cluster: 'ap2',
+            encrypted: true,
+             authEndpoint: 'api/broadcasting/auth',
+             withCredentials: true,
+            enableStats: false,
+            enabledTransports: ['ws', 'wss'],
+                   auth: {
+                    headers: {
+                'X-XSRF-TOKEN':decodeURIComponent(xsrfToken),
+              },
+
+            }
+          });
             setJobs(response.data.jobs.data)
             setNextPage(response.data.jobs.next_page_url)
             setLastPage(response.data.jobs.last_page)
@@ -122,17 +122,36 @@ function ShowJob() {
             channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
                 alert("GOOD NEWS")
                 console.log(data)
+                props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
             })
 
-            const msgChannel = pusher.subscribe('private-msg.' + response.data.authenticatedUser)
-            msgChannel.bind('msg-event', (data) => {
-              console.log(data['message'])
-              // setReceivedMessage(data['message'])
-              setReceivedMessage((prevMessages) => [...prevMessages, data['message']]);
-              setIsMsgRecevied(true)
-              console.log(data)
-              setSenderName(data['name'])
-            })
+            // // const msgChannel = pusher.subscribe('private-msg.' + response.data.authenticatedUser)
+            // const msgChannel = pusher.subscribe('private-msg.' + response.data.authenticatedUser)
+            // msgChannel.bind('msg-event', (data) => {
+            //   console.log(data['message'])
+            //   // setReceivedMessage(data['message'])
+            //   setReceivedMessage((prevMessages) => [...prevMessages, data['message']]);
+            //   setIsMsgRecevied(true)
+            //   console.log(data)
+            //   setSenderName(data['name'])
+            // })
+
+
+
+            if(response.data.role == 2) {
+              alert("YES here")
+              const candidateChannel = pusher.subscribe('private-candidate.' + response.data.authenticatedUser)
+              console.log("HER IS THE channel")
+              console.log(candidateChannel)
+              candidateChannel.bind('job-msg', (data) => {
+                  alert("NEW MESSAGE")
+                  console.log(data)
+                  alert("AFTERWArds")
+                  console.log("PROPS*****")
+                  console.log(props)
+                  props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
+              })
+            }
         })
     }
 

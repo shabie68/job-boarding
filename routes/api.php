@@ -45,6 +45,8 @@ Route::put("apply/candidate/{user_id}/job/{board_id}", [App\Http\Controllers\Sub
 Route::get("get-submissions", [App\Http\Controllers\SubmissionController::class, 'getSubmissions']);
 Route::post('start-chat', [App\Http\Controllers\BoardJobController::class, 'startChat']);
 
+Route::post('send-msg', [App\Http\Controllers\BoardJobController::class, 'sendMessage']);
+
 Route::middleware('auth:sanctum')->get("single-job/{id}", [App\Http\Controllers\BoardJobController::class, 'getJob']);
 Route::group(['prefix' => 'company', 'as' => 'company'], function() {
 	Route::get('show-companies', [\App\Http\Controllers\CompanyController::class, 'show'])->name('show.company');

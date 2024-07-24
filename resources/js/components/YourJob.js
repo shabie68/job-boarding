@@ -1,56 +1,55 @@
-import React from 'react';
+import {React, useContext, useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import apiClient from '../services/apiClient';
+import RecruiterJobs from './RecruiterJobs'
+import CandidateJobs from './CandidateJobs'
+import BoardJobContext from '../contexts/BoardJobContext'
 
 const YourJob = () => {
 
-	const [jobSubmissions, setJobSubmissions] = React.useState([]);
+	const context = useContext(BoardJobContext)
+
+	console.log("HERE IS THE CONTEXT")
+	console.log(context)
+
+	const [jobSubmissions, setJobSubmissions] = useState([]);
+	const [role, setRole] = useState(10)
 
 
 
 	const getSubmissions = () => {
 		 apiClient.get('http://127.0.0.1:8000/api/get-submissions' )
 		 .then((response) => {
+		 	setRole(response.data.role)
 		 	setJobSubmissions(response.data.submissions)
-		 	response.data.submissions.map((sub) => {
-		 		console.log(sub.id)
-		 	})
+		 	// response.data.submissions.map((sub) => {
+		 	// 	console.log(sub.id)
+		 	// })
 		 })
 	}
 
-	React.useEffect(() => {
+	useEffect(() => {
 		getSubmissions()
 	}, [])
 
 	return (
 			<div>
-				<table class="table table-striped">
-				  <thead>
-				    <tr>
-				      <th scope="col"> Job title</th>
-				      <th scope="col">First name</th>
-				      <th scope="col">Country</th>
-				      <th scope="col">Phone</th>
-				      <th scope="col">Email</th>
-				      <th scope="col">Resume</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-					   {jobSubmissions.map((submission) => (
-				    		<tr key={submission.id}>
-				    			<td>{submission.board_job.title}</td>
-				    			<td>{submission.first_name}</td>
-				    			<td>{submission.country} </td>
-				    			<td>{submission.phone_number}</td>
-				    			<td>{submission.email}</td>
-				    			<td><a href={`uploads/${submission.resume}`}>Resume</a></td>
-				    		</tr>
+				{
+					role == 1 
+					?
+					<RecruiterJobs jobSubmissions = {jobSubmissions} />
+					: ''
+				}
 
-				    	))}
+				{
+					role == 2 ?
+					<CandidateJobs jobSubmissions = {jobSubmissions} />
+					: ''
+				}
 
-
-				  </tbody>
-				</table>
+				<p>
+					{JSON.stringify(context)}
+				</p>
 
 
 			</div>

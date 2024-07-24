@@ -19,7 +19,7 @@ import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
 function Example() {
 
     const [user, setUser] = useState(null)
-    const [boardJob, setBoardJob] = useState({user_id: null, board_job_id: null, submission: null});
+    const [boardJob, setBoardJob] = useState({user_id: null, board_job_id: null, submission: null, message: null});
 
     const updateJobContext = (newContextValue) => {
         setBoardJob(newContextValue);
@@ -49,7 +49,7 @@ function Example() {
             
                 <div className="container">
                     <Routes>
-                        <Route path="/home" element={<ShowJob user={user}/>} />
+                        <Route path="/home" element={<ShowJob user={user} updateJobContext={updateJobContext}/>} />
                         <Route path="/add-job" element={<AddJob />} />
                         <Route path="/companies" element={<Company />} />
                         <Route path="/add-company" element={<AddCompany />} />
