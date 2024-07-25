@@ -10325,57 +10325,92 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
+/* harmony import */ var _contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contexts/BoardJobContext */ "./resources/js/contexts/BoardJobContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 var CandidateJobs = function CandidateJobs(props) {
+  var _context$message, _context$message2;
+  var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
   var sendMessage = function sendMessage(company_id) {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_0__["default"].post('http://127.0.0.1:8000/api/send-msg/', {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/send-msg/', {
       id: company_id,
       message: 'Hello Admin!'
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("table", {
-    "class": "table table-striped",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("thead", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
-          scope: "col",
-          children: "Job title"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
-          scope: "col",
-          children: "Company name"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
-          scope: "col",
-          children: "Contact"
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("tbody", {
-      children: props.jobSubmissions.map(function (submission) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-            style: {
-              verticalAlign: 'middle'
-            },
-            children: submission.board_job.title
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-            style: {
-              verticalAlign: 'middle'
-            },
-            children: submission.company.title
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-              type: "button",
-              onClick: function onClick() {
-                sendMessage(submission.company_id);
-              },
-              className: "btn btn-secondary",
-              children: "Message"
-            })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
+      "class": "table table-striped",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+            scope: "col",
+            children: "Job title"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+            scope: "col",
+            children: "Company name"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+            scope: "col",
+            children: "Contact"
           })]
-        });
-      })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
+        children: props.jobSubmissions.map(function (submission) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              style: {
+                verticalAlign: 'middle'
+              },
+              children: submission.board_job.title
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              style: {
+                verticalAlign: 'middle'
+              },
+              children: submission.company.title
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                type: "button",
+                onClick: function onClick() {
+                  sendMessage(submission.company_id);
+                },
+                className: "btn btn-secondary",
+                children: "Message"
+              })
+            })]
+          });
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "card position-absolute",
+      style: {
+        bottom: 0,
+        right: '50px',
+        zIndex: 9,
+        height: '40%',
+        overflow: 'auto'
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "card-header",
+        children: ["By ", context === null || context === void 0 || (_context$message = context.message) === null || _context$message === void 0 || (_context$message = _context$message.user) === null || _context$message === void 0 ? void 0 : _context$message.name]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "card-body",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: context === null || context === void 0 || (_context$message2 = context.message) === null || _context$message2 === void 0 ? void 0 : _context$message2.message
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "card-footer",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "d-flex justify-content-end",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+            children: "Close"
+          })
+        })
+      })]
     })]
   });
 };
@@ -11200,7 +11235,9 @@ function Example() {
             element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_UpdateProfile__WEBPACK_IMPORTED_MODULE_8__["default"], {})
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
             path: "/your-jobs",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_YourJob__WEBPACK_IMPORTED_MODULE_12__["default"], {})
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_YourJob__WEBPACK_IMPORTED_MODULE_12__["default"], {
+              updateJobContext: updateJobContext
+            })
           })]
         })
       })]
@@ -12017,73 +12054,139 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
+/* harmony import */ var _contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contexts/BoardJobContext */ "./resources/js/contexts/BoardJobContext.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 var RecruiterJobs = function RecruiterJobs(props) {
-  var sendMessage = function sendMessage(candidate_id) {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_0__["default"].post('http://127.0.0.1:8000/api/send-msg/', {
-      id: candidate_id,
-      message: 'Hello Admin!'
+  var _context$message, _context$message2, _context$message5, _context$message6;
+  var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(context === null || context === void 0 || (_context$message = context.message) === null || _context$message === void 0 ? void 0 : _context$message.message),
+    _useState2 = _slicedToArray(_useState, 2),
+    msgResponse = _useState2[0],
+    setMessageResponse = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(context === null || context === void 0 || (_context$message2 = context.message) === null || _context$message2 === void 0 ? void 0 : _context$message2.user.id),
+    _useState4 = _slicedToArray(_useState3, 2),
+    recepient = _useState4[0],
+    setRecepient = _useState4[1];
+
+  // const sendMessage = (candidate_id) => {
+  // 	apiClient.post('http://127.0.0.1:8000/api/send-msg/', {
+  //          id: candidate_id,
+  //          message: 'Hello Admin!'
+  //         })
+  // }
+
+  var sendMessage = function sendMessage() {
+    var _context$message3, _context$message4;
+    console.log(context === null || context === void 0 || (_context$message3 = context.message) === null || _context$message3 === void 0 ? void 0 : _context$message3.user.id);
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/send-msg', {
+      id: context === null || context === void 0 || (_context$message4 = context.message) === null || _context$message4 === void 0 ? void 0 : _context$message4.user.id,
+      message: 'Welcome ' + context.message.user.name
+    }).then(function () {
+      props.updateJobContext({
+        user_id: null,
+        submission: null,
+        message: message
+      });
+      // props.updateJobContext((prevMessages) => ({
+      //   ...prevMessages,
+      //   message: [...prevMessages.message, 'new message'],
+      //   user_id: null,
+      //   submission: null
+      // }));
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("table", {
-    "class": "table table-striped",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("thead", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
-          scope: "col",
-          children: " Job title"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
-          scope: "col",
-          children: "First name"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
-          scope: "col",
-          children: "Country"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
-          scope: "col",
-          children: "Phone"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
-          scope: "col",
-          children: "Email"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
-          scope: "col",
-          children: "Resume"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
-          scope: "col",
-          children: "Message"
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("tbody", {
-      children: props.jobSubmissions.map(function (submission) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-            children: submission.board_job.title
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-            children: submission.first_name
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("td", {
-            children: [submission.country, " "]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-            children: submission.phone_number
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-            children: submission.email
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-              href: "uploads/".concat(submission.resume),
-              children: "Resume"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-              className: "btn btn-secondary",
-              onClick: function onClick() {
-                sendMessage(submission.user_id);
-              },
-              children: "Send Message"
-            })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
+      "class": "table table-striped",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+            scope: "col",
+            children: " Job title"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+            scope: "col",
+            children: "First name"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+            scope: "col",
+            children: "Country"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+            scope: "col",
+            children: "Phone"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+            scope: "col",
+            children: "Email"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+            scope: "col",
+            children: "Resume"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+            scope: "col",
+            children: "Message"
           })]
-        }, submission.id);
-      })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
+        children: props.jobSubmissions.map(function (submission) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              children: submission.board_job.title
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              children: submission.first_name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
+              children: [submission.country, " "]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              children: submission.phone_number
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              children: submission.email
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                href: "uploads/".concat(submission.resume),
+                children: "Resume"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                className: "btn btn-secondary",
+                onClick: function onClick() {
+                  sendMessage(submission.user_id);
+                },
+                children: "Send Message"
+              })
+            })]
+          }, submission.id);
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "card position-absolute",
+      style: {
+        bottom: 0,
+        right: '50px',
+        zIndex: 9
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "card-header",
+        children: ["By ", context === null || context === void 0 || (_context$message5 = context.message) === null || _context$message5 === void 0 || (_context$message5 = _context$message5.user) === null || _context$message5 === void 0 ? void 0 : _context$message5.name]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "card-body",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: context === null || context === void 0 || (_context$message6 = context.message) === null || _context$message6 === void 0 ? void 0 : _context$message6.message
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          onClick: sendMessage,
+          children: "Send"
+        })
+      })]
     })]
   });
 };
@@ -12664,9 +12767,6 @@ function ShowJob(props) {
         candidateChannel.bind('job-msg', function (data) {
           alert("NEW MESSAGE");
           console.log(data);
-          alert("AFTERWArds");
-          console.log("PROPS*****");
-          console.log(props);
           props.updateJobContext({
             user_id: null,
             board_job_id: null,
@@ -13449,10 +13549,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var YourJob = function YourJob() {
+var YourJob = function YourJob(props) {
   var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_5__["default"]);
-  console.log("HERE IS THE CONTEXT");
-  console.log(context);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
     jobSubmissions = _useState2[0],
@@ -13475,12 +13573,14 @@ var YourJob = function YourJob() {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RecruiterJobs__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      jobSubmissions: jobSubmissions
+      jobSubmissions: jobSubmissions,
+      updateJobContext: props.updateJobContext,
+      context: context.message
     }) : '', role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_CandidateJobs__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      jobSubmissions: jobSubmissions
-    }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-      children: JSON.stringify(context)
-    })]
+      jobSubmissions: jobSubmissions,
+      updateJobContext: props.updateJobContext,
+      context: context.message
+    }) : '']
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (YourJob);

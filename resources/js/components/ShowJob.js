@@ -146,9 +146,6 @@ function ShowJob(props) {
               candidateChannel.bind('job-msg', (data) => {
                   alert("NEW MESSAGE")
                   console.log(data)
-                  alert("AFTERWArds")
-                  console.log("PROPS*****")
-                  console.log(props)
                   props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
               })
             }

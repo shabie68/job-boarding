@@ -59,7 +59,7 @@ function Example() {
                         <Route path="/job-questions" element={<JobQuestions user={user} updateJobContext={updateJobContext} />} /> 
                         <Route path="/user-profile" element={<Profile/>} /> 
                         <Route path="/update-profile" element={<UpdateProfile/>} /> 
-                        <Route path="/your-jobs" element={<YourJob/>} /> 
+                        <Route path="/your-jobs" element={<YourJob updateJobContext={updateJobContext} />} /> 
                     </Routes>
                 </div>
 

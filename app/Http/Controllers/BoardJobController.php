@@ -107,7 +107,7 @@ class BoardJobController extends Controller
 
 
         
-        event(new \App\Events\MessageEvent(auth()->user()->name, $request));
+        event(new \App\Events\MessageEvent(auth()->user(), $request));
         return 'Recruiter sent message';
         
     }

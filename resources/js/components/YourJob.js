@@ -5,13 +5,12 @@ import RecruiterJobs from './RecruiterJobs'
 import CandidateJobs from './CandidateJobs'
 import BoardJobContext from '../contexts/BoardJobContext'
 
-const YourJob = () => {
+
+const YourJob = (props) => {
+
+	
 
 	const context = useContext(BoardJobContext)
-
-	console.log("HERE IS THE CONTEXT")
-	console.log(context)
-
 	const [jobSubmissions, setJobSubmissions] = useState([]);
 	const [role, setRole] = useState(10)
 
@@ -37,19 +36,17 @@ const YourJob = () => {
 				{
 					role == 1 
 					?
-					<RecruiterJobs jobSubmissions = {jobSubmissions} />
+					<RecruiterJobs jobSubmissions = {jobSubmissions} updateJobContext={props.updateJobContext} context={context.message} />
 					: ''
 				}
 
 				{
 					role == 2 ?
-					<CandidateJobs jobSubmissions = {jobSubmissions} />
+					<CandidateJobs jobSubmissions = {jobSubmissions} updateJobContext={props.updateJobContext} context={context.message} />
 					: ''
 				}
 
-				<p>
-					{JSON.stringify(context)}
-				</p>
+
 
 
 			</div>
