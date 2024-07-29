@@ -8,8 +8,17 @@ const RecruiterJobs = (props) => {
 
 	const context = useContext(BoardJobContext)
 
-	const [msgResponse, setMessageResponse] = useState(context?.message?.message)
-	const [recepient, setRecepient] = useState(context?.message?.user.id)
+	const [messages, setMessages] = useState([])
+	const [recepient, setRecepient] = useState(context?.message?.user?.id)
+	// let messages = [];
+
+	const [msg, setMsg] = useState('')
+	let m = [];
+	const [receivedMessages, setReceivedMessages] = useState([])
+	const [sendMessages, setSendMessages] = useState([])
+	const [chatMessages, setChatMessages] = useState([])
+
+
 
 
 
@@ -22,13 +31,42 @@ const RecruiterJobs = (props) => {
 
 	
 	const sendMessage = () => {
-		console.log(context?.message?.user.id)
+		setSendMessages((prevMessages) => [...prevMessages, msg])
+		setReceivedMessages((prevMessages) => [...prevMessages, context.message])
 		apiClient.post('http://127.0.0.1:8000/api/send-msg', {
-			id: context?.message?.user.id,
-			message: 'Welcome ' + context.message.user.name
+			id: context?.user_id,
+			message: msg
 		})
 		.then(() => {
-			props.updateJobContext({user_id: null, submission: null, message})
+			let mess = [sendMessages, receivedMessages]
+			// setChatMessages((prevMessages) => [...prevMessages,[sendMessages, receivedMessages]])
+			setChatMessages(mess)
+
+			// messages.push(msg)
+			// messages.push(context.message)
+			// console.log(messages.flat())
+
+			// console.log("HERE IS THE MESSAgE")
+
+			m.push(context.message)
+			// m.push(msg)
+			m = m.flat()
+			console.log("Message is here")
+			console.log(context.message)
+			setReceivedMessages(m)
+			if(context.message) {
+				setMessages((prevMessages) => [...prevMessages, context.message])
+			}
+			
+
+			setMessages((prevMessages) => [...prevMessages, msg])
+
+			// let msg = context.message.message;
+			// msg.push()
+			// props.updateJobContext({user_id: null, submission: null, message})
+
+			// props.updateJobContext((prevMessages) => [...prevMessages, data['message']]);
+
 			// props.updateJobContext((prevMessages) => ({
 			//   ...prevMessages,
 			//   message: [...prevMessages.message, 'new message'],
@@ -69,24 +107,35 @@ const RecruiterJobs = (props) => {
 			    	))}
 
 			  </tbody>
-			</table>
 
-			<div className="card position-absolute" style={{bottom: 0, right: '50px', zIndex: 9}}>
+			  <div className="card position-absolute" style={{bottom: 0, right: '50px', zIndex: 9}}>
 				<div className="card-header">
 					By {context?.message?.user?.name}
 				</div>
 
 				<div className="card-body">
-					<p>
-						{context?.message?.message}
-					</p>
+						{
+					receivedMessages?.map((ms) => (
+						<p>{ms}</p>
+					))
+				}
 
+				{
+					sendMessages?.map((send) => (
+						<p>{send}</p>
+					))
+				}
 				</div>
 
 				<div>
 					<button onClick={sendMessage}>Send</button>
 				</div>
 			</div>
+			</table>
+
+			<input onBlur={(e) => {setMsg(e.target.value)}} />
+			 {JSON.stringify(chatMessages)} are messages
+			
 		</>
 	)
 
