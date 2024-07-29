@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\BoardJob;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Submission;
+use App\Models\Company;
 use App\Notifications\ApplicationSubmitted;
 use DB;
 
@@ -38,7 +40,14 @@ class BoardJobController extends Controller
         
 
         $jobs = null;
+        
+
+
         // event(new \App\Events\StatusLiked(auth()->user()->name));
+        $submissions = Submission::where("user_id", auth()->user()->id);
+                                
+        $companyIds = $submissions->pluck("company_id");
+        $companies = Company::find($companyIds);
 
         if(!$request->has('title')) {
             $jobs = BoardJob::paginate(5);
@@ -50,10 +59,14 @@ class BoardJobController extends Controller
                 "company_id" => auth()->user()->company ? auth()->user()->company->id : -1,
                 // "company" => auth()->user()->company->title
                 "users" => \App\Models\User::all(),
-                "authenticatedUser" => auth()->user()->id
+                "authenticatedUser" => auth()->user()->id,
+                "companies" => $companies
             ]);
 
         }
+
+
+
         
         $jobs = DB::table('board_jobs')
                     ->where('title', 'like', '%' . $request->title . '%')
@@ -90,7 +103,6 @@ class BoardJobController extends Controller
 
     function startChat(Request $request) {
 
-        // event(new \App\Events\StatusLiked(auth()->user()->id, $request->id));
         event(new \App\Events\StatusLiked(auth()->user()->name, $request));
 
         return "event sent";
@@ -100,14 +112,21 @@ class BoardJobController extends Controller
 
     function sendMessage(Request $request) {
         
+        $company_user_id = null;
+
+        $company = Company::find($request->id);
+        if($company) {
+            $company_user_id = $company->user_id;
+        }
+
         if(auth()->user()->role == 2) {
-            \App\Models\User::find($request->id)->notify(new ApplicationSubmitted(auth()->user(), $request->message));
+            \App\Models\User::find($company_user_id)->notify(new ApplicationSubmitted(auth()->user(), $request->message));
             return "Message sent";
         }
 
 
         
-        event(new \App\Events\MessageEvent(auth()->user()->name, $request));
+        event(new \App\Events\MessageEvent(auth()->user(), $request));
         return 'Recruiter sent message';
         
     }

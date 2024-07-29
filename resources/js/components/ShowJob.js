@@ -11,9 +11,13 @@ function ShowJob(props) {
     const location = useLocation();
     const [success, setSuccess] = useState(false)
     const [userName, setUserName] = useState("")
-    const [receivedMessage, setReceivedMessage] = useState([])
+    const [receivedMessages, setReceivedMessages] = useState([])
+    const [recepient, setRecepient] = useState('')
+    const [userId, setUserId] = useState(-1)
+
     const [isMsgReceived, setIsMsgRecevied] = useState(false)
     const [senderName, setSenderName] = useState('')
+    const [candidates, setCandidates] = useState([])
 
     const [jobs, setJobs] = useState([]);
     const [role, setRole] = useState(0);
@@ -31,9 +35,12 @@ function ShowJob(props) {
     const [selectedUser, setSelectedUser] = useState(1);
     const [authenticatedUser, setAuthenticatedUser] = useState(-1)
     const [message, setMessage] = useState('')
+    const [companies, setCompanies] = useState([])
+
+    let messages = [];
 
 
-       const value = `; ${document.cookie}`
+      const value = `; ${document.cookie}`
       const parts = value.split(`; XSRF-TOKEN=`)
       const xsrfToken = parts.pop().split(';').shift()
       const pusher = new Pusher('de34f80f0848257e88e9', {
@@ -121,8 +128,15 @@ function ShowJob(props) {
             const channel = pusher.subscribe('private-company.'+response.data.company_id )
             channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
                 alert("GOOD NEWS")
-                console.log(data)
-                props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
+
+                setCandidates((prevCandidates) => [...prevCandidates, data['user']])
+                setReceivedMessages((prevMessages) => [...prevMessages, data['message']] );
+                // messages.push(data['message'])
+                setUserId(data['user']['id'])
+
+                // props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
+                props.updateJobContext({user_id: data['user']['id'], board_job_id: null, submission: null, message: messages})
+                setSenderName(data['user']['name'])
             })
 
             // // const msgChannel = pusher.subscribe('private-msg.' + response.data.authenticatedUser)
@@ -139,17 +153,20 @@ function ShowJob(props) {
 
 
             if(response.data.role == 2) {
-              alert("YES here")
+              setCompanies(response.data.companies)
               const candidateChannel = pusher.subscribe('private-candidate.' + response.data.authenticatedUser)
               console.log("HER IS THE channel")
               console.log(candidateChannel)
               candidateChannel.bind('job-msg', (data) => {
+             
+                messages.push(data['message'])
+
+                setReceivedMessages((prevMessages) => [...prevMessages, data['message']]);
                   alert("NEW MESSAGE")
                   console.log(data)
-                  alert("AFTERWArds")
-                  console.log("PROPS*****")
-                  console.log(props)
-                  props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
+                  setSenderName(data['user']['name'])
+                  // props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
+                  props.updateJobContext({user_id: data['user']['id'], board_job_id: null, submission: null, message: messages})
               })
             }
         })
@@ -194,6 +211,33 @@ function ShowJob(props) {
             setLastPage(response.data.jobs.last_page)
         })
     }
+
+    const sendMessage = (company_id) => {
+
+      setReceivedMessages((prevMessages) => [...prevMessages, message])
+    apiClient.post('http://127.0.0.1:8000/api/send-msg/', {
+          id: Number(company_id),
+          message: message
+         })
+    .then((res) => {
+
+      // setReceivedMessages((prevMessages) => [...prevMessages, context.message])
+
+      // m.push(context.message)
+
+       setMessage('')
+    })
+
+    
+    // messages.push(msg)
+    // messages.push(context.message)
+    // messages.flat()
+
+
+
+  }
+
+  
 
 
 
@@ -350,6 +394,60 @@ function ShowJob(props) {
                         }
                     </div>
                 </div>
+
+                 <div className="card position-absolute" style={{bottom: 0, right: '50px', zIndex: 9, height: '40%', overflow: 'auto'}}>
+      <div className="card-header">
+        By {senderName}
+      </div>
+
+      <div className="card-body">
+
+        {
+          role == 2 ?
+          <select  onChange={(e) => {setRecepient(e.target.value)}}>
+          {
+            companies.map((company) => (
+            <option value={company.id}>{company.title}</option>
+
+            ))
+          }
+        </select>
+
+        :
+
+        <select onChange={(e) => {setUserId(e.target.value)}}>
+          {
+            candidates.map((candidate) => (
+            <option value={candidate.id}>{candidate.name}</option>
+
+            ))
+          }
+        </select>
+        }
+        
+        <div>
+            <label>Your message </label>
+            <textarea onChange={(e) => {setMessage(e.target.value)}} value={message}>
+            </textarea>
+          </div>
+        {
+          receivedMessages?.map((ms) => (
+          <>
+            <p><strong>{senderName}</strong></p>
+            <p>{ms}</p>
+          </>
+          ))
+        }
+
+      </div>
+
+
+          <div className="card-footer">
+            <div className="d-flex justify-content-end">
+              <button onClick={() => {sendMessage( role == 1 ? userId : recepient)}}>Send</button>
+            </div>
+          </div>
+        </div>
 
             </div>
         </div>
