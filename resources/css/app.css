@@ -44,6 +44,10 @@
   width: 100%;
 }
 
+.menubar-links a {
+	font-size: 12px;
+}
+
 @keyframes apply-pbar{
 	from {
 		width: 0%;
