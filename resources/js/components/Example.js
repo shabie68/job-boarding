@@ -14,6 +14,7 @@ import YourJob from './YourJob'
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
 import BoardJobContext from '../contexts/BoardJobContext.js'
+import MessageContext from '../contexts/MessageContext.js'
 import { BrowserRouter, Routes, Link, Route } from "react-router-dom";
 
 function Example() {
@@ -21,9 +22,15 @@ function Example() {
     const [user, setUser] = useState(null)
     const [boardJob, setBoardJob] = useState({user_id: null, board_job_id: null, submission: null, message: null});
 
+    const [messageContext, setMessageContext] = useState([])
+
     const updateJobContext = (newContextValue) => {
         setBoardJob(newContextValue);
     };
+
+    const updateMessageContext= (context) => {
+        setMessageContext(context)
+    }
     const logout = () => {
 
         apiClient.post('http://127.0.0.1:8000/logout').then(response => {
@@ -36,8 +43,9 @@ function Example() {
     return (
 
         <BoardJobContext.Provider value={boardJob} >
+            <MessageContext.Provider value={messageContext}>
             <BrowserRouter>
-                <div className="d-flex justify-content-around bg-secondary w-100 top-0 my-4 py-2 text-light menubar-links">
+                <div className="d-flex justify-content-around bg-secondary w-100 top-0 align-items-center mb-4 text-light menubar-links">
                     <div className="d-flex flex-column align-items-center">
                         <span><svg  width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M22 22L2 22" stroke="#f5f5f5" stroke-width="1.5" stroke-linecap="round"></path> <path d="M2 11L6.06296 7.74968M22 11L13.8741 4.49931C12.7784 3.62279 11.2216 3.62279 10.1259 4.49931L9.34398 5.12486" stroke="#f5f5f5" stroke-width="1.5" stroke-linecap="round"></path> <path d="M15.5 5.5V3.5C15.5 3.22386 15.7239 3 16 3H18.5C18.7761 3 19 3.22386 19 3.5V8.5" stroke="#f5f5f5" stroke-width="1.5" stroke-linecap="round"></path> <path d="M4 22V9.5" stroke="#f5f5f5" stroke-width="1.5" stroke-linecap="round"></path> <path d="M20 9.5V13.5M20 22V17.5" stroke="#f5f5f5" stroke-width="1.5" stroke-linecap="round"></path> <path d="M15 22V17C15 15.5858 15 14.8787 14.5607 14.4393C14.1213 14 13.4142 14 12 14C10.5858 14 9.87868 14 9.43934 14.4393M9 22V17" stroke="#f5f5f5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.39543 10.8954 7.5 12 7.5C13.1046 7.5 14 8.39543 14 9.5Z" stroke="#f5f5f5" stroke-width="1.5"></path> </g></svg></span>
                         <Link className="text-decoration-none text-light" to="/home">Home</Link>
@@ -55,19 +63,23 @@ function Example() {
                     </div>
 
                     <div className="d-flex flex-column align-items-center">
-                        <span><svg fill="#000000" width="20" height="20" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 432.144 432.143" xmlSpace="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M418.6,353.192l-75.125-75.125c-8.295-8.29-18.948-12.765-29.8-13.443l-25.518-25.52 c37.908-60.272,30.656-141.03-21.773-193.459c-60.858-60.86-159.882-60.858-220.74,0 c-60.859,60.858-60.859,159.882,0.002,220.738c52.428,52.435,133.186,59.688,193.461,21.772l25.514,25.519 c0.684,10.852,5.154,21.506,13.445,29.795l75.127,75.128c18.061,18.063,47.342,18.062,65.405-0.002 C436.656,400.539,436.66,371.254,418.6,353.192z M245.861,219.204c-2.193-9.704-5.543-17.818-10.811-19.913l-44.955-17.923 l-10.527-8.87c-2.779-2.35-6.887-2.177-9.465,0.388l-14.637,14.554l-14.676-14.559c-2.582-2.56-6.682-2.726-9.461-0.383 l-10.525,8.87l-44.957,17.926c-5.043,2.008-8.326,9.54-10.518,18.7C36.09,175.248,40.424,116.27,78.346,78.347 c42.822-42.826,112.506-42.826,155.332,0.004C271.963,116.63,276.021,176.367,245.861,219.204z"></path> <path d="M155.631,61.124v-0.01c-0.043,0-0.076,0.006-0.125,0.006v-0.006c-0.014,0-0.037,0-0.051,0.006 c-0.023-0.006-0.045-0.006-0.061-0.006v0.006c-0.047,0-0.08-0.006-0.121-0.006v0.01c-27.947,0.746-45.104,16.564-44.822,44.236 c0.426,39.886,17.229,64.082,44.865,63.658v0.008c0.023,0,0.049,0,0.072,0c0.014,0,0.025,0,0.049,0c0,0,0.006,0,0.018,0h0.012 c0.016,0,0.033,0,0.033,0c0.033,0,0.057,0,0.08,0v-0.008c27.637,0.424,44.443-23.772,44.871-63.658 C200.736,77.688,183.578,61.87,155.631,61.124z"></path> </g> </g> </g> </g></svg></span>
+                        <span><svg fill="#fff" width="20" height="20" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 432.144 432.143" xmlSpace="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M418.6,353.192l-75.125-75.125c-8.295-8.29-18.948-12.765-29.8-13.443l-25.518-25.52 c37.908-60.272,30.656-141.03-21.773-193.459c-60.858-60.86-159.882-60.858-220.74,0 c-60.859,60.858-60.859,159.882,0.002,220.738c52.428,52.435,133.186,59.688,193.461,21.772l25.514,25.519 c0.684,10.852,5.154,21.506,13.445,29.795l75.127,75.128c18.061,18.063,47.342,18.062,65.405-0.002 C436.656,400.539,436.66,371.254,418.6,353.192z M245.861,219.204c-2.193-9.704-5.543-17.818-10.811-19.913l-44.955-17.923 l-10.527-8.87c-2.779-2.35-6.887-2.177-9.465,0.388l-14.637,14.554l-14.676-14.559c-2.582-2.56-6.682-2.726-9.461-0.383 l-10.525,8.87l-44.957,17.926c-5.043,2.008-8.326,9.54-10.518,18.7C36.09,175.248,40.424,116.27,78.346,78.347 c42.822-42.826,112.506-42.826,155.332,0.004C271.963,116.63,276.021,176.367,245.861,219.204z"></path> <path d="M155.631,61.124v-0.01c-0.043,0-0.076,0.006-0.125,0.006v-0.006c-0.014,0-0.037,0-0.051,0.006 c-0.023-0.006-0.045-0.006-0.061-0.006v0.006c-0.047,0-0.08-0.006-0.121-0.006v0.01c-27.947,0.746-45.104,16.564-44.822,44.236 c0.426,39.886,17.229,64.082,44.865,63.658v0.008c0.023,0,0.049,0,0.072,0c0.014,0,0.025,0,0.049,0c0,0,0.006,0,0.018,0h0.012 c0.016,0,0.033,0,0.033,0c0.033,0,0.057,0,0.08,0v-0.008c27.637,0.424,44.443-23.772,44.871-63.658 C200.736,77.688,183.578,61.87,155.631,61.124z"></path> </g> </g> </g> </g></svg></span>
                         <Link className="text-decoration-none text-light" to="/your-jobs">Your jobs</Link>
                     </div>
                     
                     
-                    <div onClick={logout} className=" text-light" style={{ cursor: 'pointer'}}>
-                        Logout
+                    <div className="d-flex flex-column align-items-center">
+                        <span><svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21 12L13 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M18 15L20.913 12.087V12.087C20.961 12.039 20.961 11.961 20.913 11.913V11.913L18 9" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M16 5V4.5V4.5C16 3.67157 15.3284 3 14.5 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H14.5C15.3284 21 16 20.3284 16 19.5V19.5V19" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></span>
+                        <div onClick={logout} className=" text-light" style={{ cursor: 'pointer'}}>
+                            Logout
+                        </div>
                     </div>
+                    
                 </div>
             
                 <div className="container">
                     <Routes>
-                        <Route path="/home" element={<ShowJob user={user} updateJobContext={updateJobContext}/>} />
+                        <Route path="/home" element={<ShowJob user={user} updateMessageContext={updateMessageContext} updateJobContext={updateJobContext}/>} />
                         <Route path="/add-job" element={<AddJob />} />
                         <Route path="/companies" element={<Company />} />
                         <Route path="/add-company" element={<AddCompany />} />
@@ -82,6 +94,7 @@ function Example() {
                 </div>
 
             </BrowserRouter>
+            </MessageContext.Provider>
             
         </BoardJobContext.Provider>
     

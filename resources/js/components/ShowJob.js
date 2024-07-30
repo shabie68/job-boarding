@@ -1,8 +1,9 @@
 import {Link, useLocation} from "react-router-dom";
 
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import SingleJob from './SingleJob'
 import apiClient from '../services/apiClient';
+import MessageContext from '../contexts/MessageContext';
 import Pusher from 'pusher-js';
 // import {Pusher} from 'https://js.pusher.com/8.0.1/pusher.min.js'
 
@@ -38,6 +39,8 @@ function ShowJob(props) {
     const [message, setMessage] = useState('')
     const [companies, setCompanies] = useState([])
 
+    const msgContext = useContext(MessageContext)
+
     let messages = [];
 
 
@@ -58,8 +61,6 @@ function ShowJob(props) {
 
         }
       });
-
-
 
 
       const channelSubscription = () => {
@@ -135,6 +136,8 @@ function ShowJob(props) {
                 // messages.push(data['message'])
                 setUserId(data['user']['id'])
 
+                props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
+
                 // props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
                 props.updateJobContext({user_id: data['user']['id'], board_job_id: null, submission: null, message: messages})
                 setSenderName(data['user']['name'])
@@ -163,6 +166,7 @@ function ShowJob(props) {
                 messages.push(data['message'])
 
                 setReceivedMessages((prevMessages) => [...prevMessages, data['message']]);
+                props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
                   alert("NEW MESSAGE")
                   console.log(data)
                   setSenderName(data['user']['name'])
@@ -216,6 +220,8 @@ function ShowJob(props) {
     const sendMessage = (company_id) => {
 
       setReceivedMessages((prevMessages) => [...prevMessages, message])
+      // props.updateMessageContext((prevMessages) => [...prevMessages, message])
+      props.updateMessageContext((prevObj) => [...prevObj, {senderName: senderName, message: message}])
     apiClient.post('http://127.0.0.1:8000/api/send-msg/', {
           id: Number(company_id),
           message: message
@@ -464,8 +470,12 @@ function ShowJob(props) {
                 </div>
 
                 }
+
+
+
                   
             </div>
+            {JSON.stringify(msgContext)} is the context
         </div>
     )
 }
