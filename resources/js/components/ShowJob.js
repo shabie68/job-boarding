@@ -136,10 +136,11 @@ function ShowJob(props) {
                 // messages.push(data['message'])
                 setUserId(data['user']['id'])
 
-                props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
+                // props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
+                 props.updateMessageContext((prevObj) => [...prevObj, {senderName: data['user']['name'], message: data['message']}])
 
                 // props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
-                props.updateJobContext({user_id: data['user']['id'], board_job_id: null, submission: null, message: messages})
+                props.updateJobContext({user_id: data['user']['id'], board_job_id: null, submission: null, message: data['messages']})
                 setSenderName(data['user']['name'])
             })
 
@@ -166,7 +167,8 @@ function ShowJob(props) {
                 messages.push(data['message'])
 
                 setReceivedMessages((prevMessages) => [...prevMessages, data['message']]);
-                props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
+                // props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
+                 props.updateMessageContext((prevObj) => [...prevObj, {senderName: data['user']['name'], message: data['message']}])
                   alert("NEW MESSAGE")
                   console.log(data)
                   setSenderName(data['user']['name'])
@@ -221,25 +223,18 @@ function ShowJob(props) {
 
       setReceivedMessages((prevMessages) => [...prevMessages, message])
       // props.updateMessageContext((prevMessages) => [...prevMessages, message])
-      props.updateMessageContext((prevObj) => [...prevObj, {senderName: senderName, message: message}])
+      props.updateMessageContext((prevObj) => [...prevObj, {senderName: 'You', message: message}])
     apiClient.post('http://127.0.0.1:8000/api/send-msg/', {
           id: Number(company_id),
           message: message
          })
     .then((res) => {
 
-      // setReceivedMessages((prevMessages) => [...prevMessages, context.message])
-
-      // m.push(context.message)
 
        setMessage('')
     })
 
     
-    // messages.push(msg)
-    // messages.push(context.message)
-    // messages.flat()
-
 
 
   }
@@ -445,16 +440,14 @@ function ShowJob(props) {
                     </select>
                     }
                     
-                    <div>
-                        <label>Your message </label>
-                        <textarea onChange={(e) => {setMessage(e.target.value)}} value={message}>
-                        </textarea>
-                      </div>
+                    
+                   
+
                     {
-                      receivedMessages?.map((ms) => (
+                      msgContext?.map((msg) => (
                       <>
-                        <p><strong>{senderName}</strong></p>
-                        <p>{ms}</p>
+                        <div className="my-2"><strong>{msg.senderName}</strong></div>
+                        <div>{msg.message}</div>
                       </>
                       ))
                     }
@@ -463,6 +456,14 @@ function ShowJob(props) {
 
 
                   <div className="card-footer">
+                    <div className="d-flex align-items-center gap-3 mb-4">
+                      <label>Your message </label>
+                      <textarea onChange={(e) => {setMessage(e.target.value)}} value={message}>
+                      </textarea>
+                    </div>
+
+
+
                     <div className="d-flex justify-content-end">
                       <button onClick={() => {sendMessage( role == 1 ? userId : recepient)}}>Send</button>
                     </div>
@@ -475,7 +476,8 @@ function ShowJob(props) {
 
                   
             </div>
-            {JSON.stringify(msgContext)} is the context
+
+
         </div>
     )
 }

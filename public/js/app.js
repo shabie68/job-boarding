@@ -13131,8 +13131,13 @@ function ShowJob(props) {
         });
         // messages.push(data['message'])
         setUserId(data['user']['id']);
-        props.updateMessageContext(function (prevMessages) {
-          return [].concat(_toConsumableArray(prevMessages), [data['message']]);
+
+        // props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
+        props.updateMessageContext(function (prevObj) {
+          return [].concat(_toConsumableArray(prevObj), [{
+            senderName: data['user']['name'],
+            message: data['message']
+          }]);
         });
 
         // props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
@@ -13140,7 +13145,7 @@ function ShowJob(props) {
           user_id: data['user']['id'],
           board_job_id: null,
           submission: null,
-          message: messages
+          message: data['messages']
         });
         setSenderName(data['user']['name']);
       });
@@ -13166,8 +13171,12 @@ function ShowJob(props) {
           setReceivedMessages(function (prevMessages) {
             return [].concat(_toConsumableArray(prevMessages), [data['message']]);
           });
-          props.updateMessageContext(function (prevMessages) {
-            return [].concat(_toConsumableArray(prevMessages), [data['message']]);
+          // props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
+          props.updateMessageContext(function (prevObj) {
+            return [].concat(_toConsumableArray(prevObj), [{
+              senderName: data['user']['name'],
+              message: data['message']
+            }]);
           });
           alert("NEW MESSAGE");
           console.log(data);
@@ -13252,7 +13261,7 @@ function ShowJob(props) {
     // props.updateMessageContext((prevMessages) => [...prevMessages, message])
     props.updateMessageContext(function (prevObj) {
       return [].concat(_toConsumableArray(prevObj), [{
-        senderName: senderName,
+        senderName: 'You',
         message: message
       }]);
     });
@@ -13260,16 +13269,8 @@ function ShowJob(props) {
       id: Number(company_id),
       message: message
     }).then(function (res) {
-      // setReceivedMessages((prevMessages) => [...prevMessages, context.message])
-
-      // m.push(context.message)
-
       setMessage('');
     });
-
-    // messages.push(msg)
-    // messages.push(context.message)
-    // messages.flat()
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     children: [users ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
@@ -13577,7 +13578,22 @@ function ShowJob(props) {
                 children: candidate.name
               });
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }), msgContext === null || msgContext === void 0 ? void 0 : msgContext.map(function (msg) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                className: "my-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+                  children: msg.senderName
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                children: msg.message
+              })]
+            });
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "card-footer",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "d-flex align-items-center gap-3 mb-4",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
               children: "Your message "
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
@@ -13586,20 +13602,7 @@ function ShowJob(props) {
               },
               value: message
             })]
-          }), receivedMessages === null || receivedMessages === void 0 ? void 0 : receivedMessages.map(function (ms) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
-                  children: senderName
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-                children: ms
-              })]
-            });
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "card-footer",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "d-flex justify-content-end",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
               onClick: function onClick() {
@@ -13607,10 +13610,10 @@ function ShowJob(props) {
               },
               children: "Send"
             })
-          })
+          })]
         })]
       })]
-    }), JSON.stringify(msgContext), " is the context"]
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ShowJob);
