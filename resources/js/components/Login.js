@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 import apiClient from '../services/apiClient';
 import Example from './Example'
+
  
 const Login = (props) => {
 
@@ -30,20 +31,20 @@ const Login = (props) => {
     }
     return (
 
-        <div>
+        <div className="bg-one h-100vh">
             <div className="container pt-4">
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <div className="card">
-                            <div className="card-header">
+                <div className="row justify-content-center w-75 m-auto">
+                    <div className="col-md-6">
+                        <div className="bj-border bj-border-radius p-3">
+                            <div className="bg-one">
                                 Login
                             </div>
 
-                            <div className="card-body">
+                            <div className="card-body bg-one">
                                 <form onSubmit={handleSubmit}>
                                     <div className="row mb-3">
-                                        <label htmlFor="email" className="col-md-4 col-form-label text-md-end">Email Address</label>
-                                        <div className="col-md-6">
+                                        <label htmlFor="email" className="col-form-label"></label>
+                                        <div className="col-md-12">
                                             <input
                                                 type="email"
                                                 name="email"
@@ -51,14 +52,14 @@ const Login = (props) => {
                                                 value={email}
                                                 onChange={e => setEmail(e.target.value)}
                                                 required
-                                                className="form-control"
+                                                className="bj-input bg-one"
                                             />
                                         </div>
                                     </div>
 
                                     <div className="row mb-3">
-                                        <label htmlFor="email" className="col-md-4 col-form-label text-md-end">Password</label>
-                                        <div className="col-md-6">
+                                        <label htmlFor="email" className="col-form-label"></label>
+                                        <div className="col-md-12">
                                             <input
                                                 type="password"
                                                 name="password"
@@ -66,14 +67,14 @@ const Login = (props) => {
                                                 value={password}
                                                 onChange={e => setPassword(e.target.value)}
                                                 required
-                                                className="form-control"
+                                                className="bj-input bg-one"
                                             />
                                         </div>
                                     </div>
 
-                                    <div className="row mb-0">
-                                        <div className="col-md-8 offset-md-4">
-                                            <button type="submit" className="btn btn-primary">
+                                    <div className="row my-2">
+                                        <div className="">
+                                            <button type="submit" className="btn bg-two text-prime w-100">
                                                 {
                                                     !loading ?
                                                     <div>
@@ -87,6 +88,17 @@ const Login = (props) => {
                                                 }
                                             </button>
                                         </div>
+                                    </div>
+
+                                    <div className="d-flex align-items-center mb-2">
+                                        <span className="bj-w-40 bg-3" ></span>
+                                        <span className="bj-w-20 text-center">Or</span>
+                                        <span className="bj-w-40 bg-3"></span>
+                                    </div>
+
+                                    <div className="d-flex justify-content-center gap-2">
+                                        <span>Don't have an account?</span>
+                                        <a href="/register">Register</a>
                                     </div>
                                 </form>
                             </div>

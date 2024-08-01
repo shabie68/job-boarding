@@ -254,48 +254,6 @@ function ShowJob(props) {
 
     return(
         <div>
-
-          {
-            users ?
-            <select value={selectedUser} onChange={(e) => {setSelectedUser(e.target.value)}}>    
-              {
-                users.map((user) => (
-                <option key={user.id} value={user.id}>{user.name}</option>
-              ))
-            }
-
-            </select>
-            : ''
-          }
-
-          <button onClick={startChat}>Start conversation</button>
-
-
-          <div>
-            <label>Your message </label>
-            <textarea onChange={(e) => {setMessage(e.target.value)}} value={message}>
-            </textarea>
-          </div>
-
-
-          {
-            isMsgReceived?
-            receivedMessage.map((msg) => (
-              <div style={{background: 'lightslategrey'}}>
-                <span>By {senderName}</span>
-                <div>
-                  {msg}
-                </div>
-                
-
-               </div>
-
-              ))
-            :''
-            }
-          
-
-
             <div className="d-sm-block d-lg-flex justify-content-lg-center">
                 <div>
                     <div className="input-group mb-3">
@@ -490,5 +448,13 @@ function ShowJob(props) {
         </div>
     )
 }
+/**
+Below are the three colors that will be used in your website
+#4f4a47 primary color
+#238a85 secondary color
+#f7fffe background color
+
+
+**/
 
 export default ShowJob
