@@ -13,7 +13,7 @@ function ShowJob(props) {
     const [success, setSuccess] = useState(false)
     const [userName, setUserName] = useState("")
     const [receivedMessages, setReceivedMessages] = useState([])
-    const [recepient, setRecepient] = useState('')
+    const [recepient, setRecepient] = useState(companies ? companies[0].id : null)
     const [userId, setUserId] = useState(-1)
     const [showMessage, setShowMessage] = useState(false)
 
@@ -189,6 +189,12 @@ function ShowJob(props) {
         setSuccess(false)
       }, 3000)
 
+      if(role == 1) {
+        setCandidates((prevCandidates) => [...prevCandidates, {user_id: userId, name: senderName}])
+      }
+
+
+
 
 
 
@@ -220,6 +226,9 @@ function ShowJob(props) {
     }
 
     const sendMessage = (company_id) => {
+      if(!company_id) {
+        company_id = companies[0]?.id
+      }
 
       setReceivedMessages((prevMessages) => [...prevMessages, message])
       // props.updateMessageContext((prevMessages) => [...prevMessages, message])

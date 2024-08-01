@@ -12969,7 +12969,7 @@ function ShowJob(props) {
     _useState6 = _slicedToArray(_useState5, 2),
     receivedMessages = _useState6[0],
     setReceivedMessages = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(companies ? companies[0].id : null),
     _useState8 = _slicedToArray(_useState7, 2),
     recepient = _useState8[0],
     setRecepient = _useState8[1];
@@ -13201,6 +13201,14 @@ function ShowJob(props) {
     setTimeout(function () {
       setSuccess(false);
     }, 3000);
+    if (role == 1) {
+      setCandidates(function (prevCandidates) {
+        return [].concat(_toConsumableArray(prevCandidates), [{
+          user_id: userId,
+          name: senderName
+        }]);
+      });
+    }
   }, [currentPage, selectedUser]);
   function getJob(_x) {
     return _getJob.apply(this, arguments);
@@ -13255,6 +13263,10 @@ function ShowJob(props) {
     return _filterJobs.apply(this, arguments);
   }
   var sendMessage = function sendMessage(company_id) {
+    if (!company_id) {
+      var _companies$;
+      company_id = (_companies$ = companies[0]) === null || _companies$ === void 0 ? void 0 : _companies$.id;
+    }
     setReceivedMessages(function (prevMessages) {
       return [].concat(_toConsumableArray(prevMessages), [message]);
     });
