@@ -243,13 +243,7 @@ function ShowJob(props) {
        setMessage('')
     })
 
-    
-
-
   }
-
-  
-
 
 
     return(
@@ -273,7 +267,7 @@ function ShowJob(props) {
                           onChange={(e)=>{setJobTitle(e.target.value)}}
                         />
 
-                       <button className="btn btn-secondary" onClick={() => getJobs(true, 'first-time')}>Search Job</button>
+                       <button className="btn bg-two text-prime" onClick={() => getJobs(true, 'first-time')}>Search Job</button>
                     </div>
 
                 </div>
@@ -301,7 +295,7 @@ function ShowJob(props) {
                             <h1 className="mb-0">Jobs</h1>
                              <div className="">
                                 <Link to="/add-job">
-                                    <button type="button" className="btn btn-primary mb-4">
+                                    <button type="button" className="btn bg-three text-prime mb-4">
                                         Add Job
                                     </button>
                                 </Link>

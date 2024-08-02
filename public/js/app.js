@@ -11239,7 +11239,7 @@ function Example() {
       value: messageContext,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.BrowserRouter, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
-          className: "d-flex justify-content-around bg-secondary w-100 top-0 align-items-center mb-4 text-light menubar-links",
+          className: "d-flex justify-content-around bg-two w-100 top-0 align-items-center mb-4 text-light menubar-links",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
             className: "d-flex flex-column align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("span", {
@@ -13333,7 +13333,7 @@ function ShowJob(props) {
               setJobTitle(e.target.value);
             }
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-            className: "btn btn-secondary",
+            className: "btn bg-two text-prime",
             onClick: function onClick() {
               return getJobs(true, 'first-time');
             },
@@ -13364,7 +13364,7 @@ function ShowJob(props) {
               to: "/add-job",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 type: "button",
-                className: "btn btn-primary mb-4",
+                className: "btn bg-three text-prime mb-4",
                 children: "Add Job"
               })
             })
@@ -13701,7 +13701,7 @@ function SingleJob(props) {
                   job: props.job
                 },
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-                  className: "btn btn-secondary",
+                  className: "btn bg-two",
                   children: "Apply"
                 })
               })

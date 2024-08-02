@@ -12049,6 +12049,10 @@ textarea.form-control-lg {
 	border-radius: 10px;
 }
 
+.bg-three {
+	background-color: #238a85;
+}
+
 .bg-3 {
 	background-color: #238a85;
 	height: 1px;
