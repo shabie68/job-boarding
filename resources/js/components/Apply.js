@@ -99,7 +99,7 @@ function Apply(props) {
       <div className="w-lg-50" style={{margin: '0 auto'}}>
         <h2>Personal Information</h2>
         <form onSubmit={formik.handleSubmit}>
-          <div className="card">
+          <div className="card bg-one">
             <div className="card-body">
               
                 <div className="">
@@ -112,7 +112,7 @@ function Apply(props) {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       required
-                      className="form-control"
+                      className="bj-input bg-one"
                     />
                   </div>
                   {formik.touched.firstName && formik.errors.firstName ? (
@@ -129,7 +129,7 @@ function Apply(props) {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       required
-                      className="form-control"
+                      className="bj-input bg-one"
                     />
                   </div>
                   {formik.touched.lastName && formik.errors.lastName ? (
@@ -146,7 +146,7 @@ function Apply(props) {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       required
-                      className="form-control"
+                      className="bj-input bg-one"
                     />
                   </div>
                   {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
@@ -163,7 +163,7 @@ function Apply(props) {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       required
-                      className="form-control"
+                      className="bj-input bg-one"
                     />
                   </div>
                   {formik.touched.email && formik.errors.email ? (
@@ -176,7 +176,7 @@ function Apply(props) {
 
        
         <div className="mt-2 text-end">
-          <button type="submit" className="btn btn-primary">Continue</button>
+          <button type="submit" className="btn bg-two text-prime">Continue</button>
         </div>
       </form>
 

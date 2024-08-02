@@ -32,18 +32,9 @@ class BoardJobController extends Controller
     }
 
     public function show(Request $request) {
-        // event(new \App\Events\StatusLiked("HELLO"));
-        
-        // auth()->user()->notify(new ApplicationSubmitted(auth()->user()->name));
-        // \App\Models\User::find(1)->notify(new ApplicationSubmitted(auth()->user()->name));
-        // \App\Models\User::find(5)->notify(new ApplicationSubmitted(auth()->user()->name));
-        
 
         $jobs = null;
         
-
-
-        // event(new \App\Events\StatusLiked(auth()->user()->name));
         $submissions = Submission::where("user_id", auth()->user()->id);
                                 
         $companyIds = $submissions->pluck("company_id");

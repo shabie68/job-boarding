@@ -292,7 +292,7 @@ function ShowJob(props) {
                         role == 1 ?
 
                         <div className="d-lg-flex justify-content-lg-between my-4 border-bottom">
-                            <h1 className="mb-0">Jobs</h1>
+                            <h1 className="mb-0 text-two">Jobs</h1>
                              <div className="">
                                 <Link to="/add-job">
                                     <button type="button" className="btn bg-three text-prime mb-4">
@@ -306,14 +306,14 @@ function ShowJob(props) {
 
 
                     <div className="d-sm-block d-lg-flex gap-3">
-                         <div className="w-40 jb-sm-card-w jb-lg-card-w jb-jobs">
+                         <div className="w-40 jb-sm-card-w bg-one jb-lg-card-w jb-jobs">
                             {jobs.map(_job => (
 
-                               <div className={`card mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
+                               <div className={`card bg-one mb-4 ${job?.id === _job.id ? "border border-primary" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
                                onClick={()=> {getJob(_job.id)}}>
                                 <div className="d-flex card-header align-items-center">
                                     <h3 className="">{_job.title}</h3>
-                                    <strong className="ml-end" style={{marginLeft: 'auto'}}>{company}</strong>
+                                    <strong className="ml-end" style={{marginLeft: 'auto'}}>{company?.title}</strong>
                                 </div>
 
                                  <div className="card-body">

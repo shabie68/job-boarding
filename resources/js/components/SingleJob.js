@@ -19,7 +19,7 @@ function SingleJob(props) {
             </span>
 
 			<div className="d-lg-block position-sticky end-0" style={{top: '80px', alignSelf: 'flex-start'}} >
-				<div className="card">
+				<div className="card bg-one">
 					<div className="card-header">
 						<div className="">
 							<h3>{props?.job.title}</h3>
@@ -38,12 +38,12 @@ function SingleJob(props) {
 							</div>
 
 							<div className="ms-auto">
-								<Link to="/apply" state={{job: props.job}}><button className="btn bg-two">Apply</button></Link>
+								<Link to="/apply" state={{job: props.job}}><button className="btn bg-two text-prime">Apply</button></Link>
 							</div>
 						</div>
 					</div>
 				
-					<div className="card-body overflow-auto position-sticky" style={{height: '400px'}}>
+					<div className="card-body bg-one overflow-auto position-sticky" style={{height: '400px'}}>
 						<div dangerouslySetInnerHTML={{__html:props.job.description}}></div>
 
 						<div dangerouslySetInnerHTML={{__html:props.job.responsibilities}} />
