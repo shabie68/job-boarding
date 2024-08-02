@@ -69,6 +69,10 @@
 	color: #f7fffe;
 }
 
+.text-two {
+	color: #4f4a47;
+}
+
 .m-auto {
 	margin: 0 auto;
 }
@@ -79,6 +83,15 @@
 
 .bj-border-radius {
 	border-radius: 10px;
+}
+
+.bg-three {
+	background-color: #238a85;
+}
+
+.bg-three:hover {
+	background-color: #1b7874;
+	color: #f7fffe;
 }
 
 .bg-3 {
