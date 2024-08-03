@@ -39,19 +39,19 @@ const Register = (props) => {
 
         <div>
             <div className="container pt-4">
-                <div className="row justify-content-center">
+                <div className="row justify-content-center w-75 m-auto">
                     <div className="col-md-8">
-                        <div className="card">
-                            <div className="card-header">
+                        <div className="bj-border bj-border-radius p-3 bg-one">
+                            <h3>
                                 Register
-                            </div>
+                            </h3>
 
-                            <div className="card-body">
+                            <div className="">
                                 <form onSubmit={handleSubmit}>
 
                                 	<div className="row mb-3">
-                                        <label htmlFor="name" className="col-md-4 col-form-label text-md-end">Name</label>
-                                        <div className="col-md-6">
+                                        <label htmlFor="name" className="col-form-label text-md-end"></label>
+                                        <div className="col-md-12">
                                             <input
                                                 type="text"
                                                 name="name"
@@ -59,14 +59,14 @@ const Register = (props) => {
                                                 value={name}
                                                 onChange={e => setName(e.target.value)}
                                                 required
-                                                className="form-control"
+                                                className="bj-input bg-one"
                                             />
                                         </div>
                                     </div>
 
                                     <div className="row mb-3">
-                                        <label htmlFor="email" className="col-md-4 col-form-label text-md-end">Email Address</label>
-                                        <div className="col-md-6">
+                                        <label htmlFor="email" className="col-form-label text-md-end"></label>
+                                        <div className="col-md-12">
                                             <input
                                                 type="email"
                                                 name="email"
@@ -74,14 +74,14 @@ const Register = (props) => {
                                                 value={email}
                                                 onChange={e => setEmail(e.target.value)}
                                                 required
-                                                className="form-control"
+                                                className="bj-input bg-one"
                                             />
                                         </div>
                                     </div>
 
                                     <div className="row mb-3">
-                                        <label htmlFor="email" className="col-md-4 col-form-label text-md-end">Password</label>
-                                        <div className="col-md-6">
+                                        <label htmlFor="email" className="col-form-label text-md-end"></label>
+                                        <div className="col-md-12">
                                             <input
                                                 type="password"
                                                 name="password"
@@ -89,7 +89,7 @@ const Register = (props) => {
                                                 value={password}
                                                 onChange={e => setPassword(e.target.value)}
                                                 required
-                                                className="form-control"
+                                                className="bj-input bg-one"
                                                 required
                                                 autoComplete="new-password"
                                             />
@@ -97,26 +97,27 @@ const Register = (props) => {
                                     </div>
 
                                     <div className="row mb-3">
-			                            <label htmlFor="password-confirm" className="col-md-4 col-form-label text-md-end">Confirm Password</label>
+			                            <label htmlFor="password-confirm" className="col-form-label text-md-end"></label>
 
-			                            <div className="col-md-6">
+			                            <div className="col-md-12">
 			                                <input 
 			                                	type="password"
                                                 placeholder="Confirm Password"
                                                 value={password_confirmation}
                                                 onChange={e => setPasswordConfirmation(e.target.value)}
                                                 required
-                                                className="form-control"
+                                                className="bj-input bg-one"
 			                               		name="password_confirmation" 
 			                               		required 
 			                               		autoComplete="new-password" />
 			                            </div>
 			                        </div>
 
-                                    <div className="row">
-                                        <div className="col-md-4 col-form-label text-md-end"> Role: </div>
 
-                                        <div className="col-md-6 d-flex gap-4 align-items-center">
+                                    <div className="row">
+                                        <div className="col-md-1 col-form-label"> Role: </div>
+
+                                        <div className="col-md-11 d-flex gap-4 align-items-center">
                                             <div className="form-check">
                                               <input className="form-check-input" type="radio" name="account_type" id="recruiter" onChange={(e) => {setRole(e.target.value)}} value="1" checked={role== 1 ? true : false} />
                                               <label className="form-check-label" htmlFor="recruiter">
@@ -135,9 +136,9 @@ const Register = (props) => {
                                     
 
                                     <div className="row mb-0">
-                                        <div className="col-md-8 offset-md-4">
+                                        <div className="col-md-12 text-end">
 
-                                            <button type="submit" className="btn btn-primary">
+                                            <button type="submit" className="btn bg-two text-prime">
                                                 {
                                                     !loading ?
                                                     <div>

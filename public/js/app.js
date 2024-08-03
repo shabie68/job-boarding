@@ -9556,7 +9556,7 @@ function AddCompany() {
                 children: "Locations"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
                 type: "text",
-                className: "form-control",
+                className: "bj-input bg-one",
                 id: "locations",
                 "aria-describedby": "locationHelp",
                 placeholder: "Enter locations",
@@ -9607,7 +9607,7 @@ function AddCompany() {
                 id: "websiteUrl",
                 name: "websiteUrl",
                 type: "text",
-                className: "form-control",
+                className: "bj-input bg-one",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.websiteUrl
@@ -9626,8 +9626,7 @@ function AddCompany() {
                 id: "email",
                 name: "email",
                 type: "email",
-                className: "form-control",
-                onChange: formik.handleChange,
+                className: "bj-input bg-one",
                 onBlur: formik.handleBlur,
                 value: formik.values.email
               }), formik.touched.email && formik.errors.email ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -9645,7 +9644,7 @@ function AddCompany() {
                 id: "totalEmployees",
                 name: "totalEmployees",
                 type: "number",
-                className: "form-control",
+                className: "bj-input bg-one",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.totalEmployees
@@ -9664,7 +9663,7 @@ function AddCompany() {
                 id: "phoneNumber",
                 name: "phoneNumber",
                 type: "tel",
-                className: "form-control",
+                className: "bj-input bg-one",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.phoneNumber
@@ -9729,7 +9728,7 @@ function AddCompany() {
             className: "col-md-8 offset-md-4 ",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", _defineProperty(_defineProperty({
               type: "button",
-              className: "btn btn-primary"
+              className: "btn bg-two text-prime"
             }, "type", "submit"), "children", !loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
               children: "Save"
             }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -10520,6 +10519,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Company() {
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
     companies = _useState2[0],
@@ -10577,6 +10577,13 @@ function Company() {
   var prev = function prev() {
     setCurrentPage(currentPage - 1);
   };
+  var singleCompany = function singleCompany(company) {
+    navigate('show-company/' + company.id, {
+      state: {
+        company: company
+      }
+    });
+  };
   function addReview(id) {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/company/add-review/' + id, {
       feedback: feedback
@@ -10611,7 +10618,7 @@ function Company() {
               to: "/add-company",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 type: "button",
-                className: "btn btn-primary mb-4",
+                className: "btn bg-two text-prime mb-4",
                 children: "Add Company"
               })
             })
@@ -10634,6 +10641,9 @@ function Company() {
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                     className: "w-75",
+                    onClick: function onClick() {
+                      singleCompany(company);
+                    },
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
                       className: "",
                       children: company.title
@@ -10644,7 +10654,7 @@ function Company() {
                       })
                     }), !JSON.parse(company.feedback) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                       type: "button",
-                      className: "btn btn-secondary",
+                      className: "btn bg-two text-prime",
                       "data-bs-toggle": "modal",
                       "data-bs-target": "#exampleModal-" + company.id,
                       children: "Add Review"
@@ -11074,13 +11084,13 @@ function Company() {
                         className: "modal-footer",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                           type: "button",
-                          className: "btn btn-secondary",
+                          className: "btn bg-two text-prime",
                           "data-bs-dismiss": "modal",
                           children: "Cancel"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                           type: "button",
                           id: 'company-' + company.id,
-                          className: "btn btn-primary",
+                          className: "btn bg-three text-prime",
                           onClick: function onClick() {
                             document.querySelector("#company-".concat(company.id)).setAttribute('data-bs-dismiss', 'modal');
                             addReview(company.id);
@@ -11171,18 +11181,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddCompany__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./AddCompany */ "./resources/js/components/AddCompany.js");
 /* harmony import */ var _Profile__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Profile */ "./resources/js/components/Profile.js");
 /* harmony import */ var _YourJob__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./YourJob */ "./resources/js/components/YourJob.js");
-/* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
-/* harmony import */ var _contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../contexts/BoardJobContext.js */ "./resources/js/contexts/BoardJobContext.js");
-/* harmony import */ var _contexts_MessageContext_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../contexts/MessageContext.js */ "./resources/js/contexts/MessageContext.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _SingleCompany__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./SingleCompany */ "./resources/js/components/SingleCompany.js");
+/* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
+/* harmony import */ var _contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../contexts/BoardJobContext.js */ "./resources/js/contexts/BoardJobContext.js");
+/* harmony import */ var _contexts_MessageContext_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../contexts/MessageContext.js */ "./resources/js/contexts/MessageContext.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -11227,85 +11239,85 @@ function Example() {
     setMessageContext(context);
   };
   var logout = function logout() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_13__["default"].post('http://127.0.0.1:8000/logout').then(function (response) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_14__["default"].post('http://127.0.0.1:8000/logout').then(function (response) {
       if (response.status === 204) {
         window.location = '/login';
       }
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_14__["default"].Provider, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_15__["default"].Provider, {
     value: boardJob,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_contexts_MessageContext_js__WEBPACK_IMPORTED_MODULE_15__["default"].Provider, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_contexts_MessageContext_js__WEBPACK_IMPORTED_MODULE_16__["default"].Provider, {
       value: messageContext,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.BrowserRouter, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.BrowserRouter, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
           className: "d-flex justify-content-around bg-two w-100 top-0 align-items-center mb-4 text-light menubar-links",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
             className: "d-flex flex-column align-items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("span", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("svg", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("svg", {
                 width: "20",
                 height: "20",
                 viewBox: "0 0 24 24",
                 fill: "none",
                 xmlns: "http://www.w3.org/2000/svg",
                 stroke: "#ffffff",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("g", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
                   "stroke-width": "0"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("g", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
                   "stroke-linecap": "round",
                   "stroke-linejoin": "round"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("g", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M22 22L2 22",
                     stroke: "#f5f5f5",
                     "stroke-width": "1.5",
                     "stroke-linecap": "round"
-                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M2 11L6.06296 7.74968M22 11L13.8741 4.49931C12.7784 3.62279 11.2216 3.62279 10.1259 4.49931L9.34398 5.12486",
                     stroke: "#f5f5f5",
                     "stroke-width": "1.5",
                     "stroke-linecap": "round"
-                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M15.5 5.5V3.5C15.5 3.22386 15.7239 3 16 3H18.5C18.7761 3 19 3.22386 19 3.5V8.5",
                     stroke: "#f5f5f5",
                     "stroke-width": "1.5",
                     "stroke-linecap": "round"
-                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M4 22V9.5",
                     stroke: "#f5f5f5",
                     "stroke-width": "1.5",
                     "stroke-linecap": "round"
-                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M20 9.5V13.5M20 22V17.5",
                     stroke: "#f5f5f5",
                     "stroke-width": "1.5",
                     "stroke-linecap": "round"
-                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M15 22V17C15 15.5858 15 14.8787 14.5607 14.4393C14.1213 14 13.4142 14 12 14C10.5858 14 9.87868 14 9.43934 14.4393M9 22V17",
                     stroke: "#f5f5f5",
                     "stroke-width": "1.5",
                     "stroke-linecap": "round",
                     "stroke-linejoin": "round"
-                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.39543 10.8954 7.5 12 7.5C13.1046 7.5 14 8.39543 14 9.5Z",
                     stroke: "#f5f5f5",
                     "stroke-width": "1.5"
                   }), " "]
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Link, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Link, {
               className: "text-decoration-none text-light",
               to: "/home",
               children: "Home"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
             className: "d-flex flex-column align-items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("span", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("svg", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("svg", {
                 width: "20",
                 height: "20",
                 fill: "#fff",
@@ -11316,29 +11328,29 @@ function Example() {
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 256 256",
                 xmlSpace: "preserve",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("g", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
                   "stroke-width": "0"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("g", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
                   "stroke-linecap": "round",
                   "stroke-linejoin": "round"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("g", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M129.9,54.3v-13H151V22.1h-21.1v-3.8h-3.8v3.8v19.2v13L81,91.1h94L129.9,54.3z M128,85.2c-5.4,0-9.8-4.4-9.8-9.8 s4.4-9.8,9.8-9.8c5.4,0,9.8,4.4,9.8,9.8S133.4,85.2,128,85.2z M243.5,232l0.2-76H175V95h-47H81v61H12.2l0.2,76H5.3v21.2H128h122.7 V232H243.5z M34.5,224.3h-9.6v-52.1h9.6V224.3z M51.8,224.3h-9.6v-52.1h9.6C51.8,172.2,51.8,224.3,51.8,224.3z M69,224.3h-9.6v-52.1 H69V224.3z M107.9,235.8H94.4V124h13.4L107.9,235.8L107.9,235.8z M134.7,235.8H128h-6.7V124h6.7h6.7V235.8z M161.6,235.8h-13.4V124 h13.4V235.8z M196.6,224.3H187v-52.1h9.6V224.3z M213.8,224.3h-9.6v-52.1h9.6V224.3z M231.1,224.3h-9.6v-52.1h9.6V224.3z"
                   }), " "]
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Link, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Link, {
               className: "text-decoration-none text-light",
               to: "/companies",
               children: "Companies"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
             className: "d-flex flex-column align-items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("span", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("svg", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("svg", {
                 width: "20",
                 height: "20",
                 viewBox: "0 0 20 20",
@@ -11346,35 +11358,35 @@ function Example() {
                 xmlns: "http://www.w3.org/2000/svg",
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 fill: "#000000",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("g", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
                   "stroke-width": "0"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("g", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
                   "stroke-linecap": "round",
                   "stroke-linejoin": "round"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("g", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("title", {
+                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("title", {
                     children: "profile_round [#ffffff]"
-                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("desc", {
+                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("desc", {
                     children: "Created with Sketch."
-                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("defs", {
+                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("defs", {
                     children: " "
-                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("g", {
+                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                     id: "Page-1",
                     stroke: "none",
                     "stroke-width": "1",
                     fill: "none",
                     "fill-rule": "evenodd",
-                    children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("g", {
+                    children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                       id: "Dribbble-Light-Preview",
                       transform: "translate(-140.000000, -2159.000000)",
                       fill: "#f5f5f5",
-                      children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("g", {
+                      children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                         id: "icons",
                         transform: "translate(56.000000, 160.000000)",
-                        children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                        children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                           d: "M100.562548,2016.99998 L87.4381713,2016.99998 C86.7317804,2016.99998 86.2101535,2016.30298 86.4765813,2015.66198 C87.7127655,2012.69798 90.6169306,2010.99998 93.9998492,2010.99998 C97.3837885,2010.99998 100.287954,2012.69798 101.524138,2015.66198 C101.790566,2016.30298 101.268939,2016.99998 100.562548,2016.99998 M89.9166645,2004.99998 C89.9166645,2002.79398 91.7489936,2000.99998 93.9998492,2000.99998 C96.2517256,2000.99998 98.0830339,2002.79398 98.0830339,2004.99998 C98.0830339,2007.20598 96.2517256,2008.99998 93.9998492,2008.99998 C91.7489936,2008.99998 89.9166645,2007.20598 89.9166645,2004.99998 M103.955674,2016.63598 C103.213556,2013.27698 100.892265,2010.79798 97.837022,2009.67298 C99.4560048,2008.39598 100.400241,2006.33098 100.053171,2004.06998 C99.6509769,2001.44698 97.4235996,1999.34798 94.7348224,1999.04198 C91.0232075,1998.61898 87.8750721,2001.44898 87.8750721,2004.99998 C87.8750721,2006.88998 88.7692896,2008.57398 90.1636971,2009.67298 C87.1074334,2010.79798 84.7871636,2013.27698 84.044024,2016.63598 C83.7745338,2017.85698 84.7789973,2018.99998 86.0539717,2018.99998 L101.945727,2018.99998 C103.221722,2018.99998 104.226185,2017.85698 103.955674,2016.63598",
                           id: "profile_round-[#ffffff]",
                           children: " "
@@ -11384,15 +11396,15 @@ function Example() {
                   }), " "]
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Link, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Link, {
               className: "text-decoration-none text-light",
               to: "/user-profile",
               children: "Profile"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
             className: "d-flex flex-column align-items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("span", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("svg", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("svg", {
                 fill: "#fff",
                 width: "20",
                 height: "20",
@@ -11402,21 +11414,21 @@ function Example() {
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 432.144 432.143",
                 xmlSpace: "preserve",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("g", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
                   "stroke-width": "0"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("g", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
                   "stroke-linecap": "round",
                   "stroke-linejoin": "round"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("g", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("g", {
-                    children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("g", {
-                      children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("g", {
-                        children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
+                    children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
+                      children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
+                        children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                           d: "M418.6,353.192l-75.125-75.125c-8.295-8.29-18.948-12.765-29.8-13.443l-25.518-25.52 c37.908-60.272,30.656-141.03-21.773-193.459c-60.858-60.86-159.882-60.858-220.74,0 c-60.859,60.858-60.859,159.882,0.002,220.738c52.428,52.435,133.186,59.688,193.461,21.772l25.514,25.519 c0.684,10.852,5.154,21.506,13.445,29.795l75.127,75.128c18.061,18.063,47.342,18.062,65.405-0.002 C436.656,400.539,436.66,371.254,418.6,353.192z M245.861,219.204c-2.193-9.704-5.543-17.818-10.811-19.913l-44.955-17.923 l-10.527-8.87c-2.779-2.35-6.887-2.177-9.465,0.388l-14.637,14.554l-14.676-14.559c-2.582-2.56-6.682-2.726-9.461-0.383 l-10.525,8.87l-44.957,17.926c-5.043,2.008-8.326,9.54-10.518,18.7C36.09,175.248,40.424,116.27,78.346,78.347 c42.822-42.826,112.506-42.826,155.332,0.004C271.963,116.63,276.021,176.367,245.861,219.204z"
-                        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                        }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                           d: "M155.631,61.124v-0.01c-0.043,0-0.076,0.006-0.125,0.006v-0.006c-0.014,0-0.037,0-0.051,0.006 c-0.023-0.006-0.045-0.006-0.061-0.006v0.006c-0.047,0-0.08-0.006-0.121-0.006v0.01c-27.947,0.746-45.104,16.564-44.822,44.236 c0.426,39.886,17.229,64.082,44.865,63.658v0.008c0.023,0,0.049,0,0.072,0c0.014,0,0.025,0,0.049,0c0,0,0.006,0,0.018,0h0.012 c0.016,0,0.033,0,0.033,0c0.033,0,0.057,0,0.08,0v-0.008c27.637,0.424,44.443-23.772,44.871-63.658 C200.736,77.688,183.578,61.87,155.631,61.124z"
                         }), " "]
                       }), " "]
@@ -11424,42 +11436,42 @@ function Example() {
                   }), " "]
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Link, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Link, {
               className: "text-decoration-none text-light",
               to: "/your-jobs",
               children: "Your jobs"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
             className: "d-flex flex-column align-items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("span", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("svg", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("svg", {
                 viewBox: "0 0 24 24",
                 width: "20",
                 height: "20",
                 fill: "none",
                 xmlns: "http://www.w3.org/2000/svg",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("g", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
                   "stroke-width": "0"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("g", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
                   "stroke-linecap": "round",
                   "stroke-linejoin": "round"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("g", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
-                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M21 12L13 12",
                     stroke: "#ffffff",
                     "stroke-width": "2",
                     "stroke-linecap": "round",
                     "stroke-linejoin": "round"
-                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M18 15L20.913 12.087V12.087C20.961 12.039 20.961 11.961 20.913 11.913V11.913L18 9",
                     stroke: "#ffffff",
                     "stroke-width": "2",
                     "stroke-linecap": "round",
                     "stroke-linejoin": "round"
-                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("path", {
+                  }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M16 5V4.5V4.5C16 3.67157 15.3284 3 14.5 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H14.5C15.3284 21 16 20.3284 16 19.5V19.5V19",
                     stroke: "#ffffff",
                     "stroke-width": "2",
@@ -11468,7 +11480,7 @@ function Example() {
                   }), " "]
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
               onClick: logout,
               className: " text-light",
               style: {
@@ -11477,59 +11489,62 @@ function Example() {
               children: "Logout"
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
           className: "container",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Routes, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Routes, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
               path: "/home",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_ShowJob__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_ShowJob__WEBPACK_IMPORTED_MODULE_2__["default"], {
                 user: user,
                 updateMessageContext: updateMessageContext,
                 updateJobContext: updateJobContext
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
               path: "/add-job",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_AddJob__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AddJob__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
               path: "/companies",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Company__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Company__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
               path: "/add-company",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_AddCompany__WEBPACK_IMPORTED_MODULE_10__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_AddCompany__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
               path: "/apply",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Apply__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Apply__WEBPACK_IMPORTED_MODULE_4__["default"], {
                 user: user,
                 updateJobContext: updateJobContext
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
               path: "/resume",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Resume__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Resume__WEBPACK_IMPORTED_MODULE_5__["default"], {
                 user: user,
                 updateJobContext: updateJobContext
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
               path: "/experience",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Experience__WEBPACK_IMPORTED_MODULE_6__["default"], {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Experience__WEBPACK_IMPORTED_MODULE_6__["default"], {
                 user: user
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
               path: "/job-questions",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_JobQuestions__WEBPACK_IMPORTED_MODULE_7__["default"], {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_JobQuestions__WEBPACK_IMPORTED_MODULE_7__["default"], {
                 user: user,
                 updateJobContext: updateJobContext
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
               path: "/user-profile",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_Profile__WEBPACK_IMPORTED_MODULE_11__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Profile__WEBPACK_IMPORTED_MODULE_11__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
               path: "/update-profile",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_UpdateProfile__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Route, {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_UpdateProfile__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
               path: "/your-jobs",
-              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_YourJob__WEBPACK_IMPORTED_MODULE_12__["default"], {
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_YourJob__WEBPACK_IMPORTED_MODULE_12__["default"], {
                 updateJobContext: updateJobContext
               })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+              path: "/companies/show-company/:id",
+              element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_SingleCompany__WEBPACK_IMPORTED_MODULE_13__["default"], {})
             })]
           })
         })]
@@ -11883,7 +11898,7 @@ function JobQuestions() {
                   onChange: formik.handleChange,
                   onBlur: formik.handleBlur,
                   required: true,
-                  className: "form-control"
+                  className: "bj-input bg-one"
                 })
               }), formik.touched.salaryExpectation && formik.errors.salaryExpectation ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "text-danger",
@@ -11906,7 +11921,7 @@ function JobQuestions() {
                   onChange: formik.handleChange,
                   onBlur: formik.handleBlur,
                   required: true,
-                  className: "form-control"
+                  className: "bj-input bg-one"
                 })
               }), formik.touched.noticePeriod && formik.errors.noticePeriod ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "text-danger",
@@ -11940,7 +11955,7 @@ function JobQuestions() {
           className: "mt-2 mb-4 text-end",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", _defineProperty(_defineProperty({
             type: "button",
-            className: "btn btn-primary"
+            className: "btn bg-two text-prime"
           }, "type", "submit"), "children", "Continue"))
         })]
       })]
@@ -12261,7 +12276,7 @@ function Profile() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
           children: "Profile"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "card p-4",
+          className: "card bg-one p-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
             children: user.name
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -12327,7 +12342,7 @@ function Profile() {
               children: "Skills"
             }), moreSkills === null || moreSkills === void 0 ? void 0 : moreSkills.map(function (skill) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "badge bg-secondary mx-2",
+                className: "badge bg-three mx-2",
                 children: skill
               }, skill);
             })]
@@ -12339,7 +12354,7 @@ function Profile() {
                 user: user
               },
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-                className: "btn btn-primary",
+                className: "btn bg-two text-prime",
                 children: "Update"
               })
             })
@@ -12648,26 +12663,24 @@ var Register = function Register(props) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "container pt-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "row justify-content-center",
+        className: "row justify-content-center w-75 m-auto",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "col-md-8",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            className: "card",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "card-header",
+            className: "bj-border bj-border-radius p-3 bg-one",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
               children: "Register"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "card-body",
+              className: "",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
                 onSubmit: handleSubmit,
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     htmlFor: "name",
-                    className: "col-md-4 col-form-label text-md-end",
-                    children: "Name"
+                    className: "col-form-label text-md-end"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-6",
+                    className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
                       type: "text",
                       name: "name",
@@ -12677,17 +12690,16 @@ var Register = function Register(props) {
                         return setName(e.target.value);
                       },
                       required: true,
-                      className: "form-control"
+                      className: "bj-input bg-one"
                     })
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     htmlFor: "email",
-                    className: "col-md-4 col-form-label text-md-end",
-                    children: "Email Address"
+                    className: "col-form-label text-md-end"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-6",
+                    className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
                       type: "email",
                       name: "email",
@@ -12697,17 +12709,16 @@ var Register = function Register(props) {
                         return setEmail(e.target.value);
                       },
                       required: true,
-                      className: "form-control"
+                      className: "bj-input bg-one"
                     })
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     htmlFor: "email",
-                    className: "col-md-4 col-form-label text-md-end",
-                    children: "Password"
+                    className: "col-form-label text-md-end"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-6",
+                    className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", _defineProperty(_defineProperty({
                       type: "password",
                       name: "password",
@@ -12717,17 +12728,16 @@ var Register = function Register(props) {
                         return setPassword(e.target.value);
                       },
                       required: true,
-                      className: "form-control"
+                      className: "bj-input bg-one"
                     }, "required", true), "autoComplete", "new-password"))
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     htmlFor: "password-confirm",
-                    className: "col-md-4 col-form-label text-md-end",
-                    children: "Confirm Password"
+                    className: "col-form-label text-md-end"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-6",
+                    className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", _defineProperty(_defineProperty({
                       type: "password",
                       placeholder: "Confirm Password",
@@ -12736,17 +12746,17 @@ var Register = function Register(props) {
                         return setPasswordConfirmation(e.target.value);
                       },
                       required: true,
-                      className: "form-control",
+                      className: "bj-input bg-one",
                       name: "password_confirmation"
                     }, "required", true), "autoComplete", "new-password"))
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-4 col-form-label text-md-end",
+                    className: "col-md-1 col-form-label",
                     children: " Role: "
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                    className: "col-md-6 d-flex gap-4 align-items-center",
+                    className: "col-md-11 d-flex gap-4 align-items-center",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                       className: "form-check",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
@@ -12786,10 +12796,10 @@ var Register = function Register(props) {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "row mb-0",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-8 offset-md-4",
+                    className: "col-md-12 text-end",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                       type: "submit",
-                      className: "btn btn-primary",
+                      className: "btn bg-two text-prime",
                       children: !loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                         children: "Register"
                       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -12917,7 +12927,7 @@ function Resume(props) {
           className: "mt-2 text-end",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             type: "submit",
-            className: "btn btn-primary",
+            className: "btn bg-two text-prime",
             children: "Continue"
           })
         })]
@@ -13006,7 +13016,10 @@ function ShowJob(props) {
     _useState16 = _slicedToArray(_useState15, 2),
     senderName = _useState16[0],
     setSenderName = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
+      name: 'Default',
+      id: -1
+    }]),
     _useState18 = _slicedToArray(_useState17, 2),
     candidates = _useState18[0],
     setCandidates = _useState18[1];
@@ -13325,7 +13338,7 @@ function ShowJob(props) {
               })
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-            className: "form-control",
+            className: "bj-input bg-one",
             value: jobTitle,
             placeholder: "Job title",
             "aria-describedby": "basic-addon1",
@@ -13374,6 +13387,7 @@ function ShowJob(props) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "w-40 jb-sm-card-w bg-one jb-lg-card-w jb-jobs",
             children: [jobs.map(function (_job) {
+              var _job$company;
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 className: "card bg-one mb-4 ".concat((job === null || job === void 0 ? void 0 : job.id) === _job.id ? "border border-primary" : ""),
                 style: {
@@ -13392,7 +13406,7 @@ function ShowJob(props) {
                     style: {
                       marginLeft: 'auto'
                     },
-                    children: company === null || company === void 0 ? void 0 : company.title
+                    children: _job === null || _job === void 0 || (_job$company = _job.company) === null || _job$company === void 0 ? void 0 : _job$company.title
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "card-body",
@@ -13465,9 +13479,11 @@ function ShowJob(props) {
           }) : '']
         })]
       }), !showMessage ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "position-fixed",
+        className: "position-fixed bg-three",
         style: {
-          bottom: 0,
+          bottom: 20,
+          borderRadius: '50%',
+          padding: '4px',
           right: '50px',
           zIndex: 9,
           cursor: 'pointer'
@@ -13481,6 +13497,7 @@ function ShowJob(props) {
           height: "24",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg",
+          stroke: "#000000",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
             id: "SVGRepo_bgCarrier",
             "stroke-width": "0"
@@ -13492,7 +13509,7 @@ function ShowJob(props) {
             id: "SVGRepo_iconCarrier",
             children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
               d: "M8 11H8.01M12 11H12.01M16 11H16.01M21 20L17.6757 18.3378C17.4237 18.2118 17.2977 18.1488 17.1656 18.1044C17.0484 18.065 16.9277 18.0365 16.8052 18.0193C16.6672 18 16.5263 18 16.2446 18H6.2C5.07989 18 4.51984 18 4.09202 17.782C3.71569 17.5903 3.40973 17.2843 3.21799 16.908C3 16.4802 3 15.9201 3 14.8V7.2C3 6.07989 3 5.51984 3.21799 5.09202C3.40973 4.71569 3.71569 4.40973 4.09202 4.21799C4.51984 4 5.0799 4 6.2 4H17.8C18.9201 4 19.4802 4 19.908 4.21799C20.2843 4.40973 20.5903 4.71569 20.782 5.09202C21 5.51984 21 6.0799 21 7.2V20Z",
-              stroke: "#000000",
+              stroke: "#ffffff",
               "stroke-width": "2",
               "stroke-linecap": "round",
               "stroke-linejoin": "round"
@@ -13500,18 +13517,18 @@ function ShowJob(props) {
           })]
         })
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "card position-fixed",
+        className: "card position-fixed bg-one",
         style: {
-          bottom: 0,
+          bottom: '20px',
           right: '50px',
           zIndex: 9,
-          height: '40%',
+          height: '50%',
           overflow: 'auto'
         },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "card-header d-flex",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            children: ["By ", senderName]
+          className: "card-header bg-two text-prime d-flex",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            children: "Chat Messages"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             style: {
               marginLeft: 'auto',
@@ -13521,11 +13538,12 @@ function ShowJob(props) {
               setShowMessage(false);
             },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("svg", {
-              viewBox: "-0.5 0 25 25",
-              width: "16",
+              viewBox: "0 0 24 24",
               height: "16",
+              width: "16",
               fill: "none",
               xmlns: "http://www.w3.org/2000/svg",
+              stroke: "#ffffff",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
                 id: "SVGRepo_bgCarrier",
                 "stroke-width": "0"
@@ -13536,17 +13554,10 @@ function ShowJob(props) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
                 id: "SVGRepo_iconCarrier",
                 children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
-                  d: "M3 21.32L21 3.32001",
-                  stroke: "#000000",
-                  "stroke-width": "1.5",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
-                }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
-                  d: "M3 3.32001L21 21.32",
-                  stroke: "#000000",
-                  "stroke-width": "1.5",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  "fill-rule": "evenodd",
+                  "clip-rule": "evenodd",
+                  d: "M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z",
+                  fill: "#ffffff"
                 }), " "]
               })]
             })
@@ -13567,7 +13578,7 @@ function ShowJob(props) {
             onChange: function onChange(e) {
               setUserId(e.target.value);
             },
-            children: candidates.map(function (candidate) {
+            children: candidates === null || candidates === void 0 ? void 0 : candidates.map(function (candidate) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                 value: candidate.id,
                 children: candidate.name
@@ -13586,7 +13597,7 @@ function ShowJob(props) {
             });
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "card-footer",
+          className: "card-footer bg-one",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "d-flex align-items-center gap-3 mb-4",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
@@ -13600,6 +13611,7 @@ function ShowJob(props) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "d-flex justify-content-end",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+              className: "btn bg-two text-prime",
               onClick: function onClick() {
                 sendMessage(role == 1 ? userId : recepient);
               },
@@ -13621,6 +13633,34 @@ Below are the three colors that will be used in your website
 **/
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ShowJob);
+
+/***/ }),
+
+/***/ "./resources/js/components/SingleCompany.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/SingleCompany.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+var SingleCompany = function SingleCompany() {
+  var _location$state;
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useParams)(),
+    id = _useParams.id;
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useLocation)();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    children: (_location$state = location.state) === null || _location$state === void 0 || (_location$state = _location$state.company) === null || _location$state === void 0 ? void 0 : _location$state.title
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SingleCompany);
 
 /***/ }),
 
@@ -13900,12 +13940,12 @@ function UpdateProfile() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "d-flex gap-2 align-items-center",
+      className: "d-flex gap-2 align-items-center ",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
         onClick: handleNavigation,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
           style: {
-            color: 'black'
+            color: '#4f4a47'
           },
           xmlns: "http://www.w3.org/2000/svg",
           width: "24",
@@ -13928,7 +13968,7 @@ function UpdateProfile() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "col-md-8",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "card",
+          className: "card w-75 bg-one m-auto",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "card-header",
             children: "Profile"
@@ -13948,7 +13988,7 @@ function UpdateProfile() {
                     id: "exampleFormControlTextarea1",
                     name: "summary",
                     rows: "3",
-                    className: "form-control",
+                    className: "bj-input bg-one",
                     onBlur: formik.handleBlur,
                     onChange: formik.handleChange,
                     defaultValue: formik.values.summary
@@ -13975,7 +14015,7 @@ function UpdateProfile() {
                     onChange: formik.handleChange,
                     onBlur: formik.handleBlur,
                     required: true,
-                    className: "form-control"
+                    className: "bj-input bg-one"
                   }), formik.touched.phoneNumber && formik.errors.phoneNumber ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                     className: "text-danger",
                     children: formik.errors.phoneNumber
@@ -13997,7 +14037,7 @@ function UpdateProfile() {
                     onChange: formik.handleChange,
                     onBlur: formik.handleBlur,
                     required: true,
-                    className: "form-control"
+                    className: "bj-input bg-one"
                   }), formik.touched.address && formik.errors.address ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                     className: "text-danger",
                     children: formik.errors.address
@@ -14019,7 +14059,7 @@ function UpdateProfile() {
                     onChange: formik.handleChange,
                     onBlur: formik.handleBlur,
                     required: true,
-                    className: "form-control"
+                    className: "bj-input bg-one"
                   }), formik.touched.education && formik.errors.education ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                     className: "text-danger",
                     children: formik.errors.education
@@ -14036,7 +14076,7 @@ function UpdateProfile() {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                       type: "text",
-                      className: "form-control",
+                      className: "bj-input bg-one",
                       name: "searchTerm",
                       placeholder: "Search...",
                       value: formik.values.searchTerm,
@@ -14081,7 +14121,7 @@ function UpdateProfile() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 "class": "text-end",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                  className: "btn btn-primary",
+                  className: "btn text-prime bg-two",
                   type: "submit",
                   children: "Save"
                 })

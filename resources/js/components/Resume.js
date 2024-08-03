@@ -68,7 +68,7 @@ function Resume(props) {
 					</div>
 
 					<div className="mt-2 text-end">
-                        <button type="submit" className="btn btn-primary">Continue</button>
+                        <button type="submit" className="btn bg-two text-prime">Continue</button>
                     </div>
 				</form>
 			</div>

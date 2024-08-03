@@ -107,7 +107,7 @@ function Profile() {
             <div className="container pt-4">
                 <section style={{margin: '0 auto'}} className="w-50">
                     <h2>Profile</h2>
-                    <div className="card p-4">
+                    <div className="card bg-one p-4">
                         <h3>{user.name}</h3>
                         <div className="mb-3">{email}</div>
                         <div>
@@ -137,12 +137,12 @@ function Profile() {
                             {
                                 moreSkills?.map((skill) => (
 
-                                    <div key={skill} className="badge bg-secondary mx-2">{skill}</div>
+                                    <div key={skill} className="badge bg-three mx-2">{skill}</div>
                                 ))
                             }
                         </div>
                         <div className="text-end">
-                            <Link to="/update-profile" state={{user:user}}><button className="btn btn-primary">Update</button></Link>
+                            <Link to="/update-profile" state={{user:user}}><button className="btn bg-two text-prime">Update</button></Link>
                         </div>
                     </div>
                 </section>
