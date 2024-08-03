@@ -378,7 +378,7 @@ function ShowJob(props) {
                        Chat Messages
                     </div>
                     <div style={{marginLeft: 'auto', cursor: 'pointer'}} onClick={()=>{setShowMessage(false)}}>
-                     <svg viewBox="-0.5 0 25 25" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 21.32L21 3.32001" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M3 3.32001L21 21.32" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                     <svg viewBox="0 0 24 24" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z" fill="#ffffff"></path> </g></svg>
                     </div>
                    
                   </div>
@@ -435,7 +435,7 @@ function ShowJob(props) {
 
 
                     <div className="d-flex justify-content-end">
-                      <button className="bg-two text-prime" onClick={() => {sendMessage( role == 1 ? userId : recepient)}}>Send</button>
+                      <button className="btn bg-two text-prime" onClick={() => {sendMessage( role == 1 ? userId : recepient)}}>Send</button>
                     </div>
                   </div>
                 </div>

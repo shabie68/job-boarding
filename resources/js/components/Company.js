@@ -1,10 +1,13 @@
 import {useState, useEffect} from 'react'
-import {Link, useLocation } from "react-router-dom";
+import {Link, useLocation, useNavigate } from "react-router-dom";
 import apiClient from '../services/apiClient';
+
+
 
 function Company() {
 
 	const location = useLocation();
+	const navigate = useNavigate();
 	const [companies, setCompanies] = useState([]);
 	const [nextPage, setNextPage] = useState(null)
 	const [lastPage, setLastPage] = useState(1);
@@ -15,6 +18,7 @@ function Company() {
 		comment: '',
 		rating: 0
 	})
+
 
 
  
@@ -53,6 +57,15 @@ function Company() {
     const prev = () => {
         setCurrentPage(currentPage - 1);
     };
+
+
+    const singleCompany = (company) => {
+    	navigate('show-company/'+ company.id, {
+    		state: {
+    			company: company
+    		}
+    	})
+    }
 
 
 
@@ -99,6 +112,7 @@ function Company() {
 
 				  	<div className="">
 						<div className="row gap-3">
+
 							{companies?.map(company => (
 
 								 <div className=" col-3 bg-white rounded border-white"  key={"company--"+company.id}>
@@ -107,8 +121,8 @@ function Company() {
 										<img src={'uploads/images/' + company.logo} className="w-100" />
 									  </div>
 
-									  <div className="w-75">
-										<h3 className="">{company.title}</h3>
+									  <div className="w-75" onClick={() => {singleCompany(company)}}>
+									  	<h3 className="">{company.title}</h3>
 										 <div className="">
 											<p>{company.title}</p>
 										 </div>

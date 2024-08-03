@@ -150,9 +150,9 @@ function UpdateProfile() {
     };
 	return (
 			<div>
-				<div className="d-flex gap-2 align-items-center">
+				<div className="d-flex gap-2 align-items-center ">
 		            <span onClick={handleNavigation}>
-		                <svg style={{color: 'black'}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+		                <svg style={{color: '#4f4a47'}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
 						  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
 						</svg>
 		            </span>
@@ -161,7 +161,7 @@ function UpdateProfile() {
 
 	            <div className="row justify-content-center">
 	                <div className="col-md-8">
-	                    <div className="card bg-one">
+	                    <div className="card w-75 bg-one m-auto">
 	                        <div className="card-header">
 	                            Profile
 	                        </div>
@@ -297,7 +297,7 @@ function UpdateProfile() {
 	                            </div>
 
 	                            <div class="text-end">
-	                                <button className="btn bg-two" type="submit">Save</button>
+	                                <button className="btn text-prime bg-two" type="submit">Save</button>
 	                            </div>
 
 	                            </form>

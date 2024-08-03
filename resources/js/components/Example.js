@@ -11,6 +11,7 @@ import Company from './Company'
 import AddCompany from './AddCompany'
 import Profile from './Profile'
 import YourJob from './YourJob'
+import SingleCompany from './SingleCompany'
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
 import BoardJobContext from '../contexts/BoardJobContext.js'
@@ -90,6 +91,7 @@ function Example() {
                         <Route path="/user-profile" element={<Profile/>} /> 
                         <Route path="/update-profile" element={<UpdateProfile/>} /> 
                         <Route path="/your-jobs" element={<YourJob updateJobContext={updateJobContext} />} /> 
+                        <Route path="/companies/show-company/:id" element={<SingleCompany/>} /> 
                     </Routes>
                 </div>
 
