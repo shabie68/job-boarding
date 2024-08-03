@@ -161,7 +161,7 @@ function UpdateProfile() {
 
 	            <div className="row justify-content-center">
 	                <div className="col-md-8">
-	                    <div className="card">
+	                    <div className="card bg-one">
 	                        <div className="card-header">
 	                            Profile
 	                        </div>
@@ -172,7 +172,7 @@ function UpdateProfile() {
 	                            <div className="form-group row mb-3">
 	                                <label htmlFor="exampleFormControlTextarea1" className="col-md-4 col-form-label text-md-end" >Summary</label>
 	                                <div className="col-md-6">
-	                                    <textarea id="exampleFormControlTextarea1" name="summary" rows="3" className="form-control" onBlur={formik.handleBlur} onChange={formik.handleChange} defaultValue={formik.values.summary}></textarea>
+	                                    <textarea id="exampleFormControlTextarea1" name="summary" rows="3" className="bj-input bg-one" onBlur={formik.handleBlur} onChange={formik.handleChange} defaultValue={formik.values.summary}></textarea>
 	                                	{formik.touched.summary && formik.errors.summary ? (
 		                                	<>
 			                              <div className="text-danger">{formik.errors.summary}</div>
@@ -193,7 +193,7 @@ function UpdateProfile() {
 	                                        onChange={formik.handleChange}
 	                                        onBlur={formik.handleBlur}
 	                                        required
-	                                        className="form-control"
+	                                        className="bj-input bg-one"
 	                                    />
 	                                    {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
 			                              <div className="text-danger">{formik.errors.phoneNumber}</div>
@@ -212,7 +212,7 @@ function UpdateProfile() {
 	                                        onChange={formik.handleChange}
 	                                        onBlur={formik.handleBlur}
 	                                        required
-	                                        className="form-control"
+	                                        className="bj-input bg-one"
 	                                    />
 	                                    {formik.touched.address && formik.errors.address ? (
 			                              <div className="text-danger">{formik.errors.address}</div>
@@ -232,7 +232,7 @@ function UpdateProfile() {
 	                                        onChange={formik.handleChange}
 	                                        onBlur={formik.handleBlur}
 	                                        required
-	                                        className="form-control"
+	                                        className="bj-input bg-one"
 	                                    />
 	                                    {formik.touched.education && formik.errors.education ? (
 			                              <div className="text-danger">{formik.errors.education}</div>
@@ -246,7 +246,7 @@ function UpdateProfile() {
 	                                    <div>
 	                                        <input
 	                                          type="text"
-	                                          className="form-control"
+	                                          className="bj-input bg-one"
 	                                          name="searchTerm"
 	                                          placeholder="Search..."
 	                                          value={formik.values.searchTerm}
@@ -297,7 +297,7 @@ function UpdateProfile() {
 	                            </div>
 
 	                            <div class="text-end">
-	                                <button className="btn btn-primary" type="submit">Save</button>
+	                                <button className="btn bg-two" type="submit">Save</button>
 	                            </div>
 
 	                            </form>

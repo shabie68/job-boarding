@@ -193,7 +193,7 @@ function JobQuestions() {
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         required
-                                        className="form-control"
+                                        className="bj-input bg-one"
                                     />
                                 </div>
 
@@ -213,7 +213,7 @@ function JobQuestions() {
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         required
-                                        className="form-control"
+                                        className="bj-input bg-one"
                                     />
                                 </div>
 
@@ -241,7 +241,7 @@ function JobQuestions() {
     				</div>
 
                     <div className="mt-2 mb-4 text-end">
-                        <button type="button" className="btn btn-primary" type="submit">Continue</button>
+                        <button type="button" className="btn bg-two text-prime" type="submit">Continue</button>
                     </div>
                 </form>
 

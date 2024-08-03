@@ -23,4 +23,8 @@ class Company extends Model
     	return $this->hasMany(Submission::class);
     }
 
+    public function boardJobs() {
+        return $this->hasMany(BoardJob::class);
+    }
+
 }

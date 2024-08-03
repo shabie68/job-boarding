@@ -9556,7 +9556,7 @@ function AddCompany() {
                 children: "Locations"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
                 type: "text",
-                className: "form-control",
+                className: "bj-input bg-one",
                 id: "locations",
                 "aria-describedby": "locationHelp",
                 placeholder: "Enter locations",
@@ -9607,7 +9607,7 @@ function AddCompany() {
                 id: "websiteUrl",
                 name: "websiteUrl",
                 type: "text",
-                className: "form-control",
+                className: "bj-input bg-one",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.websiteUrl
@@ -9626,8 +9626,7 @@ function AddCompany() {
                 id: "email",
                 name: "email",
                 type: "email",
-                className: "form-control",
-                onChange: formik.handleChange,
+                className: "bj-input bg-one",
                 onBlur: formik.handleBlur,
                 value: formik.values.email
               }), formik.touched.email && formik.errors.email ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -9645,7 +9644,7 @@ function AddCompany() {
                 id: "totalEmployees",
                 name: "totalEmployees",
                 type: "number",
-                className: "form-control",
+                className: "bj-input bg-one",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.totalEmployees
@@ -9664,7 +9663,7 @@ function AddCompany() {
                 id: "phoneNumber",
                 name: "phoneNumber",
                 type: "tel",
-                className: "form-control",
+                className: "bj-input bg-one",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.phoneNumber
@@ -9729,7 +9728,7 @@ function AddCompany() {
             className: "col-md-8 offset-md-4 ",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", _defineProperty(_defineProperty({
               type: "button",
-              className: "btn btn-primary"
+              className: "btn bg-two text-prime"
             }, "type", "submit"), "children", !loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
               children: "Save"
             }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -10611,7 +10610,7 @@ function Company() {
               to: "/add-company",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 type: "button",
-                className: "btn btn-primary mb-4",
+                className: "btn bg-two text-prime mb-4",
                 children: "Add Company"
               })
             })
@@ -10644,7 +10643,7 @@ function Company() {
                       })
                     }), !JSON.parse(company.feedback) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                       type: "button",
-                      className: "btn btn-secondary",
+                      className: "btn bg-two text-prime",
                       "data-bs-toggle": "modal",
                       "data-bs-target": "#exampleModal-" + company.id,
                       children: "Add Review"
@@ -11074,13 +11073,13 @@ function Company() {
                         className: "modal-footer",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                           type: "button",
-                          className: "btn btn-secondary",
+                          className: "btn bg-two text-prime",
                           "data-bs-dismiss": "modal",
                           children: "Cancel"
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                           type: "button",
                           id: 'company-' + company.id,
-                          className: "btn btn-primary",
+                          className: "btn bg-three text-prime",
                           onClick: function onClick() {
                             document.querySelector("#company-".concat(company.id)).setAttribute('data-bs-dismiss', 'modal');
                             addReview(company.id);
@@ -11883,7 +11882,7 @@ function JobQuestions() {
                   onChange: formik.handleChange,
                   onBlur: formik.handleBlur,
                   required: true,
-                  className: "form-control"
+                  className: "bj-input bg-one"
                 })
               }), formik.touched.salaryExpectation && formik.errors.salaryExpectation ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "text-danger",
@@ -11906,7 +11905,7 @@ function JobQuestions() {
                   onChange: formik.handleChange,
                   onBlur: formik.handleBlur,
                   required: true,
-                  className: "form-control"
+                  className: "bj-input bg-one"
                 })
               }), formik.touched.noticePeriod && formik.errors.noticePeriod ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "text-danger",
@@ -11940,7 +11939,7 @@ function JobQuestions() {
           className: "mt-2 mb-4 text-end",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", _defineProperty(_defineProperty({
             type: "button",
-            className: "btn btn-primary"
+            className: "btn bg-two text-prime"
           }, "type", "submit"), "children", "Continue"))
         })]
       })]
@@ -12261,7 +12260,7 @@ function Profile() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
           children: "Profile"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "card p-4",
+          className: "card bg-one p-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
             children: user.name
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -12327,7 +12326,7 @@ function Profile() {
               children: "Skills"
             }), moreSkills === null || moreSkills === void 0 ? void 0 : moreSkills.map(function (skill) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "badge bg-secondary mx-2",
+                className: "badge bg-three mx-2",
                 children: skill
               }, skill);
             })]
@@ -12339,7 +12338,7 @@ function Profile() {
                 user: user
               },
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-                className: "btn btn-primary",
+                className: "btn bg-two text-prime",
                 children: "Update"
               })
             })
@@ -12648,26 +12647,24 @@ var Register = function Register(props) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "container pt-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "row justify-content-center",
+        className: "row justify-content-center w-75 m-auto",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "col-md-8",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            className: "card",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "card-header",
+            className: "bj-border bj-border-radius p-3 bg-one",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
               children: "Register"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-              className: "card-body",
+              className: "",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
                 onSubmit: handleSubmit,
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     htmlFor: "name",
-                    className: "col-md-4 col-form-label text-md-end",
-                    children: "Name"
+                    className: "col-form-label text-md-end"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-6",
+                    className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
                       type: "text",
                       name: "name",
@@ -12677,17 +12674,16 @@ var Register = function Register(props) {
                         return setName(e.target.value);
                       },
                       required: true,
-                      className: "form-control"
+                      className: "bj-input bg-one"
                     })
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     htmlFor: "email",
-                    className: "col-md-4 col-form-label text-md-end",
-                    children: "Email Address"
+                    className: "col-form-label text-md-end"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-6",
+                    className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
                       type: "email",
                       name: "email",
@@ -12697,17 +12693,16 @@ var Register = function Register(props) {
                         return setEmail(e.target.value);
                       },
                       required: true,
-                      className: "form-control"
+                      className: "bj-input bg-one"
                     })
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     htmlFor: "email",
-                    className: "col-md-4 col-form-label text-md-end",
-                    children: "Password"
+                    className: "col-form-label text-md-end"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-6",
+                    className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", _defineProperty(_defineProperty({
                       type: "password",
                       name: "password",
@@ -12717,17 +12712,16 @@ var Register = function Register(props) {
                         return setPassword(e.target.value);
                       },
                       required: true,
-                      className: "form-control"
+                      className: "bj-input bg-one"
                     }, "required", true), "autoComplete", "new-password"))
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
                     htmlFor: "password-confirm",
-                    className: "col-md-4 col-form-label text-md-end",
-                    children: "Confirm Password"
+                    className: "col-form-label text-md-end"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-6",
+                    className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", _defineProperty(_defineProperty({
                       type: "password",
                       placeholder: "Confirm Password",
@@ -12736,17 +12730,17 @@ var Register = function Register(props) {
                         return setPasswordConfirmation(e.target.value);
                       },
                       required: true,
-                      className: "form-control",
+                      className: "bj-input bg-one",
                       name: "password_confirmation"
                     }, "required", true), "autoComplete", "new-password"))
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-4 col-form-label text-md-end",
+                    className: "col-md-1 col-form-label",
                     children: " Role: "
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                    className: "col-md-6 d-flex gap-4 align-items-center",
+                    className: "col-md-11 d-flex gap-4 align-items-center",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                       className: "form-check",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
@@ -12786,10 +12780,10 @@ var Register = function Register(props) {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "row mb-0",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-8 offset-md-4",
+                    className: "col-md-12 text-end",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                       type: "submit",
-                      className: "btn btn-primary",
+                      className: "btn bg-two text-prime",
                       children: !loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                         children: "Register"
                       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -12917,7 +12911,7 @@ function Resume(props) {
           className: "mt-2 text-end",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             type: "submit",
-            className: "btn btn-primary",
+            className: "btn bg-two text-prime",
             children: "Continue"
           })
         })]
@@ -13006,7 +13000,10 @@ function ShowJob(props) {
     _useState16 = _slicedToArray(_useState15, 2),
     senderName = _useState16[0],
     setSenderName = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
+      name: 'Default',
+      id: -1
+    }]),
     _useState18 = _slicedToArray(_useState17, 2),
     candidates = _useState18[0],
     setCandidates = _useState18[1];
@@ -13325,7 +13322,7 @@ function ShowJob(props) {
               })
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-            className: "form-control",
+            className: "bj-input bg-one",
             value: jobTitle,
             placeholder: "Job title",
             "aria-describedby": "basic-addon1",
@@ -13374,6 +13371,7 @@ function ShowJob(props) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "w-40 jb-sm-card-w bg-one jb-lg-card-w jb-jobs",
             children: [jobs.map(function (_job) {
+              var _job$company;
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 className: "card bg-one mb-4 ".concat((job === null || job === void 0 ? void 0 : job.id) === _job.id ? "border border-primary" : ""),
                 style: {
@@ -13392,7 +13390,7 @@ function ShowJob(props) {
                     style: {
                       marginLeft: 'auto'
                     },
-                    children: company === null || company === void 0 ? void 0 : company.title
+                    children: _job === null || _job === void 0 || (_job$company = _job.company) === null || _job$company === void 0 ? void 0 : _job$company.title
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "card-body",
@@ -13465,9 +13463,11 @@ function ShowJob(props) {
           }) : '']
         })]
       }), !showMessage ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "position-fixed",
+        className: "position-fixed bg-three",
         style: {
-          bottom: 0,
+          bottom: 20,
+          borderRadius: '50%',
+          padding: '4px',
           right: '50px',
           zIndex: 9,
           cursor: 'pointer'
@@ -13481,6 +13481,7 @@ function ShowJob(props) {
           height: "24",
           fill: "none",
           xmlns: "http://www.w3.org/2000/svg",
+          stroke: "#000000",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
             id: "SVGRepo_bgCarrier",
             "stroke-width": "0"
@@ -13492,7 +13493,7 @@ function ShowJob(props) {
             id: "SVGRepo_iconCarrier",
             children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
               d: "M8 11H8.01M12 11H12.01M16 11H16.01M21 20L17.6757 18.3378C17.4237 18.2118 17.2977 18.1488 17.1656 18.1044C17.0484 18.065 16.9277 18.0365 16.8052 18.0193C16.6672 18 16.5263 18 16.2446 18H6.2C5.07989 18 4.51984 18 4.09202 17.782C3.71569 17.5903 3.40973 17.2843 3.21799 16.908C3 16.4802 3 15.9201 3 14.8V7.2C3 6.07989 3 5.51984 3.21799 5.09202C3.40973 4.71569 3.71569 4.40973 4.09202 4.21799C4.51984 4 5.0799 4 6.2 4H17.8C18.9201 4 19.4802 4 19.908 4.21799C20.2843 4.40973 20.5903 4.71569 20.782 5.09202C21 5.51984 21 6.0799 21 7.2V20Z",
-              stroke: "#000000",
+              stroke: "#ffffff",
               "stroke-width": "2",
               "stroke-linecap": "round",
               "stroke-linejoin": "round"
@@ -13500,18 +13501,18 @@ function ShowJob(props) {
           })]
         })
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "card position-fixed",
+        className: "card position-fixed bg-one",
         style: {
-          bottom: 0,
+          bottom: '20px',
           right: '50px',
           zIndex: 9,
-          height: '40%',
+          height: '50%',
           overflow: 'auto'
         },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "card-header d-flex",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            children: ["By ", senderName]
+          className: "card-header bg-two text-prime d-flex",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            children: "Chat Messages"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             style: {
               marginLeft: 'auto',
@@ -13522,8 +13523,8 @@ function ShowJob(props) {
             },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("svg", {
               viewBox: "-0.5 0 25 25",
-              width: "16",
               height: "16",
+              width: "16",
               fill: "none",
               xmlns: "http://www.w3.org/2000/svg",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
@@ -13537,13 +13538,13 @@ function ShowJob(props) {
                 id: "SVGRepo_iconCarrier",
                 children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
                   d: "M3 21.32L21 3.32001",
-                  stroke: "#000000",
+                  stroke: "#ffffff",
                   "stroke-width": "1.5",
                   "stroke-linecap": "round",
                   "stroke-linejoin": "round"
                 }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
                   d: "M3 3.32001L21 21.32",
-                  stroke: "#000000",
+                  stroke: "#ffffff",
                   "stroke-width": "1.5",
                   "stroke-linecap": "round",
                   "stroke-linejoin": "round"
@@ -13567,7 +13568,7 @@ function ShowJob(props) {
             onChange: function onChange(e) {
               setUserId(e.target.value);
             },
-            children: candidates.map(function (candidate) {
+            children: candidates === null || candidates === void 0 ? void 0 : candidates.map(function (candidate) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                 value: candidate.id,
                 children: candidate.name
@@ -13586,7 +13587,7 @@ function ShowJob(props) {
             });
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "card-footer",
+          className: "card-footer bg-one",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "d-flex align-items-center gap-3 mb-4",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
@@ -13600,6 +13601,7 @@ function ShowJob(props) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "d-flex justify-content-end",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+              className: "bg-two text-prime",
               onClick: function onClick() {
                 sendMessage(role == 1 ? userId : recepient);
               },
@@ -13928,7 +13930,7 @@ function UpdateProfile() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "col-md-8",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "card",
+          className: "card bg-one",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "card-header",
             children: "Profile"
@@ -13948,7 +13950,7 @@ function UpdateProfile() {
                     id: "exampleFormControlTextarea1",
                     name: "summary",
                     rows: "3",
-                    className: "form-control",
+                    className: "bj-input bg-one",
                     onBlur: formik.handleBlur,
                     onChange: formik.handleChange,
                     defaultValue: formik.values.summary
@@ -13975,7 +13977,7 @@ function UpdateProfile() {
                     onChange: formik.handleChange,
                     onBlur: formik.handleBlur,
                     required: true,
-                    className: "form-control"
+                    className: "bj-input bg-one"
                   }), formik.touched.phoneNumber && formik.errors.phoneNumber ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                     className: "text-danger",
                     children: formik.errors.phoneNumber
@@ -13997,7 +13999,7 @@ function UpdateProfile() {
                     onChange: formik.handleChange,
                     onBlur: formik.handleBlur,
                     required: true,
-                    className: "form-control"
+                    className: "bj-input bg-one"
                   }), formik.touched.address && formik.errors.address ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                     className: "text-danger",
                     children: formik.errors.address
@@ -14019,7 +14021,7 @@ function UpdateProfile() {
                     onChange: formik.handleChange,
                     onBlur: formik.handleBlur,
                     required: true,
-                    className: "form-control"
+                    className: "bj-input bg-one"
                   }), formik.touched.education && formik.errors.education ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                     className: "text-danger",
                     children: formik.errors.education
@@ -14036,7 +14038,7 @@ function UpdateProfile() {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
                       type: "text",
-                      className: "form-control",
+                      className: "bj-input bg-one",
                       name: "searchTerm",
                       placeholder: "Search...",
                       value: formik.values.searchTerm,
@@ -14081,7 +14083,7 @@ function UpdateProfile() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 "class": "text-end",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                  className: "btn btn-primary",
+                  className: "btn bg-two",
                   type: "submit",
                   children: "Save"
                 })

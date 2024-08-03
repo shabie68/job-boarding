@@ -242,7 +242,7 @@ function AddCompany() {
 							    <label htmlFor="desc">Locations</label>
 							    <input 
 							    	type="text" 
-							    	className="form-control" 
+							    	className="bj-input bg-one" 
 							    	id="locations" 
 							    	aria-describedby="locationHelp" 
 							    	placeholder="Enter locations"
@@ -292,7 +292,7 @@ function AddCompany() {
 							        id="websiteUrl"
 							        name="websiteUrl"
 							        type="text"
-							        className="form-control" 
+							        className="bj-input bg-one" 
 							        onChange={formik.handleChange}
 							        onBlur={formik.handleBlur}
 							        value={formik.values.websiteUrl}
@@ -309,8 +309,7 @@ function AddCompany() {
 							        id="email"
 							        name="email"
 							        type="email"
-							        className="form-control" 
-							        onChange={formik.handleChange}
+							        className="bj-input bg-one"
 							        onBlur={formik.handleBlur}
 							        value={formik.values.email}
 							      />
@@ -325,7 +324,7 @@ function AddCompany() {
 							        id="totalEmployees"
 							        name="totalEmployees"
 							        type="number"
-							        className="form-control" 
+							        className="bj-input bg-one" 
 							        onChange={formik.handleChange}
 							        onBlur={formik.handleBlur}
 							        value={formik.values.totalEmployees}
@@ -341,7 +340,7 @@ function AddCompany() {
 							        id="phoneNumber"
 							        name="phoneNumber"
 							        type="tel"
-							        className="form-control" 
+							        className="bj-input bg-one" 
 							        onChange={formik.handleChange}
 							        onBlur={formik.handleBlur}
 							        value={formik.values.phoneNumber}
@@ -378,7 +377,7 @@ function AddCompany() {
 					
 					<div className="row mb-0 text-end">
 			            <div className="col-md-8 offset-md-4 ">
-			                <button type="button" className="btn btn-primary" type="submit">
+			                <button type="button" className="btn bg-two text-prime" type="submit">
 			                	{
 	                                !loading ?
 	                                <div>
