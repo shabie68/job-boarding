@@ -12,7 +12,8 @@ class Company extends Model
     protected $guarded = [];
 
     protected $casts = [
-    	'contact_information' => 'array'
+    	'contact_information' => 'array',
+        'feedback' => 'array'
     ];
 
     public function user() {
