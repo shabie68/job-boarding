@@ -15,6 +15,7 @@ class CompanyController extends Controller
 
     	return response()->json([
     		"companies" => $companies,
+            "user" => auth()->user(),
             "role" => auth()->user()->role
     	]);
     }
@@ -57,10 +58,20 @@ class CompanyController extends Controller
     }
 
     public function addReview(Request $request, $id) {
+       
         $company = Company::find($id);
 
+        $feedback = $company->feedback;
+
+        if(!$feedback) {
+            $feedback = [];
+        }
+        
+        $feedback[] = $request->feedback;
+
+
         $company->update([
-            "feedback" => $request->feedback
+            "feedback" => $feedback
         ]);
 
         return response()->json([

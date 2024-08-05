@@ -14,8 +14,10 @@ function Company() {
 	const [currentPage, setCurrentPage] = useState(1)
 	const [role, setRole] = useState(0);
 	const [success, setSuccess] = useState(false)
+	const [user, setUser] = useState(null)
 	const [feedback, setFeedback] = useState({
 		comment: '',
+		name: '',
 		rating: 0
 	})
 
@@ -44,6 +46,7 @@ function Company() {
 			setNextPage(response.data.companies.next_page_url)
 			setLastPage(response.data.companies.last_page)
 			setRole(response.data.role)
+			setUser(response.data.user)
 		})
 		.catch((error) => {
 
@@ -62,7 +65,8 @@ function Company() {
     const singleCompany = (company) => {
     	navigate('show-company/'+ company.id, {
     		state: {
-    			company: company
+    			company: company,
+    			user: user
     		}
     	})
     }
@@ -103,7 +107,7 @@ function Company() {
 						  <h4 className="mb-0">Add New Company </h4>
 						   <div className="">
 							  <Link to="/add-company">
-								  <button type="button" className="btn bg-two text-prime mb-4">Add Company</button>
+								  <button type="button" className="btn bg-three text-prime mb-4">Add Company</button>
 							  </Link>
 						  </div>
 					  	</div>
@@ -121,8 +125,8 @@ function Company() {
 										<img src={'uploads/images/' + company.logo} className="w-100" />
 									  </div>
 
-									  <div className="w-75" onClick={() => {singleCompany(company)}}>
-									  	<h3 className="">{company.title}</h3>
+									  <div className="w-75">
+									  	<h3 className="" onClick={() => {singleCompany(company)}}>{company.title}</h3>
 										 <div className="">
 											<p>{company.title}</p>
 										 </div>
