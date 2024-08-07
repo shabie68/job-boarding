@@ -16,7 +16,7 @@ class CompanyController extends Controller
     	return response()->json([
     		"companies" => $companies,
             "user" => auth()->user(),
-            "role" => auth()->user()->role
+            "role" => auth()->user()->role,
     	]);
     }
 
@@ -75,7 +75,7 @@ class CompanyController extends Controller
         ]);
 
         return response()->json([
-            "company" => $company
+            "company" => $company,
         ]);
     }
 }

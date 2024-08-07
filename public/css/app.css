@@ -12108,6 +12108,10 @@ textarea.form-control-lg {
 	background-color: #ecf9f7;
 }
 
+.bj-col-3 {
+	grid-template-columns: 20% 50% 20%;
+}
+
 @keyframes apply-pbar{
 	from {
 		width: 0%;
