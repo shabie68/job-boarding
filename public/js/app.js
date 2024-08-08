@@ -10636,7 +10636,7 @@ function Company() {
             className: "row gap-3",
             children: [companies === null || companies === void 0 ? void 0 : companies.map(function (company) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: " col-3 bg-white rounded border-white",
+                className: " bg-white col-3 bj-border-prime rounded",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   className: "d-flex gap-4 align-items-center",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -13614,7 +13614,7 @@ var SingleCompany = function SingleCompany() {
               "enable-background": "new 0 0 64 64",
               xmlSpace: "preserve",
               fill: "#000000",
-              stroke: "#000000",
+              stroke: "#238a85",
               "stroke-width": "1.6",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                 id: "SVGRepo_bgCarrier",
@@ -13656,7 +13656,7 @@ var SingleCompany = function SingleCompany() {
               "enable-background": "new 0 0 64 64",
               xmlSpace: "preserve",
               fill: "#000000",
-              stroke: "#000000",
+              stroke: "#238a85",
               "stroke-width": "1.6",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                 id: "SVGRepo_bgCarrier",
@@ -13698,7 +13698,7 @@ var SingleCompany = function SingleCompany() {
               "enable-background": "new 0 0 64 64",
               xmlSpace: "preserve",
               fill: "#000000",
-              stroke: "#000000",
+              stroke: "#238a85",
               "stroke-width": "1.6",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                 id: "SVGRepo_bgCarrier",
@@ -13740,7 +13740,7 @@ var SingleCompany = function SingleCompany() {
               "enable-background": "new 0 0 64 64",
               xmlSpace: "preserve",
               fill: "#000000",
-              stroke: "#000000",
+              stroke: "#238a85",
               "stroke-width": "1.6",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                 id: "SVGRepo_bgCarrier",
@@ -13782,7 +13782,7 @@ var SingleCompany = function SingleCompany() {
               "enable-background": "new 0 0 64 64",
               xmlSpace: "preserve",
               fill: "#000000",
-              stroke: "#000000",
+              stroke: "#238a85",
               "stroke-width": "1.6",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                 id: "SVGRepo_bgCarrier",
@@ -13838,7 +13838,7 @@ var SingleCompany = function SingleCompany() {
         var _Date;
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "d-grid bj-col-3 justify-content-between",
+            className: "d-grid bj-col-3 justify-content-between bj-border-prime bj-radius-10 my-4 p-4",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
               className: "",
               children: _feedback.name
@@ -13855,7 +13855,7 @@ var SingleCompany = function SingleCompany() {
                 "enable-background": "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
-                stroke: "#000000",
+                stroke: "#238a85",
                 "stroke-width": "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
@@ -13887,7 +13887,7 @@ var SingleCompany = function SingleCompany() {
                 "enable-background": "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
-                stroke: "#000000",
+                stroke: "#238a85",
                 "stroke-width": "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
@@ -13919,7 +13919,7 @@ var SingleCompany = function SingleCompany() {
                 "enable-background": "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
-                stroke: "#000000",
+                stroke: "#238a85",
                 "stroke-width": "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
@@ -13951,7 +13951,7 @@ var SingleCompany = function SingleCompany() {
                 "enable-background": "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
-                stroke: "#000000",
+                stroke: "#238a85",
                 "stroke-width": "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
@@ -13983,7 +13983,7 @@ var SingleCompany = function SingleCompany() {
                 "enable-background": "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
-                stroke: "#000000",
+                stroke: "#238a85",
                 "stroke-width": "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
@@ -14005,7 +14005,7 @@ var SingleCompany = function SingleCompany() {
                   }), " "]
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                className: "mt-4",
+                className: "mt-2",
                 children: _feedback.comment
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
