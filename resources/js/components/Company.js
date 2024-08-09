@@ -119,7 +119,7 @@ function Company() {
 
 							{companies?.map(company => (
 
-								 <div className=" col-3 bg-white rounded border-white"  key={"company--"+company.id}>
+								 <div className=" bg-white col-3 bj-border-prime rounded"  key={"company--"+company.id}>
 									<div className="d-flex gap-4 align-items-center">
 									  <div className="w-25">
 										<img src={'uploads/images/' + company.logo} className="w-100" />

@@ -17,8 +17,9 @@
 	background-color: white;
 	padding: 20px;
 	border-radius: 10px;
-	border-color: white;
 }
+
+
 
 
 .jb-skill {
@@ -53,7 +54,7 @@
 }
 
 .bg-one {
-	background: #f7fffe;
+	background: #fbfff6;
 }
 
 
@@ -67,7 +68,7 @@
 }
 
 .text-prime {
-	color: #f7fffe;
+	color: #fbfff6;
 }
 
 .text-two {
@@ -80,6 +81,10 @@
 
 .bj-border {
 	border: 2px solid #238a85;
+}
+
+.bj-border-prime {
+	border: 2px solid #4f4a47;
 }
 
 .bj-border-radius {
@@ -118,6 +123,10 @@
 
 .bj-radius-10 {
 	border-radius: 10px;
+}
+
+.bj-mt-12 {
+	margin-top: 12px;
 }
 
 .bj-input {
