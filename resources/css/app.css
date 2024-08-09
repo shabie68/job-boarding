@@ -17,7 +17,6 @@
 	background-color: white;
 	padding: 20px;
 	border-radius: 10px;
-	border-color: white;
 }
 
 
@@ -124,6 +123,10 @@
 
 .bj-radius-10 {
 	border-radius: 10px;
+}
+
+.bj-mt-12 {
+	margin-top: 12px;
 }
 
 .bj-input {

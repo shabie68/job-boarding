@@ -11985,7 +11985,6 @@ textarea.form-control-lg {
 	background-color: white;
 	padding: 20px;
 	border-radius: 10px;
-	border-color: white;
 }
 
 
@@ -12092,6 +12091,10 @@ textarea.form-control-lg {
 
 .bj-radius-10 {
 	border-radius: 10px;
+}
+
+.bj-mt-12 {
+	margin-top: 12px;
 }
 
 .bj-input {
