@@ -11987,6 +11987,10 @@ textarea.form-control-lg {
 	border-radius: 10px;
 }
 
+.bj-p-20 {
+	padding: 10px
+}
+
 
 
 
@@ -12028,11 +12032,6 @@ textarea.form-control-lg {
 
 .bg-two {
 	background: #4f4a47;
-}
-
-.bg-two:hover {
-	background-color: #3c3734;
-	color: white;
 }
 
 .text-prime {
@@ -12119,6 +12118,14 @@ textarea.form-control-lg {
 
 .bj-col-3 {
 	grid-template-columns: 20% 50% 20%;
+}
+
+.bj-font-logo {
+	font-size: 36px;
+}
+
+.bj-min-height {
+	min-height: 100vh;
 }
 
 @keyframes apply-pbar{

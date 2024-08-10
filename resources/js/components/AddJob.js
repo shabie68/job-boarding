@@ -124,7 +124,7 @@ function AddJob() {
   });
 
   return (
-    <div className="mt-4">
+    <div className="my-4">
       <div className="d-flex gap-4 align-items-center">
         <Link to="/home">
           <svg style={{ color: 'black' }} xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">

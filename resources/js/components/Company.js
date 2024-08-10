@@ -100,7 +100,7 @@ function Company() {
 	  			</div>
 	  			:''
 	  		}
-			<div className="my-5">
+			<div className="my-4">
 				<div>
 					{role == 1 ?
 						<div className="d-flex justify-content-between align-items-center my-4 border-bottom">
@@ -140,7 +140,7 @@ function Company() {
 									  <div className="modal-dialog">
 										<div className="modal-content">
 										  <div className="modal-header">
-											<h1 className="modal-title fs-5" id={"exampleModalLabel-"+company.id}> Add Review</h1>
+											<h1 className="modal-title fs-5" id={"exampleModalLabel-"+company.id}> Add</h1>
 											<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 										  </div>
 										  <div className="modal-body">
