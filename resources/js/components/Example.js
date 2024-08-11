@@ -41,6 +41,19 @@ function Example() {
         })
     };
 
+    useEffect(() => {
+        let height = window.innerHeight;
+        let menuHeight = document.querySelector('.menubar-links').offsetHeight;
+
+        let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+        let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
+
+        document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
+        //height = 1360 ---> 100
+        // 23px ---> ?
+
+    }, [])
+
     return (
 
         <BoardJobContext.Provider value={boardJob} >
@@ -97,12 +110,13 @@ function Example() {
                     </Routes>
                 </div>
 
-                <section className="bg-two bj-p-20 position-fixed w-100 bottom-0">
-                    <div className="text-center ">
-                        <strong className="bj-font-logo text-prime">Gorgeous</strong>
-                    </div>
+                <section className="bg-two bj-p-10 bj-footer position-relative w-100 bottom-0">
+                    
 
-                    <div className="d-flex justify-content-evenly">
+                    <div className="d-flex justify-content-evenly align-items-center">
+                        <div className=" ">
+                            <strong className="bj-font-logo text-prime">Gorgeous</strong>
+                        </div>
                         <a href="#" className="text-decoration-none text-prime">About</a>
                         <a href="#" className="text-decoration-none text-prime">Contact us </a>
                         <a href="#" className="text-decoration-none text-prime">Faq's</a>

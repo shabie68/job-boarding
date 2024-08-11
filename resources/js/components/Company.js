@@ -25,6 +25,7 @@ function Company() {
 
  
 	useEffect(() => {
+		// let menuHeight = document.querySelector('')
 		setSuccess(location.state?.addCompany)
 		setTimeout(() => {
 			setSuccess(false)
@@ -33,6 +34,13 @@ function Company() {
 			getCompanies()	
 		}
 		
+		let height = window.innerHeight;
+        let menuHeight = document.querySelector('.menubar-links').offsetHeight;
+
+        let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+        let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
+
+        document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px'
 	}, [currentPage])
 
 	function getCompanies() {

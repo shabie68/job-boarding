@@ -39,6 +39,13 @@ function Apply(props) {
   useEffect(() => {
 
     saveDefaultData();
+    let height = window.innerHeight;
+        let menuHeight = document.querySelector('.menubar-links').offsetHeight;
+
+        let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+        let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
+
+        document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
   }, []);
 
 
@@ -92,14 +99,14 @@ function Apply(props) {
   });
 
   return (
-    <div>
+    <div className="my-4">
       <div className="progress mb-4" style={{height: '7px'}}>
         <div className="progress-bar" id="jb-apply-pbar" role="progressbar" style={{width: "33%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
       <div className="w-lg-50" style={{margin: '0 auto'}}>
         <h2>Personal Information</h2>
         <form onSubmit={formik.handleSubmit}>
-          <div className="card bg-one">
+          <div className="bj-border bj-radius-10 bj-p-20 bg-one">
             <div className="card-body">
               
                 <div className="">
@@ -176,7 +183,7 @@ function Apply(props) {
 
        
         <div className="mt-2 text-end">
-          <button type="submit" className="btn bg-two text-prime">Continue</button>
+          <button type="submit" className="btn bj-btn-prime text-prime">Continue</button>
         </div>
       </form>
 

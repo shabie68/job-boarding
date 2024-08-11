@@ -11988,7 +11988,15 @@ textarea.form-control-lg {
 }
 
 .bj-p-20 {
+	padding: 20px
+}
+
+.bj-p-10 {
 	padding: 10px
+}
+
+.bj-btn-prime {
+	background: #99902c;
 }
 
 

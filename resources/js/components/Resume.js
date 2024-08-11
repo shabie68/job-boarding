@@ -17,7 +17,13 @@ function Resume(props) {
 	const navigate = useNavigate();
 
 	useEffect(() => {
+		let height = window.innerHeight;
+        let menuHeight = document.querySelector('.menubar-links').offsetHeight;
 
+        let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+        let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
+
+        document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
 	})
 
 	const saveData = (e) => {
@@ -44,7 +50,7 @@ function Resume(props) {
 
 
 	return (
-		<div>
+		<div className="my-4">
 			<div className="progress mb-4" style={{height: '7px'}}>
               <div className="progress-bar" id="jb-resume-pbar" role="progressbar" style={{width: "66%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
@@ -52,7 +58,7 @@ function Resume(props) {
 			<div className="w-lg-50" style={{margin: '0 auto'}}>
 				<h4>Upload your resume</h4>
 				<form onSubmit={saveData}>
-					<div className="card">
+					<div className="bj-border bj-radius-10 bj-p-20 bg-one">
 						<div className="card-body">
 							
 							<div className="mb-3">
@@ -68,7 +74,7 @@ function Resume(props) {
 					</div>
 
 					<div className="mt-2 text-end">
-                        <button type="submit" className="btn bg-two text-prime">Continue</button>
+                        <button type="submit" className="btn bj-btn-prime text-prime">Continue</button>
                     </div>
 				</form>
 			</div>

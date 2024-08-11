@@ -10129,6 +10129,11 @@ function Apply(props) {
     setSubmission = _useState2[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     saveDefaultData();
+    var height = window.innerHeight;
+    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
+    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
+    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
   }, []);
   var saveDefaultData = function saveDefaultData() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/add-job-data', {
@@ -10174,6 +10179,7 @@ function Apply(props) {
     }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "progress mb-4",
       style: {
@@ -10200,7 +10206,7 @@ function Apply(props) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
         onSubmit: formik.handleSubmit,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "card bg-one",
+          className: "bj-border bj-radius-10 bj-p-20 bg-one",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "card-body",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -10301,7 +10307,7 @@ function Apply(props) {
           className: "mt-2 text-end",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             type: "submit",
-            className: "btn bg-two text-prime",
+            className: "btn bj-btn-prime text-prime",
             children: "Continue"
           })
         })]
@@ -10558,6 +10564,7 @@ function Company() {
     setFeedback = _useState16[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var _location$state;
+    // let menuHeight = document.querySelector('')
     setSuccess((_location$state = location.state) === null || _location$state === void 0 ? void 0 : _location$state.addCompany);
     setTimeout(function () {
       setSuccess(false);
@@ -10565,6 +10572,11 @@ function Company() {
     if (currentPage) {
       getCompanies();
     }
+    var height = window.innerHeight;
+    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
+    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
+    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
   }, [currentPage]);
   function getCompanies() {
     // apiClient.get('http://127.0.0.1:8000/api/company/show-companies')
@@ -11103,6 +11115,15 @@ function Example() {
       }
     });
   };
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var height = window.innerHeight;
+    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
+    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
+    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
+    //height = 1360 ---> 100
+    // 23px ---> ?
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_15__["default"].Provider, {
     value: boardJob,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_contexts_MessageContext_js__WEBPACK_IMPORTED_MODULE_16__["default"].Provider, {
@@ -11409,16 +11430,16 @@ function Example() {
             })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("section", {
-          className: "bg-two bj-p-20 position-fixed w-100 bottom-0",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
-            className: "text-center ",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("strong", {
-              className: "bj-font-logo text-prime",
-              children: "Gorgeous"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
-            className: "d-flex justify-content-evenly",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("a", {
+          className: "bg-two bj-p-10 bj-footer position-relative w-100 bottom-0",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+            className: "d-flex justify-content-evenly align-items-center",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+              className: " ",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("strong", {
+                className: "bj-font-logo text-prime",
+                children: "Gorgeous"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("a", {
               href: "#",
               className: "text-decoration-none text-prime",
               children: "About"
@@ -11592,6 +11613,11 @@ function JobQuestions() {
     setSalaryExpectation(context.submission.salary_expectation);
     setNoticePeriod(context.submission.notice_period);
     setScheduleInterview(new Date(context.submission.schedule_interview).toISOString().split('T')[0]);
+    var height = window.innerHeight;
+    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
+    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
+    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
     // props.updateJobContext({user_id: response.submission.user_id, board_job_id: response.submission.board_job_id, submission: response.data.submission})
   }, []);
   var formik = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useFormik)({
@@ -11633,6 +11659,7 @@ function JobQuestions() {
     })["catch"](function (error) {});
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "progress mb-4",
       style: {
@@ -11659,7 +11686,7 @@ function JobQuestions() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
         onSubmit: formik.handleSubmit,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "card",
+          className: "bj-border bj-radius-10 bj-p-20 bg-one",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "card-body",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -11843,7 +11870,7 @@ function JobQuestions() {
           className: "mt-2 mb-4 text-end",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", _defineProperty(_defineProperty({
             type: "button",
-            className: "btn bg-two text-prime"
+            className: "btn bj-btn-prime text-prime"
           }, "type", "submit"), "children", "Continue"))
         })]
       })]
@@ -12145,6 +12172,11 @@ function Profile() {
     setTimeout(function () {
       setSuccess(false);
     }, 3000);
+    var height = window.innerHeight;
+    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
+    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height) + 'px';
+    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
     children: [success ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -12751,7 +12783,13 @@ function Resume(props) {
     setResume(e.target.files[0]);
   };
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var height = window.innerHeight;
+    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
+    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
+    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
+  });
   var saveData = function saveData(e) {
     e.preventDefault();
     var formData = new FormData();
@@ -12768,6 +12806,7 @@ function Resume(props) {
     })["catch"](function (error) {});
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "progress mb-4",
       style: {
@@ -12794,7 +12833,7 @@ function Resume(props) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
         onSubmit: saveData,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "card",
+          className: "bj-border bj-radius-10 bj-p-20 bg-one",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "card-body",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -12815,7 +12854,7 @@ function Resume(props) {
           className: "mt-2 text-end",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             type: "submit",
-            className: "btn bg-two text-prime",
+            className: "btn bj-btn-prime text-prime",
             children: "Continue"
           })
         })]
@@ -14584,6 +14623,11 @@ var YourJob = function YourJob(props) {
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getSubmissions();
+    var height = window.innerHeight;
+    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
+    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
+    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RecruiterJobs__WEBPACK_IMPORTED_MODULE_3__["default"], {

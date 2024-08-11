@@ -39,6 +39,13 @@ function JobQuestions() {
         setSalaryExpectation(context.submission.salary_expectation)
         setNoticePeriod(context.submission.notice_period)
         setScheduleInterview(new Date(context.submission.schedule_interview).toISOString().split('T')[0])
+        let height = window.innerHeight;
+        let menuHeight = document.querySelector('.menubar-links').offsetHeight;
+
+        let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+        let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
+
+        document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
         // props.updateJobContext({user_id: response.submission.user_id, board_job_id: response.submission.board_job_id, submission: response.data.submission})
     }, [])
 
@@ -99,7 +106,7 @@ function JobQuestions() {
 
 
 	return (
-		<div>
+		<div className="my-4">
             <div className="progress mb-4" style={{height: '7px'}}>
               <div className="progress-bar" id="jb-question-pbar" role="progressbar" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
@@ -107,7 +114,7 @@ function JobQuestions() {
 			<div className="w-50" style={{margin: '0 auto'}}>
 				<h2>Miscelleneous</h2>
                  <form onSubmit={formik.handleSubmit}>
-    				<div className="card">
+    				<div className="bj-border bj-radius-10 bj-p-20 bg-one">
     					<div className="card-body">
                            
                             <div className="">
@@ -241,7 +248,7 @@ function JobQuestions() {
     				</div>
 
                     <div className="mt-2 mb-4 text-end">
-                        <button type="button" className="btn bg-two text-prime" type="submit">Continue</button>
+                        <button type="button" className="btn bj-btn-prime text-prime" type="submit">Continue</button>
                     </div>
                 </form>
 
