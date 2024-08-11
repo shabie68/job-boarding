@@ -124,7 +124,7 @@ function AddJob() {
   });
 
   return (
-    <div className="mt-4">
+    <div className="my-4">
       <div className="d-flex gap-4 align-items-center">
         <Link to="/home">
           <svg style={{ color: 'black' }} xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
@@ -136,7 +136,7 @@ function AddJob() {
 
       <section style={{ margin: '0 auto', width: '50%' }}>
         <h2>Add Job</h2>
-        <div className="card">
+        <div className="bj-border bj-p-20 bj-border-radius">
           <div className="card-body">
             <form onSubmit={formik.handleSubmit}>
               <div>
@@ -144,7 +144,7 @@ function AddJob() {
                 <input
                   type="text"
                   name="title"
-                  className="form-control"
+                  className="bj-input bg-one"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.title}
@@ -159,7 +159,7 @@ function AddJob() {
                 <input
                   type="text"
                   name="location"
-                  className="form-control"
+                  className="bj-input bg-one"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.location}
@@ -174,7 +174,7 @@ function AddJob() {
                 <input
                   type="number"
                   name="salary"
-                  className="form-control"
+                  className="bj-input bg-one"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.salary}
@@ -248,7 +248,7 @@ function AddJob() {
               </div>
 
               <div className="mt-4 text-end">
-                <button className="btn btn-primary text-align-end" type="submit">Add Job</button>
+                <button className="btn bj-btn-prime text-align-end" type="submit">Add Job</button>
               </div>
             </form>
           </div>

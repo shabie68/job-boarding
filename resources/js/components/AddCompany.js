@@ -67,6 +67,7 @@ const validate = values => {
 function AddCompany() {
 
 	const navigate = useNavigate();
+	const [showNext, setShowNext] = useState(false)
 	const formik = useFormik({
     initialValues: {
       title: '',
@@ -201,90 +202,97 @@ function AddCompany() {
 			<h2>Add Company</h2>
 			<div className="bg-white mb-3">
 				<form onSubmit={formik.handleSubmit}>
-					<div className="d-flex gap-3">
+					<div className="d-flex justify-content-center">
 
-						<div className="w-50">
+						{
+							!showNext ?
+							<div className="bj-border bj-border-radius bj-p-20">
 
-							<div className="form-group mb-3">
-							    <label htmlFor="title">Title</label>
-							    <input 
-							    	type="text"
-							    	className="form-control" 
-							    	id="title" 
-							    	aria-describedby="titleHelp"
-							    	placeholder="Enter title"
-							    	value={formik.values.title}
-							    	onChange={formik.handleChange}
-							    	onBlur={formik.handleBlur}
+								<div className="form-group mb-3">
+								    <label htmlFor="title">Title</label>
+								    <input 
+								    	type="text"
+								    	className="form-control" 
+								    	id="title" 
+								    	aria-describedby="titleHelp"
+								    	placeholder="Enter title"
+								    	value={formik.values.title}
+								    	onChange={formik.handleChange}
+								    	onBlur={formik.handleBlur}
 
+								    />
+							    	<small id="titleHelp" className="form-text text-muted">Enter the title for the company</small>
+							    	{formik.touched.title && formik.errors.title ? (
+					                  <div className="text-danger">{formik.errors.title}</div>
+					                ) : null}
+							  	</div>
+
+							  	<div className="mb-3">
+								  <label htmlFor="formFileSm" className="form-label">Small file input example</label>
+								  <input 
+								  	className="form-control form-control-sm" 
+								  	id="formFileSm" 
+								  	type="file" 
+								  	onChange={handleFileChange}
 							    />
-						    	<small id="titleHelp" className="form-text text-muted">Enter the title for the company</small>
-						    	{formik.touched.title && formik.errors.title ? (
-				                  <div className="text-danger">{formik.errors.title}</div>
-				                ) : null}
-						  	</div>
 
-						  	<div className="mb-3">
-							  <label htmlFor="formFileSm" className="form-label">Small file input example</label>
-							  <input 
-							  	className="form-control form-control-sm" 
-							  	id="formFileSm" 
-							  	type="file" 
-							  	onChange={handleFileChange}
-						    />
+							    {formik.touched.logo && formik.errors.logo ? (
+						          <div className="text-danger">{formik.errors.logo}</div>
+						        ) : null}
+								</div>
 
-						    {formik.touched.logo && formik.errors.logo ? (
-					          <div className="text-danger">{formik.errors.logo}</div>
-					        ) : null}
-							</div>
-
-							<div className="form-group mb-3">
-							    <label htmlFor="desc">Locations</label>
-							    <input 
-							    	type="text" 
-							    	className="bj-input bg-one" 
-							    	id="locations" 
-							    	aria-describedby="locationHelp" 
-							    	placeholder="Enter locations"
-							    	value={formik.values.locations}
-							    	onChange={formik.handleChange}
-							    	onBlur={formik.handleBlur}
+								<div className="form-group mb-3">
+								    <label htmlFor="desc">Locations</label>
+								    <input 
+								    	type="text" 
+								    	className="bj-input bg-one" 
+								    	id="locations" 
+								    	aria-describedby="locationHelp" 
+								    	placeholder="Enter locations"
+								    	value={formik.values.locations}
+								    	onChange={formik.handleChange}
+								    	onBlur={formik.handleBlur}
 
 
-							   	/>
-						    	<small id="locationHelp" className="form-text text-muted">Enter locations of the company. Can be multiple</small>
-						  		{formik.touched.locations && formik.errors.locations ? (
-				                  <div className="text-danger">{formik.errors.locations}</div>
-				                ) : null}
-						  	</div>
+								   	/>
+							    	<small id="locationHelp" className="form-text text-muted">Enter locations of the company. Can be multiple</small>
+							  		{formik.touched.locations && formik.errors.locations ? (
+					                  <div className="text-danger">{formik.errors.locations}</div>
+					                ) : null}
+							  	</div>
 
-						  	<div className="form-group mb-3">
-						  		<ul>
-						  		{
-						  			locations ? locations.split(',').map((location) => (
-						  				<li key={location}>{location}</li>
-						  			))
-						  			:''
-						  		}
+							  	<div className="form-group mb-3">
+							  		<ul>
+							  		{
+							  			locations ? locations.split(',').map((location) => (
+							  				<li key={location}>{location}</li>
+							  			))
+							  			:''
+							  		}
 
-						  		</ul>
-						  		<span className="p-4">
+							  		</ul>
+							  		<span className="p-4">
 
-						  		</span>
-						  	</div>
+							  		</span>
+							  	</div>
 
-						  	<div className="mb-3">	
-								<label>Description</label>
-								<div id="company-description">
+							  	<div className="mb-3">	
+									<label>Description</label>
+									<div id="company-description">
+									</div>
+								</div>
+
+								<div onClick={()=> {setShowNext(true)}}>
+									<button className="btn bj-btn-prime">Next</button>
 								</div>
 							</div>
-						</div>
 
-						<div style={{borderRight: '1px solid #e5eaef'}}>
+							:
 
-						</div>
 
-						<div className="w-50">
+							<>
+
+								<div className="bj-border bj-border-radius bj-p-20">
 
 							<div style={{margin: '20px 0'}}>
 						  		<label htmlFor="websiteUrl">Website url</label>
@@ -310,6 +318,7 @@ function AddCompany() {
 							        name="email"
 							        type="email"
 							        className="bj-input bg-one"
+							        onChange={formik.handleChange}
 							        onBlur={formik.handleBlur}
 							        value={formik.values.email}
 							      />
@@ -373,11 +382,10 @@ function AddCompany() {
 								</select>
 							</div>
 						</div>
-					</div>
-					
-					<div className="row mb-0 text-end">
+
+						<div className="row mb-0 text-end">
 			            <div className="col-md-8 offset-md-4 ">
-			                <button type="button" className="btn bg-two text-prime" type="submit">
+			                <button type="button" className="btn bj-btn-prime text-prime" type="submit">
 			                	{
 	                                !loading ?
 	                                <div>
@@ -392,6 +400,16 @@ function AddCompany() {
 			                </button>
 			            </div>
 			        </div>
+
+			        </>
+
+						}
+						
+
+						
+					</div>
+					
+					
 			    </form>
 	        </div>
 	    </>

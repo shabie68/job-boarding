@@ -25,6 +25,7 @@ function Company() {
 
  
 	useEffect(() => {
+		// let menuHeight = document.querySelector('')
 		setSuccess(location.state?.addCompany)
 		setTimeout(() => {
 			setSuccess(false)
@@ -33,6 +34,13 @@ function Company() {
 			getCompanies()	
 		}
 		
+		let height = window.innerHeight;
+        let menuHeight = document.querySelector('.menubar-links').offsetHeight;
+
+        let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+        let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
+
+        document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px'
 	}, [currentPage])
 
 	function getCompanies() {
@@ -100,7 +108,7 @@ function Company() {
 	  			</div>
 	  			:''
 	  		}
-			<div className="my-5">
+			<div className="my-4">
 				<div>
 					{role == 1 ?
 						<div className="d-flex justify-content-between align-items-center my-4 border-bottom">
@@ -119,7 +127,7 @@ function Company() {
 
 							{companies?.map(company => (
 
-								 <div className=" bg-white col-3 bj-border-prime rounded"  key={"company--"+company.id}>
+								 <div className=" bg-white col-3 bj-border rounded"  key={"company--"+company.id}>
 									<div className="d-flex gap-4 align-items-center">
 									  <div className="w-25">
 										<img src={'uploads/images/' + company.logo} className="w-100" />
@@ -140,7 +148,7 @@ function Company() {
 									  <div className="modal-dialog">
 										<div className="modal-content">
 										  <div className="modal-header">
-											<h1 className="modal-title fs-5" id={"exampleModalLabel-"+company.id}> Add Review</h1>
+											<h1 className="modal-title fs-5" id={"exampleModalLabel-"+company.id}> Add</h1>
 											<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 										  </div>
 										  <div className="modal-body">
@@ -186,7 +194,7 @@ function Company() {
 						 	))}
 
 							<div className="d-flex gap-2 align-items-center">
-							   <button className="btn btn-link"  onClick={prev} disabled={currentPage === 1} style={{border: '1px solid lightslategrey'}}>
+							   <button className="btn bj-btn-prime btn-link"  onClick={prev} disabled={currentPage === 1} style={{border: '1px solid lightslategrey'}}>
 
 								  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
 								  <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
@@ -197,7 +205,7 @@ function Company() {
                                 Showing page {currentPage} of {lastPage}
                                </span>
 
-							  <button className="btn btn-link" onClick={next} disabled={!nextPage} style={{border: '1px solid lightslategrey'}}>
+							  <button className="btn bj-btn-prime btn-link" onClick={next} disabled={!nextPage} style={{border: '1px solid lightslategrey'}}>
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
 								  <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
 								</svg>
