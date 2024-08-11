@@ -38,7 +38,7 @@ function SingleJob(props) {
 							</div>
 
 							<div className="ms-auto">
-								<Link to="/apply" state={{job: props.job}}><button className="btn bg-two text-prime">Apply</button></Link>
+								<Link to="/apply" state={{job: props.job}}><button className="btn bj-btn-prime text-prime">Apply</button></Link>
 							</div>
 						</div>
 					</div>

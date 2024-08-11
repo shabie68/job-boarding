@@ -9357,6 +9357,10 @@ var validate = function validate(values) {
 };
 function AddCompany() {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.useNavigate)();
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    showNext = _useState2[0],
+    setShowNext = _useState2[1];
   var formik = (0,formik__WEBPACK_IMPORTED_MODULE_12__.useFormik)({
     initialValues: {
       title: '',
@@ -9403,47 +9407,47 @@ function AddCompany() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setDescription(new quill__WEBPACK_IMPORTED_MODULE_2__["default"]('#company-description', editorOptions));
   }, []);
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState2 = _slicedToArray(_useState, 2),
-    loading = _useState2[0],
-    setLoading = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState4 = _slicedToArray(_useState3, 2),
-    title = _useState4[0],
-    setTitle = _useState4[1];
+    loading = _useState4[0],
+    setLoading = _useState4[1];
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState6 = _slicedToArray(_useState5, 2),
-    description = _useState6[0],
-    setDescription = _useState6[1];
+    title = _useState6[0],
+    setTitle = _useState6[1];
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState8 = _slicedToArray(_useState7, 2),
-    logo = _useState8[0],
-    setLogo = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    description = _useState8[0],
+    setDescription = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState10 = _slicedToArray(_useState9, 2),
-    locations = _useState10[0],
-    setLocations = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    logo = _useState10[0],
+    setLogo = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState12 = _slicedToArray(_useState11, 2),
-    email = _useState12[0],
-    setEmail = _useState12[1];
+    locations = _useState12[0],
+    setLocations = _useState12[1];
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState14 = _slicedToArray(_useState13, 2),
-    totalEmployees = _useState14[0],
-    setTotalEmployees = _useState14[1];
+    email = _useState14[0],
+    setEmail = _useState14[1];
   var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState16 = _slicedToArray(_useState15, 2),
-    websiteUrl = _useState16[0],
-    setWebsiteUrl = _useState16[1];
+    totalEmployees = _useState16[0],
+    setTotalEmployees = _useState16[1];
   var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState18 = _slicedToArray(_useState17, 2),
-    phoneNumber = _useState18[0],
-    setPhoneNumber = _useState18[1];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('ecommerce'),
+    websiteUrl = _useState18[0],
+    setWebsiteUrl = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState20 = _slicedToArray(_useState19, 2),
-    industry = _useState20[0],
-    setIndustry = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    phoneNumber = _useState20[0],
+    setPhoneNumber = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('ecommerce'),
+    _useState22 = _slicedToArray(_useState21, 2),
+    industry = _useState22[0],
+    setIndustry = _useState22[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       debug: 'info',
       modules: {
         toolbar: true
@@ -9452,9 +9456,9 @@ function AddCompany() {
       theme: 'snow',
       container: '#company-description'
     }),
-    _useState22 = _slicedToArray(_useState21, 2),
-    editorOptions = _useState22[0],
-    setEditorOptions = _useState22[1];
+    _useState24 = _slicedToArray(_useState23, 2),
+    editorOptions = _useState24[0],
+    setEditorOptions = _useState24[1];
   function saveCompany() {
     setLoading(true);
     var contactInformation = {
@@ -9506,12 +9510,12 @@ function AddCompany() {
       children: "Add Company"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "bg-white mb-3",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("form", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("form", {
         onSubmit: formik.handleSubmit,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "d-flex gap-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "w-50",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+          className: "d-flex justify-content-center",
+          children: !showNext ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            className: "bj-border bj-border-radius bj-p-20",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "form-group mb-3",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
@@ -9589,157 +9593,164 @@ function AddCompany() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
                 id: "company-description"
               })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              onClick: function onClick() {
+                setShowNext(true);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
+                className: "btn bj-btn-prime",
+                children: "Next"
+              })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-            style: {
-              borderRight: '1px solid #e5eaef'
-            }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "w-50",
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              style: {
-                margin: '20px 0'
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-                htmlFor: "websiteUrl",
-                children: "Website url"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-                id: "websiteUrl",
-                name: "websiteUrl",
-                type: "text",
-                className: "bj-input bg-one",
-                onChange: formik.handleChange,
-                onBlur: formik.handleBlur,
-                value: formik.values.websiteUrl
-              }), formik.touched.websiteUrl && formik.errors.websiteUrl ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "text-danger",
-                children: formik.errors.websiteUrl
-              }) : null]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              style: {
-                margin: '20px 0'
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-                htmlFor: "email",
-                children: "Email Address"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-                id: "email",
-                name: "email",
-                type: "email",
-                className: "bj-input bg-one",
-                onBlur: formik.handleBlur,
-                value: formik.values.email
-              }), formik.touched.email && formik.errors.email ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "text-danger",
-                children: formik.errors.email
-              }) : null]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              style: {
-                margin: '20px 0'
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-                htmlFor: "totalEmployees",
-                children: "Total Employees"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-                id: "totalEmployees",
-                name: "totalEmployees",
-                type: "number",
-                className: "bj-input bg-one",
-                onChange: formik.handleChange,
-                onBlur: formik.handleBlur,
-                value: formik.values.totalEmployees
-              }), formik.touched.totalEmployees && formik.errors.totalEmployees ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "text-danger",
-                children: formik.errors.totalEmployees
-              }) : null]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              style: {
-                margin: '20px 0'
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-                htmlFor: "phoneNumber",
-                children: "Phone Number"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-                id: "phoneNumber",
-                name: "phoneNumber",
-                type: "tel",
-                className: "bj-input bg-one",
-                onChange: formik.handleChange,
-                onBlur: formik.handleBlur,
-                value: formik.values.phoneNumber
-              }), formik.touched.phoneNumber && formik.errors.phoneNumber ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "text-danger",
-                children: formik.errors.phoneNumber
-              }) : null]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              style: {
-                margin: '20px 0'
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
-                children: "Choose Industry"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("select", {
-                className: "form-control",
-                name: "industry",
-                onChange: formik.handleChange,
-                onBlur: formik.handleBlur,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "electronics",
-                  children: "Electronics"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "ecommerce",
-                  children: "Ecommererce"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "education",
-                  children: "Educations"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "marketing",
-                  children: "Marketing"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "real-state",
-                  children: "Real State"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "entertainment",
-                  children: "Enterainment"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "logistics",
-                  children: "Transportattion and Logistics"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "energy",
-                  children: "Energy"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "finance",
-                  children: "Finance"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "health-care",
-                  children: "Health Care"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "technology",
-                  children: "Technology"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
-                  value: "food-store",
-                  children: "Food Store"
+              className: "bj-border bj-border-radius bj-p-20",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                style: {
+                  margin: '20px 0'
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+                  htmlFor: "websiteUrl",
+                  children: "Website url"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                  id: "websiteUrl",
+                  name: "websiteUrl",
+                  type: "text",
+                  className: "bj-input bg-one",
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  value: formik.values.websiteUrl
+                }), formik.touched.websiteUrl && formik.errors.websiteUrl ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  className: "text-danger",
+                  children: formik.errors.websiteUrl
+                }) : null]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                style: {
+                  margin: '20px 0'
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+                  htmlFor: "email",
+                  children: "Email Address"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                  id: "email",
+                  name: "email",
+                  type: "email",
+                  className: "bj-input bg-one",
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  value: formik.values.email
+                }), formik.touched.email && formik.errors.email ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  className: "text-danger",
+                  children: formik.errors.email
+                }) : null]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                style: {
+                  margin: '20px 0'
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+                  htmlFor: "totalEmployees",
+                  children: "Total Employees"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                  id: "totalEmployees",
+                  name: "totalEmployees",
+                  type: "number",
+                  className: "bj-input bg-one",
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  value: formik.values.totalEmployees
+                }), formik.touched.totalEmployees && formik.errors.totalEmployees ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  className: "text-danger",
+                  children: formik.errors.totalEmployees
+                }) : null]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                style: {
+                  margin: '20px 0'
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+                  htmlFor: "phoneNumber",
+                  children: "Phone Number"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
+                  id: "phoneNumber",
+                  name: "phoneNumber",
+                  type: "tel",
+                  className: "bj-input bg-one",
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  value: formik.values.phoneNumber
+                }), formik.touched.phoneNumber && formik.errors.phoneNumber ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  className: "text-danger",
+                  children: formik.errors.phoneNumber
+                }) : null]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                style: {
+                  margin: '20px 0'
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+                  children: "Choose Industry"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("select", {
+                  className: "form-control",
+                  name: "industry",
+                  onChange: formik.handleChange,
+                  onBlur: formik.handleBlur,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "electronics",
+                    children: "Electronics"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "ecommerce",
+                    children: "Ecommererce"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "education",
+                    children: "Educations"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "marketing",
+                    children: "Marketing"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "real-state",
+                    children: "Real State"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "entertainment",
+                    children: "Enterainment"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "logistics",
+                    children: "Transportattion and Logistics"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "energy",
+                    children: "Energy"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "finance",
+                    children: "Finance"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "health-care",
+                    children: "Health Care"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "technology",
+                    children: "Technology"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("option", {
+                    value: "food-store",
+                    children: "Food Store"
+                  })]
                 })]
               })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+              className: "row mb-0 text-end",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                className: "col-md-8 offset-md-4 ",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", _defineProperty(_defineProperty({
+                  type: "button",
+                  className: "btn bj-btn-prime text-prime"
+                }, "type", "submit"), "children", !loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                  children: "Save"
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+                    "class": "spinner-grow spinner-grow-sm",
+                    role: "status",
+                    "aria-hidden": "true"
+                  }), "Loading..."]
+                })))
+              })
             })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-          className: "row mb-0 text-end",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-            className: "col-md-8 offset-md-4 ",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", _defineProperty(_defineProperty({
-              type: "button",
-              className: "btn bg-two text-prime"
-            }, "type", "submit"), "children", !loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              children: "Save"
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                "class": "spinner-grow spinner-grow-sm",
-                role: "status",
-                "aria-hidden": "true"
-              }), "Loading..."]
-            })))
           })
-        })]
+        })
       })
     })]
   });
@@ -9907,7 +9918,7 @@ function AddJob() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
         children: "Add Job"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "card",
+        className: "bj-border bj-p-20 bj-border-radius",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "card-body",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
@@ -9918,7 +9929,7 @@ function AddJob() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                 type: "text",
                 name: "title",
-                className: "form-control",
+                className: "bj-input bg-one",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.title
@@ -9935,7 +9946,7 @@ function AddJob() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                 type: "text",
                 name: "location",
-                className: "form-control",
+                className: "bj-input bg-one",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.location
@@ -9952,7 +9963,7 @@ function AddJob() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                 type: "number",
                 name: "salary",
-                className: "form-control",
+                className: "bj-input bg-one",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.salary
@@ -10053,7 +10064,7 @@ function AddJob() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "mt-4 text-end",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-                className: "btn btn-primary text-align-end",
+                className: "btn bj-btn-prime text-align-end",
                 type: "submit",
                 children: "Add Job"
               })
@@ -10350,7 +10361,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var CandidateJobs = function CandidateJobs(props) {
-  var _context$message;
   var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
   // const messages = [];
@@ -10405,8 +10415,8 @@ var CandidateJobs = function CandidateJobs(props) {
     // messages.push(context.message)
     // messages.flat()
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
       "class": "table table-striped",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
@@ -10447,43 +10457,7 @@ var CandidateJobs = function CandidateJobs(props) {
           });
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-      onBlur: function onBlur(e) {
-        setMsg(e.target.value);
-      }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "card position-absolute",
-      style: {
-        bottom: 0,
-        right: '50px',
-        zIndex: 9,
-        height: '40%',
-        overflow: 'auto'
-      },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "card-header",
-        children: ["By ", context === null || context === void 0 || (_context$message = context.message) === null || _context$message === void 0 || (_context$message = _context$message.user) === null || _context$message === void 0 ? void 0 : _context$message.name]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "card-body",
-        children: [receivedMessages === null || receivedMessages === void 0 ? void 0 : receivedMessages.map(function (ms) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-            children: ms
-          });
-        }), sendMessages === null || sendMessages === void 0 ? void 0 : sendMessages.map(function (send) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-            children: send
-          });
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "card-footer",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "d-flex justify-content-end",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            children: "Close"
-          })
-        })
-      })]
-    })]
+    })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CandidateJobs);
@@ -10648,7 +10622,7 @@ function Company() {
             className: "row gap-3",
             children: [companies === null || companies === void 0 ? void 0 : companies.map(function (company) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: " bg-white col-3 bj-border-prime rounded",
+                className: " bg-white col-3 bj-border rounded",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                   className: "d-flex gap-4 align-items-center",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -10955,7 +10929,7 @@ function Company() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "d-flex gap-2 align-items-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                className: "btn btn-link",
+                className: "btn bj-btn-prime btn-link",
                 onClick: prev,
                 disabled: currentPage === 1,
                 style: {
@@ -10976,7 +10950,7 @@ function Company() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
                 children: ["Showing page ", currentPage, " of ", lastPage]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                className: "btn btn-link",
+                className: "btn bj-btn-prime btn-link",
                 onClick: next,
                 disabled: !nextPage,
                 style: {
@@ -12196,7 +12170,7 @@ function Profile() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
           children: "Profile"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "card bg-one p-4",
+          className: "card bj-border bg-one p-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
             children: user.name
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -12274,7 +12248,7 @@ function Profile() {
                 user: user
               },
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-                className: "btn bg-two text-prime",
+                className: "btn bj-btn-prime text-prime",
                 children: "Update"
               })
             })
@@ -12319,7 +12293,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var RecruiterJobs = function RecruiterJobs(props) {
-  var _context$message, _context$message2;
+  var _context$message;
   var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
@@ -12406,8 +12380,8 @@ var RecruiterJobs = function RecruiterJobs(props) {
       // }));
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
       "class": "table table-striped",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
@@ -12429,9 +12403,6 @@ var RecruiterJobs = function RecruiterJobs(props) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
             scope: "col",
             children: "Resume"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
-            scope: "col",
-            children: "Message"
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
@@ -12452,50 +12423,11 @@ var RecruiterJobs = function RecruiterJobs(props) {
                 href: "uploads/".concat(submission.resume),
                 children: "Resume"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                className: "btn btn-secondary",
-                onClick: function onClick() {
-                  sendMessage(submission.user_id);
-                },
-                children: "Send Message"
-              })
             })]
           }, submission.id);
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "card position-absolute",
-        style: {
-          bottom: 0,
-          right: '50px',
-          zIndex: 9
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "card-header",
-          children: ["By ", context === null || context === void 0 || (_context$message2 = context.message) === null || _context$message2 === void 0 || (_context$message2 = _context$message2.user) === null || _context$message2 === void 0 ? void 0 : _context$message2.name]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "card-body",
-          children: [receivedMessages === null || receivedMessages === void 0 ? void 0 : receivedMessages.map(function (ms) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-              children: ms
-            });
-          }), sendMessages === null || sendMessages === void 0 ? void 0 : sendMessages.map(function (send) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-              children: send
-            });
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            onClick: sendMessage,
-            children: "Send"
-          })
-        })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-      onBlur: function onBlur(e) {
-        setMsg(e.target.value);
-      }
-    }), JSON.stringify(chatMessages), " are messages"]
+    })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RecruiterJobs);
@@ -13246,7 +13178,7 @@ function ShowJob(props) {
       className: "d-sm-block d-lg-flex justify-content-lg-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "input-group mb-3",
+          className: "input-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "input-group-prepend",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
@@ -13273,7 +13205,7 @@ function ShowJob(props) {
               setJobTitle(e.target.value);
             }
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-            className: "btn bg-two text-prime",
+            className: "btn bj-btn-prime text-prime",
             onClick: function onClick() {
               return getJobs(true, 'first-time');
             },
@@ -13304,7 +13236,7 @@ function ShowJob(props) {
               to: "/add-job",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 type: "button",
-                className: "btn bg-three text-prime mb-4",
+                className: "btn bj-btn-secondary text-prime mb-4",
                 children: "Add Job"
               })
             })
@@ -13316,7 +13248,7 @@ function ShowJob(props) {
             children: [jobs.map(function (_job) {
               var _job$company;
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                className: "card bg-one mb-4 ".concat((job === null || job === void 0 ? void 0 : job.id) === _job.id ? "border border-primary" : ""),
+                className: "card bg-one mb-4 ".concat((job === null || job === void 0 ? void 0 : job.id) === _job.id ? "bj-border" : ""),
                 style: {
                   cursor: 'pointer'
                 },
@@ -13357,7 +13289,7 @@ function ShowJob(props) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "d-flex gap-2 align-items-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                className: "btn btn-link",
+                className: "btn bj-btn-prime btn-link",
                 onClick: prev,
                 disabled: currentPage === 1,
                 style: {
@@ -13378,7 +13310,7 @@ function ShowJob(props) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
                 children: ["Showing page ", currentPage, " of ", lastPage]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                className: "btn btn-link",
+                className: "btn bj-btn-prime btn-link",
                 onClick: next,
                 disabled: !nextPage,
                 style: {
@@ -13538,7 +13470,7 @@ function ShowJob(props) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "d-flex justify-content-end",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-              className: "btn bg-two text-prime",
+              className: "btn bj-btn-prime text-prime",
               onClick: function onClick() {
                 sendMessage(role == 1 ? userId : recepient);
               },
@@ -14174,7 +14106,7 @@ function SingleJob(props) {
                   job: props.job
                 },
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-                  className: "btn bg-two text-prime",
+                  className: "btn bj-btn-prime text-prime",
                   children: "Apply"
                 })
               })
@@ -14401,9 +14333,9 @@ function UpdateProfile() {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "col-md-8",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "card w-75 bg-one m-auto",
+          className: "bj-border w-75 bg-one m-auto",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "card-header",
+            className: "",
             children: "Profile"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "card-body",
@@ -14554,7 +14486,7 @@ function UpdateProfile() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 "class": "text-end",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                  className: "btn text-prime bg-two",
+                  className: "btn text-prime bj-btn-prime",
                   type: "submit",
                   children: "Save"
                 })

@@ -161,8 +161,8 @@ function UpdateProfile() {
 
 	            <div className="row justify-content-center">
 	                <div className="col-md-8">
-	                    <div className="card w-75 bg-one m-auto">
-	                        <div className="card-header">
+	                    <div className="bj-border w-75 bg-one m-auto">
+	                        <div className="">
 	                            Profile
 	                        </div>
 
@@ -297,7 +297,7 @@ function UpdateProfile() {
 	                            </div>
 
 	                            <div class="text-end">
-	                                <button className="btn text-prime bg-two" type="submit">Save</button>
+	                                <button className="btn text-prime bj-btn-prime" type="submit">Save</button>
 	                            </div>
 
 	                            </form>

@@ -88,7 +88,6 @@ const RecruiterJobs = (props) => {
 			      <th scope="col">Phone</th>
 			      <th scope="col">Email</th>
 			      <th scope="col">Resume</th>
-			      <th scope="col">Message</th>
 			    </tr>
 			  </thead>
 
@@ -101,41 +100,12 @@ const RecruiterJobs = (props) => {
 			    			<td>{submission.phone_number}</td>
 			    			<td>{submission.email}</td>
 			    			<td><a href={`uploads/${submission.resume}`}>Resume</a></td>
-			    			<td><button className="btn btn-secondary" onClick={() => {sendMessage(submission.user_id)}}>Send Message</button></td>
 			    		</tr>
 
 			    	))}
 
 			  </tbody>
-
-			  <div className="card position-absolute" style={{bottom: 0, right: '50px', zIndex: 9}}>
-				<div className="card-header">
-					By {context?.message?.user?.name}
-				</div>
-
-				<div className="card-body">
-						{
-					receivedMessages?.map((ms) => (
-						<p>{ms}</p>
-					))
-				}
-
-				{
-					sendMessages?.map((send) => (
-						<p>{send}</p>
-					))
-				}
-				</div>
-
-				<div>
-					<button onClick={sendMessage}>Send</button>
-				</div>
-			</div>
 			</table>
-
-			<input onBlur={(e) => {setMsg(e.target.value)}} />
-			 {JSON.stringify(chatMessages)} are messages
-			
 		</>
 	)
 

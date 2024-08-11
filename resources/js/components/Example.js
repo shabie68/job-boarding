@@ -112,7 +112,6 @@ function Example() {
 
                 <section className="bg-two bj-p-10 bj-footer position-relative w-100 bottom-0">
                     
-
                     <div className="d-flex justify-content-evenly align-items-center">
                         <div className=" ">
                             <strong className="bj-font-logo text-prime">Gorgeous</strong>

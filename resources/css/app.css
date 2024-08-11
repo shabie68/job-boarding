@@ -29,9 +29,23 @@
 
 .bj-btn-prime {
 	background: #99902c;
+	color: white;
+
+}
+
+.bj-btn-secondary {
+	background-color: #238a85;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+	background: #99902c;
+	color: #fbfff6;
 }
 
 
+a {
+	text-decoration: none;
+}
 
 
 .jb-skill {

@@ -79,35 +79,7 @@ const CandidateJobs = (props) => {
 			  	}
 			  </tbody>
 		  </table>
-
-
-		  <input onBlur={(e) => {setMsg(e.target.value)}}/> 
-
-		  <div className="card position-absolute" style={{bottom: 0, right: '50px', zIndex: 9, height: '40%', overflow: 'auto'}}>
-			<div className="card-header">
-				By {context?.message?.user?.name}
-			</div>
-
-			<div className="card-body">
-				{
-					receivedMessages?.map((ms) => (
-						<p>{ms}</p>
-					))
-				}
-
-				{
-					sendMessages?.map((send) => (
-						<p>{send}</p>
-					))
-				}
-			</div>
-
-			<div className="card-footer">
-				<div className="d-flex justify-content-end">
-					<button>Close</button>
-				</div>
-			</div>
-		</div>
+		  
 
 	  </>
 	)
