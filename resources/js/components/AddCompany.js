@@ -151,6 +151,11 @@ function AddCompany() {
 	  container: '#company-description'
 	})
 
+	const handleShowNext = () => {
+		document.querySelector('.ql-toolbar').style.display = 'none'
+		setShowNext(true)
+	}
+
 	function saveCompany() {
 
 		setLoading(true)
@@ -200,19 +205,19 @@ function AddCompany() {
 			</div>
 
 			<h2>Add Company</h2>
-			<div className="bg-white mb-3">
+			<div className="my-4">
 				<form onSubmit={formik.handleSubmit}>
 					<div className="d-flex justify-content-center">
 
 						{
 							!showNext ?
-							<div className="bj-border bj-border-radius bj-p-20">
+							<div className="bj-border bj-border-radius bj-p-20 w-50">
 
 								<div className="form-group mb-3">
 								    <label htmlFor="title">Title</label>
 								    <input 
 								    	type="text"
-								    	className="form-control" 
+								    	className="bj-input bg-one" 
 								    	id="title" 
 								    	aria-describedby="titleHelp"
 								    	placeholder="Enter title"
@@ -230,7 +235,7 @@ function AddCompany() {
 							  	<div className="mb-3">
 								  <label htmlFor="formFileSm" className="form-label">Small file input example</label>
 								  <input 
-								  	className="form-control form-control-sm" 
+								  	className="bj-input bg-one" 
 								  	id="formFileSm" 
 								  	type="file" 
 								  	onChange={handleFileChange}
@@ -282,7 +287,7 @@ function AddCompany() {
 									</div>
 								</div>
 
-								<div onClick={()=> {setShowNext(true)}}>
+								<div className="text-end" onClick={handleShowNext}>
 									<button className="btn bj-btn-prime">Next</button>
 								</div>
 							</div>
@@ -292,124 +297,116 @@ function AddCompany() {
 
 							<>
 
-								<div className="bj-border bj-border-radius bj-p-20">
+								<div className="bj-border bj-border-radius bj-p-20 w-50">
 
-							<div style={{margin: '20px 0'}}>
-						  		<label htmlFor="websiteUrl">Website url</label>
-							    <input
-							        id="websiteUrl"
-							        name="websiteUrl"
-							        type="text"
-							        className="bj-input bg-one" 
-							        onChange={formik.handleChange}
-							        onBlur={formik.handleBlur}
-							        value={formik.values.websiteUrl}
-							      />
-						      	{formik.touched.websiteUrl && formik.errors.websiteUrl ? (
-						        	<div className="text-danger">{formik.errors.websiteUrl}</div>
-							    ) : null}
-						  	</div>
+									<div style={{margin: '20px 0'}}>
+								  		<label htmlFor="websiteUrl">Website url</label>
+									    <input
+									        id="websiteUrl"
+									        name="websiteUrl"
+									        type="text"
+									        className="bj-input bg-one" 
+									        onChange={formik.handleChange}
+									        onBlur={formik.handleBlur}
+									        value={formik.values.websiteUrl}
+									      />
+								      	{formik.touched.websiteUrl && formik.errors.websiteUrl ? (
+								        	<div className="text-danger">{formik.errors.websiteUrl}</div>
+									    ) : null}
+								  	</div>
 
 
-						  	<div style={{margin: '20px 0'}}>
-						  		<label htmlFor="email">Email Address</label>
-							    <input
-							        id="email"
-							        name="email"
-							        type="email"
-							        className="bj-input bg-one"
-							        onChange={formik.handleChange}
-							        onBlur={formik.handleBlur}
-							        value={formik.values.email}
-							      />
-						      	{formik.touched.email && formik.errors.email ? (
-						        	<div className="text-danger">{formik.errors.email}</div>
-							    ) : null}
-						  	</div>
+								  	<div style={{margin: '20px 0'}}>
+								  		<label htmlFor="email">Email Address</label>
+									    <input
+									        id="email"
+									        name="email"
+									        type="email"
+									        className="bj-input bg-one"
+									        onChange={formik.handleChange}
+									        onBlur={formik.handleBlur}
+									        value={formik.values.email}
+									      />
+								      	{formik.touched.email && formik.errors.email ? (
+								        	<div className="text-danger">{formik.errors.email}</div>
+									    ) : null}
+								  	</div>
 
-						  	<div style={{margin: '20px 0'}}>
-						  		<label htmlFor="totalEmployees">Total Employees</label>
-							    <input
-							        id="totalEmployees"
-							        name="totalEmployees"
-							        type="number"
-							        className="bj-input bg-one" 
-							        onChange={formik.handleChange}
-							        onBlur={formik.handleBlur}
-							        value={formik.values.totalEmployees}
-							      />
-						      	{formik.touched.totalEmployees && formik.errors.totalEmployees ? (
-						        	<div className="text-danger">{formik.errors.totalEmployees}</div>
-							    ) : null}
-						  	</div>
+								  	<div style={{margin: '20px 0'}}>
+								  		<label htmlFor="totalEmployees">Total Employees</label>
+									    <input
+									        id="totalEmployees"
+									        name="totalEmployees"
+									        type="number"
+									        className="bj-input bg-one" 
+									        onChange={formik.handleChange}
+									        onBlur={formik.handleBlur}
+									        value={formik.values.totalEmployees}
+									      />
+								      	{formik.touched.totalEmployees && formik.errors.totalEmployees ? (
+								        	<div className="text-danger">{formik.errors.totalEmployees}</div>
+									    ) : null}
+								  	</div>
 
-						  	<div style={{margin: '20px 0'}}>
-						  		<label htmlFor="phoneNumber">Phone Number</label>
-							    <input
-							        id="phoneNumber"
-							        name="phoneNumber"
-							        type="tel"
-							        className="bj-input bg-one" 
-							        onChange={formik.handleChange}
-							        onBlur={formik.handleBlur}
-							        value={formik.values.phoneNumber}
-							      />
-						      	{formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-						        	<div className="text-danger">{formik.errors.phoneNumber}</div>
-							    ) : null}
-						  	</div>
-						  	
-							<div style={{margin: '20px 0'}}>
-								<label>Choose Industry</label>
-								<select 
-									className="form-control" 
-									name="industry"
-									onChange={formik.handleChange}
-									onBlur={formik.handleBlur}
-								>
-									<option value="electronics">Electronics</option>
-									<option value="ecommerce">Ecommererce</option>
-									<option value="education">Educations</option>
-									<option value="marketing">Marketing</option>
-									<option value="real-state">Real State</option>
-									<option value="entertainment">Enterainment</option>
-									<option value="logistics">Transportattion and Logistics</option>
-									<option value="energy">Energy</option>
-									<option value="finance">Finance</option>
-									<option value="health-care">Health Care</option>
-									<option value="technology">Technology</option>
-									<option value="food-store">Food Store</option>
-								</select>
-							</div>
-						</div>
+								  	<div style={{margin: '20px 0'}}>
+								  		<label htmlFor="phoneNumber">Phone Number</label>
+									    <input
+									        id="phoneNumber"
+									        name="phoneNumber"
+									        type="tel"
+									        className="bj-input bg-one" 
+									        onChange={formik.handleChange}
+									        onBlur={formik.handleBlur}
+									        value={formik.values.phoneNumber}
+									      />
+								      	{formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+								        	<div className="text-danger">{formik.errors.phoneNumber}</div>
+									    ) : null}
+								  	</div>
+								  	
+									<div style={{margin: '20px 0'}}>
+										<label>Choose Industry</label>
+										<select 
+											className="form-control" 
+											name="industry"
+											onChange={formik.handleChange}
+											onBlur={formik.handleBlur}
+										>
+											<option value="electronics">Electronics</option>
+											<option value="ecommerce">Ecommererce</option>
+											<option value="education">Educations</option>
+											<option value="marketing">Marketing</option>
+											<option value="real-state">Real State</option>
+											<option value="entertainment">Enterainment</option>
+											<option value="logistics">Transportattion and Logistics</option>
+											<option value="energy">Energy</option>
+											<option value="finance">Finance</option>
+											<option value="health-care">Health Care</option>
+											<option value="technology">Technology</option>
+											<option value="food-store">Food Store</option>
+										</select>
+									</div>
 
-						<div className="row mb-0 text-end">
-			            <div className="col-md-8 offset-md-4 ">
-			                <button type="button" className="btn bj-btn-prime text-prime" type="submit">
-			                	{
-	                                !loading ?
-	                                <div>
-	                                    Save
-	                                </div>
-	                                :
-	                                <div>
-	                                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-	                                    Loading...
-	                                </div>
-	                            }
-			                </button>
-			            </div>
-			        </div>
-
-			        </>
+									<div className="text-end">
+						                <button type="button" className="btn bj-btn-prime text-prime" type="submit">
+						                	{
+				                                !loading ?
+				                                <div>
+				                                    Save
+				                                </div>
+				                                :
+				                                <div>
+				                                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+				                                    Loading...
+				                                </div>
+				                            }
+						                </button>
+						        	</div>
+								</div>
+					       	</>
 
 						}
-						
-
-						
 					</div>
-					
-					
 			    </form>
 	        </div>
 	    </>

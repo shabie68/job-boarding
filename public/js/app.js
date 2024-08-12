@@ -9459,6 +9459,10 @@ function AddCompany() {
     _useState24 = _slicedToArray(_useState23, 2),
     editorOptions = _useState24[0],
     setEditorOptions = _useState24[1];
+  var handleShowNext = function handleShowNext() {
+    document.querySelector('.ql-toolbar').style.display = 'none';
+    setShowNext(true);
+  };
   function saveCompany() {
     setLoading(true);
     var contactInformation = {
@@ -9509,13 +9513,13 @@ function AddCompany() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
       children: "Add Company"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "bg-white mb-3",
+      className: "my-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("form", {
         onSubmit: formik.handleSubmit,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "d-flex justify-content-center",
           children: !showNext ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-            className: "bj-border bj-border-radius bj-p-20",
+            className: "bj-border bj-border-radius bj-p-20 w-50",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               className: "form-group mb-3",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
@@ -9523,7 +9527,7 @@ function AddCompany() {
                 children: "Title"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
                 type: "text",
-                className: "form-control",
+                className: "bj-input bg-one",
                 id: "title",
                 "aria-describedby": "titleHelp",
                 placeholder: "Enter title",
@@ -9545,7 +9549,7 @@ function AddCompany() {
                 className: "form-label",
                 children: "Small file input example"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
-                className: "form-control form-control-sm",
+                className: "bj-input bg-one",
                 id: "formFileSm",
                 type: "file",
                 onChange: handleFileChange
@@ -9594,17 +9598,16 @@ function AddCompany() {
                 id: "company-description"
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              onClick: function onClick() {
-                setShowNext(true);
-              },
+              className: "text-end",
+              onClick: handleShowNext,
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
                 className: "btn bj-btn-prime",
                 children: "Next"
               })
             })]
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-              className: "bj-border bj-border-radius bj-p-20",
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              className: "bj-border bj-border-radius bj-p-20 w-50",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                 style: {
                   margin: '20px 0'
@@ -9730,11 +9733,8 @@ function AddCompany() {
                     children: "Food Store"
                   })]
                 })]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-              className: "row mb-0 text-end",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                className: "col-md-8 offset-md-4 ",
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+                className: "text-end",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", _defineProperty(_defineProperty({
                   type: "button",
                   className: "btn bj-btn-prime text-prime"
@@ -9747,8 +9747,8 @@ function AddCompany() {
                     "aria-hidden": "true"
                   }), "Loading..."]
                 })))
-              })
-            })]
+              })]
+            })
           })
         })
       })
