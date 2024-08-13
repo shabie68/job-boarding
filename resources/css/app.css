@@ -182,6 +182,10 @@ a {
 	min-height: 100vh;
 }
 
+.bj-text-bold {
+	font-weight: bold;
+}
+
 @keyframes apply-pbar{
 	from {
 		width: 0%;

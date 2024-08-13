@@ -404,7 +404,6 @@ function AddCompany() {
 						        	</div>
 								</div>
 					       	</>
-
 						}
 					</div>
 			    </form>

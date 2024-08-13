@@ -149,7 +149,7 @@ function UpdateProfile() {
         
     };
 	return (
-			<div>
+			<div className="my-4">
 				<div className="d-flex gap-2 align-items-center ">
 		            <span onClick={handleNavigation}>
 		                <svg style={{color: '#4f4a47'}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
@@ -161,148 +161,149 @@ function UpdateProfile() {
 
 	            <div className="row justify-content-center">
 	                <div className="col-md-8">
-	                    <div className="bj-border w-75 bg-one m-auto">
-	                        <div className="">
-	                            Profile
-	                        </div>
+	                	<form className="w-75 m-auto" onSubmit={formik.handleSubmit}>
+	                		<h3>Update Profile</h3>
+	                    	<div className="bj-border bj-border-radius bg-one p-4">
+		                        <div>
+	                        	
 
-	                        <div className="card-body">
-	                        	<form onSubmit={formik.handleSubmit}>
-
-	                            <div className="form-group row mb-3">
-	                                <label htmlFor="exampleFormControlTextarea1" className="col-md-4 col-form-label text-md-end" >Summary</label>
-	                                <div className="col-md-6">
-	                                    <textarea id="exampleFormControlTextarea1" name="summary" rows="3" className="bj-input bg-one" onBlur={formik.handleBlur} onChange={formik.handleChange} defaultValue={formik.values.summary}></textarea>
-	                                	{formik.touched.summary && formik.errors.summary ? (
-		                                	<>
-			                              <div className="text-danger">{formik.errors.summary}</div>
-			                              </>
-			                            ) : null}
-	                                </div>
-
-	                            </div>
-
-	                            <div className="row mb-3">
-	                                <label htmlFor="email" className="col-md-4 col-form-label text-md-end">Phone Number</label>
-	                                <div className="col-md-6">
-	                                    <input
-	                                        type="tel"
-	                                        name="phoneNumber"
-	                                        placeholder="Phone Number"
-	                                        value={formik.values.phoneNumber}
-	                                        onChange={formik.handleChange}
-	                                        onBlur={formik.handleBlur}
-	                                        required
-	                                        className="bj-input bg-one"
-	                                    />
-	                                    {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-			                              <div className="text-danger">{formik.errors.phoneNumber}</div>
-			                            ) : null}
-	                                </div>
-	                            </div>
-
-	                            <div className="row mb-3">
-	                                <label htmlFor="email" className="col-md-4 col-form-label text-md-end">Address</label>
-	                                <div className="col-md-6">
-	                                    <input
-	                                        type="text"
-	                                        name="address"
-	                                        placeholder="Address"
-	                                        value={formik.values.address}
-	                                        onChange={formik.handleChange}
-	                                        onBlur={formik.handleBlur}
-	                                        required
-	                                        className="bj-input bg-one"
-	                                    />
-	                                    {formik.touched.address && formik.errors.address ? (
-			                              <div className="text-danger">{formik.errors.address}</div>
-			                            ) : null}
-	                                </div>
-	                                
-	                            </div>
-
-	                            <div className="row mb-3">
-	                                <label htmlFor="email" className="col-md-4 col-form-label text-md-end">Education</label>
-	                                <div className="col-md-6">
-	                                    <input
-	                                        type="text"
-	                                        name="education"
-	                                        placeholder="Education"
-	                                        value={formik.values.education}
-	                                        onChange={formik.handleChange}
-	                                        onBlur={formik.handleBlur}
-	                                        required
-	                                        className="bj-input bg-one"
-	                                    />
-	                                    {formik.touched.education && formik.errors.education ? (
-			                              <div className="text-danger">{formik.errors.education}</div>
-			                            ) : null}
-	                                </div>
-	                            </div>
-
-	                            <div className="form-group row mb-3">
-	                                <div htmlFor="choose-skills" className="col-md-4 col-form-label text-md-end" >Choose Skills</div>
-	                                <div className="col-md-6">
-	                                    <div>
-	                                        <input
-	                                          type="text"
-	                                          className="bj-input bg-one"
-	                                          name="searchTerm"
-	                                          placeholder="Search..."
-	                                          value={formik.values.searchTerm}
-	                                          onChange={formik.handleChange}
-	                                          onBlur={formik.handleBlur}
-	                                        />
-
-	                                        {formik.touched.searchTerm && formik.errors.searchTerm ? (
-				                              <div className="text-danger">{formik.errors.searchTerm}</div>
+		                            <div className="form-group mb-3">
+		                                <label htmlFor="exampleFormControlTextarea1" className="col-form-label bj-text-bold">Summary</label>
+		                                <div>
+		                                    <textarea id="exampleFormControlTextarea1" name="summary" rows="3" className="bj-input bg-one" onBlur={formik.handleBlur} onChange={formik.handleChange} defaultValue={formik.values.summary}></textarea>
+		                                	{formik.touched.summary && formik.errors.summary ? (
+			                                	<>
+				                              <div className="text-danger">{formik.errors.summary}</div>
+				                              </>
 				                            ) : null}
+		                                </div>
 
-	                                    </div>
+		                            </div>
 
-	                                    
-	                                    {
-	                                        formik.values.searchTerm ?
+		                            <div className="mb-3">
+		                                <label htmlFor="email" className="col-md-4 col-form-label bj-text-bold">Phone Number</label>
+		                                <div>
+		                                    <input
+		                                        type="tel"
+		                                        name="phoneNumber"
+		                                        placeholder="Phone Number"
+		                                        value={formik.values.phoneNumber}
+		                                        onChange={formik.handleChange}
+		                                        onBlur={formik.handleBlur}
+		                                        required
+		                                        className="bj-input bg-one"
+		                                    />
+		                                    {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
+				                              <div className="text-danger">{formik.errors.phoneNumber}</div>
+				                            ) : null}
+		                                </div>
+		                            </div>
 
-	                                                <div className="border rounded form-control">
-	                                                    {filterEntries().map((entry, index) => (
-	                                                        <div key={entry}>
+		                            <div className="mb-3">
+		                                <label htmlFor="email" className="col-form-label bj-text-bold">Address</label>
+		                                <div>
+		                                    <input
+		                                        type="text"
+		                                        name="address"
+		                                        placeholder="Address"
+		                                        value={formik.values.address}
+		                                        onChange={formik.handleChange}
+		                                        onBlur={formik.handleBlur}
+		                                        required
+		                                        className="bj-input bg-one"
+		                                    />
+		                                    {formik.touched.address && formik.errors.address ? (
+				                              <div className="text-danger">{formik.errors.address}</div>
+				                            ) : null}
+		                                </div>
+		                                
+		                            </div>
 
-	                                                            <div onClick={()=> {handleAddSkills(entry)}} className="jb-skill">{entry}</div>
-	                                                        </div>
-	                                                    ))}
-	                                              </div>
-	                                        : ''
-	                                    }
-	                                    
-	                                </div>
-	                            </div>
+		                            <div className="mb-3">
+		                                <label htmlFor="email" className="col-form-label bj-text-bold">Education</label>
+		                                <div>
+		                                    <input
+		                                        type="text"
+		                                        name="education"
+		                                        placeholder="Education"
+		                                        value={formik.values.education}
+		                                        onChange={formik.handleChange}
+		                                        onBlur={formik.handleBlur}
+		                                        required
+		                                        className="bj-input bg-one"
+		                                    />
+		                                    {formik.touched.education && formik.errors.education ? (
+				                              <div className="text-danger">{formik.errors.education}</div>
+				                            ) : null}
+		                                </div>
+		                            </div>
+
+		                            <div className="form-group mb-3">
+		                                <div htmlFor="choose-skills" className="col-form-label bj-text-bold" >Choose Skills</div>
+		                                <div>
+		                                    <div>
+		                                        <input
+		                                          type="text"
+		                                          className="bj-input bg-one"
+		                                          name="searchTerm"
+		                                          placeholder="Search..."
+		                                          value={formik.values.searchTerm}
+		                                          onChange={formik.handleChange}
+		                                          onBlur={formik.handleBlur}
+		                                        />
+
+		                                        {formik.touched.searchTerm && formik.errors.searchTerm ? (
+					                              <div className="text-danger">{formik.errors.searchTerm}</div>
+					                            ) : null}
+
+		                                    </div>
+
+		                                    
+		                                    {
+		                                        formik.values.searchTerm ?
+
+		                                                <div className="border rounded form-control">
+		                                                    {filterEntries().map((entry, index) => (
+		                                                        <div key={entry}>
+
+		                                                            <div onClick={()=> {handleAddSkills(entry)}} className="jb-skill">{entry}</div>
+		                                                        </div>
+		                                                    ))}
+		                                              </div>
+		                                        : ''
+		                                    }
+		                                    
+		                                </div>
+		                            </div>
 
 
-	                            <div className="form-group row mb-3">
-	                                <div htmlFor="skills" className="col-md-4 col-form-label text-md-end" >Selected Skills</div>
-	                                <div className="col-md-6 d-flex align-items-center">
-	                                  
+		                            <div className="form-group mb-3">
+		                                <div htmlFor="skills" className="col-form-label bj-text-bold" >Selected Skills</div>
+		                                {
+		                                	!moreSkills ?
+		                                	<p>Please choose from above list</p>
+		                                	: ''
+		                                	
+		                                }
 
+		                                <div className="d-flex align-items-center gap-2">
+		                                    {
+		                                        moreSkills?.map((skill) => (
 
-	                                    {
-	                                        moreSkills?.map((skill) => (
+		                                            <>
+		                                            <div key={skill} className="badge bg-secondary">{skill}</div>
+		                                            </>
+		                                        ))
+		                                    }
+		                                </div>
+		                            </div>
+		                        </div>  
+		                    </div>
 
-	                                            <>
-	                                            <div key={skill} className="badge bg-secondary mx-2">{skill}</div>
-	                                            </>
-	                                        ))
-	                                    }
-	                                </div>
-	                            </div>
-
-	                            <div class="text-end">
-	                                <button className="btn text-prime bj-btn-prime" type="submit">Save</button>
-	                            </div>
-
-	                            </form>
-	                        </div>
-	                    </div>
+		                    <div class="text-end mt-2">
+                                <button className="btn text-prime bj-btn-prime" type="submit">Save</button>
+                            </div>
+	                    </form>
 	                </div>
 	            </div>
 	        </div>
