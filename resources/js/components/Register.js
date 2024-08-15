@@ -39,12 +39,14 @@ const Register = (props) => {
 
         <div>
             <div className="container pt-4">
-                <div className="row justify-content-center w-75 m-auto">
-                    <div className="col-md-8">
+                <div className="row justify-content-evenly">
+                    <h3 className="text-center my-4">Create an account</h3>
+
+                    <div className="col-md-6 row align-items-center bj-amplify bj-border-radius text-prime">
+                        <h3 className="text-center">Register your account!</h3>
+                    </div>
+                    <div className="col-md-6">
                         <div className="bj-border bj-border-radius p-3 bg-one">
-                            <h3>
-                                Register
-                            </h3>
 
                             <div className="">
                                 <form onSubmit={handleSubmit}>
@@ -138,7 +140,7 @@ const Register = (props) => {
                                     <div className="row mb-0">
                                         <div className="col-md-12 text-end">
 
-                                            <button type="submit" className="btn bg-two text-prime">
+                                            <button type="submit" className="btn bj-btn-prime text-prime">
                                                 {
                                                     !loading ?
                                                     <div>

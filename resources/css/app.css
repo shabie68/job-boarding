@@ -186,6 +186,26 @@ a {
 	font-weight: bold;
 }
 
+.bj-btn {
+	padding: 6px 15px;
+	border-width: 1px;
+	border-style: #dee2e6;
+	border-radius: 0.375rem;
+	border-color: #8f1d1d00;
+}
+
+.bj-amplify {
+	background: linear-gradient(45deg, #4f4a47, transparent)
+}
+
+.bj-end {
+	justify-content: flex-end
+}
+
+.bj-btn:hover {
+	background-color: #817921;
+}
+
 @keyframes apply-pbar{
 	from {
 		width: 0%;

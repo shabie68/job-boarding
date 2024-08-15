@@ -33,7 +33,11 @@ const Login = (props) => {
 
         <div className="bg-one h-100vh">
             <div className="container pt-4">
-                <div className="row justify-content-center w-75 m-auto">
+                <h3 className="text-center my-4">Welcome back! Login to continue your journey</h3>
+                <div className="row justify-content-evenly">
+                    <div className="col-md-6 row align-items-center bj-amplify bj-border-radius text-prime">
+                        <h3 className="text-center">Let's Amplify your growth with us!</h3>
+                    </div>
                     <div className="col-md-6">
                         <div className="bj-border bj-border-radius p-3">
                             <div className="bg-one">
