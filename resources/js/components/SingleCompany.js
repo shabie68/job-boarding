@@ -94,7 +94,7 @@ const SingleCompany = () => {
 
 						<div>
 							<label><strong>Your Feedback</strong></label>
-							<textarea type="text" name="title" className="form-control" rows="3" className="form-control" onChange={(e) => {setFeedback({...feedback, comment: e.target.value, name: location.state?.user.name, created_at: new Date()})}} defaultValue={feedback.comment}></textarea>
+							<textarea type="text" name="title" rows="3" className="bj-input bg-one" onChange={(e) => {setFeedback({...feedback, comment: e.target.value, name: location.state?.user.name, created_at: new Date()})}} defaultValue={feedback.comment}></textarea>
 					
 						</div>
 

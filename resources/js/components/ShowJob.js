@@ -272,7 +272,7 @@ function ShowJob(props) {
                           onChange={(e)=>{setJobTitle(e.target.value)}}
                         />
 
-                       <button className="btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>Search Job</button>
+                       <button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>Search Job</button>
                     </div>
 
                 </div>
