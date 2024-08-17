@@ -27,10 +27,54 @@
             }
 
             .bj-header-img {
-                background-image: url('images/success.webp');
-                height: 600px;
-                background-repeat: no-repeat;
-                background-size: 100%
+                background: linear-gradient(270deg,  transparent, #726b67);
+                height: 250px;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                color: #fbfff6;
+                padding: 20px
+
+
+            }
+
+            .bj-header-img button {
+                font-weight: bold
+            }
+
+            .bj-btn {
+                padding: 6px 15px;
+                border-width: 1px;
+                border-style: #dee2e6;
+                border-radius: 0.375rem;
+                border-color: #8f1d1d00;
+            }
+
+            .bj-text-prime {
+                color: #fbfff6;
+            }
+
+            .bj-btn-prime {
+                background: #99902c;
+                color: #fbfff6;
+            }
+
+            .bg-three {
+                background-color: #238a85;
+            }
+
+            ul {
+                list-style: none;
+                border-bottom: 1px solid #99902c
+
+            }
+
+            ul li {
+                padding: 4px;
+            }
+
+            .bj-text-secondary {
+                color: #4f4a47;
             }
         </style>
     </head>
@@ -39,21 +83,58 @@
             @if (Route::has('login'))
                 <div class="d-flex bj-end px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                        <a href="{{ url('/home') }}" class="text-sm">Home</a>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                        <a href="{{ route('login') }}" class="text-sm">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700">Register</a>
                         @endif
                     @endif
                 </div>
             @endif
 
 
-            <div class="my-4 bj-header-img">
-                HI there
-            </div>
+            <section class="my-4 bj-header-img">
+                <div>
+                    <h3>Gorgeous</h3>
+                    <h4>Find the suitable jobs in remote, on site and hybrid</h4>
+                </div>
+                
+                <span><button class="bj-btn bg-three bj-text-prime">Get started</button></span>           
+            </section>
+
+            <section class="text-center bj-text-secondary">
+                <h2>Find and apply to Jobs</h2>
+                <p>We offer the following features</p>
+                <ul>
+                    <li>Find and apply to jobs</li>
+                    <li>Message recruiters</li>
+                    <li>Review companies</li>
+                </ul>
+            </section>
+
+            <div>
+                
+
+                    <div>
+
+                    </div>
+
+
+                    <div>
+                        
+
+                    </div>
+
+                    <div>
+                        
+
+                    </div>
+
+                    <div>
+
+                </div>
             
         </div>
     </body>
