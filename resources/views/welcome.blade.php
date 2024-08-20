@@ -21,6 +21,10 @@
                 font-family: 'Nunito';
             }
 
+            .bj-bg-one {
+                background: #fbfff6;
+            }
+
             .bj-end {
                 display: flex;
                 justify-content: end;
@@ -28,7 +32,7 @@
 
             .bj-header-img {
                 background: linear-gradient(270deg,  transparent, #726b67);
-                height: 250px;
+                height: 225px;
                 display: flex;
                 flex-direction: column;
                 justify-content: end;
@@ -76,12 +80,84 @@
             .bj-text-secondary {
                 color: #4f4a47;
             }
+
+            .bg-two {
+                background: #4f4a47;
+            }
+
+            .bj-p-10 {
+                padding: 10px
+            }
+
+            .bj-font-logo {
+                font-size: 36px;
+            }
+
+            .bj-flex {
+                display: flex;
+            }
+
+            .bj-slider {
+                justify-content: space-evenly;
+                align-items: center;
+                transition: transform 0.5s ease-in-out;
+
+            }
+
+            .bj-talent-container {
+                width: 200px;
+                height: 200px;
+                border: 2px solid;
+            }
+
+            .bj-items-center {
+                align-items: center;
+            }
+
+            .bj-content-evenly {
+                justify-content: space-evenly
+            }
+
+            .bj-vertical-middle {
+                vertical-align: middle;
+            }
+
+            .bj-my-4 {
+                margin: 20px 0;
+            }
+
+            #bj-next-btn svg path {
+                fill: none;
+            }
+            #bj-next-btn:hover svg path {
+                fill: #4f4a47;
+            }
+
+            #bj-prev-btn svg path {
+                fill: none;
+            }
+            #bj-prev-btn:hover svg path {
+                fill: #4f4a47;
+            }
+
+            .bj-cursor {
+                cursor: pointer
+            }
+
+            .slide-right {
+                transform: translateX(100%);
+            }
+
+            .slide-left {
+                transform: translateX(-100%);
+            }
+
         </style>
     </head>
-    <body class="antialiased">
-        <div class="relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
+    <body class="antialiased bj-bg-one">
+        <div class="relative items-top justify-center min-h-screen sm:items-center sm:pt-0">
             @if (Route::has('login'))
-                <div class="d-flex bj-end px-6 py-4 sm:block">
+                <div class="d-flex bj-end bg-two bj-text-prime px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/home') }}" class="text-sm">Home</a>
                     @else
@@ -114,28 +190,132 @@
                 </ul>
             </section>
 
-            <div>
-                
+            <section>
 
-                    <div>
+                <div class="bj-slider-container">
 
+                    <div class="slider-wrapper">
+                        <div class="bj-slider bj-flex text-center slider-right">
+                            <div class="bj-talent-container" data-idx="1">
+                                IT&Programming
+                            </div>
+                            <div class="bj-talent-container" data-idx="2">
+                                Marketing
+                            </div>
+                            <div class="bj-talent-container" data-idx="3">
+                                Accounting
+                            </div>
+                            <div class="bj-talent-container " data-idx="4">
+                                Human Resource
+                            </div>
+                            <div class="bj-talent-container" data-idx="5">
+                                New course
+                            </div>
+                            <div class="bj-talent-container" data-idx="6">
+
+                                Container 6
+                            </div>
+                            <div class="bj-talent-container" data-idx="7">
+
+                                Container 7
+                            </div>
+
+                            <div class="bj-talent-container" data-idx="8">
+                                Container 8
+                            </div>
+
+                            <div class="bj-talent-container" data-idx="9">
+                                Container 9
+                            </div>
+                        </div>
                     </div>
 
 
-                    <div>
-                        
+                    <div class="text-center bj-my-4">
 
+                        <span>
+                            <span>Prev</span>
+                            <button id="bj-prev-btn" class="bj-cursor bj-vertical-middle bj-bg-one">
+                            
+                                <svg fill="#99902c" height="20" width="20" viewBox="0 0 24 24" id="previous" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M17,3V21L5,12Z" style="stroke: #99902c; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
+                            </button>
+                        <span>
+
+
+                        <span>
+                            
+                            <button id="bj-next-btn" class="bj-cursor bj-vertical-middle bj-bg-one">
+                                
+                                <svg fill="#99902c" width="20" height="20" viewBox="0 0 24 24" id="next" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color" stroke="#99902c"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M17,12,5,21V3Z" style="stroke: #99902c; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
+                            </button>
+                            <span>Next</span>
+                        </span>
                     </div>
-
-                    <div>
-                        
-
-                    </div>
-
-                    <div>
-
                 </div>
-            
-        </div>
+            </section>
+
+            <section class="bg-two bj-p-10 bj-footer position-relative w-100 bottom-0">
+                    
+                <div class="bj-flex bj-content-evenly bj-items-center">
+                    <div class=" ">
+                        <strong class="bj-font-logo bj-text-prime">Gorgeous</strong>
+                    </div>
+                    <a href="#" class="text-decoration-none bj-text-prime">About</a>
+                    <a href="#" class="text-decoration-none bj-text-prime">Contact us </a>
+                    <a href="#" class="text-decoration-none bj-text-prime">Faq's</a>
+                </div>
+
+
+                <div class="bj-text-prime text-center">
+                    ©2024 Gorgeous All Rights Reserved
+                </div>
+                
+            </section>
+
+            <script>
+
+                let count = 3;
+
+                document.querySelectorAll('.bj-talent-container').forEach((element ) => {
+                    let attribute = element.getAttribute('data-idx')
+                    if(attribute > 3) {
+                        element.style.display = 'none'
+                    }
+                })
+
+                const next = () => {
+                    if( count < 9 ) {
+                        count = count + 3
+                        
+                        document.querySelectorAll('.bj-talent-container').forEach((element ) => {
+                            element.style.display = 'none';
+
+                            let attribute = element.getAttribute('data-idx')
+                            if(attribute > (count - 3) && attribute < count + 1 ) {
+                                element.style.display = 'block'
+                            }
+                            
+                        })
+                    }
+                }
+
+                const prev = () => {
+                    if(count > 3) {
+                        count = count - 3;
+                        document.querySelectorAll('.bj-talent-container').forEach((element) => {
+                            element.style.display = 'none';
+                            let attribute = element.getAttribute('data-idx')
+
+                            if(attribute >= (count - 2) && attribute <= count) {
+                                element.style.display = 'block';
+                            }
+                        })
+                    }
+                }
+
+                document.querySelector('#bj-next-btn').addEventListener('click', next)
+
+                document.querySelector('#bj-prev-btn').addEventListener('click', prev)
+            </script>
     </body>
 </html>
