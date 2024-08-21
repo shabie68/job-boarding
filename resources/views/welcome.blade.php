@@ -104,10 +104,51 @@
 
             }
 
-            .bj-talent-container {
+            .bj-img-container {
                 width: 200px;
                 height: 200px;
                 border: 2px solid #238a85;
+                background-repeat: no-repeat;
+                background-size: 100%; 
+                border-radius: 10px;
+
+            }
+
+            .bj-talent-container[data-idx="1"] div {
+                background-image: url('images/health.jpg');
+            }
+
+            .bj-talent-container[data-idx="2"] div {
+                background-image: url('images/marketing.jpg');
+            }
+
+            .bj-talent-container[data-idx="3"] div {
+                background-image: url('images/accounting.jpg');
+            }
+
+            .bj-talent-container[data-idx="4"] div {
+                background-image: url('images/hr.jpg');
+            }
+
+            .bj-talent-container[data-idx="5"] div {
+                background-image: url('images/programming.jpg');
+            }
+
+            .bj-talent-container[data-idx="6"] div {
+                background-image: url('images/project-management.jpg');
+            }
+
+
+            .bj-talent-container[data-idx="7"]  div{
+                background-image: url('images/ui_ux.jpg');
+            }
+
+            .bj-talent-container[data-idx="8"] div {
+                background-image: url('images/data_science.jpg');
+            }
+
+            .bj-talent-container[data-idx="9"] div {
+                background-image: url('images/job.jpg');
             }
 
             .bj-items-center {
@@ -216,39 +257,66 @@
 
                     <div class="slider-wrapper">
                         <div class="bj-slider bj-flex text-center slider-right">
-                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="1">
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="1">
+                                <div class="bj-img-container">
+
+                                </div>
                                 <strong>Health</strong>
                             </div>
 
-                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="2">
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="2">
+                                <div class="bj-img-container">
+
+                                </div>
                                 <strong>Marketing</strong>
                             </div>
 
-                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="3">
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="3">
+                                <div class="bj-img-container">
+
+                                </div>
                                 <strong>Accounting</strong>
                             </div>
 
-                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container " data-idx="4">
+                            <div class="bj-align-center bj-justify-center bj-talent-container " data-idx="4">
+                                <div class="bj-img-container">
+
+                                </div>
                                 <strong>Human Resource</strong>
                             </div>
 
-                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="5">
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="5">
+                                <div class="bj-img-container">
+
+                                </div>
                                <strong> Programming</strong>
                             </div>
 
-                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="6">
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="6">
+                                <div class="bj-img-container">
+
+                                </div>
                                <strong> Project Management</strong>
                             </div>
 
-                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="7">
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="7">
+                                <div class="bj-img-container">
+
+                                </div>
                                <strong> UX/UI Designers</strong>
                             </div>
 
                             <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="8">
+                                <div class="bj-img-container">
+
+                                </div>
                                 <strong>Data Science</strong>
                             </div>
 
-                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="9">
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="9">
+                                <div class="bj-img-container">
+
+                                </div>
                                <strong> Many more</strong>
                             </div>
                         </div>
@@ -316,7 +384,7 @@
 
                             let attribute = element.getAttribute('data-idx')
                             if(attribute > (count - 3) && attribute < count + 1 ) {
-                                element.style.display = 'flex'
+                                element.style.display = 'block'
                             }
                             
                         })
@@ -331,7 +399,7 @@
                             let attribute = element.getAttribute('data-idx')
 
                             if(attribute >= (count - 2) && attribute <= count) {
-                                element.style.display = 'flex';
+                                element.style.display = 'block';
                             }
                         })
                     }
