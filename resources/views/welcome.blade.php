@@ -107,7 +107,7 @@
             .bj-talent-container {
                 width: 200px;
                 height: 200px;
-                border: 2px solid;
+                border: 2px solid #238a85;
             }
 
             .bj-items-center {
@@ -126,18 +126,22 @@
                 margin: 20px 0;
             }
 
+            .bj-px-4 {
+                padding: 0 20px;
+            }
+
             #bj-next-btn svg path {
                 fill: none;
             }
             #bj-next-btn:hover svg path {
-                fill: #4f4a47;
+                fill: #99902c;
             }
 
             #bj-prev-btn svg path {
                 fill: none;
             }
             #bj-prev-btn:hover svg path {
-                fill: #4f4a47;
+                fill: #99902c
             }
 
             .bj-cursor {
@@ -152,26 +156,37 @@
                 transform: translateX(-100%);
             }
 
+            .bj-justify-end {
+                justify-content: end;
+
+            }
+
+            .bj-justify-center {
+                justify-content: center;
+            }
+
+            .bj-align-center{
+                align-items: center;
+            }
+
+            .bj-border-line {
+                width: 30%;
+                height: 1px;
+                background-color: #238a85;
+            }
+
+
         </style>
     </head>
-    <body class="antialiased bj-bg-one">
+    <body class="antialiased bj-bg-one bj-text-prime">
         <div class="relative items-top justify-center min-h-screen sm:items-center sm:pt-0">
-            @if (Route::has('login'))
-                <div class="d-flex bj-end bg-two bj-text-prime px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700">Register</a>
-                        @endif
-                    @endif
-                </div>
-            @endif
-
 
             <section class="my-4 bj-header-img">
+                <div class="bj-flex bj-justify-end">
+                    <a href="{{ route('login') }}" class="text-sm bj-text-secondary">Login</a>
+                    <a href="{{ route('register') }}" class="ml-4 text-sm bj-text-secondary">Register</a>
+                </div>
+
                 <div>
                     <h3>Gorgeous</h3>
                     <h4>Find the suitable jobs in remote, on site and hybrid</h4>
@@ -180,52 +195,61 @@
                 <span><button class="bj-btn bg-three bj-text-prime">Get started</button></span>           
             </section>
 
-            <section class="text-center bj-text-secondary">
-                <h2>Find and apply to Jobs</h2>
-                <p>We offer the following features</p>
-                <ul>
-                    <li>Find and apply to jobs</li>
-                    <li>Message recruiters</li>
-                    <li>Review companies</li>
-                </ul>
+            <section class="text-start bj-px-4 bj-text-secondary">
+                <h2>Features and services</h2>
+                <div class="bj-flex bj-content-evenly">
+                    <p>1: We offer the following features</p>
+                    <p>2: Find and apply to jobs</p>
+                    <p>3: Message recruiters</p>
+                    <p>4: Review companies</p>
+                </div>
             </section>
 
             <section>
 
-                <div class="bj-slider-container">
+                <div class="bj-flex bj-content-evenly bj-align-center bj-text-secondary">
+                    <span class="bj-border-line "></span>
+                    <h4>Get a job in the following categories</h4>
+                    <span class="bj-border-line"></span>
+                </div>
+                <div class="bj-slider-container bj-text-secondary">
 
                     <div class="slider-wrapper">
                         <div class="bj-slider bj-flex text-center slider-right">
-                            <div class="bj-talent-container" data-idx="1">
-                                IT&Programming
-                            </div>
-                            <div class="bj-talent-container" data-idx="2">
-                                Marketing
-                            </div>
-                            <div class="bj-talent-container" data-idx="3">
-                                Accounting
-                            </div>
-                            <div class="bj-talent-container " data-idx="4">
-                                Human Resource
-                            </div>
-                            <div class="bj-talent-container" data-idx="5">
-                                New course
-                            </div>
-                            <div class="bj-talent-container" data-idx="6">
-
-                                Container 6
-                            </div>
-                            <div class="bj-talent-container" data-idx="7">
-
-                                Container 7
+                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="1">
+                                <strong>Health</strong>
                             </div>
 
-                            <div class="bj-talent-container" data-idx="8">
-                                Container 8
+                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="2">
+                                <strong>Marketing</strong>
                             </div>
 
-                            <div class="bj-talent-container" data-idx="9">
-                                Container 9
+                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="3">
+                                <strong>Accounting</strong>
+                            </div>
+
+                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container " data-idx="4">
+                                <strong>Human Resource</strong>
+                            </div>
+
+                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="5">
+                               <strong> Programming</strong>
+                            </div>
+
+                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="6">
+                               <strong> Project Management</strong>
+                            </div>
+
+                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="7">
+                               <strong> UX/UI Designers</strong>
+                            </div>
+
+                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="8">
+                                <strong>Data Science</strong>
+                            </div>
+
+                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="9">
+                               <strong> Many more</strong>
                             </div>
                         </div>
                     </div>
@@ -254,7 +278,7 @@
                 </div>
             </section>
 
-            <section class="bg-two bj-p-10 bj-footer position-relative w-100 bottom-0">
+            <section class="bg-two bj-p-10 bj-footer position-relative w-100 bottom-0 bj-text-prime">
                     
                 <div class="bj-flex bj-content-evenly bj-items-center">
                     <div class=" ">
@@ -292,7 +316,7 @@
 
                             let attribute = element.getAttribute('data-idx')
                             if(attribute > (count - 3) && attribute < count + 1 ) {
-                                element.style.display = 'block'
+                                element.style.display = 'flex'
                             }
                             
                         })
@@ -307,7 +331,7 @@
                             let attribute = element.getAttribute('data-idx')
 
                             if(attribute >= (count - 2) && attribute <= count) {
-                                element.style.display = 'block';
+                                element.style.display = 'flex';
                             }
                         })
                     }
