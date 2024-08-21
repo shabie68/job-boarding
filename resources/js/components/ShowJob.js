@@ -8,6 +8,7 @@ import Pusher from 'pusher-js';
 // import {Pusher} from 'https://js.pusher.com/8.0.1/pusher.min.js'
 
 
+
 function ShowJob(props) {
     const location = useLocation();
     const [success, setSuccess] = useState(false)
@@ -442,8 +443,6 @@ function ShowJob(props) {
 
                 }
 
-
-
                   
             </div>
 
@@ -456,6 +455,9 @@ Below are the three colors that will be used in your website
 #4f4a47 primary color
 #238a85 secondary color
 #f7fffe background color
+
+
+
 
 
 **/

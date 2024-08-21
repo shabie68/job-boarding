@@ -21,6 +21,10 @@
                 font-family: 'Nunito';
             }
 
+            .bj-bg-one {
+                background: #fbfff6;
+            }
+
             .bj-end {
                 display: flex;
                 justify-content: end;
@@ -28,7 +32,7 @@
 
             .bj-header-img {
                 background: linear-gradient(270deg,  transparent, #726b67);
-                height: 250px;
+                height: 225px;
                 display: flex;
                 flex-direction: column;
                 justify-content: end;
@@ -76,26 +80,154 @@
             .bj-text-secondary {
                 color: #4f4a47;
             }
+
+            .bg-two {
+                background: #4f4a47;
+            }
+
+            .bj-p-10 {
+                padding: 10px
+            }
+
+            .bj-font-logo {
+                font-size: 36px;
+            }
+
+            .bj-flex {
+                display: flex;
+            }
+
+            .bj-slider {
+                justify-content: space-evenly;
+                align-items: center;
+                transition: transform 0.5s ease-in-out;
+
+            }
+
+            .bj-img-container {
+                width: 200px;
+                height: 200px;
+                border: 2px solid #238a85;
+                background-repeat: no-repeat;
+                background-size: 100%; 
+                border-radius: 10px;
+
+            }
+
+            .bj-talent-container[data-idx="1"] div {
+                background-image: url('images/health.jpg');
+            }
+
+            .bj-talent-container[data-idx="2"] div {
+                background-image: url('images/marketing.jpg');
+            }
+
+            .bj-talent-container[data-idx="3"] div {
+                background-image: url('images/accounting.jpg');
+            }
+
+            .bj-talent-container[data-idx="4"] div {
+                background-image: url('images/hr.jpg');
+            }
+
+            .bj-talent-container[data-idx="5"] div {
+                background-image: url('images/programming.jpg');
+            }
+
+            .bj-talent-container[data-idx="6"] div {
+                background-image: url('images/project-management.jpg');
+            }
+
+
+            .bj-talent-container[data-idx="7"]  div{
+                background-image: url('images/ui_ux.jpg');
+            }
+
+            .bj-talent-container[data-idx="8"] div {
+                background-image: url('images/data_science.jpg');
+            }
+
+            .bj-talent-container[data-idx="9"] div {
+                background-image: url('images/job.jpg');
+            }
+
+            .bj-items-center {
+                align-items: center;
+            }
+
+            .bj-content-evenly {
+                justify-content: space-evenly
+            }
+
+            .bj-vertical-middle {
+                vertical-align: middle;
+            }
+
+            .bj-my-4 {
+                margin: 20px 0;
+            }
+
+            .bj-px-4 {
+                padding: 0 20px;
+            }
+
+            #bj-next-btn svg path {
+                fill: none;
+            }
+            #bj-next-btn:hover svg path {
+                fill: #99902c;
+            }
+
+            #bj-prev-btn svg path {
+                fill: none;
+            }
+            #bj-prev-btn:hover svg path {
+                fill: #99902c
+            }
+
+            .bj-cursor {
+                cursor: pointer
+            }
+
+            .slide-right {
+                transform: translateX(100%);
+            }
+
+            .slide-left {
+                transform: translateX(-100%);
+            }
+
+            .bj-justify-end {
+                justify-content: end;
+
+            }
+
+            .bj-justify-center {
+                justify-content: center;
+            }
+
+            .bj-align-center{
+                align-items: center;
+            }
+
+            .bj-border-line {
+                width: 30%;
+                height: 1px;
+                background-color: #238a85;
+            }
+
+
         </style>
     </head>
-    <body class="antialiased">
-        <div class="relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            @if (Route::has('login'))
-                <div class="d-flex bj-end px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700">Register</a>
-                        @endif
-                    @endif
-                </div>
-            @endif
-
+    <body class="antialiased bj-bg-one bj-text-prime">
+        <div class="relative items-top justify-center min-h-screen sm:items-center sm:pt-0">
 
             <section class="my-4 bj-header-img">
+                <div class="bj-flex bj-justify-end">
+                    <a href="{{ route('login') }}" class="text-sm bj-text-secondary">Login</a>
+                    <a href="{{ route('register') }}" class="ml-4 text-sm bj-text-secondary">Register</a>
+                </div>
+
                 <div>
                     <h3>Gorgeous</h3>
                     <h4>Find the suitable jobs in remote, on site and hybrid</h4>
@@ -104,38 +236,178 @@
                 <span><button class="bj-btn bg-three bj-text-prime">Get started</button></span>           
             </section>
 
-            <section class="text-center bj-text-secondary">
-                <h2>Find and apply to Jobs</h2>
-                <p>We offer the following features</p>
-                <ul>
-                    <li>Find and apply to jobs</li>
-                    <li>Message recruiters</li>
-                    <li>Review companies</li>
-                </ul>
+            <section class="text-start bj-px-4 bj-text-secondary">
+                <h2>Features and services</h2>
+                <div class="bj-flex bj-content-evenly">
+                    <p>1: We offer the following features</p>
+                    <p>2: Find and apply to jobs</p>
+                    <p>3: Message recruiters</p>
+                    <p>4: Review companies</p>
+                </div>
             </section>
 
-            <div>
-                
+            <section>
 
-                    <div>
-
-                    </div>
-
-
-                    <div>
-                        
-
-                    </div>
-
-                    <div>
-                        
-
-                    </div>
-
-                    <div>
-
+                <div class="bj-flex bj-content-evenly bj-align-center bj-text-secondary">
+                    <span class="bj-border-line "></span>
+                    <h4>Get a job in the following categories</h4>
+                    <span class="bj-border-line"></span>
                 </div>
-            
-        </div>
+                <div class="bj-slider-container bj-text-secondary">
+
+                    <div class="slider-wrapper">
+                        <div class="bj-slider bj-flex text-center slider-right">
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="1">
+                                <div class="bj-img-container">
+
+                                </div>
+                                <strong>Health</strong>
+                            </div>
+
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="2">
+                                <div class="bj-img-container">
+
+                                </div>
+                                <strong>Marketing</strong>
+                            </div>
+
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="3">
+                                <div class="bj-img-container">
+
+                                </div>
+                                <strong>Accounting</strong>
+                            </div>
+
+                            <div class="bj-align-center bj-justify-center bj-talent-container " data-idx="4">
+                                <div class="bj-img-container">
+
+                                </div>
+                                <strong>Human Resource</strong>
+                            </div>
+
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="5">
+                                <div class="bj-img-container">
+
+                                </div>
+                               <strong> Programming</strong>
+                            </div>
+
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="6">
+                                <div class="bj-img-container">
+
+                                </div>
+                               <strong> Project Management</strong>
+                            </div>
+
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="7">
+                                <div class="bj-img-container">
+
+                                </div>
+                               <strong> UX/UI Designers</strong>
+                            </div>
+
+                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="8">
+                                <div class="bj-img-container">
+
+                                </div>
+                                <strong>Data Science</strong>
+                            </div>
+
+                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="9">
+                                <div class="bj-img-container">
+
+                                </div>
+                               <strong> Many more</strong>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center bj-my-4">
+
+                        <span>
+                            <span>Prev</span>
+                            <button id="bj-prev-btn" class="bj-cursor bj-vertical-middle bj-bg-one">
+                            
+                                <svg fill="#99902c" height="20" width="20" viewBox="0 0 24 24" id="previous" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M17,3V21L5,12Z" style="stroke: #99902c; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
+                            </button>
+                        <span>
+
+
+                        <span>
+                            
+                            <button id="bj-next-btn" class="bj-cursor bj-vertical-middle bj-bg-one">
+                                
+                                <svg fill="#99902c" width="20" height="20" viewBox="0 0 24 24" id="next" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color" stroke="#99902c"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M17,12,5,21V3Z" style="stroke: #99902c; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
+                            </button>
+                            <span>Next</span>
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-two bj-p-10 bj-footer position-relative w-100 bottom-0 bj-text-prime">
+                    
+                <div class="bj-flex bj-content-evenly bj-items-center">
+                    <div class=" ">
+                        <strong class="bj-font-logo bj-text-prime">Gorgeous</strong>
+                    </div>
+                    <a href="#" class="text-decoration-none bj-text-prime">About</a>
+                    <a href="#" class="text-decoration-none bj-text-prime">Contact us </a>
+                    <a href="#" class="text-decoration-none bj-text-prime">Faq's</a>
+                </div>
+
+
+                <div class="bj-text-prime text-center">
+                    ©2024 Gorgeous All Rights Reserved
+                </div>
+                
+            </section>
+
+            <script>
+
+                let count = 3;
+
+                document.querySelectorAll('.bj-talent-container').forEach((element ) => {
+                    let attribute = element.getAttribute('data-idx')
+                    if(attribute > 3) {
+                        element.style.display = 'none'
+                    }
+                })
+
+                const next = () => {
+                    if( count < 9 ) {
+                        count = count + 3
+                        
+                        document.querySelectorAll('.bj-talent-container').forEach((element ) => {
+                            element.style.display = 'none';
+
+                            let attribute = element.getAttribute('data-idx')
+                            if(attribute > (count - 3) && attribute < count + 1 ) {
+                                element.style.display = 'block'
+                            }
+                            
+                        })
+                    }
+                }
+
+                const prev = () => {
+                    if(count > 3) {
+                        count = count - 3;
+                        document.querySelectorAll('.bj-talent-container').forEach((element) => {
+                            element.style.display = 'none';
+                            let attribute = element.getAttribute('data-idx')
+
+                            if(attribute >= (count - 2) && attribute <= count) {
+                                element.style.display = 'block';
+                            }
+                        })
+                    }
+                }
+
+                document.querySelector('#bj-next-btn').addEventListener('click', next)
+
+                document.querySelector('#bj-prev-btn').addEventListener('click', prev)
+            </script>
     </body>
 </html>
