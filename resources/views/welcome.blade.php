@@ -37,7 +37,7 @@
                 flex-direction: column;
                 justify-content: end;
                 color: #fbfff6;
-                padding: 20px
+                padding: 20px 30px
 
 
             }
@@ -47,7 +47,7 @@
             }
 
             .bj-btn {
-                padding: 6px 15px;
+                padding: 10px 20px;
                 border-width: 1px;
                 border-style: #dee2e6;
                 border-radius: 0.375rem;
@@ -67,15 +67,10 @@
                 background-color: #238a85;
             }
 
-            ul {
-                list-style: none;
-                border-bottom: 1px solid #99902c
-
+            .bg-secondary {
+                background-color: #99902c;
             }
 
-            ul li {
-                padding: 4px;
-            }
 
             .bj-text-secondary {
                 color: #4f4a47;
@@ -99,20 +94,23 @@
 
             .bj-slider {
                 justify-content: space-evenly;
-                align-items: center;
-                transition: transform 0.5s ease-in-out;
 
+            }
+
+            .bj-justify-between {
+                justify-content: space-between;
             }
 
             .bj-img-container {
                 width: 200px;
                 height: 200px;
-                border: 2px solid #238a85;
                 background-repeat: no-repeat;
                 background-size: 100%; 
                 border-radius: 10px;
 
             }
+
+
 
             .bj-talent-container[data-idx="1"] div {
                 background-image: url('images/health.jpg');
@@ -168,7 +166,7 @@
             }
 
             .bj-px-4 {
-                padding: 0 20px;
+                padding: 0 30px;
             }
 
             #bj-next-btn svg path {
@@ -216,6 +214,26 @@
                 background-color: #238a85;
             }
 
+            .bj-talent-container {
+                transition: all 0.3s ease-in-out 0.2s
+            }
+
+            .bj-text-three {
+                color: #238a85;
+            }
+
+            .bj-font-size-18{
+                font-size: 18px
+            }
+
+            .bj-margin-32 {
+                margin-bottom: 32px;
+            }
+
+            li {
+                margin-bottom: 12px;
+            }
+
 
         </style>
     </head>
@@ -233,136 +251,179 @@
                     <h4>Find the suitable jobs in remote, on site and hybrid</h4>
                 </div>
                 
-                <span><button class="bj-btn bg-three bj-text-prime">Get started</button></span>           
+                <span><button class="bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></span>           
             </section>
 
-            <section class="text-start bj-px-4 bj-text-secondary">
-                <h2>Features and services</h2>
-                <div class="bj-flex bj-content-evenly">
-                    <p>1: We offer the following features</p>
-                    <p>2: Find and apply to jobs</p>
-                    <p>3: Message recruiters</p>
-                    <p>4: Review companies</p>
-                </div>
-            </section>
-
-            <section>
-
-                <div class="bj-flex bj-content-evenly bj-align-center bj-text-secondary">
-                    <span class="bj-border-line "></span>
-                    <h4>Get a job in the following categories</h4>
-                    <span class="bj-border-line"></span>
-                </div>
-                <div class="bj-slider-container bj-text-secondary">
-
-                    <div class="slider-wrapper">
-                        <div class="bj-slider bj-flex text-center slider-right">
-                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="1">
-                                <div class="bj-img-container">
-
-                                </div>
-                                <strong>Health</strong>
+            <div>
+                <section class="text-start bj-px-4 bj-text-secondary">
+                    <div class="">
+                        <div class="bj-margin-32">
+                            <h4 class="bj-text-three">Find and apply to jobs</h4>
+                            <div>
+                                Candidates can filter, search and apply to jobs they love. Process is very simple
+                                <ul>
+                                    <li>Search your desire job</li>
+                                    <li>Apply to that job</li>
+                                    <li>Complete the application process in just a few steps</li>
+                                    <li>Track your application status easily</li>
+                                </ul>
                             </div>
 
-                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="2">
-                                <div class="bj-img-container">
+                        </div>
 
-                                </div>
-                                <strong>Marketing</strong>
+                        <div class="bj-margin-32">
+                            <h4 class="bj-text-three">Message recruiters</h4>
+                            <div>
+                                Candidates can engage directly with recruiters through live chat to inquire about the status of their job applications. Benefits include:
+                                <ul>
+                                    <li>Get instant feedback from recruiters in real-time.</li>
+                                    <li>Apply to that job</li>
+                                    <li>Fill the application</li>
+                                </ul>
                             </div>
 
-                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="3">
-                                <div class="bj-img-container">
-
-                                </div>
-                                <strong>Accounting</strong>
+                        </div>
+                        
+                        <div >
+                            <h4 class="bj-text-three">Review companies</h4>
+                            <div>
+                                Candidates can leave feedback for the company they have worked.
+                                <ul>
+                                    <li>Authentic and reliable with real experiences shared by employees</li>
+                                    <li>Transparent, allowing candidates to read other people's reviews and insights</li>
+                                    <li>Helpful for making informed decisions about future job opportunities</li>
+                                </ul>
                             </div>
 
-                            <div class="bj-align-center bj-justify-center bj-talent-container " data-idx="4">
-                                <div class="bj-img-container">
+                        </div>
 
+
+                    </div>
+                </section>
+
+
+                <section>
+
+                    <div class="bj-flex bj-content-evenly bj-align-center bj-text-secondary">
+                        <span class="bj-border-line "></span>
+                        <h4>Get a job in the following categories</h4>
+                        <span class="bj-border-line"></span>
+                    </div>
+                    <div class="bj-slider-container bj-text-secondary">
+
+                        <div class="slider-wrapper">
+                            <div class="bj-slider bj-flex text-center slider-right">
+                                <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="1">
+                                    <div class="bj-img-container">
+
+                                    </div>
+                                    <strong>Health</strong>
                                 </div>
-                                <strong>Human Resource</strong>
-                            </div>
 
-                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="5">
-                                <div class="bj-img-container">
+                                <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="2">
+                                    <div class="bj-img-container">
 
+                                    </div>
+                                    <strong>Marketing</strong>
                                 </div>
-                               <strong> Programming</strong>
-                            </div>
 
-                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="6">
-                                <div class="bj-img-container">
+                                <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="3">
+                                    <div class="bj-img-container">
 
+                                    </div>
+                                    <strong>Accounting</strong>
                                 </div>
-                               <strong> Project Management</strong>
-                            </div>
 
-                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="7">
-                                <div class="bj-img-container">
+                                <div class="bj-align-center bj-justify-center bj-talent-container " data-idx="4">
+                                    <div class="bj-img-container">
 
+                                    </div>
+                                    <strong>Human Resource</strong>
                                 </div>
-                               <strong> UX/UI Designers</strong>
-                            </div>
 
-                            <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="8">
-                                <div class="bj-img-container">
+                                <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="5">
+                                    <div class="bj-img-container">
 
+                                    </div>
+                                   <strong> Programming</strong>
                                 </div>
-                                <strong>Data Science</strong>
-                            </div>
 
-                            <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="9">
-                                <div class="bj-img-container">
+                                <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="6">
+                                    <div class="bj-img-container">
 
+                                    </div>
+                                   <strong> Project Management</strong>
                                 </div>
-                               <strong> Many more</strong>
+
+                                <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="7">
+                                    <div class="bj-img-container">
+
+                                    </div>
+                                   <strong> UX/UI Designers</strong>
+                                </div>
+
+                                <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="8">
+                                    <div class="bj-img-container">
+
+                                    </div>
+                                    <strong>Data Science</strong>
+                                </div>
+
+                                <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="9">
+                                    <div class="bj-img-container">
+
+                                    </div>
+                                   <strong> Many more</strong>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
 
-                    <div class="text-center bj-my-4">
+                        <div class="text-center bj-my-4">
 
-                        <span>
-                            <span>Prev</span>
-                            <button id="bj-prev-btn" class="bj-cursor bj-vertical-middle bj-bg-one">
-                            
-                                <svg fill="#99902c" height="20" width="20" viewBox="0 0 24 24" id="previous" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M17,3V21L5,12Z" style="stroke: #99902c; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
-                            </button>
-                        <span>
-
-
-                        <span>
-                            
-                            <button id="bj-next-btn" class="bj-cursor bj-vertical-middle bj-bg-one">
+                            <span>
+                                <span>Prev</span>
+                                <button id="bj-prev-btn" class="bj-cursor bj-vertical-middle bj-bg-one">
                                 
-                                <svg fill="#99902c" width="20" height="20" viewBox="0 0 24 24" id="next" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color" stroke="#99902c"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M17,12,5,21V3Z" style="stroke: #99902c; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
-                            </button>
-                            <span>Next</span>
-                        </span>
+                                    <svg fill="#99902c" height="20" width="20" viewBox="0 0 24 24" id="previous" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M17,3V21L5,12Z" style="stroke: #99902c; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
+                                </button>
+                            <span>
+
+
+                            <span>
+                                
+                                <button id="bj-next-btn" class="bj-cursor bj-vertical-middle bj-bg-one">
+                                    
+                                    <svg fill="#99902c" width="20" height="20" viewBox="0 0 24 24" id="next" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color" stroke="#99902c"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M17,12,5,21V3Z" style="stroke: #99902c; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
+                                </button>
+                                <span>Next</span>
+                            </span>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section class="bg-two bj-p-10 bj-footer position-relative w-100 bottom-0 bj-text-prime">
-                    
-                <div class="bj-flex bj-content-evenly bj-items-center">
-                    <div class=" ">
-                        <strong class="bj-font-logo bj-text-prime">Gorgeous</strong>
-                    </div>
-                    <a href="#" class="text-decoration-none bj-text-prime">About</a>
-                    <a href="#" class="text-decoration-none bj-text-prime">Contact us </a>
-                    <a href="#" class="text-decoration-none bj-text-prime">Faq's</a>
-                </div>
-
-
-                <div class="bj-text-prime text-center">
-                    ©2024 Gorgeous All Rights Reserved
-                </div>
                 
-            </section>
+
+                <section class="bg-two bj-p-10 bj-footer position-relative w-100 bottom-0 bj-text-prime">
+                        
+                    <div class="bj-flex bj-content-evenly bj-items-center">
+                        <div class=" ">
+                            <strong class="bj-font-logo bj-text-prime">Gorgeous</strong>
+                        </div>
+                        <a href="#" class="text-decoration-none bj-text-prime">About</a>
+                        <a href="#" class="text-decoration-none bj-text-prime">Contact us </a>
+                        <a href="#" class="text-decoration-none bj-text-prime">Faq's</a>
+                    </div>
+
+
+                    <div class="bj-text-prime text-center">
+                        ©2024 Gorgeous All Rights Reserved
+                    </div>
+                    
+                </section>
+
+            </div>
+            
 
             <script>
 
@@ -376,15 +437,34 @@
                 })
 
                 const next = () => {
+
+
                     if( count < 9 ) {
+                        // document.querySelector('.bj-talent-container').parentElement.classList.remove('bj-slider')
                         count = count + 3
+
+                        const newspaperSpinning = [
+                            {
+
+                                transform: 'translateX(-50%)'
+                            }
+                        ]
+
+                        const newspaperTiming = {
+                          duration: 2000,
+                          iterations: 1,
+                        };
                         
                         document.querySelectorAll('.bj-talent-container').forEach((element ) => {
                             element.style.display = 'none';
 
                             let attribute = element.getAttribute('data-idx')
                             if(attribute > (count - 3) && attribute < count + 1 ) {
+
                                 element.style.display = 'block'
+
+                                // element.animate(newspaperSpinning, newspaperTiming)
+                                // document.querySelector('.bj-talent-container').parentElement.classList.add('bj-slider')
                             }
                             
                         })

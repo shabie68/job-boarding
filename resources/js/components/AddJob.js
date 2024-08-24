@@ -200,6 +200,48 @@ function AddJob() {
                 </select>
               </div>
 
+
+              <div style={{ margin: '20px 0' }}>
+                
+                
+                <div className="d-flex bj-gap-4">
+
+                  <input 
+                    type="radio"
+                    name="type"
+                    value="remote"
+                    />
+
+                    <label>Remote</label>
+
+
+                </div>
+
+                <div className="d-flex bj-gap-4">
+                
+
+                  <input 
+                    type="radio"
+                    name="type"
+                    value="onsite"
+                    />
+                    <label>Onsite</label>
+
+
+                </div>
+
+
+                <div className="d-flex bj-gap-4">
+                  <input 
+                    type="radio"
+                    name="type"
+                    value="hybrid"
+                    />
+
+                    <label>Hybrid</label>
+                </div>
+              </div>
+
               <div style={{ margin: '20px 0' }}>
                 <label>Additional details</label>
                 <select
