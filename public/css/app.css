@@ -12174,6 +12174,14 @@ a {
 	background-color: #817921;
 }
 
+.bj-vertical-align {
+	vertical-align: middle;
+}
+
+.bj-gap-4 {
+	gap: 4px;
+}
+
 @keyframes apply-pbar{
 	from {
 		width: 0%;
