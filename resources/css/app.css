@@ -37,6 +37,9 @@
 	background-color: #238a85;
 }
 
+.bj-text-secondary {
+	color: #238a85;
+}
 .table-striped > tbody > tr:nth-of-type(odd) > * {
 	background: #99902c;
 	color: #fbfff6;
@@ -212,6 +215,10 @@ a {
 
 .bj-gap-4 {
 	gap: 4px;
+}
+
+.bj-col-3 {
+	grid-template-columns: repeat(3, 1fr)
 }
 
 @keyframes apply-pbar{

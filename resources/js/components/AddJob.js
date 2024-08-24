@@ -137,10 +137,9 @@ function AddJob() {
       <section style={{ margin: '0 auto', width: '50%' }}>
         <h2>Add Job</h2>
         <div className="bj-border bj-p-20 bj-border-radius">
-          <div className="card-body">
             <form onSubmit={formik.handleSubmit}>
               <div>
-                <label>Title</label>
+                <strong><label>Title</label></strong>
                 <input
                   type="text"
                   name="title"
@@ -155,7 +154,7 @@ function AddJob() {
               </div>
 
               <div style={{ margin: '20px 0' }}>
-                <label>Location</label>
+                <strong><label>Location</label></strong>
                 <input
                   type="text"
                   name="location"
@@ -170,7 +169,7 @@ function AddJob() {
               </div>
 
               <div style={{ margin: '20px 0' }}>
-                <label>Salary</label>
+                <strong><label>Salary</label></strong>
                 <input
                   type="number"
                   name="salary"
@@ -185,77 +184,95 @@ function AddJob() {
                 ) : null}
               </div>
 
-              <div style={{ margin: '20px 0' }}>
-                <label>Type</label>
-                <select
-                  className="form-control"
-                  name="type"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.type}
-                >
-                  <option value="remote">Remote</option>
-                  <option value="hybrid">Hybrid</option>
-                  <option value="onsite">Onsite</option>
-                </select>
-              </div>
+             
 
 
               <div style={{ margin: '20px 0' }}>
-                
-                
-                <div className="d-flex bj-gap-4">
+                <strong>Type</strong>
+                <div className="d-grid bj-col-3 justify-content-between">
 
-                  <input 
-                    type="radio"
-                    name="type"
-                    value="remote"
-                    />
+                  <div className="d-flex bj-gap-4">
 
-                    <label>Remote</label>
+                    <input 
+                      type="radio"
+                      name="type"
+                      onChange={formik.handleChange}
+                      value="remote"
+                      checked={formik.values.type === 'remote'} 
+                      />
+                      <label>Remote</label>
+                  </div>
 
-
-                </div>
-
-                <div className="d-flex bj-gap-4">
-                
-
-                  <input 
-                    type="radio"
-                    name="type"
+                  <div className="d-flex bj-gap-4">
+                    <input 
+                      type="radio"
+                      name="type"
+                      onChange={formik.handleChange}
                     value="onsite"
-                    />
-                    <label>Onsite</label>
+                    checked={formik.values.type === 'onsite'} 
+                      />
+                      <label>Onsite</label>
+                  </div>
 
 
+                  <div className="d-flex bj-gap-4">
+                    <input 
+                      type="radio"
+                      name="type"
+                      onChange={formik.handleChange}
+                      value="hybrid"
+                      checked={formik.values.type === 'hybrid'} 
+                      />
+
+                      <label>Hybrid</label>
+                  </div>
                 </div>
-
-
-                <div className="d-flex bj-gap-4">
-                  <input 
-                    type="radio"
-                    name="type"
-                    value="hybrid"
-                    />
-
-                    <label>Hybrid</label>
-                </div>
+                
               </div>
 
+
               <div style={{ margin: '20px 0' }}>
-                <label>Additional details</label>
-                <select
-                  name="additionalDetails"
-                  className="form-control"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.additionalDetails}
-                >
-                  <option value="description">Description</option>
-                  <option value="responsibilities">Responsibilities</option>
-                  <option value="requirements">Requirements</option>
-                </select>
-                <small className="text-info">Change the option to responsibilities or requirements to set them up</small>
+                <strong>Additional details</strong>
+                <div className="d-grid bj-col-3 justify-content-between">
+                  <div className="d-flex bj-gap-4">
+
+                    <input 
+                      type="radio"
+                      name="additionalDetails"
+                      onChange={formik.handleChange}
+                      value="description"
+                      checked={formik.values.additionalDetails === 'description'} 
+                      />
+                      <label>Description</label>
+                  </div>
+
+                  <div className="d-flex bj-gap-4">
+                    <input 
+                      type="radio"
+                      name="additionalDetails"
+                      onChange={formik.handleChange}
+                      value="responsibilities"
+                      checked={formik.values.additionalDetails === 'responsibilities'} 
+                      />
+                      <label>Responsibilities</label>
+                  </div>
+
+
+                  <div className="d-flex bj-gap-4">
+                    <input 
+                      type="radio"
+                      name="additionalDetails"
+                      onChange={formik.handleChange}
+                      value="requirements"
+                      checked={formik.values.additionalDetails === 'requirements'} 
+                      />
+
+                      <label>Requirements</label>
+                  </div>
+                </div>
+
+               
+                <small className="bj-text-secondary">Change the option to responsibilities or requirements to set them up</small>
 
 
               </div>
@@ -293,7 +310,6 @@ function AddJob() {
                 <button className="btn bj-btn-prime text-align-end" type="submit">Add Job</button>
               </div>
             </form>
-          </div>
         </div>
       </section>
     </div>
@@ -301,3 +317,23 @@ function AddJob() {
 }
 
 export default AddJob;
+
+/**
+
+
+ <div style={{ margin: '20px 0' }}>
+                <label>Type</label>
+                <select
+                  className="form-control"
+                  name="type"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.type}
+                >
+                  <option value="remote">Remote</option>
+                  <option value="hybrid">Hybrid</option>
+                  <option value="onsite">Onsite</option>
+                </select>
+              </div>
+
+              **/

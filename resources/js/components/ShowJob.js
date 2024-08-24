@@ -323,7 +323,7 @@ function ShowJob(props) {
                                 </div>
 
                                  <div className="card-body">
-                                     <p>Will join the startup and design the website for startup. You will work with Eurpean clients</p>
+                                     
 
                                     <div dangerouslySetInnerHTML={{__html: _job?.description}}></div>
 
