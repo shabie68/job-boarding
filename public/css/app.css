@@ -12005,8 +12005,28 @@ textarea.form-control-lg {
 	background-color: #238a85;
 }
 
+.bj-text-secondary {
+	color: #238a85;
+}
+
+table a {
+	color: #4f4a47;
+}
 .table-striped > tbody > tr:nth-of-type(odd) > * {
 	background: #99902c;
+	color: #fbfff6;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) > * {
+	background: #fbfff6;
+	color: #238a85;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) a {
+	color: #238a85;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) a {
 	color: #fbfff6;
 }
 
@@ -12021,10 +12041,20 @@ a {
 }
 
 .jb-skill:hover{
-	background: #dcdcdccf;
+	background: #4f4a47;
+	color: #fbfff6;
 }
 
-  .ql-container {
+.bj-cursor-pointer {
+	cursor: pointer;
+}
+
+.bj-company-container:hover {
+	border-color: #99902c;
+
+}
+
+.ql-container {
   min-height: 10rem;
   height: 100%;
   flex: 1;
@@ -12075,6 +12105,7 @@ a {
 .bj-border-prime {
 	border: 2px solid #4f4a47;
 }
+
 
 .bj-border-radius {
 	border-radius: 10px;
@@ -12141,6 +12172,13 @@ a {
 .bj-col-3 {
 	grid-template-columns: 20% 50% 20%;
 }
+.bj-w-66 {
+	width: 66%;
+}
+
+.bj-font-cursive {
+	font-family: cursive;
+}
 
 .bj-font-logo {
 	font-size: 36px;
@@ -12181,6 +12219,11 @@ a {
 .bj-gap-4 {
 	gap: 4px;
 }
+
+.bj-col-3 {
+	grid-template-columns: repeat(3, 1fr)
+}
+
 
 @keyframes apply-pbar{
 	from {

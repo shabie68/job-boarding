@@ -9,6 +9,7 @@ function Company() {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const [companies, setCompanies] = useState([]);
+	const [hasCompany, setHasCompany] = useState(false)
 	const [nextPage, setNextPage] = useState(null)
 	const [lastPage, setLastPage] = useState(1);
 	const [currentPage, setCurrentPage] = useState(1)
@@ -55,6 +56,7 @@ function Company() {
 			setLastPage(response.data.companies.last_page)
 			setRole(response.data.role)
 			setUser(response.data.user)
+			setHasCompany(response.data.hasCompany)
 		})
 		.catch((error) => {
 
@@ -110,7 +112,7 @@ function Company() {
 	  		}
 			<div className="my-4">
 				<div>
-					{role == 1 ?
+					{role == 1 && !hasCompany?
 						<div className="d-flex justify-content-between align-items-center my-4 border-bottom">
 						  <h4 className="mb-0">Add New Company </h4>
 						   <div className="">
@@ -127,14 +129,14 @@ function Company() {
 
 							{companies?.map(company => (
 
-								 <div className=" bg-white col-3 bj-border rounded"  key={"company--"+company.id}>
-									<div className="d-flex gap-4 align-items-center">
+								 <div className="bg-one bj-border-radius bj-p-20 col-3 bj-border rounded bj-cursor-pointer bj-company-container"  key={"company--"+company.id} onClick={() => {singleCompany(company)}}>
+									<div className="d-flex gap-4 align-items-center" >
 									  <div className="w-25">
 										<img src={'uploads/images/' + company.logo} className="w-100" />
 									  </div>
 
 									  <div className="w-75">
-									  	<h3 className="" onClick={() => {singleCompany(company)}}>{company.title}</h3>
+									  	<h3>{company.title}</h3>
 										 <div className="">
 											<p>{company.title}</p>
 										 </div>

@@ -291,7 +291,7 @@ function UpdateProfile() {
 		                                        moreSkills?.map((skill) => (
 
 		                                            <>
-		                                            <div key={skill} className="badge bg-secondary">{skill}</div>
+		                                            <div key={skill} className="badge bg-three">{skill}</div>
 		                                            </>
 		                                        ))
 		                                    }

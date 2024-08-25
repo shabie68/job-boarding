@@ -136,56 +136,195 @@ function AddJob() {
 
       <section style={{ margin: '0 auto', width: '50%' }}>
         <h2>Add Job</h2>
-        <div className="bj-border bj-p-20 bj-border-radius">
-          <div className="card-body">
+        <div >
             <form onSubmit={formik.handleSubmit}>
-              <div>
-                <label>Title</label>
-                <input
-                  type="text"
-                  name="title"
-                  className="bj-input bg-one"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.title}
-                />
-                {formik.touched.title && formik.errors.title ? (
-                  <div className="text-danger">{formik.errors.title}</div>
-                ) : null}
+              <div className="bj-border bj-p-20 bj-border-radius">
+                <div>
+                  <strong><label>Title</label></strong>
+                  <input
+                    type="text"
+                    name="title"
+                    className="bj-input bg-one"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.title}
+                  />
+                  {formik.touched.title && formik.errors.title ? (
+                    <div className="text-danger">{formik.errors.title}</div>
+                  ) : null}
+                </div>
+
+                <div style={{ margin: '20px 0' }}>
+                  <strong><label>Location</label></strong>
+                  <input
+                    type="text"
+                    name="location"
+                    className="bj-input bg-one"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.location}
+                  />
+                  {formik.touched.location && formik.errors.location ? (
+                    <div className="text-danger">{formik.errors.location}</div>
+                  ) : null}
+                </div>
+
+                <div style={{ margin: '20px 0' }}>
+                  <strong><label>Salary</label></strong>
+                  <input
+                    type="number"
+                    name="salary"
+                    className="bj-input bg-one"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.salary}
+                  />
+
+                  {formik.touched.salary && formik.errors.salary ? (
+                    <div className="text-danger">{formik.errors.salary}</div>
+                  ) : null}
+                </div>
+
+               
+
+
+                <div style={{ margin: '20px 0' }}>
+                  <strong>Type</strong>
+                  <div className="d-grid bj-col-3 justify-content-between">
+
+                    <div className="d-flex bj-gap-4">
+
+                      <input 
+                        type="radio"
+                        name="type"
+                        onChange={formik.handleChange}
+                        value="remote"
+                        checked={formik.values.type === 'remote'} 
+                        />
+                        <label>Remote</label>
+                    </div>
+
+                    <div className="d-flex bj-gap-4">
+                      <input 
+                        type="radio"
+                        name="type"
+                        onChange={formik.handleChange}
+                      value="onsite"
+                      checked={formik.values.type === 'onsite'} 
+                        />
+                        <label>Onsite</label>
+                    </div>
+
+
+                    <div className="d-flex bj-gap-4">
+                      <input 
+                        type="radio"
+                        name="type"
+                        onChange={formik.handleChange}
+                        value="hybrid"
+                        checked={formik.values.type === 'hybrid'} 
+                        />
+
+                        <label>Hybrid</label>
+                    </div>
+                  </div>
+                  
+                </div>
+
+
+                <div style={{ margin: '20px 0' }}>
+                  <strong>Additional details</strong>
+                  <div className="d-grid bj-col-3 justify-content-between">
+                    <div className="d-flex bj-gap-4">
+
+                      <input 
+                        type="radio"
+                        name="additionalDetails"
+                        onChange={formik.handleChange}
+                        value="description"
+                        checked={formik.values.additionalDetails === 'description'} 
+                        />
+                        <label>Description</label>
+                    </div>
+
+                    <div className="d-flex bj-gap-4">
+                      <input 
+                        type="radio"
+                        name="additionalDetails"
+                        onChange={formik.handleChange}
+                        value="responsibilities"
+                        checked={formik.values.additionalDetails === 'responsibilities'} 
+                        />
+                        <label>Responsibilities</label>
+                    </div>
+
+
+                    <div className="d-flex bj-gap-4">
+                      <input 
+                        type="radio"
+                        name="additionalDetails"
+                        onChange={formik.handleChange}
+                        value="requirements"
+                        checked={formik.values.additionalDetails === 'requirements'} 
+                        />
+
+                        <label>Requirements</label>
+                    </div>
+                  </div>
+
+                 
+                  <small className="bj-text-secondary">Change the option to responsibilities or requirements to set them up</small>
+
+
+                </div>
+
+                <div>
+                  <div style={{ display: formik.values.additionalDetails === 'description' ? 'block' : 'none' }}>
+                    <label>Description</label>
+                    <div id="description">Description</div>
+                  </div>
+
+                  <div style={{ display: formik.values.additionalDetails === 'responsibilities' ? 'block' : 'none' }}>
+                    <label>Responsibilities</label>
+                    <div id="responsibilities">Responsibilities</div>
+                  </div>
+
+                  <div style={{ display: formik.values.additionalDetails === 'requirements' ? 'block' : 'none' }}>
+                    <label>Requirements</label>
+                    <div id="requirements">Requirements</div>
+                  </div>
+
+                  {formik.touched.description && formik.errors.description ? (
+                    <div className="text-danger">{formik.errors.description}</div>
+                  ) : null}
+
+                  {formik.touched.requirements && formik.errors.requirements ? (
+                    <div className="text-danger">{formik.errors.requirements}</div>
+                  ) : null}
+
+                  {formik.touched.responsibilities && formik.errors.responsibilities ? (
+                    <div className="text-danger">{formik.errors.responsibilities}</div>
+                  ) : null}
+                </div>
+
               </div>
 
-              <div style={{ margin: '20px 0' }}>
-                <label>Location</label>
-                <input
-                  type="text"
-                  name="location"
-                  className="bj-input bg-one"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.location}
-                />
-                {formik.touched.location && formik.errors.location ? (
-                  <div className="text-danger">{formik.errors.location}</div>
-                ) : null}
+              <div className="mt-4 text-end">
+                <button className="btn bj-btn-prime text-align-end" type="submit">Add Job</button>
               </div>
+            </form>
+        </div>
+      </section>
+    </div>
+  );
+}
 
-              <div style={{ margin: '20px 0' }}>
-                <label>Salary</label>
-                <input
-                  type="number"
-                  name="salary"
-                  className="bj-input bg-one"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.salary}
-                />
+export default AddJob;
 
-                {formik.touched.salary && formik.errors.salary ? (
-                  <div className="text-danger">{formik.errors.salary}</div>
-                ) : null}
-              </div>
+/**
 
-              <div style={{ margin: '20px 0' }}>
+
+ <div style={{ margin: '20px 0' }}>
                 <label>Type</label>
                 <select
                   className="form-control"
@@ -200,104 +339,4 @@ function AddJob() {
                 </select>
               </div>
 
-
-              <div style={{ margin: '20px 0' }}>
-                
-                
-                <div className="d-flex bj-gap-4">
-
-                  <input 
-                    type="radio"
-                    name="type"
-                    value="remote"
-                    />
-
-                    <label>Remote</label>
-
-
-                </div>
-
-                <div className="d-flex bj-gap-4">
-                
-
-                  <input 
-                    type="radio"
-                    name="type"
-                    value="onsite"
-                    />
-                    <label>Onsite</label>
-
-
-                </div>
-
-
-                <div className="d-flex bj-gap-4">
-                  <input 
-                    type="radio"
-                    name="type"
-                    value="hybrid"
-                    />
-
-                    <label>Hybrid</label>
-                </div>
-              </div>
-
-              <div style={{ margin: '20px 0' }}>
-                <label>Additional details</label>
-                <select
-                  name="additionalDetails"
-                  className="form-control"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.additionalDetails}
-                >
-                  <option value="description">Description</option>
-                  <option value="responsibilities">Responsibilities</option>
-                  <option value="requirements">Requirements</option>
-                </select>
-                <small className="text-info">Change the option to responsibilities or requirements to set them up</small>
-
-
-              </div>
-
-              <div>
-                <div style={{ display: formik.values.additionalDetails === 'description' ? 'block' : 'none' }}>
-                  <label>Description</label>
-                  <div id="description">Description</div>
-                </div>
-
-                <div style={{ display: formik.values.additionalDetails === 'responsibilities' ? 'block' : 'none' }}>
-                  <label>Responsibilities</label>
-                  <div id="responsibilities">Responsibilities</div>
-                </div>
-
-                <div style={{ display: formik.values.additionalDetails === 'requirements' ? 'block' : 'none' }}>
-                  <label>Requirements</label>
-                  <div id="requirements">Requirements</div>
-                </div>
-
-                {formik.touched.description && formik.errors.description ? (
-                  <div className="text-danger">{formik.errors.description}</div>
-                ) : null}
-
-                {formik.touched.requirements && formik.errors.requirements ? (
-                  <div className="text-danger">{formik.errors.requirements}</div>
-                ) : null}
-
-                {formik.touched.responsibilities && formik.errors.responsibilities ? (
-                  <div className="text-danger">{formik.errors.responsibilities}</div>
-                ) : null}
-              </div>
-
-              <div className="mt-4 text-end">
-                <button className="btn bj-btn-prime text-align-end" type="submit">Add Job</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
-
-export default AddJob;
+              **/

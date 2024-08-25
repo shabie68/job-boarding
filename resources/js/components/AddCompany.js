@@ -214,7 +214,7 @@ function AddCompany() {
 							<div className="bj-border bj-border-radius bj-p-20 w-50">
 
 								<div className="form-group mb-3">
-								    <label htmlFor="title">Title</label>
+								    <strong><label htmlFor="title">Title</label></strong>
 								    <input 
 								    	type="text"
 								    	className="bj-input bg-one" 
@@ -233,7 +233,7 @@ function AddCompany() {
 							  	</div>
 
 							  	<div className="mb-3">
-								  <label htmlFor="formFileSm" className="form-label">Small file input example</label>
+								  <strong><label htmlFor="formFileSm" className="form-label">Small file input example</label></strong>
 								  <input 
 								  	className="bj-input bg-one" 
 								  	id="formFileSm" 
@@ -247,7 +247,7 @@ function AddCompany() {
 								</div>
 
 								<div className="form-group mb-3">
-								    <label htmlFor="desc">Locations</label>
+								    <strong><label htmlFor="desc">Locations</label></strong>
 								    <input 
 								    	type="text" 
 								    	className="bj-input bg-one" 
@@ -282,7 +282,7 @@ function AddCompany() {
 							  	</div>
 
 							  	<div className="mb-3">	
-									<label>Description</label>
+									<strong><label>Description</label></strong>
 									<div id="company-description">
 									</div>
 								</div>
@@ -300,7 +300,7 @@ function AddCompany() {
 								<div className="bj-border bj-border-radius bj-p-20 w-50">
 
 									<div style={{margin: '20px 0'}}>
-								  		<label htmlFor="websiteUrl">Website url</label>
+								  		<strong><label htmlFor="websiteUrl">Website url</label></strong>
 									    <input
 									        id="websiteUrl"
 									        name="websiteUrl"
@@ -317,7 +317,7 @@ function AddCompany() {
 
 
 								  	<div style={{margin: '20px 0'}}>
-								  		<label htmlFor="email">Email Address</label>
+								  		<strong><label htmlFor="email">Email Address</label></strong>
 									    <input
 									        id="email"
 									        name="email"
@@ -333,7 +333,7 @@ function AddCompany() {
 								  	</div>
 
 								  	<div style={{margin: '20px 0'}}>
-								  		<label htmlFor="totalEmployees">Total Employees</label>
+								  		<strong><label htmlFor="totalEmployees">Total Employees</label></strong>
 									    <input
 									        id="totalEmployees"
 									        name="totalEmployees"
@@ -349,7 +349,7 @@ function AddCompany() {
 								  	</div>
 
 								  	<div style={{margin: '20px 0'}}>
-								  		<label htmlFor="phoneNumber">Phone Number</label>
+								  		<strong><label htmlFor="phoneNumber">Phone Number</label></strong>
 									    <input
 									        id="phoneNumber"
 									        name="phoneNumber"
@@ -365,7 +365,7 @@ function AddCompany() {
 								  	</div>
 								  	
 									<div style={{margin: '20px 0'}}>
-										<label>Choose Industry</label>
+										<strong><label>Choose Industry</label></strong>
 										<select 
 											className="form-control" 
 											name="industry"
