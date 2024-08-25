@@ -9,6 +9,7 @@ function Company() {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const [companies, setCompanies] = useState([]);
+	const [hasCompany, setHasCompany] = useState(false)
 	const [nextPage, setNextPage] = useState(null)
 	const [lastPage, setLastPage] = useState(1);
 	const [currentPage, setCurrentPage] = useState(1)
@@ -55,6 +56,7 @@ function Company() {
 			setLastPage(response.data.companies.last_page)
 			setRole(response.data.role)
 			setUser(response.data.user)
+			setHasCompany(response.data.hasCompany)
 		})
 		.catch((error) => {
 
@@ -110,7 +112,7 @@ function Company() {
 	  		}
 			<div className="my-4">
 				<div>
-					{role == 1 ?
+					{role == 1 && !hasCompany?
 						<div className="d-flex justify-content-between align-items-center my-4 border-bottom">
 						  <h4 className="mb-0">Add New Company </h4>
 						   <div className="">

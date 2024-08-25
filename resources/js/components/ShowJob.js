@@ -255,32 +255,20 @@ function ShowJob(props) {
     return(
         <div>
             <div className="d-sm-block d-lg-flex justify-content-lg-center">
-                <div>
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                          <span className="input-group-text" id="basic-addon1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
-                              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                            </svg>
-                          </span>
-                        </div>
+              <div className="d-flex ">
+                  
+                  <span>
+                    <input
+                      className="bj-input bg-one"
+                      value={jobTitle}
+                      placeholder="Job title"
+                      aria-describedby="basic-addon1"
+                      onChange={(e)=>{setJobTitle(e.target.value)}}
+                    />
+                  </span>
 
-                        <input
-                          className="bj-input bg-one"
-                          value={jobTitle}
-                          placeholder="Job title"
-                          aria-describedby="basic-addon1"
-                          onChange={(e)=>{setJobTitle(e.target.value)}}
-                        />
-
-                       <button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>Search Job</button>
-                    </div>
-
-                </div>
-
-                <div className="">
-
-                </div>
+                  <span><button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>Search Job</button></span>
+              </div>
             </div>
 
             {

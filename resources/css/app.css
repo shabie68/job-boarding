@@ -82,11 +82,11 @@ a {
 }
 
 .bj-company-container:hover {
-	background: #99902c;
-	color: #fbfff6;
+	border-color: #99902c;
+
 }
 
-  .ql-container {
+.ql-container {
   min-height: 10rem;
   height: 100%;
   flex: 1;
@@ -137,6 +137,7 @@ a {
 .bj-border-prime {
 	border: 2px solid #4f4a47;
 }
+
 
 .bj-border-radius {
 	border-radius: 10px;
@@ -254,6 +255,7 @@ a {
 .bj-col-3 {
 	grid-template-columns: repeat(3, 1fr)
 }
+
 
 @keyframes apply-pbar{
 	from {

@@ -12,11 +12,16 @@ class CompanyController extends Controller
     public function show() {
 
     	$companies = Company::paginate(6);
+        $hasCompany = false;
+        if(auth()->user()->company) {
+            $hasCompany = true;
+        }
 
     	return response()->json([
     		"companies" => $companies,
             "user" => auth()->user(),
             "role" => auth()->user()->role,
+            "hasCompany" => $hasCompany
     	]);
     }
 

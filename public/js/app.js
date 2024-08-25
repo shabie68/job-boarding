@@ -10587,38 +10587,42 @@ function Company() {
     _useState2 = _slicedToArray(_useState, 2),
     companies = _useState2[0],
     setCompanies = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState4 = _slicedToArray(_useState3, 2),
-    nextPage = _useState4[0],
-    setNextPage = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    hasCompany = _useState4[0],
+    setHasCompany = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState6 = _slicedToArray(_useState5, 2),
-    lastPage = _useState6[0],
-    setLastPage = _useState6[1];
+    nextPage = _useState6[0],
+    setNextPage = _useState6[1];
   var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState8 = _slicedToArray(_useState7, 2),
-    currentPage = _useState8[0],
-    setCurrentPage = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    lastPage = _useState8[0],
+    setLastPage = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState10 = _slicedToArray(_useState9, 2),
-    role = _useState10[0],
-    setRole = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    currentPage = _useState10[0],
+    setCurrentPage = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState12 = _slicedToArray(_useState11, 2),
-    success = _useState12[0],
-    setSuccess = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    role = _useState12[0],
+    setRole = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState14 = _slicedToArray(_useState13, 2),
-    user = _useState14[0],
-    setUser = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    success = _useState14[0],
+    setSuccess = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState16 = _slicedToArray(_useState15, 2),
+    user = _useState16[0],
+    setUser = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       comment: '',
       name: '',
       rating: 0
     }),
-    _useState16 = _slicedToArray(_useState15, 2),
-    feedback = _useState16[0],
-    setFeedback = _useState16[1];
+    _useState18 = _slicedToArray(_useState17, 2),
+    feedback = _useState18[0],
+    setFeedback = _useState18[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var _location$state;
     // let menuHeight = document.querySelector('')
@@ -10644,6 +10648,7 @@ function Company() {
       setLastPage(response.data.companies.last_page);
       setRole(response.data.role);
       setUser(response.data.user);
+      setHasCompany(response.data.hasCompany);
     })["catch"](function (error) {});
   }
   var next = function next() {
@@ -10683,7 +10688,7 @@ function Company() {
     }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "my-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [role == 1 && !hasCompany ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "d-flex justify-content-between align-items-center my-4 border-bottom",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
             className: "mb-0",
@@ -13279,29 +13284,12 @@ function ShowJob(props) {
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "d-sm-block d-lg-flex justify-content-lg-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "input-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "input-group-prepend",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-              className: "input-group-text",
-              id: "basic-addon1",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
-                xmlns: "http://www.w3.org/2000/svg",
-                width: "24",
-                height: "24",
-                fill: "currentColor",
-                className: "bi bi-search",
-                viewBox: "0 0 16 16",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
-                  d: "M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
-                })
-              })
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "d-flex ",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
             className: "bj-input bg-one",
             value: jobTitle,
             placeholder: "Job title",
@@ -13309,17 +13297,17 @@ function ShowJob(props) {
             onChange: function onChange(e) {
               setJobTitle(e.target.value);
             }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
             className: "bj-btn bj-btn-prime text-prime",
             onClick: function onClick() {
               return getJobs(true, 'first-time');
             },
             children: "Search Job"
-          })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: ""
-      })]
+          })
+        })]
+      })
     }), success ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "text-success text-center",
       style: {
@@ -13638,15 +13626,19 @@ var SingleCompany = function SingleCompany() {
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
     id = _useParams.id;
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    showFeedback = _useState2[0],
+    setShowFeedback = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       comment: '',
       name: '',
       rating: 0,
       created_at: null
     }),
-    _useState2 = _slicedToArray(_useState, 2),
-    feedback = _useState2[0],
-    setFeedback = _useState2[1];
+    _useState4 = _slicedToArray(_useState3, 2),
+    feedback = _useState4[0],
+    setFeedback = _useState4[1];
   function addReview(id) {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/company/add-review/' + id, {
       feedback: feedback
@@ -13657,6 +13649,7 @@ var SingleCompany = function SingleCompany() {
         rating: 0,
         name: ''
       });
+      setShowFeedback(true);
     })["catch"](function (error) {});
   }
   var checkFeedback = function checkFeedback() {
@@ -13880,12 +13873,19 @@ var SingleCompany = function SingleCompany() {
           })]
         });
       })]
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-        children: "Be the first one to add a feedback"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        children: "Add Feedback"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+      children: !showFeedback ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "d-flex justify-content-between",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+          children: "Be the first one to add a feedback"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "bj-btn bg-three text-prime",
+          onClick: function onClick() {
+            setShowFeedback(true);
+          },
+          children: "Add Feedback"
+        })]
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
         children: !((_checkFeedback = checkFeedback()) !== null && _checkFeedback !== void 0 && _checkFeedback.includes((_location$state7 = location.state) === null || _location$state7 === void 0 ? void 0 : _location$state7.user.name)) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             style: {
@@ -14136,7 +14136,7 @@ var SingleCompany = function SingleCompany() {
             })
           })]
         }) : ''
-      })]
+      })
     })]
   });
 };
