@@ -12008,8 +12008,25 @@ textarea.form-control-lg {
 .bj-text-secondary {
 	color: #238a85;
 }
+
+table a {
+	color: #4f4a47;
+}
 .table-striped > tbody > tr:nth-of-type(odd) > * {
 	background: #99902c;
+	color: #fbfff6;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) > * {
+	background: #fbfff6;
+	color: #238a85;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) a {
+	color: #238a85;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) a {
 	color: #fbfff6;
 }
 
@@ -12024,7 +12041,17 @@ a {
 }
 
 .jb-skill:hover{
-	background: #dcdcdccf;
+	background: #4f4a47;
+	color: #fbfff6;
+}
+
+.bj-cursor-pointer {
+	cursor: pointer;
+}
+
+.bj-company-container:hover {
+	background: #99902c;
+	color: #fbfff6;
 }
 
   .ql-container {
@@ -12143,6 +12170,13 @@ a {
 
 .bj-col-3 {
 	grid-template-columns: 20% 50% 20%;
+}
+.bj-w-66 {
+	width: 66%;
+}
+
+.bj-font-cursive {
+	font-family: cursive;
 }
 
 .bj-font-logo {
