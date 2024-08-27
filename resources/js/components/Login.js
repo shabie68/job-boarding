@@ -78,7 +78,7 @@ const Login = (props) => {
 
                                     <div className="row my-2">
                                         <div className="">
-                                            <button type="submit" className="btn bg-two text-prime w-100">
+                                            <button type="submit" className="btn btn-prime bj-btn-prime text-prime w-100">
                                                 {
                                                     !loading ?
                                                     <div>

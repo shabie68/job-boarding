@@ -11971,18 +11971,18 @@ textarea.form-control-lg {
 	margin: 0 auto;
 	border-radius: 10px;
 	border: 2px solid gray;
-	background-color: white;
+	background-color: #fbfff6;;
 	padding: 20px;
 
 
 }
 
 .form-container input {
-	background-color: white;	
+	background-color: #fbfff6;;	
 }
 
 .bg-white {
-	background-color: white;
+	background-color: #fbfff6;;
 	padding: 20px;
 	border-radius: 10px;
 }
@@ -11997,16 +11997,30 @@ textarea.form-control-lg {
 
 .bj-btn-prime {
 	background: #99902c;
-	color: white;
+	color: #fbfff6;;
 
+}
+
+.bj-btn-prime:hover {
+	background-color: #7c7521;
+	color: #fbfff6;
 }
 
 .bj-btn-secondary {
 	background-color: #238a85;
 }
 
+.bj-btn-secondary:hover {
+	background-color: #1f7e7a;
+	color: #fbfff6;
+}
+
 .bj-text-secondary {
 	color: #238a85;
+}
+
+.table.table-striped th {
+	background-color: #fbfff6;
 }
 
 table a {
