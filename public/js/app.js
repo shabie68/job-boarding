@@ -10498,8 +10498,8 @@ var CandidateJobs = function CandidateJobs(props) {
     // messages.push(context.message)
     // messages.flat()
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
       "class": "table table-striped",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
@@ -10509,9 +10509,6 @@ var CandidateJobs = function CandidateJobs(props) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
             scope: "col",
             children: "Company name"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
-            scope: "col",
-            children: "Contact"
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
@@ -10527,20 +10524,54 @@ var CandidateJobs = function CandidateJobs(props) {
                 verticalAlign: 'middle'
               },
               children: submission.company.title
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                type: "button",
-                onClick: function onClick() {
-                  sendMessage(submission.company_id);
-                },
-                className: "btn btn-secondary",
-                children: "Message"
-              })
             })]
           });
         })
       })]
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "d-flex gap-2 align-items-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        className: "btn bj-btn-prime btn-link",
+        onClick: props.prev,
+        disabled: props.currentPage === 1,
+        style: {
+          border: '1px solid lightslategrey'
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+          xmlns: "http://www.w3.org/2000/svg",
+          width: "16",
+          height: "16",
+          fill: "currentColor",
+          className: "bi bi-chevron-left",
+          viewBox: "0 0 16 16",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+            fillRule: "evenodd",
+            d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+        children: ["Showing page ", props.currentPage, " of ", props.lastPage]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        className: "btn bj-btn-prime btn-link",
+        onClick: props.next,
+        disabled: !props.nextPage,
+        style: {
+          border: '1px solid lightslategrey'
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+          xmlns: "http://www.w3.org/2000/svg",
+          width: "16",
+          height: "16",
+          fill: "currentColor",
+          className: "bi bi-chevron-right",
+          viewBox: "0 0 16 16",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+            fillRule: "evenodd",
+            d: "M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+          })
+        })
+      })]
+    })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CandidateJobs);
@@ -11263,14 +11294,9 @@ function Example() {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("svg", {
                 width: "20",
                 height: "20",
-                fill: "#fff",
-                version: "1.2",
-                baseProfile: "tiny",
-                id: "Layer_1",
+                viewBox: "0 0 24 24",
+                fill: "none",
                 xmlns: "http://www.w3.org/2000/svg",
-                xmlnsXlink: "http://www.w3.org/1999/xlink",
-                viewBox: "0 0 256 256",
-                xmlSpace: "preserve",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
                   "stroke-width": "0"
@@ -11281,7 +11307,11 @@ function Example() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
-                    d: "M129.9,54.3v-13H151V22.1h-21.1v-3.8h-3.8v3.8v19.2v13L81,91.1h94L129.9,54.3z M128,85.2c-5.4,0-9.8-4.4-9.8-9.8 s4.4-9.8,9.8-9.8c5.4,0,9.8,4.4,9.8,9.8S133.4,85.2,128,85.2z M243.5,232l0.2-76H175V95h-47H81v61H12.2l0.2,76H5.3v21.2H128h122.7 V232H243.5z M34.5,224.3h-9.6v-52.1h9.6V224.3z M51.8,224.3h-9.6v-52.1h9.6C51.8,172.2,51.8,224.3,51.8,224.3z M69,224.3h-9.6v-52.1 H69V224.3z M107.9,235.8H94.4V124h13.4L107.9,235.8L107.9,235.8z M134.7,235.8H128h-6.7V124h6.7h6.7V235.8z M161.6,235.8h-13.4V124 h13.4V235.8z M196.6,224.3H187v-52.1h9.6V224.3z M213.8,224.3h-9.6v-52.1h9.6V224.3z M231.1,224.3h-9.6v-52.1h9.6V224.3z"
+                    d: "M11 20H21V10C21 8.89543 20.1046 8 19 8H15M11 16H11.01M17 16H17.01M7 16H7.01M11 12H11.01M17 12H17.01M7 12H7.01M11 8H11.01M7 8H7.01M15 20V6C15 4.89543 14.1046 4 13 4H5C3.89543 4 3 4.89543 3 6V20H15Z",
+                    stroke: "#ffffff",
+                    "stroke-width": "2",
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round"
                   }), " "]
                 })]
               })
@@ -11303,7 +11333,7 @@ function Example() {
                 fill: "#000000",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
                   "stroke-linecap": "round",
@@ -12483,10 +12513,12 @@ var RecruiterJobs = function RecruiterJobs(props) {
       // }));
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
       "class": "table table-striped",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("caption", {
+        children: "Received Applications"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
             scope: "col",
@@ -12530,7 +12562,50 @@ var RecruiterJobs = function RecruiterJobs(props) {
           }, submission.id);
         })
       })]
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "d-flex gap-2 align-items-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        className: "btn bj-btn-prime btn-link",
+        onClick: props.prev,
+        disabled: props.currentPage === 1,
+        style: {
+          border: '1px solid lightslategrey'
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+          xmlns: "http://www.w3.org/2000/svg",
+          width: "16",
+          height: "16",
+          fill: "currentColor",
+          className: "bi bi-chevron-left",
+          viewBox: "0 0 16 16",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+            fillRule: "evenodd",
+            d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
+        children: ["Showing page ", props.currentPage, " of ", props.lastPage]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        className: "btn bj-btn-prime btn-link",
+        onClick: props.next,
+        disabled: !props.nextPage,
+        style: {
+          border: '1px solid lightslategrey'
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+          xmlns: "http://www.w3.org/2000/svg",
+          width: "16",
+          height: "16",
+          fill: "currentColor",
+          className: "bi bi-chevron-right",
+          viewBox: "0 0 16 16",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+            fillRule: "evenodd",
+            d: "M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+          })
+        })
+      })]
+    })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RecruiterJobs);
@@ -14656,14 +14731,31 @@ var YourJob = function YourJob(props) {
     _useState4 = _slicedToArray(_useState3, 2),
     role = _useState4[0],
     setRole = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState6 = _slicedToArray(_useState5, 2),
+    currentPage = _useState6[0],
+    setCurrentPage = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState8 = _slicedToArray(_useState7, 2),
+    nextPage = _useState8[0],
+    setNextPage = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState10 = _slicedToArray(_useState9, 2),
+    lastPage = _useState10[0],
+    setLastPage = _useState10[1];
   var getSubmissions = function getSubmissions() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/get-submissions').then(function (response) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/get-submissions?page=".concat(currentPage)).then(function (response) {
       setRole(response.data.role);
-      setJobSubmissions(response.data.submissions);
-      // response.data.submissions.map((sub) => {
-      // 	console.log(sub.id)
-      // })
+      setJobSubmissions(response.data.submissions.data);
+      setNextPage(response.data.submissions.next_page_url);
+      setLastPage(response.data.submissions.last_page);
     });
+  };
+  var next = function next() {
+    setCurrentPage(currentPage + 1);
+  };
+  var prev = function prev() {
+    setCurrentPage(currentPage - 1);
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getSubmissions();
@@ -14672,13 +14764,23 @@ var YourJob = function YourJob(props) {
     var footerHeight = document.querySelector('.bj-footer').offsetHeight;
     var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
     document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
-  }, []);
+  }, [currentPage]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RecruiterJobs__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      next: next,
+      prev: prev,
+      currentPage: currentPage,
+      lastPage: lastPage,
+      nextPage: nextPage,
       jobSubmissions: jobSubmissions,
       updateJobContext: props.updateJobContext,
       context: context.message
     }) : '', role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_CandidateJobs__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      next: next,
+      prev: prev,
+      currentPage: currentPage,
+      lastPage: lastPage,
+      nextPage: nextPage,
       jobSubmissions: jobSubmissions,
       updateJobContext: props.updateJobContext,
       context: context.message

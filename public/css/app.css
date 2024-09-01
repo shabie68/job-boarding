@@ -12001,6 +12001,14 @@ textarea.form-control-lg {
 
 }
 
+caption {
+	caption-side: top;
+	text-align: left;
+	padding-bottom: 10px;
+	font-weight: bold;
+	font-size: 18px
+}
+
 .bj-btn-prime:hover {
 	background-color: #7c7521;
 	color: #fbfff6;
