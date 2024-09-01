@@ -10476,14 +10476,6 @@ var CandidateJobs = function CandidateJobs(props) {
         return [].concat(_toConsumableArray(prevMessages), [context.message]);
       });
       m.push(context.message);
-      // m.push(msg)
-
-      // m = m.flat()
-      // console.log("MESSAGE")
-      // setReceivedMessages((prevMessages) => [...prevMessages, m])
-      // setReceivedMessages(m)
-      // console.log(context.message)
-
       if (context.message) {
         setMessages(function (prevMessages) {
           return [].concat(_toConsumableArray(prevMessages), [context.message]);
@@ -10493,10 +10485,6 @@ var CandidateJobs = function CandidateJobs(props) {
         return [].concat(_toConsumableArray(prevMessages), [msg]);
       });
     });
-
-    // messages.push(msg)
-    // messages.push(context.message)
-    // messages.flat()
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
@@ -11639,11 +11627,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../contexts/BoardJobContext.js */ "./resources/js/contexts/BoardJobContext.js");
 /* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var _countries__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../countries */ "./resources/js/countries.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
@@ -11654,6 +11643,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -11671,32 +11661,36 @@ var validate = function validate(values) {
   return errors;
 };
 function JobQuestions() {
-  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
   var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext_js__WEBPACK_IMPORTED_MODULE_1__["default"]);
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('pakistan'),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)((0,_countries__WEBPACK_IMPORTED_MODULE_3__.getCountries)()),
     _useState2 = _slicedToArray(_useState, 2),
-    country = _useState2[0],
-    setCountry = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    countries = _useState2[0],
+    setCountries = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('pakistan'),
     _useState4 = _slicedToArray(_useState3, 2),
-    state = _useState4[0],
-    setState = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('No'),
+    country = _useState4[0],
+    setCountry = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState6 = _slicedToArray(_useState5, 2),
-    abilityToCommute = _useState6[0],
-    setAbilityToCommute = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(40000),
+    state = _useState6[0],
+    setState = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('No'),
     _useState8 = _slicedToArray(_useState7, 2),
-    salaryExpectation = _useState8[0],
-    setSalaryExpectation = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(10),
+    abilityToCommute = _useState8[0],
+    setAbilityToCommute = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(40000),
     _useState10 = _slicedToArray(_useState9, 2),
-    noticePeriod = _useState10[0],
-    setNoticePeriod = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('2024-04-11'),
+    salaryExpectation = _useState10[0],
+    setSalaryExpectation = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(10),
     _useState12 = _slicedToArray(_useState11, 2),
-    scheduleInterview = _useState12[0],
-    setScheduleInterview = _useState12[1];
+    noticePeriod = _useState12[0],
+    setNoticePeriod = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('2024-04-11'),
+    _useState14 = _slicedToArray(_useState13, 2),
+    scheduleInterview = _useState14[0],
+    setScheduleInterview = _useState14[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     setCountry(context.submission.country);
     setState(context.submission.state);
@@ -11711,10 +11705,9 @@ function JobQuestions() {
     document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
     // props.updateJobContext({user_id: response.submission.user_id, board_job_id: response.submission.board_job_id, submission: response.data.submission})
   }, []);
-  var formik = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useFormik)({
+  var formik = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useFormik)({
     initialValues: {
       country: 'pakistan',
-      state: 'islamabad',
       abilityToCommute: '',
       salaryExpectation: '',
       noticePeriod: '',
@@ -11728,7 +11721,6 @@ function JobQuestions() {
         notice_period: formik.values.noticePeriod,
         schedule_interview: formik.values.scheduleInterview,
         country: formik.values.country,
-        state: formik.values.state,
         submission: JSON.stringify(context.submission),
         _method: 'put'
       }).then(function (response) {
@@ -11743,20 +11735,19 @@ function JobQuestions() {
       notice_period: noticePeriod,
       schedule_interview: scheduleInterview,
       country: country,
-      state: state,
       submission: JSON.stringify(context.submission)
     }).then(function (response) {
       window.location = '/home';
     })["catch"](function (error) {});
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "my-4",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "progress mb-4",
       style: {
         height: '7px'
       },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "progress-bar",
         id: "jb-question-pbar",
         role: "progressbar",
@@ -11767,102 +11758,58 @@ function JobQuestions() {
         "aria-valuemin": "0",
         "aria-valuemax": "100"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "w-50",
       style: {
         margin: '0 auto'
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
         children: "Miscelleneous"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
         onSubmit: formik.handleSubmit,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "bj-border bj-radius-10 bj-p-20 bg-one",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "card-body",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                  htmlFor: "country",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                  htmlFor: "first-name",
                   className: "col-form-label",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
-                    children: "Country"
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                    children: "Choose Country"
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
-                  name: "country",
-                  className: "form-control",
-                  value: formik.values.country,
-                  onChange: formik.handleChange,
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                    value: "pakistan",
-                    children: "Pakistan"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                    value: "india",
-                    children: "India"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                    value: "germany",
-                    children: "Germany"
-                  })]
-                })]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "state",
-                className: "col-form-label",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
-                  children: "State|City"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("select", {
-                  className: "form-control",
-                  name: "state",
-                  value: formik.values.state,
-                  onChange: formik.handleChange,
-                  children: country == 'pakistan' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                      value: "hangu",
-                      children: "Hangu"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                      value: "islamabad",
-                      children: "Islamabad"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                      value: "peshawar",
-                      children: "Peshawar"
-                    })]
-                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                      value: "berlin",
-                      children: "Berlin   "
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                      value: "mumbai",
-                      children: "mumbai"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-                      value: "manchester",
-                      children: "manchester"
-                    })]
-                  })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("select", {
+                name: "country",
+                className: "form-control",
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                value: formik.values.country,
+                children: countries === null || countries === void 0 ? void 0 : countries.map(function (c) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                    children: c.name
+                  }, c.name);
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "first-name",
-                className: "col-form-label",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
-                  children: "Planning to relocate"
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                  htmlFor: "first-name",
+                  className: "col-form-label",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                    children: "Planning to relocate"
+                  })
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "d-flex",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                     className: "form-check-label",
                     htmlFor: "flexRadioDefault1",
                     children: "No"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                     className: "form-check-input",
                     type: "radio",
                     name: "abilityToCommute",
@@ -11871,12 +11818,12 @@ function JobQuestions() {
                     onChange: formik.handleChange,
                     checked: formik.values.abilityToCommute == 'no' ? 'checked' : ''
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                     className: "form-check-label",
                     htmlFor: "flexRadioDefault1",
                     children: "Yes"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                     className: "form-check-input",
                     type: "radio",
                     value: "yes",
@@ -11887,17 +11834,17 @@ function JobQuestions() {
                   })]
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                 htmlFor: "first-name",
                 className: "col-form-label",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
                   children: "Salary Expectation"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                   type: "number",
                   name: "salaryExpectation",
                   value: formik.values.salaryExpectation,
@@ -11906,21 +11853,21 @@ function JobQuestions() {
                   required: true,
                   className: "bj-input bg-one"
                 })
-              }), formik.touched.salaryExpectation && formik.errors.salaryExpectation ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              }), formik.touched.salaryExpectation && formik.errors.salaryExpectation ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "text-danger",
                 children: formik.errors.salaryExpectation
               }) : null]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                 htmlFor: "first-name",
                 className: "col-form-label",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
                   children: "Notice Period: (days)"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                   type: "number",
                   name: "noticePeriod",
                   value: formik.values.noticePeriod,
@@ -11929,23 +11876,23 @@ function JobQuestions() {
                   required: true,
                   className: "bj-input bg-one"
                 })
-              }), formik.touched.noticePeriod && formik.errors.noticePeriod ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              }), formik.touched.noticePeriod && formik.errors.noticePeriod ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "text-danger",
                 children: formik.errors.noticePeriod
               }) : null]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                 children: "Tell us few dates where you are free"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                 htmlFor: "first-name",
                 className: "col-form-label",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("b", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
                   children: "Interview Date "
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                   type: "date",
                   name: "scheduleInterview",
                   value: formik.values.scheduleInterview,
@@ -11957,9 +11904,9 @@ function JobQuestions() {
               })]
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "mt-2 mb-4 text-end",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", _defineProperty(_defineProperty({
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", _defineProperty(_defineProperty({
             type: "button",
             className: "btn bj-btn-prime text-prime"
           }, "type", "submit"), "children", "Continue"))
@@ -14826,6 +14773,752 @@ __webpack_require__.r(__webpack_exports__);
 
 var MessageContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MessageContext);
+
+/***/ }),
+
+/***/ "./resources/js/countries.js":
+/*!***********************************!*\
+  !*** ./resources/js/countries.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getCountries: () => (/* binding */ getCountries)
+/* harmony export */ });
+function getCountries() {
+  return [{
+    name: 'Afghanistan',
+    code: 'AF'
+  }, {
+    name: 'Åland Islands',
+    code: 'AX'
+  }, {
+    name: 'Albania',
+    code: 'AL'
+  }, {
+    name: 'Algeria',
+    code: 'DZ'
+  }, {
+    name: 'American Samoa',
+    code: 'AS'
+  }, {
+    name: 'AndorrA',
+    code: 'AD'
+  }, {
+    name: 'Angola',
+    code: 'AO'
+  }, {
+    name: 'Anguilla',
+    code: 'AI'
+  }, {
+    name: 'Antarctica',
+    code: 'AQ'
+  }, {
+    name: 'Antigua and Barbuda',
+    code: 'AG'
+  }, {
+    name: 'Argentina',
+    code: 'AR'
+  }, {
+    name: 'Armenia',
+    code: 'AM'
+  }, {
+    name: 'Aruba',
+    code: 'AW'
+  }, {
+    name: 'Australia',
+    code: 'AU'
+  }, {
+    name: 'Austria',
+    code: 'AT'
+  }, {
+    name: 'Azerbaijan',
+    code: 'AZ'
+  }, {
+    name: 'Bahamas',
+    code: 'BS'
+  }, {
+    name: 'Bahrain',
+    code: 'BH'
+  }, {
+    name: 'Bangladesh',
+    code: 'BD'
+  }, {
+    name: 'Barbados',
+    code: 'BB'
+  }, {
+    name: 'Belarus',
+    code: 'BY'
+  }, {
+    name: 'Belgium',
+    code: 'BE'
+  }, {
+    name: 'Belize',
+    code: 'BZ'
+  }, {
+    name: 'Benin',
+    code: 'BJ'
+  }, {
+    name: 'Bermuda',
+    code: 'BM'
+  }, {
+    name: 'Bhutan',
+    code: 'BT'
+  }, {
+    name: 'Bolivia',
+    code: 'BO'
+  }, {
+    name: 'Bosnia and Herzegovina',
+    code: 'BA'
+  }, {
+    name: 'Botswana',
+    code: 'BW'
+  }, {
+    name: 'Bouvet Island',
+    code: 'BV'
+  }, {
+    name: 'Brazil',
+    code: 'BR'
+  }, {
+    name: 'British Indian Ocean Territory',
+    code: 'IO'
+  }, {
+    name: 'Brunei Darussalam',
+    code: 'BN'
+  }, {
+    name: 'Bulgaria',
+    code: 'BG'
+  }, {
+    name: 'Burkina Faso',
+    code: 'BF'
+  }, {
+    name: 'Burundi',
+    code: 'BI'
+  }, {
+    name: 'Cambodia',
+    code: 'KH'
+  }, {
+    name: 'Cameroon',
+    code: 'CM'
+  }, {
+    name: 'Canada',
+    code: 'CA'
+  }, {
+    name: 'Cape Verde',
+    code: 'CV'
+  }, {
+    name: 'Cayman Islands',
+    code: 'KY'
+  }, {
+    name: 'Central African Republic',
+    code: 'CF'
+  }, {
+    name: 'Chad',
+    code: 'TD'
+  }, {
+    name: 'Chile',
+    code: 'CL'
+  }, {
+    name: 'China',
+    code: 'CN'
+  }, {
+    name: 'Christmas Island',
+    code: 'CX'
+  }, {
+    name: 'Cocos (Keeling) Islands',
+    code: 'CC'
+  }, {
+    name: 'Colombia',
+    code: 'CO'
+  }, {
+    name: 'Comoros',
+    code: 'KM'
+  }, {
+    name: 'Congo',
+    code: 'CG'
+  }, {
+    name: 'Congo, The Democratic Republic of the',
+    code: 'CD'
+  }, {
+    name: 'Cook Islands',
+    code: 'CK'
+  }, {
+    name: 'Costa Rica',
+    code: 'CR'
+  }, {
+    name: 'Cote D\'Ivoire',
+    code: 'CI'
+  }, {
+    name: 'Croatia',
+    code: 'HR'
+  }, {
+    name: 'Cuba',
+    code: 'CU'
+  }, {
+    name: 'Cyprus',
+    code: 'CY'
+  }, {
+    name: 'Czech Republic',
+    code: 'CZ'
+  }, {
+    name: 'Denmark',
+    code: 'DK'
+  }, {
+    name: 'Djibouti',
+    code: 'DJ'
+  }, {
+    name: 'Dominica',
+    code: 'DM'
+  }, {
+    name: 'Dominican Republic',
+    code: 'DO'
+  }, {
+    name: 'Ecuador',
+    code: 'EC'
+  }, {
+    name: 'Egypt',
+    code: 'EG'
+  }, {
+    name: 'El Salvador',
+    code: 'SV'
+  }, {
+    name: 'Equatorial Guinea',
+    code: 'GQ'
+  }, {
+    name: 'Eritrea',
+    code: 'ER'
+  }, {
+    name: 'Estonia',
+    code: 'EE'
+  }, {
+    name: 'Ethiopia',
+    code: 'ET'
+  }, {
+    name: 'Falkland Islands (Malvinas)',
+    code: 'FK'
+  }, {
+    name: 'Faroe Islands',
+    code: 'FO'
+  }, {
+    name: 'Fiji',
+    code: 'FJ'
+  }, {
+    name: 'Finland',
+    code: 'FI'
+  }, {
+    name: 'France',
+    code: 'FR'
+  }, {
+    name: 'French Guiana',
+    code: 'GF'
+  }, {
+    name: 'French Polynesia',
+    code: 'PF'
+  }, {
+    name: 'French Southern Territories',
+    code: 'TF'
+  }, {
+    name: 'Gabon',
+    code: 'GA'
+  }, {
+    name: 'Gambia',
+    code: 'GM'
+  }, {
+    name: 'Georgia',
+    code: 'GE'
+  }, {
+    name: 'Germany',
+    code: 'DE'
+  }, {
+    name: 'Ghana',
+    code: 'GH'
+  }, {
+    name: 'Gibraltar',
+    code: 'GI'
+  }, {
+    name: 'Greece',
+    code: 'GR'
+  }, {
+    name: 'Greenland',
+    code: 'GL'
+  }, {
+    name: 'Grenada',
+    code: 'GD'
+  }, {
+    name: 'Guadeloupe',
+    code: 'GP'
+  }, {
+    name: 'Guam',
+    code: 'GU'
+  }, {
+    name: 'Guatemala',
+    code: 'GT'
+  }, {
+    name: 'Guernsey',
+    code: 'GG'
+  }, {
+    name: 'Guinea',
+    code: 'GN'
+  }, {
+    name: 'Guinea-Bissau',
+    code: 'GW'
+  }, {
+    name: 'Guyana',
+    code: 'GY'
+  }, {
+    name: 'Haiti',
+    code: 'HT'
+  }, {
+    name: 'Heard Island and Mcdonald Islands',
+    code: 'HM'
+  }, {
+    name: 'Holy See (Vatican City State)',
+    code: 'VA'
+  }, {
+    name: 'Honduras',
+    code: 'HN'
+  }, {
+    name: 'Hong Kong',
+    code: 'HK'
+  }, {
+    name: 'Hungary',
+    code: 'HU'
+  }, {
+    name: 'Iceland',
+    code: 'IS'
+  }, {
+    name: 'India',
+    code: 'IN'
+  }, {
+    name: 'Indonesia',
+    code: 'ID'
+  }, {
+    name: 'Iran, Islamic Republic Of',
+    code: 'IR'
+  }, {
+    name: 'Iraq',
+    code: 'IQ'
+  }, {
+    name: 'Ireland',
+    code: 'IE'
+  }, {
+    name: 'Isle of Man',
+    code: 'IM'
+  }, {
+    name: 'Israel',
+    code: 'IL'
+  }, {
+    name: 'Italy',
+    code: 'IT'
+  }, {
+    name: 'Jamaica',
+    code: 'JM'
+  }, {
+    name: 'Japan',
+    code: 'JP'
+  }, {
+    name: 'Jersey',
+    code: 'JE'
+  }, {
+    name: 'Jordan',
+    code: 'JO'
+  }, {
+    name: 'Kazakhstan',
+    code: 'KZ'
+  }, {
+    name: 'Kenya',
+    code: 'KE'
+  }, {
+    name: 'Kiribati',
+    code: 'KI'
+  }, {
+    name: 'Korea, Democratic People\'S Republic of',
+    code: 'KP'
+  }, {
+    name: 'Korea, Republic of',
+    code: 'KR'
+  }, {
+    name: 'Kuwait',
+    code: 'KW'
+  }, {
+    name: 'Kyrgyzstan',
+    code: 'KG'
+  }, {
+    name: 'Lao People\'S Democratic Republic',
+    code: 'LA'
+  }, {
+    name: 'Latvia',
+    code: 'LV'
+  }, {
+    name: 'Lebanon',
+    code: 'LB'
+  }, {
+    name: 'Lesotho',
+    code: 'LS'
+  }, {
+    name: 'Liberia',
+    code: 'LR'
+  }, {
+    name: 'Libyan Arab Jamahiriya',
+    code: 'LY'
+  }, {
+    name: 'Liechtenstein',
+    code: 'LI'
+  }, {
+    name: 'Lithuania',
+    code: 'LT'
+  }, {
+    name: 'Luxembourg',
+    code: 'LU'
+  }, {
+    name: 'Macao',
+    code: 'MO'
+  }, {
+    name: 'Macedonia, The Former Yugoslav Republic of',
+    code: 'MK'
+  }, {
+    name: 'Madagascar',
+    code: 'MG'
+  }, {
+    name: 'Malawi',
+    code: 'MW'
+  }, {
+    name: 'Malaysia',
+    code: 'MY'
+  }, {
+    name: 'Maldives',
+    code: 'MV'
+  }, {
+    name: 'Mali',
+    code: 'ML'
+  }, {
+    name: 'Malta',
+    code: 'MT'
+  }, {
+    name: 'Marshall Islands',
+    code: 'MH'
+  }, {
+    name: 'Martinique',
+    code: 'MQ'
+  }, {
+    name: 'Mauritania',
+    code: 'MR'
+  }, {
+    name: 'Mauritius',
+    code: 'MU'
+  }, {
+    name: 'Mayotte',
+    code: 'YT'
+  }, {
+    name: 'Mexico',
+    code: 'MX'
+  }, {
+    name: 'Micronesia, Federated States of',
+    code: 'FM'
+  }, {
+    name: 'Moldova, Republic of',
+    code: 'MD'
+  }, {
+    name: 'Monaco',
+    code: 'MC'
+  }, {
+    name: 'Mongolia',
+    code: 'MN'
+  }, {
+    name: 'Montserrat',
+    code: 'MS'
+  }, {
+    name: 'Morocco',
+    code: 'MA'
+  }, {
+    name: 'Mozambique',
+    code: 'MZ'
+  }, {
+    name: 'Myanmar',
+    code: 'MM'
+  }, {
+    name: 'Namibia',
+    code: 'NA'
+  }, {
+    name: 'Nauru',
+    code: 'NR'
+  }, {
+    name: 'Nepal',
+    code: 'NP'
+  }, {
+    name: 'Netherlands',
+    code: 'NL'
+  }, {
+    name: 'Netherlands Antilles',
+    code: 'AN'
+  }, {
+    name: 'New Caledonia',
+    code: 'NC'
+  }, {
+    name: 'New Zealand',
+    code: 'NZ'
+  }, {
+    name: 'Nicaragua',
+    code: 'NI'
+  }, {
+    name: 'Niger',
+    code: 'NE'
+  }, {
+    name: 'Nigeria',
+    code: 'NG'
+  }, {
+    name: 'Niue',
+    code: 'NU'
+  }, {
+    name: 'Norfolk Island',
+    code: 'NF'
+  }, {
+    name: 'Northern Mariana Islands',
+    code: 'MP'
+  }, {
+    name: 'Norway',
+    code: 'NO'
+  }, {
+    name: 'Oman',
+    code: 'OM'
+  }, {
+    name: 'Pakistan',
+    code: 'PK'
+  }, {
+    name: 'Palau',
+    code: 'PW'
+  }, {
+    name: 'Palestinian Territory, Occupied',
+    code: 'PS'
+  }, {
+    name: 'Panama',
+    code: 'PA'
+  }, {
+    name: 'Papua New Guinea',
+    code: 'PG'
+  }, {
+    name: 'Paraguay',
+    code: 'PY'
+  }, {
+    name: 'Peru',
+    code: 'PE'
+  }, {
+    name: 'Philippines',
+    code: 'PH'
+  }, {
+    name: 'Pitcairn',
+    code: 'PN'
+  }, {
+    name: 'Poland',
+    code: 'PL'
+  }, {
+    name: 'Portugal',
+    code: 'PT'
+  }, {
+    name: 'Puerto Rico',
+    code: 'PR'
+  }, {
+    name: 'Qatar',
+    code: 'QA'
+  }, {
+    name: 'Reunion',
+    code: 'RE'
+  }, {
+    name: 'Romania',
+    code: 'RO'
+  }, {
+    name: 'Russian Federation',
+    code: 'RU'
+  }, {
+    name: 'RWANDA',
+    code: 'RW'
+  }, {
+    name: 'Saint Helena',
+    code: 'SH'
+  }, {
+    name: 'Saint Kitts and Nevis',
+    code: 'KN'
+  }, {
+    name: 'Saint Lucia',
+    code: 'LC'
+  }, {
+    name: 'Saint Pierre and Miquelon',
+    code: 'PM'
+  }, {
+    name: 'Saint Vincent and the Grenadines',
+    code: 'VC'
+  }, {
+    name: 'Samoa',
+    code: 'WS'
+  }, {
+    name: 'San Marino',
+    code: 'SM'
+  }, {
+    name: 'Sao Tome and Principe',
+    code: 'ST'
+  }, {
+    name: 'Saudi Arabia',
+    code: 'SA'
+  }, {
+    name: 'Senegal',
+    code: 'SN'
+  }, {
+    name: 'Serbia and Montenegro',
+    code: 'CS'
+  }, {
+    name: 'Seychelles',
+    code: 'SC'
+  }, {
+    name: 'Sierra Leone',
+    code: 'SL'
+  }, {
+    name: 'Singapore',
+    code: 'SG'
+  }, {
+    name: 'Slovakia',
+    code: 'SK'
+  }, {
+    name: 'Slovenia',
+    code: 'SI'
+  }, {
+    name: 'Solomon Islands',
+    code: 'SB'
+  }, {
+    name: 'Somalia',
+    code: 'SO'
+  }, {
+    name: 'South Africa',
+    code: 'ZA'
+  }, {
+    name: 'South Georgia and the South Sandwich Islands',
+    code: 'GS'
+  }, {
+    name: 'Spain',
+    code: 'ES'
+  }, {
+    name: 'Sri Lanka',
+    code: 'LK'
+  }, {
+    name: 'Sudan',
+    code: 'SD'
+  }, {
+    name: 'Suriname',
+    code: 'SR'
+  }, {
+    name: 'Svalbard and Jan Mayen',
+    code: 'SJ'
+  }, {
+    name: 'Swaziland',
+    code: 'SZ'
+  }, {
+    name: 'Sweden',
+    code: 'SE'
+  }, {
+    name: 'Switzerland',
+    code: 'CH'
+  }, {
+    name: 'Syrian Arab Republic',
+    code: 'SY'
+  }, {
+    name: 'Taiwan, Province of China',
+    code: 'TW'
+  }, {
+    name: 'Tajikistan',
+    code: 'TJ'
+  }, {
+    name: 'Tanzania, United Republic of',
+    code: 'TZ'
+  }, {
+    name: 'Thailand',
+    code: 'TH'
+  }, {
+    name: 'Timor-Leste',
+    code: 'TL'
+  }, {
+    name: 'Togo',
+    code: 'TG'
+  }, {
+    name: 'Tokelau',
+    code: 'TK'
+  }, {
+    name: 'Tonga',
+    code: 'TO'
+  }, {
+    name: 'Trinidad and Tobago',
+    code: 'TT'
+  }, {
+    name: 'Tunisia',
+    code: 'TN'
+  }, {
+    name: 'Turkey',
+    code: 'TR'
+  }, {
+    name: 'Turkmenistan',
+    code: 'TM'
+  }, {
+    name: 'Turks and Caicos Islands',
+    code: 'TC'
+  }, {
+    name: 'Tuvalu',
+    code: 'TV'
+  }, {
+    name: 'Uganda',
+    code: 'UG'
+  }, {
+    name: 'Ukraine',
+    code: 'UA'
+  }, {
+    name: 'United Arab Emirates',
+    code: 'AE'
+  }, {
+    name: 'United Kingdom',
+    code: 'GB'
+  }, {
+    name: 'United States',
+    code: 'US'
+  }, {
+    name: 'United States Minor Outlying Islands',
+    code: 'UM'
+  }, {
+    name: 'Uruguay',
+    code: 'UY'
+  }, {
+    name: 'Uzbekistan',
+    code: 'UZ'
+  }, {
+    name: 'Vanuatu',
+    code: 'VU'
+  }, {
+    name: 'Venezuela',
+    code: 'VE'
+  }, {
+    name: 'Viet Nam',
+    code: 'VN'
+  }, {
+    name: 'Virgin Islands, British',
+    code: 'VG'
+  }, {
+    name: 'Virgin Islands, U.S.',
+    code: 'VI'
+  }, {
+    name: 'Wallis and Futuna',
+    code: 'WF'
+  }, {
+    name: 'Western Sahara',
+    code: 'EH'
+  }, {
+    name: 'Yemen',
+    code: 'YE'
+  }, {
+    name: 'Zambia',
+    code: 'ZM'
+  }, {
+    name: 'Zimbabwe',
+    code: 'ZW'
+  }];
+}
 
 /***/ }),
 

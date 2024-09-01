@@ -31,13 +31,6 @@ const CandidateJobs = (props) => {
 			setReceivedMessages((prevMessages) => [...prevMessages, context.message])
 
 			m.push(context.message)
-			// m.push(msg)
-
-			// m = m.flat()
-			// console.log("MESSAGE")
-			// setReceivedMessages((prevMessages) => [...prevMessages, m])
-			// setReceivedMessages(m)
-			// console.log(context.message)
 
 			if(context.message) {
 				setMessages((prevMessages) => [...prevMessages, context.message])	
@@ -45,14 +38,6 @@ const CandidateJobs = (props) => {
 			
 			setMessages((prevMessages) => [...prevMessages, msg])
 		})
-
-		
-		// messages.push(msg)
-		// messages.push(context.message)
-		// messages.flat()
-
-
-
 	}
 
 	return (
