@@ -248,9 +248,7 @@ function ShowJob(props) {
 
        setMessage('')
     })
-
   }
-
 
     return(
         <div>

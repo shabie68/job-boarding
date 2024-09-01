@@ -4,6 +4,8 @@ import BoardJobContext from '../contexts/BoardJobContext.js'
 import apiClient from '../services/apiClient'
 import { useFormik } from 'formik';
 
+import {getCountries} from '../countries'
+
 
 
 const validate = values => {
@@ -22,9 +24,10 @@ const validate = values => {
 
 
 function JobQuestions() {
-
+    
 	const navigate = useNavigate();
     const context = useContext(BoardJobContext)
+    const [countries, setCountries] = useState(getCountries());
     const [country, setCountry] = useState('pakistan');
     const [state, setState] = useState();
 	const [abilityToCommute, setAbilityToCommute] = useState('No');
@@ -52,7 +55,6 @@ function JobQuestions() {
       const formik = useFormik({
         initialValues: {
           country: 'pakistan',
-          state: 'islamabad',
           abilityToCommute: '',
           salaryExpectation: '',
           noticePeriod: '',
@@ -69,7 +71,6 @@ function JobQuestions() {
                 notice_period: formik.values.noticePeriod,
                 schedule_interview: formik.values.scheduleInterview,
                 country: formik.values.country,
-                state: formik.values.state,
                 submission: JSON.stringify(context.submission),
                 _method: 'put'
             })
@@ -92,7 +93,6 @@ function JobQuestions() {
 			notice_period: noticePeriod,
 			schedule_interview: scheduleInterview,
             country: country,
-            state: state,
             submission: JSON.stringify(context.submission)
 		})
 		.then((response) => {
@@ -116,45 +116,29 @@ function JobQuestions() {
                  <form onSubmit={formik.handleSubmit}>
     				<div className="bj-border bj-radius-10 bj-p-20 bg-one">
     					<div className="card-body">
-                           
-                            <div className="">
-                                <div className="">
-                                    <label htmlFor="country" className="col-form-label"><b>Country</b></label>
-                                    <select name="country" className="form-control" value={formik.values.country} onChange={formik.handleChange}>
-                                        <option value="pakistan">Pakistan</option>
-                                        <option value="india">India</option>
-                                        <option value="germany">Germany</option>
-                                    </select>
-                                </div>
+                            <div>
+                                <strong><label htmlFor="first-name" className="col-form-label"><b>Choose Country</b></label></strong>
+                                <select 
+                                    name="country"
+                                    className="form-control"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.country}
+                                >
+                                  {
+                                    countries?.map((c) => (
+                                        <option key={c.name}>
+                                            {c.name}
+                                        </option>
+                                    ))
+                                  }
+                                </select>
                             </div>
 
-                            <div className="">
-                                <label htmlFor="state" className="col-form-label"><b>State|City</b></label>
-                                <div className="">
-
-
-                                    <select className="form-control" name="state" value={formik.values.state} onChange={formik.handleChange}>
-                                        {country == 'pakistan' ?
-                                            <>
-                                                <option value="hangu">Hangu</option>
-                                                <option value="islamabad">Islamabad</option>
-                                                <option value="peshawar">Peshawar</option>
-                                            </>
-                                        :
-                                        <>
-                                            <option value="berlin">Berlin   </option>
-                                            <option value="mumbai">mumbai</option>
-                                            <option value="manchester">manchester</option>
-                                        </>
-                                    }
-
-                                    </select>
-                                </div>
-                            </div>
 
     						<div className="">
 
-                                <label htmlFor="first-name" className="col-form-label"><b>Planning to relocate</b></label>
+                                <strong><label htmlFor="first-name" className="col-form-label"><b>Planning to relocate</b></label></strong>
                                 <div className="d-flex">
                                     <div>
                                         <label className="form-check-label" htmlFor="flexRadioDefault1">

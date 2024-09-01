@@ -120,11 +120,11 @@ class SubmissionController extends Controller
 
         $submissions = Submission::with(['boardJob'])
                                 ->where("company_id", $company_id)
-                                ->get();
+                                ->paginate(10);
         if(!$company_id) {
             $submissions = Submission::with(['boardJob', 'company'])
                                     ->where('user_id', auth()->user()->id)
-                                    ->get();
+                                    ->paginate(1);
         }
 
 
