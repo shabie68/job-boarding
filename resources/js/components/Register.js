@@ -37,15 +37,13 @@ const Register = (props) => {
 
     return (
 
-        <div>
+        <div className="bj-gradient h-100vh">
             <div className="container pt-4">
-                <div className="row justify-content-evenly">
-                    <h3 className="text-center my-4">Create an account</h3>
+                <div className="bj-margin-auto bj-w-45">
+                    <h3 className="text-center my-4 text-prime">Create an account</h3>
 
-                    <div className="col-md-6 row align-items-center bj-amplify bj-border-radius text-prime">
-                        <h3 className="text-center">Register your account!</h3>
-                    </div>
-                    <div className="col-md-6">
+                    
+                    <div className="">
                         <div className="bj-border bj-border-radius p-3 bg-one">
 
                             <div className="">

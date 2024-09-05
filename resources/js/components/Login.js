@@ -31,21 +31,18 @@ const Login = (props) => {
     }
     return (
 
-        <div className="bg-one h-100vh">
-            <div className="container pt-4">
-                <h3 className="text-center my-4">Welcome back! Login to continue your journey</h3>
-                <div className="row justify-content-evenly">
-                    <div className="col-md-6 row align-items-center bj-amplify bj-border-radius text-prime">
-                        <h3 className="text-center">Let's Amplify your growth with us!</h3>
-                    </div>
-                    <div className="col-md-6">
-                        <div className="bj-border bj-border-radius p-3">
-                            <div className="bg-one">
-                                Login
-                            </div>
+        <div className="bj-gradient h-100vh">
+            <div className="container pt-4 text-two">
+                
+                <div className="">
+                        
+                    <div className="bj-margin-auto bj-w-45">
+                        <h3 className="text-center my-4 text-prime">Welcome back! Login to continue your journey</h3>
+                        <h3 className="text-center mb-4 text-prime">Let's Amplify your growth with us!</h3>
+                        <div className="">
 
-                            <div className="card-body bg-one">
-                                <form onSubmit={handleSubmit}>
+                            <div className="card-body bg-one bj-border bj-border-radius">
+                                <form onSubmit={handleSubmit} className="p-3">
                                     <div className="row mb-3">
                                         <label htmlFor="email" className="col-form-label"></label>
                                         <div className="col-md-12">
@@ -78,7 +75,7 @@ const Login = (props) => {
 
                                     <div className="row my-2">
                                         <div className="">
-                                            <button type="submit" className="btn btn-prime bj-btn-prime text-prime w-100">
+                                            <button type="submit" className="bj-btn btn-prime bj-btn-prime text-prime w-100">
                                                 {
                                                     !loading ?
                                                     <div>
@@ -102,7 +99,7 @@ const Login = (props) => {
 
                                     <div className="d-flex justify-content-center gap-2">
                                         <span>Don't have an account?</span>
-                                        <a href="/register">Register</a>
+                                        <a className="bj-text-secondary" href="/register">Register</a>
                                     </div>
                                 </form>
                             </div>

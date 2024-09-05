@@ -138,12 +138,10 @@ function JobQuestions() {
 
     						<div className="">
 
-                                <strong><label htmlFor="first-name" className="col-form-label"><b>Planning to relocate</b></label></strong>
+                                <strong>Planning to relocate</strong>
                                 <div className="d-flex">
                                     <div>
-                                        <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                            No
-                                        </label>
+                                        <strong><label className="form-check-label" htmlFor="flexRadioDefault1">No</label></strong>
                                         <input
                                             className="form-check-input"
                                             type="radio"
@@ -156,9 +154,7 @@ function JobQuestions() {
                                     </div>
 
                                     <div>
-                                        <label className="form-check-label" htmlFor="flexRadioDefault1">
-                                            Yes
-                                        </label>
+                                        <strong><label className="form-check-label" htmlFor="flexRadioDefault1">Yes</label></strong>
                                         <input
                                             className="form-check-input"
                                             type="radio"
@@ -175,7 +171,7 @@ function JobQuestions() {
 
                             <div className="">
 
-                                <label htmlFor="first-name" className="col-form-label"><b>Salary Expectation</b></label>
+                                <strong><label htmlFor="first-name" className="col-form-label"><b>Salary Expectation</b></label></strong>
                                 <div className="">
                                     <input
                                         type="number"
@@ -195,7 +191,7 @@ function JobQuestions() {
 
                             <div className="">
 
-                                <label htmlFor="first-name" className="col-form-label"><b>Notice Period: (days)</b></label>
+                                <strong><label htmlFor="first-name" className="col-form-label"><b>Notice Period: (days)</b></label></strong>
                                 <div className="">
                                     <input
                                         type="number"
@@ -215,7 +211,7 @@ function JobQuestions() {
 
                             <div className="">
                             	<p>Tell us few dates where you are free</p>
-                                <label htmlFor="first-name" className="col-form-label"><b>Interview Date </b></label>
+                                <strong><label htmlFor="first-name" className="col-form-label"><b>Interview Date </b></label></strong>
                                 <div className="">
                                     <input
                                         type="date"
