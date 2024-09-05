@@ -59,7 +59,7 @@ function Example() {
         <BoardJobContext.Provider value={boardJob} >
             <MessageContext.Provider value={messageContext}>
             <BrowserRouter>
-                <div className="d-flex justify-content-around bg-two w-100 top-0 align-items-center mb-4 text-light menubar-links">
+                <div className="d-flex justify-content-around bj-gradient-footer w-100 top-0 align-items-center mb-4 text-light menubar-links">
                     <strong className="bj-font-logo text-prime">Gorgeous</strong>                    
                     
                     <div className="d-flex flex-column align-items-center">
@@ -110,7 +110,7 @@ function Example() {
                     </Routes>
                 </div>
 
-                <section className="bg-two bj-p-10 bj-footer position-relative w-100 bottom-0">
+                <section className="bj-gradient-footer bj-p-10 bj-footer position-relative w-100 bottom-0">
                     
                     <div className="d-flex justify-content-evenly align-items-center">
                         <div className=" ">

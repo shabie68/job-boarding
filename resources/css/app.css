@@ -39,7 +39,6 @@ caption {
 	caption-side: top;
 	text-align: left;
 	padding-bottom: 10px;
-	font-weight: bold;
 	font-size: 18px
 }
 
@@ -155,6 +154,10 @@ a {
 .bj-gradient {
 	background: linear-gradient(165deg, #4f4a47, #fbfff6, #238a85)
 
+}
+
+.bj-gradient-footer {
+	background: linear-gradient(45deg, #238a85, #4f4a47);
 }
 
 .bj-w-45 {
