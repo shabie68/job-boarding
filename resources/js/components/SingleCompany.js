@@ -47,16 +47,21 @@ const SingleCompany = () => {
 
 	return(
 		<div>
-			<div className="d-flex gap-4 align-items-center">
+			<div className="">
 				<section className="d-flex gap-3 bj-w-40 align-items-center">
 					<span className="bj-w-40 bj-border-img bj-radius-10">
 						<img src={'/uploads/images/' + location.state?.company.logo} className="w-100" />
 					</span>
+
+
 					
 					<h3>{location.state?.company.title}</h3>
 				</section>
 
-				<div className="bj-w-60" dangerouslySetInnerHTML={{__html: location.state?.company.description}}></div>
+				<span>Name:</span>
+				<span>{location?.state?.company.title}</span>
+
+				<div className="mt-2" dangerouslySetInnerHTML={{__html: location.state?.company.description}}></div>
 			</div>
 
 			<div className="d-flex align-items-center justify-content-center">

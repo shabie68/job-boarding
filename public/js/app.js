@@ -10707,26 +10707,34 @@ function Company() {
     }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "my-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        children: [role == 1 && !hasCompany ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "d-flex justify-content-between align-items-center my-4 border-bottom",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-            className: "mb-0",
-            children: "Add New Company "
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-              to: "/add-company",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                type: "button",
-                className: "btn bg-three text-prime mb-4",
-                children: "Add Company"
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+          children: "Registered Companies"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          children: "A list of registered companies with us. You can find more details about a company by clicking on the desire company logo"
+        }), role == 1 && !hasCompany ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            children: "Want to add a new company? Just click the Add Company button"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "d-flex justify-content-between align-items-center my-4 border-bottom",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+              className: "mb-0",
+              children: "Add New Company "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+                to: "/add-company",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                  type: "button",
+                  className: "btn bg-three text-prime mb-4",
+                  children: "Add Company"
+                })
               })
-            })
+            })]
           })]
         }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "row gap-3",
+            className: "row gap-3 mt-4",
             children: [companies === null || companies === void 0 ? void 0 : companies.map(function (company) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "bg-one bj-border-radius bj-p-20 col-3 bj-border rounded bj-cursor-pointer bj-company-container",
@@ -13643,7 +13651,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var SingleCompany = function SingleCompany() {
-  var _location$state2, _location$state3, _location$state4, _location$state5, _location$state6, _checkFeedback, _location$state7;
+  var _location$state2, _location$state3, _location$state4, _location$state5, _location$state6, _location$state7, _checkFeedback, _location$state8;
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
     id = _useParams.id;
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
@@ -13681,7 +13689,7 @@ var SingleCompany = function SingleCompany() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "d-flex gap-4 align-items-center",
+      className: "",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
         className: "d-flex gap-3 bj-w-40 align-items-center",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
@@ -13693,10 +13701,14 @@ var SingleCompany = function SingleCompany() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
           children: (_location$state3 = location.state) === null || _location$state3 === void 0 ? void 0 : _location$state3.company.title
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        children: "Name:"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        children: location === null || location === void 0 || (_location$state4 = location.state) === null || _location$state4 === void 0 ? void 0 : _location$state4.company.title
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "bj-w-60",
+        className: "mt-2",
         dangerouslySetInnerHTML: {
-          __html: (_location$state4 = location.state) === null || _location$state4 === void 0 ? void 0 : _location$state4.company.description
+          __html: (_location$state5 = location.state) === null || _location$state5 === void 0 ? void 0 : _location$state5.company.description
         }
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -13709,10 +13721,10 @@ var SingleCompany = function SingleCompany() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "bj-w-40 bg-3"
       })]
-    }), location !== null && location !== void 0 && (_location$state5 = location.state) !== null && _location$state5 !== void 0 && _location$state5.company.feedback ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+    }), location !== null && location !== void 0 && (_location$state6 = location.state) !== null && _location$state6 !== void 0 && _location$state6.company.feedback ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
         children: "Feedback"
-      }), location === null || location === void 0 || (_location$state6 = location.state) === null || _location$state6 === void 0 || (_location$state6 = _location$state6.company.feedback) === null || _location$state6 === void 0 ? void 0 : _location$state6.map(function (_feedback, index) {
+      }), location === null || location === void 0 || (_location$state7 = location.state) === null || _location$state7 === void 0 || (_location$state7 = _location$state7.company.feedback) === null || _location$state7 === void 0 ? void 0 : _location$state7.map(function (_feedback, index) {
         var _Date;
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "bj-font-cursive bj-border-prime bj-radius-10 my-4 p-4",
@@ -13907,7 +13919,7 @@ var SingleCompany = function SingleCompany() {
           children: "Add Feedback"
         })]
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
-        children: !((_checkFeedback = checkFeedback()) !== null && _checkFeedback !== void 0 && _checkFeedback.includes((_location$state7 = location.state) === null || _location$state7 === void 0 ? void 0 : _location$state7.user.name)) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+        children: !((_checkFeedback = checkFeedback()) !== null && _checkFeedback !== void 0 && _checkFeedback.includes((_location$state8 = location.state) === null || _location$state8 === void 0 ? void 0 : _location$state8.user.name)) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             style: {
               cursor: 'pointer'
@@ -14135,10 +14147,10 @@ var SingleCompany = function SingleCompany() {
               rows: "3",
               className: "bj-input bg-one",
               onChange: function onChange(e) {
-                var _location$state8;
+                var _location$state9;
                 setFeedback(_objectSpread(_objectSpread({}, feedback), {}, {
                   comment: e.target.value,
-                  name: (_location$state8 = location.state) === null || _location$state8 === void 0 ? void 0 : _location$state8.user.name,
+                  name: (_location$state9 = location.state) === null || _location$state9 === void 0 ? void 0 : _location$state9.user.name,
                   created_at: new Date()
                 }));
               },
@@ -14150,8 +14162,8 @@ var SingleCompany = function SingleCompany() {
               type: "button",
               className: "btn bg-three text-prime",
               onClick: function onClick() {
-                var _location$state9;
-                return addReview(location === null || location === void 0 || (_location$state9 = location.state) === null || _location$state9 === void 0 ? void 0 : _location$state9.company.id);
+                var _location$state10;
+                return addReview(location === null || location === void 0 || (_location$state10 = location.state) === null || _location$state10 === void 0 ? void 0 : _location$state10.company.id);
               },
               children: "Add review"
             })

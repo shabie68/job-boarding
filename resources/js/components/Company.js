@@ -112,20 +112,26 @@ function Company() {
 	  		}
 			<div className="my-4">
 				<div>
+					<h3>Registered Companies</h3>
+					<span>A list of registered companies with us. You can find more details about a company by clicking on the desire company logo</span>
+					
 					{role == 1 && !hasCompany?
-						<div className="d-flex justify-content-between align-items-center my-4 border-bottom">
-						  <h4 className="mb-0">Add New Company </h4>
-						   <div className="">
-							  <Link to="/add-company">
-								  <button type="button" className="btn bg-three text-prime mb-4">Add Company</button>
-							  </Link>
-						  </div>
-					  	</div>
+						<>
+							<span>Want to add a new company? Just click the Add Company button</span>
+							<div className="d-flex justify-content-between align-items-center my-4 border-bottom">
+							  <h4 className="mb-0">Add New Company </h4>
+							   <div className="">
+								  <Link to="/add-company">
+									  <button type="button" className="btn bg-three text-prime mb-4">Add Company</button>
+								  </Link>
+							  </div>
+						  	</div>
+					  	</>
 					  	: ''
 					}						
 
 				  	<div className="">
-						<div className="row gap-3">
+						<div className="row gap-3 mt-4">
 
 							{companies?.map(company => (
 
