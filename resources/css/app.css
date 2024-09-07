@@ -250,6 +250,14 @@ a {
 .bj-col-3 {
 	grid-template-columns: 20% 50% 20%;
 }
+
+.bj-grid-col-3 {
+	grid-template-columns: 20% 20% 20% 20%;
+}
+
+.bj-rows-auto {
+	grid-template-rows: 45% 45% 45% 45%;
+}
 .bj-w-66 {
 	width: 66%;
 }

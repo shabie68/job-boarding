@@ -52,9 +52,6 @@ const SingleCompany = () => {
 					<span className="bj-w-40 bj-border-img bj-radius-10">
 						<img src={'/uploads/images/' + location.state?.company.logo} className="w-100" />
 					</span>
-
-
-					
 					<h3>{location.state?.company.title}</h3>
 				</section>
 
@@ -69,10 +66,6 @@ const SingleCompany = () => {
 				<h4 className="bj-w-40 text-center">Reviews</h4>
 				<div className="bj-w-40 bg-3"></div>
 			</div>
-
-			
-
-
 
 			{
 				location?.state?.company.feedback ?

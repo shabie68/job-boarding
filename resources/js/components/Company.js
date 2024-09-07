@@ -131,12 +131,12 @@ function Company() {
 					}						
 
 				  	<div className="">
-						<div className="row gap-3 mt-4">
+						<div className="d-grid mt-4 gap-4 bj-grid-col-3 bj-rows-auto">
 
 							{companies?.map(company => (
 
-								 <div className="bg-one bj-border-radius bj-p-20 col-3 bj-border rounded bj-cursor-pointer bj-company-container"  key={"company--"+company.id} onClick={() => {singleCompany(company)}}>
-									<div className="d-flex gap-4 align-items-center" >
+								 <div className="bg-one bj-border-radius bj-p-20 bj-border rounded bj-cursor-pointer bj-company-container"  key={"company--"+company.id} onClick={() => {singleCompany(company)}}>
+									<div className="h-100 d-flex gap-4 align-items-center" >
 									  <div className="w-25">
 										<img src={'uploads/images/' + company.logo} className="w-100" />
 									  </div>
@@ -200,27 +200,27 @@ function Company() {
 									</div>
 								  </div>
 						 	))}
+						</div>				  	
+					</div>
 
-							<div className="d-flex gap-2 align-items-center">
-							   <button className="btn bj-btn-prime btn-link"  onClick={prev} disabled={currentPage === 1} style={{border: '1px solid lightslategrey'}}>
+				  	<div className="d-flex gap-2 align-items-center">
+					   <button className="btn bj-btn-prime btn-link"  onClick={prev} disabled={currentPage === 1} style={{border: '1px solid lightslategrey'}}>
 
-								  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
-								  <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-								</svg>
-							   </button>
+						  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
+						  <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+						</svg>
+					   </button>
 
-							   <span>
-                                Showing page {currentPage} of {lastPage}
-                               </span>
+					   <span>
+                        Showing page {currentPage} of {lastPage}
+                       </span>
 
-							  <button className="btn bj-btn-prime btn-link" onClick={next} disabled={!nextPage} style={{border: '1px solid lightslategrey'}}>
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
-								  <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-								</svg>
-							  </button>
-							</div>
-						</div>
-				  	</div>
+					  <button className="btn bj-btn-prime btn-link" onClick={next} disabled={!nextPage} style={{border: '1px solid lightslategrey'}}>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
+						  <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+						</svg>
+					  </button>
+					</div>
 		  		</div>
 			</div>
 		</div>
