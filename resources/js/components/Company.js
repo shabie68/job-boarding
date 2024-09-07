@@ -113,7 +113,13 @@ function Company() {
 			<div className="my-4">
 				<div>
 					<h3>Registered Companies</h3>
-					<span>A list of registered companies with us. You can find more details about a company by clicking on the desire company logo</span>
+					<span>
+						A list of registered companies with us. You can find more details about a company by clicking on the desire company logo. 
+						Every company has unique culture, core values. You can choose one that align with your interests. Reviews help to understand 
+						how company present itself to the world. Reviews can be added but every review is verified by the company so be careful when
+						adding review
+					</span>
+
 					
 					{role == 1 && !hasCompany?
 						<>
