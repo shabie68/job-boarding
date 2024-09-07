@@ -47,16 +47,43 @@ const SingleCompany = () => {
 
 	return(
 		<div>
-			<div className="d-flex gap-4 align-items-center">
-				<section className="d-flex gap-3 bj-w-40 align-items-center">
-					<span className="bj-w-40 bj-border-img bj-radius-10">
-						<img src={'/uploads/images/' + location.state?.company.logo} className="w-100" />
-					</span>
-					
+			<div className="">
+				<section>
 					<h3>{location.state?.company.title}</h3>
-				</section>
 
-				<div className="bj-w-60" dangerouslySetInnerHTML={{__html: location.state?.company.description}}></div>
+					<div className="d-flex justify-content-between">
+						<div>
+							<div className="mb-2">
+								<span>Total Employees: </span>
+								<strong>{location?.state.company.total_employees}</strong>
+							</div>
+
+							<div className="mb-2">
+								<span>Location: </span>
+								<strong>{location?.state.company.locations}</strong>
+							</div>
+
+							<div className="mb-2">
+								<span>Webiste: </span>
+								<span>
+									<a className="bj-text-secondary" href={location?.state.company.website} target="_blank">
+									{location?.state.company.website}
+									</a>
+								</span>
+							</div>
+						</div>
+						<div>
+							<img src={'/uploads/images/' + location.state?.company.logo} className="w-100" />
+						</div>
+					</div>
+					
+
+					<strong>Description</strong>
+					<div className="mt-2" dangerouslySetInnerHTML={{__html: location.state?.company.description}}></div>
+				</section>
+				
+
+				
 			</div>
 
 			<div className="d-flex align-items-center justify-content-center">
@@ -64,10 +91,6 @@ const SingleCompany = () => {
 				<h4 className="bj-w-40 text-center">Reviews</h4>
 				<div className="bj-w-40 bg-3"></div>
 			</div>
-
-			
-
-
 
 			{
 				location?.state?.company.feedback ?
@@ -170,3 +193,15 @@ const SingleCompany = () => {
 
 export default SingleCompany
 
+
+/**
+
+
+<section className="d-flex gap-3 bj-w-40 align-items-center">
+	<span className="bj-w-40 bj-border-img bj-radius-10">
+		
+	</span>
+	
+</section>
+
+				**/

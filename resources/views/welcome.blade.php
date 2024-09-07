@@ -31,16 +31,18 @@
             }
 
             .bj-header-img {
-                background: linear-gradient(270deg,  transparent, #726b67);
                 height: 225px;
                 display: flex;
                 flex-direction: column;
                 justify-content: end;
                 color: #fbfff6;
                 padding: 20px 30px
-
-
             }
+
+            .bj-gradient {
+                background: linear-gradient(45deg, #238a85, #4f4a47);
+            }
+
 
             .bj-header-img button {
                 font-weight: bold
@@ -240,7 +242,7 @@
     <body class="antialiased bj-bg-one bj-text-prime">
         <div class="relative items-top justify-center min-h-screen sm:items-center sm:pt-0">
 
-            <section class="my-4 bj-header-img">
+            <section class="my-4 bj-gradient bj-header-img">
                 @if (Route::has('login'))
                     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                         @auth
@@ -262,7 +264,7 @@
                     <h4>Find the suitable jobs in remote, on site and hybrid</h4>
                 </div>
                 
-                <span><button class="bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></span>           
+                <span><a href="login"><button class="bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></a></span>           
             </section>
 
             <div>
@@ -415,7 +417,7 @@
 
                 
 
-                <section class="bg-two bj-p-10 bj-footer position-relative w-100 bottom-0 bj-text-prime">
+                <section class=" bj-p-10 bj-gradient bj-footer position-relative w-100 bottom-0 bj-text-prime">
                         
                     <div class="bj-flex bj-content-evenly bj-items-center">
                         <div class=" ">

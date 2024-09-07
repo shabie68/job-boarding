@@ -77,9 +77,17 @@ const RecruiterJobs = (props) => {
 	}
 
 	return (
-		<>
+		<div>
 			<table class="table table-striped">
-				<caption>Received Applications</caption>
+
+				<caption>
+					<strong>Received Applications</strong>
+					<p>
+						Here you will applications received on the jobs that your company have posted. Resume can be viewed by clicking on resume link on the
+						desire candidate columns. Further you can message the candidate at home page. See message icon button at the bottom right
+					</p>
+				</caption>
+
 			  <thead>
 			    <tr>
 			      <th scope="col"> Job title</th>
@@ -126,7 +134,7 @@ const RecruiterJobs = (props) => {
               </button>
             </div>
 
-		</>
+		</div>
 	)
 
 }

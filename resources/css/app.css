@@ -39,7 +39,6 @@ caption {
 	caption-side: top;
 	text-align: left;
 	padding-bottom: 10px;
-	font-weight: bold;
 	font-size: 18px
 }
 
@@ -157,6 +156,10 @@ a {
 
 }
 
+.bj-gradient-footer {
+	background: linear-gradient(45deg, #238a85, #4f4a47);
+}
+
 .bj-w-45 {
 	width: 45%;
 }
@@ -246,6 +249,14 @@ a {
 
 .bj-col-3 {
 	grid-template-columns: 20% 50% 20%;
+}
+
+.bj-grid-col-3 {
+	grid-template-columns: 20% 20% 20% 20%;
+}
+
+.bj-rows-auto {
+	grid-template-rows: 45% 45% 45% 45%;
 }
 .bj-w-66 {
 	width: 66%;
