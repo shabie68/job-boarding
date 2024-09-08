@@ -11973,8 +11973,6 @@ textarea.form-control-lg {
 	border: 2px solid gray;
 	background-color: #fbfff6;;
 	padding: 20px;
-
-
 }
 
 .form-container input {
@@ -11995,6 +11993,10 @@ textarea.form-control-lg {
 	padding: 10px
 }
 
+.bj-w-45 {
+	width: 45%
+}
+
 .bj-btn-prime {
 	background: #B8A732;
 	color: #fbfff6;
@@ -12004,8 +12006,8 @@ textarea.form-control-lg {
 }
 
 caption {
-	caption-side: top;
-	text-align: left;
+	caption-side: bottom;
+	text-align: center;
 	padding-bottom: 10px;
 	font-size: 18px
 }

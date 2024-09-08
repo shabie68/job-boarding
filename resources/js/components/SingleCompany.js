@@ -52,7 +52,15 @@ const SingleCompany = () => {
 					<h3>{location.state?.company.title}</h3>
 
 					<div className="d-flex justify-content-between">
-						<div>
+						<div className="w-50">
+							<strong>Who we are</strong>
+							<div className="mt-2" dangerouslySetInnerHTML={{__html: location.state?.company.description}}></div>
+						</div>
+
+						<div className="bj-w-45">
+							<div>
+								<img src={'/uploads/images/' + location.state?.company.logo} className="w-100" />
+							</div>
 							<div className="mb-2">
 								<span>Total Employees: </span>
 								<strong>{location?.state.company.total_employees}</strong>
@@ -72,14 +80,10 @@ const SingleCompany = () => {
 								</span>
 							</div>
 						</div>
-						<div>
-							<img src={'/uploads/images/' + location.state?.company.logo} className="w-100" />
-						</div>
 					</div>
 					
 
-					<strong>Description</strong>
-					<div className="mt-2" dangerouslySetInnerHTML={{__html: location.state?.company.description}}></div>
+					
 				</section>
 				
 

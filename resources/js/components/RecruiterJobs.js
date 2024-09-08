@@ -77,15 +77,16 @@ const RecruiterJobs = (props) => {
 	}
 
 	return (
-		<div>
+		<div className="mb-4">
+			<p>
+				Here you will find a list of candidates who applied to the jobs that your company posted. You can view candidate's resume
+				by click on the desire candidate column. Candidates can be accepted, rejected by setting the status to accepted.
+			</p>
 			<table class="table table-striped">
+
 
 				<caption>
 					<strong>Received Applications</strong>
-					<p>
-						Here you will applications received on the jobs that your company have posted. Resume can be viewed by clicking on resume link on the
-						desire candidate columns. Further you can message the candidate at home page. See message icon button at the bottom right
-					</p>
 				</caption>
 
 			  <thead>
