@@ -62,9 +62,9 @@ function Resume(props) {
 						<div className="card-body">
 							
 							<div className="mb-3">
-							  <label htmlFor="formFileSm" className="form-label">Choose resume</label>
+							  <strong><label htmlFor="formFileSm" className="form-label">Choose resume</label></strong>
 							  <input
-							  	className="form-control form-control-sm"
+						  		className="bj-input bg-one"	
 							  	id="formFileSm"
 							  	type="file"
 							  	onChange={handleResume}

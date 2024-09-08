@@ -120,7 +120,7 @@ function JobQuestions() {
                                 <strong><label htmlFor="first-name" className="col-form-label"><b>Choose Country</b></label></strong>
                                 <select 
                                     name="country"
-                                    className="form-control"
+                                    className="bj-input bg-one"
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.country}
@@ -220,7 +220,7 @@ function JobQuestions() {
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         required
-                                        className="form-control"
+                                        className="bj-input bg-one"
                                     />
                                 </div>
                             </div>

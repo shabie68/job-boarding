@@ -262,7 +262,7 @@ function UpdateProfile() {
 		                                    {
 		                                        formik.values.searchTerm ?
 
-		                                                <div className="border rounded form-control">
+		                                                <div className="border rounded bg-one">
 		                                                    {filterEntries().map((entry, index) => (
 		                                                        <div key={entry}>
 

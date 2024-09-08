@@ -11800,7 +11800,7 @@ function JobQuestions() {
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("select", {
                 name: "country",
-                className: "form-control",
+                className: "bj-input bg-one",
                 onChange: formik.handleChange,
                 onBlur: formik.handleBlur,
                 value: formik.values.country,
@@ -11921,7 +11921,7 @@ function JobQuestions() {
                   onChange: formik.handleChange,
                   onBlur: formik.handleBlur,
                   required: true,
-                  className: "form-control"
+                  className: "bj-input bg-one"
                 })
               })]
             })]
@@ -12920,12 +12920,14 @@ function Resume(props) {
             className: "card-body",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                htmlFor: "formFileSm",
-                className: "form-label",
-                children: "Choose resume"
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+                  htmlFor: "formFileSm",
+                  className: "form-label",
+                  children: "Choose resume"
+                })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                className: "form-control form-control-sm",
+                className: "bj-input bg-one",
                 id: "formFileSm",
                 type: "file",
                 onChange: handleResume
@@ -14649,7 +14651,7 @@ function UpdateProfile() {
                       children: formik.errors.searchTerm
                     }) : null]
                   }), formik.values.searchTerm ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                    className: "border rounded form-control",
+                    className: "border rounded bg-one",
                     children: filterEntries().map(function (entry, index) {
                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
