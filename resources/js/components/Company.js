@@ -148,7 +148,7 @@ function Company() {
 									  </div>
 
 									  <div className="w-75">
-									  	<h3>{company.title}</h3>
+									  	<h3 class="bj-font-cursive">{company.title}</h3>
 										 <div className="">
 											<p>{company.title}</p>
 										 </div>

@@ -138,10 +138,10 @@ function JobQuestions() {
 
     						<div className="">
 
-                                <strong>Planning to relocate</strong>
-                                <div className="d-flex">
-                                    <div>
-                                        <strong><label className="form-check-label" htmlFor="flexRadioDefault1">No</label></strong>
+                                <strong><label className="col-form-label">Planning to relocate</label></strong>
+                                <div className="d-flex gap-4">
+                                    <div className="d-flex gap-1">
+                                        
                                         <input
                                             className="form-check-input"
                                             type="radio"
@@ -151,10 +151,11 @@ function JobQuestions() {
                                             onChange={formik.handleChange}
                                             checked = {formik.values.abilityToCommute == 'no' ? 'checked' : ''}
                                         />
+                                        <label className="form-check-label" htmlFor="flexRadioDefault1">No</label>
                                     </div>
 
-                                    <div>
-                                        <strong><label className="form-check-label" htmlFor="flexRadioDefault1">Yes</label></strong>
+                                    <div className="d-flex gap-1">
+                                        
                                         <input
                                             className="form-check-input"
                                             type="radio"
@@ -164,6 +165,7 @@ function JobQuestions() {
                                             onChange={formik.handleChange}
                                             checked = {formik.values.abilityToCommute == 'yes' ? 'checked' : ''}
                                         />
+                                        <label className="form-check-label" htmlFor="flexRadioDefault1">Yes</label>
 
                                     </div>
                                 </div>
@@ -191,7 +193,7 @@ function JobQuestions() {
 
                             <div className="">
 
-                                <strong><label htmlFor="first-name" className="col-form-label"><b>Notice Period: (days)</b></label></strong>
+                                <strong><label htmlFor="first-name" className="col-form-label">Notice Period: (days)</label></strong>
                                 <div className="">
                                     <input
                                         type="number"
@@ -211,7 +213,7 @@ function JobQuestions() {
 
                             <div className="">
                             	<p>Tell us few dates where you are free</p>
-                                <strong><label htmlFor="first-name" className="col-form-label"><b>Interview Date </b></label></strong>
+                                <strong><label htmlFor="first-name" className="col-form-label">Interview Date</label></strong>
                                 <div className="">
                                     <input
                                         type="date"

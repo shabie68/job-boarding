@@ -50,7 +50,6 @@ const CandidateJobs = (props) => {
 
 				<caption>
 					<strong>Received Applications</strong>
-
 				</caption>
 			  <thead>
 			    <tr>

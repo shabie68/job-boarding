@@ -29,6 +29,28 @@
 	width: 45%
 }
 
+.bj-border-b-hidden{
+	border-bottom: hidden;
+}
+#bj-skill {
+	border-top: hidden;
+}
+
+.bj-font-cursive {
+	font-family: cursive;
+}
+
+
+
+div .bj-border-r-3.bj-border-radius-skill {
+	border-bottom: hidden;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-radius: 3px
+}
+
+
+
 .bj-btn-prime {
 	background: #827716;
 	color: #fbfff6;
@@ -36,6 +58,10 @@
 	transition: all 0.3s ease;
 	border-color: #9c8f41
 
+}
+
+.bj-p-input {
+	padding: 10px 12px;
 }
 
 caption {

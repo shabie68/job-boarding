@@ -262,7 +262,7 @@ function UpdateProfile() {
 		                                    {
 		                                        formik.values.searchTerm ?
 
-		                                                <div className="border rounded bg-one">
+		                                                <div className="border rounded bg-one p-2">
 		                                                    {filterEntries().map((entry, index) => (
 		                                                        <div key={entry}>
 

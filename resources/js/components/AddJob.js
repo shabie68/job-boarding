@@ -185,50 +185,20 @@ function AddJob() {
                   ) : null}
                 </div>
 
-               
-
-
-                <div style={{ margin: '20px 0' }}>
-                  <strong>Type</strong>
-                  <div className="d-grid bj-col-3 justify-content-between">
-
-                    <div className="d-flex bj-gap-4">
-
-                      <input 
-                        type="radio"
+                <div>
+                    <strong><label htmlFor="type" className="col-form-label"><b>Choose type</b></label></strong>
+                    <select 
                         name="type"
+                        className="bj-input bg-one"
                         onChange={formik.handleChange}
-                        value="remote"
-                        checked={formik.values.type === 'remote'} 
-                        />
-                        <label>Remote</label>
-                    </div>
+                        onBlur={formik.handleBlur}
+                        value={formik.values.type}
+                    >
+                        <option value="remote">Remote</option>
+                        <option value="hybrid">Hybrid</option>
+                        <option value="onsite">Onsite</option>
 
-                    <div className="d-flex bj-gap-4">
-                      <input 
-                        type="radio"
-                        name="type"
-                        onChange={formik.handleChange}
-                      value="onsite"
-                      checked={formik.values.type === 'onsite'} 
-                        />
-                        <label>Onsite</label>
-                    </div>
-
-
-                    <div className="d-flex bj-gap-4">
-                      <input 
-                        type="radio"
-                        name="type"
-                        onChange={formik.handleChange}
-                        value="hybrid"
-                        checked={formik.values.type === 'hybrid'} 
-                        />
-
-                        <label>Hybrid</label>
-                    </div>
-                  </div>
-                  
+                    </select>
                 </div>
 
 
