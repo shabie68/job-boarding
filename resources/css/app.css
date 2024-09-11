@@ -29,6 +29,10 @@
 	width: 45%
 }
 
+.bj-w-10 {
+	width: 10%;
+}
+
 .bj-border-b-hidden{
 	border-bottom: hidden;
 }

@@ -252,22 +252,6 @@ function ShowJob(props) {
 
     return(
         <div>
-            <div className="d-sm-block d-lg-flex justify-content-lg-center">
-              <div className="d-flex ">
-                  
-                  <span>
-                    <input
-                      className="bj-input bg-one"
-                      value={jobTitle}
-                      placeholder="Job title"
-                      aria-describedby="basic-addon1"
-                      onChange={(e)=>{setJobTitle(e.target.value)}}
-                    />
-                  </span>
-
-                  <span><button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>Search Job</button></span>
-              </div>
-            </div>
 
             {
               success ?
@@ -277,78 +261,99 @@ function ShowJob(props) {
               :''
             }
 
-            <div className="my-5">
-                <div>
+            <div className="my-4">
+              <div className="d-sm-block d-lg-flex justify-content-lg-center">
+                <div className="d-flex ">
+                    
+                    <span>
+                      <input
+                        className="bj-input bg-one"
+                        value={jobTitle}
+                        placeholder="Job title"
+                        aria-describedby="basic-addon1"
+                        onChange={(e)=>{setJobTitle(e.target.value)}}
+                      />
+                    </span>
 
-                    {
-                        role == 1 ?
-
-                        <div className="d-lg-flex justify-content-lg-between my-4 border-bottom">
-                            <h1 className="mb-0 text-two">Jobs</h1>
-                             <div className="">
-                                <Link to="/add-job">
-                                    <button type="button" className="btn bj-btn-secondary text-prime mb-4">
-                                        Add Job
-                                    </button>
-                                </Link>
-                            </div>
-                        </div>
-                        : ''
-                    }
-
-
-                    <div className="d-sm-block d-lg-flex gap-3">
-                         <div className="w-40 jb-sm-card-w bg-one jb-lg-card-w jb-jobs">
-                            {jobs.map(_job => (
-
-                               <div className={`card bg-one mb-4 ${job?.id === _job.id ? "bj-border" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
-                               onClick={()=> {getJob(_job.id)}}>
-                                <div className="d-flex card-header align-items-center">
-                                    <h3 className="">{_job.title}</h3>
-                                    <strong className="ml-end" style={{marginLeft: 'auto'}}>{_job?.company?.title}</strong>
-                                </div>
-
-                                 <div className="card-body">
-                                     
-
-                                    <div dangerouslySetInnerHTML={{__html: _job?.description}}></div>
-
-                                    <div dangerouslySetInnerHTML={{__html: _job?.responsibilities}} />
-
-                                    <div dangerouslySetInnerHTML={{__html: _job?.requirements}} />
-                                 </div>
-                             </div>
-                             ))}
-
-
-                             <div className="d-flex gap-2 align-items-center">
-                               <button className="btn bj-btn-prime btn-link"  onClick={prev} disabled={currentPage === 1} style={{border: '1px solid lightslategrey'}}>
-
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
-                                  <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
-                                </svg>
-                               </button>
-
-                               <span>
-                                Showing page {currentPage} of {lastPage}
-                               </span>
-
-                              <button className="btn bj-btn-prime btn-link" onClick={next} disabled={!nextPage} style={{border: '1px solid lightslategrey'}}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
-                                  <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
-                                </svg>
-                              </button>
-                            </div>
-                         </div>
-
-                        {job ?
-                            <>
-                             <SingleJob job={job} company={company}/>
-                             </>
-                             : ''
-                        }
-                    </div>
+                    <span><button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>Search Job</button></span>
                 </div>
+              </div>
+              
+              <div>
+                {
+                  role == 1 ?
+
+                    <div className="d-lg-flex justify-content-lg-between my-4 border-bottom">
+                        <h1 className="mb-0 text-two">Jobs</h1>
+                         <div className="">
+                            <Link to="/add-job">
+                                <button type="button" className="btn bj-btn-secondary text-prime mb-4">
+                                    Add Job
+                                </button>
+                            </Link>
+                        </div>
+                    </div>
+                    : ''
+                  }
+                  
+                  <div className="d-sm-block d-lg-flex gap-3">
+                       <div className="w-40 jb-sm-card-w bg-one jb-lg-card-w jb-jobs">
+                          {jobs.map(_job => (
+
+                             <div className={`card bg-one mb-4 ${job?.id === _job.id ? "bj-border" : ""}`}  key={"job-"+_job.id} style={{cursor: 'pointer'}}
+                             onClick={()=> {getJob(_job.id)}}>
+                              <div className="card-header">
+                                  
+                                  <div className="d-flex justify-content-between">
+                                    <h3 className="">{_job.title}</h3>
+                                    <img src={'/uploads/images/' + _job.company?.logo} className="bj-w-10" />
+                                  </div>
+                                  <strong>{_job?.company?.title}</strong>
+                              </div>
+
+                               <div className="card-body">
+                                   
+
+                                  <div dangerouslySetInnerHTML={{__html: _job?.description}}></div>
+
+                                  <div dangerouslySetInnerHTML={{__html: _job?.responsibilities}} />
+
+                                  <div dangerouslySetInnerHTML={{__html: _job?.requirements}} />
+                               </div>
+                           </div>
+                           ))}
+
+
+                           <div className="d-flex gap-2 align-items-center">
+                             <button className="btn bj-btn-prime btn-link"  onClick={prev} disabled={currentPage === 1} style={{border: '1px solid lightslategrey'}}>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
+                                <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                              </svg>
+                             </button>
+
+                             <span>
+                              Showing page {currentPage} of {lastPage}
+                             </span>
+
+                            <button className="btn bj-btn-prime btn-link" onClick={next} disabled={!nextPage} style={{border: '1px solid lightslategrey'}}>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                              </svg>
+                            </button>
+                          </div>
+                       </div>
+
+                      {job ?
+                        <>
+                         <SingleJob job={job} company={company}/>
+                         </>
+                         : ''
+                      }
+                  </div>
+                </div>
+
+
                 {
                   !showMessage ?
                   <div className="position-fixed bg-three" style={{bottom: 20, borderRadius: '50%', padding: '4px', right: '50px', zIndex: 9, cursor: 'pointer'}} onClick={() => {setShowMessage(true)}}>
@@ -442,6 +447,12 @@ Below are the three colors that will be used in your website
 #238a85 secondary color
 #f7fffe background color
 
+Todos
+1) Check for spacing i.e padding/margin/gap. Use consistent spacing
+2) Check for font sizes. Use consistent font sizes
+3) Add images to job title................done
+4) Check for text color. Text color should be brown-black
+5) Add accept/reject canidate column(send message for accepted candidate)
 
 
 

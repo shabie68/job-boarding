@@ -9510,7 +9510,8 @@ function AddCompany() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("strong", {
         children: "Go back"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h2", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
+      className: "text-two",
       children: "Add Company"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "my-4",
@@ -9933,7 +9934,8 @@ function AddJob() {
         margin: '0 auto',
         width: '50%'
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+        className: "text-two",
         children: "Add Job"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
@@ -9958,7 +9960,7 @@ function AddJob() {
               }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               style: {
-                margin: '20px 0'
+                margin: '8px 0'
               },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
@@ -9977,7 +9979,7 @@ function AddJob() {
               }) : null]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               style: {
-                margin: '20px 0'
+                margin: '8px 0'
               },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
@@ -10022,7 +10024,7 @@ function AddJob() {
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               style: {
-                margin: '20px 0'
+                margin: '8px 0'
               },
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
                 children: "Additional details"
@@ -10126,7 +10128,7 @@ function AddJob() {
 /**
 
 
- <div style={{ margin: '20px 0' }}>
+ <div style={{ margin: '8px 0' }}>
                 <label>Type</label>
                 <select
                   className="form-control"
@@ -10278,7 +10280,8 @@ function Apply(props) {
       style: {
         margin: '0 auto'
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+        className: "text-two",
         children: "Personal Information"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
         onSubmit: formik.handleSubmit,
@@ -10698,6 +10701,7 @@ function Company() {
       className: "my-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+          className: "text-two",
           children: "Registered Companies"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           children: "A list of registered companies with us. You can find more details about a company by clicking on the desire company logo. Every company has unique culture, core values. You can choose one that align with your interests. Reviews help to understand how company present itself to the world. Reviews can be added but every review is verified by the company so be careful when adding review"
@@ -10706,8 +10710,8 @@ function Company() {
             children: "Want to add a new company? Just click the Add Company button"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "d-flex justify-content-between align-items-center my-4 border-bottom",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-              className: "mb-0",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+              className: "text-two mb-0",
               children: "Add New Company "
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "",
@@ -11765,7 +11769,8 @@ function JobQuestions() {
       style: {
         margin: '0 auto'
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+        className: "text-two",
         children: "Miscelleneous"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
         onSubmit: formik.handleSubmit,
@@ -12891,7 +12896,8 @@ function Resume(props) {
       style: {
         margin: '0 auto'
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+        className: "text-two",
         children: "Upload your resume"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
         onSubmit: saveData,
@@ -13307,31 +13313,7 @@ function ShowJob(props) {
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: "d-sm-block d-lg-flex justify-content-lg-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "d-flex ",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-            className: "bj-input bg-one",
-            value: jobTitle,
-            placeholder: "Job title",
-            "aria-describedby": "basic-addon1",
-            onChange: function onChange(e) {
-              setJobTitle(e.target.value);
-            }
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-            className: "bj-btn bj-btn-prime text-prime",
-            onClick: function onClick() {
-              return getJobs(true, 'first-time');
-            },
-            children: "Search Job"
-          })
-        })]
-      })
-    }), success ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    children: [success ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "text-success text-center",
       style: {
         backgroundColor: '#c3ff624d',
@@ -13339,8 +13321,32 @@ function ShowJob(props) {
       },
       children: "Job Created Successfully!"
     }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "my-5",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "my-4",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "d-sm-block d-lg-flex justify-content-lg-center",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "d-flex ",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+              className: "bj-input bg-one",
+              value: jobTitle,
+              placeholder: "Job title",
+              "aria-describedby": "basic-addon1",
+              onChange: function onChange(e) {
+                setJobTitle(e.target.value);
+              }
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+              className: "bj-btn bj-btn-prime text-prime",
+              onClick: function onClick() {
+                return getJobs(true, 'first-time');
+              },
+              children: "Search Job"
+            })
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "d-lg-flex justify-content-lg-between my-4 border-bottom",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
@@ -13362,7 +13368,7 @@ function ShowJob(props) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "w-40 jb-sm-card-w bg-one jb-lg-card-w jb-jobs",
             children: [jobs.map(function (_job) {
-              var _job$company;
+              var _job$company, _job$company2;
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 className: "card bg-one mb-4 ".concat((job === null || job === void 0 ? void 0 : job.id) === _job.id ? "bj-border" : ""),
                 style: {
@@ -13372,16 +13378,18 @@ function ShowJob(props) {
                   getJob(_job.id);
                 },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                  className: "d-flex card-header align-items-center",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
-                    className: "",
-                    children: _job.title
+                  className: "card-header",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    className: "d-flex justify-content-between",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+                      className: "",
+                      children: _job.title
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                      src: '/uploads/images/' + ((_job$company = _job.company) === null || _job$company === void 0 ? void 0 : _job$company.logo),
+                      className: "bj-w-10"
+                    })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
-                    className: "ml-end",
-                    style: {
-                      marginLeft: 'auto'
-                    },
-                    children: _job === null || _job === void 0 || (_job$company = _job.company) === null || _job$company === void 0 ? void 0 : _job$company.title
+                    children: _job === null || _job === void 0 || (_job$company2 = _job.company) === null || _job$company2 === void 0 ? void 0 : _job$company2.title
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "card-body",
@@ -13602,6 +13610,12 @@ Below are the three colors that will be used in your website
 #238a85 secondary color
 #f7fffe background color
 
+Todos
+1) Check for spacing i.e padding/margin/gap. Use consistent spacing
+2) Check for font sizes. Use consistent font sizes
+3) Add images to job title................done
+4) Check for text color. Text color should be brown-black
+5) Add accept/reject canidate column(send message for accepted candidate)
 
 
 
@@ -13686,6 +13700,7 @@ var SingleCompany = function SingleCompany() {
       className: "",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+          className: "text-two",
           children: (_location$state2 = location.state) === null || _location$state2 === void 0 ? void 0 : _location$state2.company.title
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "d-flex justify-content-between",
@@ -13748,6 +13763,7 @@ var SingleCompany = function SingleCompany() {
       })]
     }), location !== null && location !== void 0 && (_location$state5 = location.state) !== null && _location$state5 !== void 0 && _location$state5.company.feedback ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+        className: "text-two",
         children: "Feedback"
       }), location === null || location === void 0 || (_location$state6 = location.state) === null || _location$state6 === void 0 || (_location$state6 = _location$state6.company.feedback) === null || _location$state6 === void 0 ? void 0 : _location$state6.map(function (_feedback, index) {
         var _Date;

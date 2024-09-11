@@ -135,7 +135,7 @@ function AddJob() {
       </div>
 
       <section style={{ margin: '0 auto', width: '50%' }}>
-        <h2>Add Job</h2>
+        <h3 className="text-two">Add Job</h3>
         <div >
             <form onSubmit={formik.handleSubmit}>
               <div className="bj-border bj-p-20 bj-border-radius">
@@ -154,7 +154,7 @@ function AddJob() {
                   ) : null}
                 </div>
 
-                <div style={{ margin: '20px 0' }}>
+                <div style={{ margin: '8px 0' }}>
                   <strong><label>Location</label></strong>
                   <input
                     type="text"
@@ -169,7 +169,7 @@ function AddJob() {
                   ) : null}
                 </div>
 
-                <div style={{ margin: '20px 0' }}>
+                <div style={{ margin: '8px 0' }}>
                   <strong><label>Salary</label></strong>
                   <input
                     type="number"
@@ -202,7 +202,7 @@ function AddJob() {
                 </div>
 
 
-                <div style={{ margin: '20px 0' }}>
+                <div style={{ margin: '8px 0' }}>
                   <strong>Additional details</strong>
                   <div className="d-grid bj-col-3 justify-content-between">
                     <div className="d-flex bj-gap-4">
@@ -294,7 +294,7 @@ export default AddJob;
 /**
 
 
- <div style={{ margin: '20px 0' }}>
+ <div style={{ margin: '8px 0' }}>
                 <label>Type</label>
                 <select
                   className="form-control"

@@ -112,7 +112,7 @@ function JobQuestions() {
             </div>
 
 			<div className="w-50" style={{margin: '0 auto'}}>
-				<h2>Miscelleneous</h2>
+				<h3 className="text-two">Miscelleneous</h3>
                  <form onSubmit={formik.handleSubmit}>
     				<div className="bj-border bj-radius-10 bj-p-20 bg-one">
     					<div className="card-body">
