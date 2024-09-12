@@ -91,6 +91,8 @@ const Login = (props) => {
                                         </div>
                                     </div>
 
+                                    <p className="bj-font-12">By clicking "Sign in," you agree to our Terms of Use and our Privacy Policy.</p>
+
                                     <div className="d-flex align-items-center mb-2">
                                         <span className="bj-w-40 bg-3" ></span>
                                         <span className="bj-w-20 text-center">Or</span>

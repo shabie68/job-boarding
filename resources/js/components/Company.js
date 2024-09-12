@@ -128,7 +128,7 @@ function Company() {
 							  <h3 className="text-two mb-0">Add New Company </h3>
 							   <div className="">
 								  <Link to="/add-company">
-									  <button type="button" className="btn bg-three text-prime mb-4">Add Company</button>
+									<button type="button" className="btn bg-three text-prime mb-4">Add Company</button>
 								  </Link>
 							  </div>
 						  	</div>

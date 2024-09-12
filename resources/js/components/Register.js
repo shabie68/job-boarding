@@ -114,7 +114,7 @@ const Register = (props) => {
 			                        </div>
 
 
-                                    <div className="row">
+                                    <div className="row bj-role">
                                         <div className="col-md-1 col-form-label"> Role: </div>
 
                                         <div className="col-md-11 d-flex gap-4 align-items-center">
@@ -136,9 +136,9 @@ const Register = (props) => {
                                     
 
                                     <div className="row mb-0">
-                                        <div className="col-md-12 text-end">
+                                        <div className="col-md-12">
 
-                                            <button type="submit" className="btn bj-btn-prime text-prime">
+                                            <button type="submit" className="btn bj-btn-prime text-prime w-100">
                                                 {
                                                     !loading ?
                                                     <div>
@@ -153,6 +153,12 @@ const Register = (props) => {
                                             </button>
                                         </div>
                                     </div>
+
+                                    <div className="bj-border-bottom bj-py-10">
+
+                                    </div>
+
+                                    <p className="bj-font-12">By clicking "Register," you agree to our Terms of Use and our Privacy Policy.</p>
                                 </form>
                             </div>
                         </div>

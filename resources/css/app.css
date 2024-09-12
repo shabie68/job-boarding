@@ -56,7 +56,8 @@ div .bj-border-r-3.bj-border-radius-skill {
 
 
 .bj-btn-prime {
-	background: #827716;
+
+	background: #837629;
 	color: #fbfff6;
 	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease;
@@ -69,14 +70,14 @@ div .bj-border-r-3.bj-border-radius-skill {
 }
 
 caption {
-	caption-side: bottom;
-	text-align: center;
+	caption-side: top;
+	text-align: start;
 	padding-bottom: 10px;
 	font-size: 18px
 }
 
 .bj-btn-prime:hover {
-	background-color: #d1bc42;
+	background-color: #675d21;
 	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 	color: #fbfff6;
 }
@@ -86,13 +87,41 @@ caption {
     box-shadow: 0px 0px 8px 2px rgba(184, 167, 50, 0.5);
 }
 
+.bj-role {
+	padding: 10px 0
+}
+
+.bj-py-10 {
+	padding: 10px 0
+}
+
+.bj-border-bottom {
+	border-bottom: 1px solid;
+}
+
+
+
+.bj-font-12 {
+	font-size: 12px;
+	margin: 10px 0;
+}
 .bj-btn-secondary {
 	background-color: #21807b;
 }
 
 .bj-btn-secondary:hover {
-	background-color: #1f7e7a;
+	background-color: #1a6a66;
+	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 	color: #fbfff6;
+}
+
+strong {
+	font-size: 16px;
+}
+
+.bj-btn-secondary:focus {
+	outline: none;
+    box-shadow: 0px 0px 8px 2px rgba(184, 167, 50, 0.5);
 }
 
 .bj-text-secondary {
@@ -210,11 +239,11 @@ a {
 }
 
 .bj-border {
-	border: 2px solid #238a85;
+	border: 2px solid #4f4a47;
 }
 
 .bj-border-prime {
-	border: 2px solid #4f4a47;
+	border: 2px solid #238a85;
 }
 
 
