@@ -12056,7 +12056,7 @@ caption {
 }
 
 .bj-role {
-	padding: 10px 0
+	padding: 0 0 10px 0;
 }
 
 .bj-py-10 {
@@ -12075,7 +12075,7 @@ caption {
 
 .bj-font-12 {
 	font-size: 12px;
-	margin: 10px 0;
+	margin: 8px 0;
 }
 .bj-btn-secondary {
 	background-color: #21807b;

@@ -11975,6 +11975,10 @@ var Login = function Login(props) {
     _React$useState8 = _slicedToArray(_React$useState7, 2),
     password = _React$useState8[0],
     setPassword = _React$useState8[1];
+  var _React$useState9 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(false),
+    _React$useState10 = _slicedToArray(_React$useState9, 2),
+    showPassword = _React$useState10[0],
+    setShowPassword = _React$useState10[1];
   var handleSubmit = function handleSubmit(e) {
     setLoading(true);
     e.preventDefault();
@@ -11988,6 +11992,10 @@ var Login = function Login(props) {
         }
       });
     });
+  };
+  var handlePasswordVisibility = function handlePasswordVisibility() {
+    setShowPassword(!showPassword);
+    document.querySelector('input[name="password"]').type = showPassword ? 'password' : 'text';
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
     className: "bj-gradient py-4 h-100vh",
@@ -12012,15 +12020,16 @@ var Login = function Login(props) {
                 className: "p-3",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
-                    htmlFor: "email",
-                    className: "col-form-label"
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      htmlFor: "email",
+                      children: "Email"
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
                       type: "email",
                       name: "email",
-                      placeholder: "Email",
                       value: email,
                       onChange: function onChange(e) {
                         return setEmail(e.target.value);
@@ -12031,15 +12040,16 @@ var Login = function Login(props) {
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
-                    htmlFor: "email",
-                    className: "col-form-label"
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      htmlFor: "password",
+                      children: "Password"
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
                       type: "password",
                       name: "password",
-                      placeholder: "Password",
                       value: password,
                       onChange: function onChange(e) {
                         return setPassword(e.target.value);
@@ -12047,6 +12057,15 @@ var Login = function Login(props) {
                       required: true,
                       className: "bj-input bg-one"
                     })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                    className: "mt-2 d-flex gap-2",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                      type: "checkbox",
+                      checked: showPassword,
+                      onChange: handlePasswordVisibility
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                      children: "Show password"
+                    })]
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "row my-2",
@@ -12079,7 +12098,7 @@ var Login = function Login(props) {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                     className: "bj-w-40 bg-3"
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                }), showPassword, " is the password", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "d-flex justify-content-center gap-2",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                     children: "Don't have an account?"
@@ -12680,15 +12699,17 @@ var Register = function Register(props) {
                 onSubmit: handleSubmit,
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
-                    htmlFor: "name",
-                    className: "col-form-label text-md-end"
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      htmlFor: "name",
+                      className: "text-md-end",
+                      children: "Name"
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
                       type: "text",
                       name: "name",
-                      placeholder: "Name",
                       value: name,
                       onChange: function onChange(e) {
                         return setName(e.target.value);
@@ -12699,15 +12720,17 @@ var Register = function Register(props) {
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
-                    htmlFor: "email",
-                    className: "col-form-label text-md-end"
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      htmlFor: "email",
+                      className: "text-md-end",
+                      children: "Email"
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
                       type: "email",
                       name: "email",
-                      placeholder: "Email",
                       value: email,
                       onChange: function onChange(e) {
                         return setEmail(e.target.value);
@@ -12718,15 +12741,17 @@ var Register = function Register(props) {
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
-                    htmlFor: "email",
-                    className: "col-form-label text-md-end"
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      htmlFor: "email",
+                      className: "text-md-end",
+                      children: "Password"
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", _defineProperty(_defineProperty({
                       type: "password",
                       name: "password",
-                      placeholder: "Password",
                       value: password,
                       onChange: function onChange(e) {
                         return setPassword(e.target.value);
@@ -12737,14 +12762,16 @@ var Register = function Register(props) {
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   className: "row mb-3",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
-                    htmlFor: "password-confirm",
-                    className: "col-form-label text-md-end"
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                      htmlFor: "password-confirm",
+                      className: "text-md-end",
+                      children: "Confirm Password"
+                    })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     className: "col-md-12",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", _defineProperty(_defineProperty({
                       type: "password",
-                      placeholder: "Confirm Password",
                       value: password_confirmation,
                       onChange: function onChange(e) {
                         return setPasswordConfirmation(e.target.value);
@@ -12755,10 +12782,9 @@ var Register = function Register(props) {
                     }, "required", true), "autoComplete", "new-password"))
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                  className: "row bj-role",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                    className: "col-md-1 col-form-label",
-                    children: " Role: "
+                  className: " bj-role",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+                    children: " Role "
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                     className: "col-md-11 d-flex gap-4 align-items-center",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -12774,7 +12800,6 @@ var Register = function Register(props) {
                         value: "1",
                         checked: role == 1 ? true : false
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
-                        className: "form-check-label",
                         htmlFor: "recruiter",
                         children: "Recruiter"
                       })]
@@ -12791,7 +12816,6 @@ var Register = function Register(props) {
                         value: "2",
                         checked: role == 2 ? true : false
                       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
-                        className: "form-check-label",
                         htmlFor: "job_seeker",
                         children: "Job Seeker"
                       })]

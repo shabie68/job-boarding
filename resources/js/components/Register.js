@@ -50,12 +50,11 @@ const Register = (props) => {
                                 <form onSubmit={handleSubmit}>
 
                                 	<div className="row mb-3">
-                                        <label htmlFor="name" className="col-form-label text-md-end"></label>
+                                        <strong><label htmlFor="name" className="text-md-end">Name</label></strong>
                                         <div className="col-md-12">
                                             <input
                                                 type="text"
                                                 name="name"
-                                                placeholder="Name"
                                                 value={name}
                                                 onChange={e => setName(e.target.value)}
                                                 required
@@ -65,12 +64,11 @@ const Register = (props) => {
                                     </div>
 
                                     <div className="row mb-3">
-                                        <label htmlFor="email" className="col-form-label text-md-end"></label>
+                                        <strong><label htmlFor="email" className="text-md-end">Email</label></strong>
                                         <div className="col-md-12">
                                             <input
                                                 type="email"
                                                 name="email"
-                                                placeholder="Email"
                                                 value={email}
                                                 onChange={e => setEmail(e.target.value)}
                                                 required
@@ -80,12 +78,11 @@ const Register = (props) => {
                                     </div>
 
                                     <div className="row mb-3">
-                                        <label htmlFor="email" className="col-form-label text-md-end"></label>
+                                        <strong><label htmlFor="email" className="text-md-end">Password</label></strong>
                                         <div className="col-md-12">
                                             <input
                                                 type="password"
                                                 name="password"
-                                                placeholder="Password"
                                                 value={password}
                                                 onChange={e => setPassword(e.target.value)}
                                                 required
@@ -97,12 +94,11 @@ const Register = (props) => {
                                     </div>
 
                                     <div className="row mb-3">
-			                            <label htmlFor="password-confirm" className="col-form-label text-md-end"></label>
+			                            <strong><label htmlFor="password-confirm" className="text-md-end">Confirm Password</label></strong>
 
 			                            <div className="col-md-12">
 			                                <input 
 			                                	type="password"
-                                                placeholder="Confirm Password"
                                                 value={password_confirmation}
                                                 onChange={e => setPasswordConfirmation(e.target.value)}
                                                 required
@@ -114,20 +110,20 @@ const Register = (props) => {
 			                        </div>
 
 
-                                    <div className="row bj-role">
-                                        <div className="col-md-1 col-form-label"> Role: </div>
+                                    <div className=" bj-role">
+                                        <strong> Role </strong>
 
                                         <div className="col-md-11 d-flex gap-4 align-items-center">
                                             <div className="form-check">
                                               <input className="form-check-input" type="radio" name="account_type" id="recruiter" onChange={(e) => {setRole(e.target.value)}} value="1" checked={role== 1 ? true : false} />
-                                              <label className="form-check-label" htmlFor="recruiter">
+                                              <label htmlFor="recruiter">
                                                 Recruiter
                                               </label>
                                             </div>
 
                                             <div className="form-check">
                                               <input className="form-check-input" type="radio" name="account_type" id="job_seeker" onChange={(e) => {setRole(e.target.value)}} value="2" checked={role== 2 ? true : false} />
-                                              <label className="form-check-label" htmlFor="job_seeker">
+                                              <label htmlFor="job_seeker">
                                                 Job Seeker
                                               </label>
                                             </div>
@@ -153,7 +149,6 @@ const Register = (props) => {
                                             </button>
                                         </div>
                                     </div>
-
 
                                     <p className="bj-font-12">By clicking "Register," you agree to our Terms of Use and our Privacy Policy.</p>
                                     <div className="d-flex align-items-center mb-2">

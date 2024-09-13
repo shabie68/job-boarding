@@ -12,6 +12,7 @@ const Login = (props) => {
     const [loggedIn, setLoggedIn] = React.useState(false);
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [showPassword, setShowPassword] = React.useState(false)
 
     const handleSubmit = (e) => {
         setLoading(true)
@@ -29,6 +30,12 @@ const Login = (props) => {
 	        })
 	    });
     }
+
+    const handlePasswordVisibility = () => {
+        setShowPassword(!showPassword)
+        document.querySelector('input[name="password"]').type = showPassword ? 'password' : 'text'
+
+    }
     return (
 
         <div className="bj-gradient py-4 h-100vh">
@@ -44,12 +51,11 @@ const Login = (props) => {
                             <div className="card-body bg-one bj-border bj-border-radius">
                                 <form onSubmit={handleSubmit} className="p-3">
                                     <div className="row mb-3">
-                                        <label htmlFor="email" className="col-form-label"></label>
+                                        <strong><label htmlFor="email">Email</label></strong>
                                         <div className="col-md-12">
                                             <input
                                                 type="email"
                                                 name="email"
-                                                placeholder="Email"
                                                 value={email}
                                                 onChange={e => setEmail(e.target.value)}
                                                 required
@@ -59,17 +65,21 @@ const Login = (props) => {
                                     </div>
 
                                     <div className="row mb-3">
-                                        <label htmlFor="email" className="col-form-label"></label>
+                                        <strong><label htmlFor="password">Password</label></strong>
                                         <div className="col-md-12">
                                             <input
                                                 type="password"
                                                 name="password"
-                                                placeholder="Password"
                                                 value={password}
                                                 onChange={e => setPassword(e.target.value)}
                                                 required
                                                 className="bj-input bg-one"
                                             />
+                                        </div>
+
+                                        <div className="mt-2 d-flex gap-2">
+                                            <input type="checkbox" checked={showPassword} onChange={handlePasswordVisibility}/>
+                                            <span>Show password</span>
                                         </div>
                                     </div>
 
@@ -98,6 +108,8 @@ const Login = (props) => {
                                         <span className="bj-w-20 text-center">Or</span>
                                         <span className="bj-w-40 bg-3"></span>
                                     </div>
+
+                                    {showPassword} is the password
 
                                     <div className="d-flex justify-content-center gap-2">
                                         <span>Don't have an account?</span>
