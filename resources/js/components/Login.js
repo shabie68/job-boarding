@@ -31,8 +31,8 @@ const Login = (props) => {
     }
     return (
 
-        <div className="bj-gradient h-100vh">
-            <div className="container pt-4 text-two">
+        <div className="bj-gradient py-4 h-100vh">
+            <div className="container text-two">
                 
                 <div className="">
                         

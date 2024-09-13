@@ -37,10 +37,10 @@ const Register = (props) => {
 
     return (
 
-        <div className="bj-gradient h-100vh">
-            <div className="container pt-4">
-                <div className="bj-margin-auto bj-w-45">
-                    <h3 className="text-center my-4 text-prime">Create an account</h3>
+        <div className="bj-gradient h-100 py-4">
+            <div className="container">
+                <div className="bj-m-32-auto bj-w-45">
+                    <h3 className="text-center text-prime">Create an account</h3>
 
                     
                     <div className="">
@@ -154,11 +154,18 @@ const Register = (props) => {
                                         </div>
                                     </div>
 
-                                    <div className="bj-border-bottom bj-py-10">
-
-                                    </div>
 
                                     <p className="bj-font-12">By clicking "Register," you agree to our Terms of Use and our Privacy Policy.</p>
+                                    <div className="d-flex align-items-center mb-2">
+                                        <span className="bj-w-40 bg-3" ></span>
+                                        <span className="bj-w-20 text-center">Or</span>
+                                        <span className="bj-w-40 bg-3"></span>
+                                    </div>
+
+                                    <div className="d-flex justify-content-center gap-2">
+                                        <span>Already have an account?</span>
+                                        <a className="bj-text-secondary" href="/login">Login</a>
+                                    </div>
                                 </form>
                             </div>
                         </div>
