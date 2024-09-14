@@ -13386,6 +13386,10 @@ function ShowJob(props) {
     _useState48 = _slicedToArray(_useState47, 2),
     companies = _useState48[0],
     setCompanies = _useState48[1];
+  var _useState49 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState50 = _slicedToArray(_useState49, 2),
+    submissions = _useState50[0],
+    setSubmissions = _useState50[1];
   var msgContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_MessageContext__WEBPACK_IMPORTED_MODULE_3__["default"]);
   var messages = [];
   var value = "; ".concat(document.cookie);
@@ -13453,6 +13457,21 @@ function ShowJob(props) {
         return;
       }
       setUserName(response.data.name);
+      var submissions = [];
+      if (!search) {
+        setSubmissions(response.data.submissions);
+        response.data.submissions.map(function (_submission) {
+          var user = {
+            id: _submission.id,
+            name: _submission.first_name
+          };
+
+          // submissions.push(user)
+          setCandidates(function (prevCandidates) {
+            return [].concat(_toConsumableArray(prevCandidates), [user]);
+          });
+        });
+      }
       var channel = pusher.subscribe('private-company.' + response.data.company_id);
       channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function (data) {
         alert("GOOD NEWS");
@@ -13801,7 +13820,7 @@ function ShowJob(props) {
           })]
         })
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "card position-fixed bg-one",
+        className: "card position-fixed bg-one w-25",
         style: {
           bottom: '20px',
           right: '50px',
@@ -13864,6 +13883,7 @@ function ShowJob(props) {
             },
             children: candidates === null || candidates === void 0 ? void 0 : candidates.map(function (candidate) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                selected: candidate.id == userId,
                 value: candidate.id,
                 children: candidate.name
               });
@@ -13882,16 +13902,19 @@ function ShowJob(props) {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "card-footer bg-one",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            className: "d-flex align-items-center gap-3 mb-4",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
               children: "Your message "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            className: "mb-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
+              className: "w-100",
               onChange: function onChange(e) {
                 setMessage(e.target.value);
               },
               value: message
-            })]
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "d-flex justify-content-end",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
@@ -13903,7 +13926,7 @@ function ShowJob(props) {
             })
           })]
         })]
-      }), JSON.stringify(candidates), " are thee candidates"]
+      })]
     })]
   });
 }

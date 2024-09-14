@@ -58,7 +58,7 @@ class BoardJobController extends Controller
                 "users" => \App\Models\User::all(),
                 "authenticatedUser" => auth()->user()->id,
                 "companies" => $companies,
-                // "submissions" => $submissions
+                "submissions" => $submissions
             ]);
         }
         
