@@ -433,8 +433,10 @@ function ShowJob(props) {
 
                 }
 
+                {JSON.stringify(candidates)} are thee candidates
                   
             </div>
+                
 
 
         </div>

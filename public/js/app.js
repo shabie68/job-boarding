@@ -12515,6 +12515,7 @@ var RecruiterJobs = function RecruiterJobs(props) {
       id: submission.user_id,
       message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title
     }).then(function () {
+      window.location = '/home';
       alert("Congratulations! You have been selected");
     });
   };
@@ -13902,7 +13903,7 @@ function ShowJob(props) {
             })
           })]
         })]
-      })]
+      }), JSON.stringify(candidates), " are thee candidates"]
     })]
   });
 }

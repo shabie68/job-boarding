@@ -39,6 +39,12 @@ class BoardJobController extends Controller
                                 
         $companyIds = $submissions->pluck("company_id");
         $companies = Company::find($companyIds);
+        $submissions = null;
+
+        if(auth()->user()->role == 1) {
+            $submissions = BoardJob::where('company_id', auth()->user()->company->id)->first()->submissions;
+
+        }
 
         if(!$request->has('title')) {
             $jobs = BoardJob::with('company')->paginate(5);
@@ -51,18 +57,15 @@ class BoardJobController extends Controller
                 // "company" => auth()->user()->company->title
                 "users" => \App\Models\User::all(),
                 "authenticatedUser" => auth()->user()->id,
-                "companies" => $companies
+                "companies" => $companies,
+                // "submissions" => $submissions
             ]);
-
         }
-
-
-
         
         $jobs = DB::table('board_jobs')
                     ->where('title', 'like', '%' . $request->title . '%')
                     ->paginate(2);
-
+        
         return response()->json([
             "jobs" => $jobs,
             "name" => auth()->user()->name,

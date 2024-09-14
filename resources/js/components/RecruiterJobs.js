@@ -35,6 +35,7 @@ const RecruiterJobs = (props) => {
 			message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title
 		})
 		.then(() => {
+			window.location = '/home'
 			alert("Congratulations! You have been selected")
 		})
 	}
@@ -51,6 +52,7 @@ const RecruiterJobs = (props) => {
 			let mess = [sendMessages, receivedMessages]
 			// setChatMessages((prevMessages) => [...prevMessages,[sendMessages, receivedMessages]])
 			setChatMessages(mess)
+
 
 			// messages.push(msg)
 			// messages.push(context.message)
