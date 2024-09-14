@@ -12510,6 +12510,14 @@ var RecruiterJobs = function RecruiterJobs(props) {
   //         })
   // }
 
+  var acceptCandidate = function acceptCandidate(submission) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/accept/submission/' + submission.id, {
+      id: submission.user_id,
+      message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title
+    }).then(function () {
+      alert("Congratulations! You have been selected");
+    });
+  };
   var sendMessage = function sendMessage() {
     setSendMessages(function (prevMessages) {
       return [].concat(_toConsumableArray(prevMessages), [msg]);
@@ -12616,6 +12624,9 @@ var RecruiterJobs = function RecruiterJobs(props) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                 className: "btn bj-btn-table",
+                onClick: function onClick() {
+                  acceptCandidate(submission);
+                },
                 children: "Accept candidate"
               })
             })]
@@ -12669,6 +12680,12 @@ var RecruiterJobs = function RecruiterJobs(props) {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RecruiterJobs);
+/**
+
+
+// 0337 0304040 yasir
+
+**/
 
 /***/ }),
 
@@ -13493,8 +13510,6 @@ function ShowJob(props) {
               message: data['message']
             }]);
           });
-          alert("NEW MESSAGE");
-          console.log(data);
           setSenderName(data['user']['name']);
           // props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
           props.updateJobContext({

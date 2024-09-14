@@ -175,8 +175,7 @@ function ShowJob(props) {
                 setReceivedMessages((prevMessages) => [...prevMessages, data['message']]);
                 // props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
                  props.updateMessageContext((prevObj) => [...prevObj, {senderName: data['user']['name'], message: data['message']}])
-                  alert("NEW MESSAGE")
-                  console.log(data)
+
                   setSenderName(data['user']['name'])
                   // props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
                   props.updateJobContext({user_id: data['user']['id'], board_job_id: null, submission: null, message: messages})
@@ -239,7 +238,7 @@ function ShowJob(props) {
       setReceivedMessages((prevMessages) => [...prevMessages, message])
       // props.updateMessageContext((prevMessages) => [...prevMessages, message])
       props.updateMessageContext((prevObj) => [...prevObj, {senderName: 'You', message: message}])
-    apiClient.post('http://127.0.0.1:8000/api/send-msg/', {
+      apiClient.post('http://127.0.0.1:8000/api/send-msg/', {
           id: Number(company_id),
           message: message
          })
