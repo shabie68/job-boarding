@@ -162,11 +162,9 @@ function UpdateProfile() {
 	            <div className="row justify-content-center">
 	                <div className="col-md-8">
 	                	<form className="w-75 m-auto" onSubmit={formik.handleSubmit}>
-	                		<h3>Update Profile</h3>
+	                		<h3 className="text-two">Update Profile</h3>
 	                    	<div className="bj-border bj-border-radius bg-one p-4">
 		                        <div>
-	                        	
-
 		                            <div className="form-group mb-3">
 		                                <label htmlFor="exampleFormControlTextarea1" className="col-form-label bj-text-bold">Summary</label>
 		                                <div>
@@ -181,7 +179,7 @@ function UpdateProfile() {
 		                            </div>
 
 		                            <div className="mb-3">
-		                                <label htmlFor="email" className="col-md-4 col-form-label bj-text-bold">Phone Number</label>
+		                                <strong><label htmlFor="email" className="col-md-4 col-form-label">Phone Number</label></strong>
 		                                <div>
 		                                    <input
 		                                        type="tel"
@@ -200,7 +198,7 @@ function UpdateProfile() {
 		                            </div>
 
 		                            <div className="mb-3">
-		                                <label htmlFor="email" className="col-form-label bj-text-bold">Address</label>
+		                                <strong><label htmlFor="email" className="col-form-label">Address</label></strong>
 		                                <div>
 		                                    <input
 		                                        type="text"
@@ -220,7 +218,7 @@ function UpdateProfile() {
 		                            </div>
 
 		                            <div className="mb-3">
-		                                <label htmlFor="email" className="col-form-label bj-text-bold">Education</label>
+		                                <strong><label htmlFor="email" className="col-form-label">Education</label></strong>
 		                                <div>
 		                                    <input
 		                                        type="text"
@@ -262,7 +260,7 @@ function UpdateProfile() {
 		                                    {
 		                                        formik.values.searchTerm ?
 
-		                                                <div className="border rounded form-control">
+		                                                <div className="border rounded bg-one p-2">
 		                                                    {filterEntries().map((entry, index) => (
 		                                                        <div key={entry}>
 

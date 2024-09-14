@@ -112,7 +112,7 @@ function JobQuestions() {
             </div>
 
 			<div className="w-50" style={{margin: '0 auto'}}>
-				<h2>Miscelleneous</h2>
+				<h3 className="text-two">Miscelleneous</h3>
                  <form onSubmit={formik.handleSubmit}>
     				<div className="bj-border bj-radius-10 bj-p-20 bg-one">
     					<div className="card-body">
@@ -120,7 +120,7 @@ function JobQuestions() {
                                 <strong><label htmlFor="first-name" className="col-form-label"><b>Choose Country</b></label></strong>
                                 <select 
                                     name="country"
-                                    className="form-control"
+                                    className="bj-input bg-one"
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.country}
@@ -138,10 +138,10 @@ function JobQuestions() {
 
     						<div className="">
 
-                                <strong>Planning to relocate</strong>
-                                <div className="d-flex">
-                                    <div>
-                                        <strong><label className="form-check-label" htmlFor="flexRadioDefault1">No</label></strong>
+                                <strong><label className="col-form-label">Planning to relocate</label></strong>
+                                <div className="d-flex gap-4">
+                                    <div className="d-flex gap-1">
+                                        
                                         <input
                                             className="form-check-input"
                                             type="radio"
@@ -151,10 +151,11 @@ function JobQuestions() {
                                             onChange={formik.handleChange}
                                             checked = {formik.values.abilityToCommute == 'no' ? 'checked' : ''}
                                         />
+                                        <label className="form-check-label" htmlFor="flexRadioDefault1">No</label>
                                     </div>
 
-                                    <div>
-                                        <strong><label className="form-check-label" htmlFor="flexRadioDefault1">Yes</label></strong>
+                                    <div className="d-flex gap-1">
+                                        
                                         <input
                                             className="form-check-input"
                                             type="radio"
@@ -164,6 +165,7 @@ function JobQuestions() {
                                             onChange={formik.handleChange}
                                             checked = {formik.values.abilityToCommute == 'yes' ? 'checked' : ''}
                                         />
+                                        <label className="form-check-label" htmlFor="flexRadioDefault1">Yes</label>
 
                                     </div>
                                 </div>
@@ -191,7 +193,7 @@ function JobQuestions() {
 
                             <div className="">
 
-                                <strong><label htmlFor="first-name" className="col-form-label"><b>Notice Period: (days)</b></label></strong>
+                                <strong><label htmlFor="first-name" className="col-form-label">Notice Period: (days)</label></strong>
                                 <div className="">
                                     <input
                                         type="number"
@@ -211,7 +213,7 @@ function JobQuestions() {
 
                             <div className="">
                             	<p>Tell us few dates where you are free</p>
-                                <strong><label htmlFor="first-name" className="col-form-label"><b>Interview Date </b></label></strong>
+                                <strong><label htmlFor="first-name" className="col-form-label">Interview Date</label></strong>
                                 <div className="">
                                     <input
                                         type="date"
@@ -220,7 +222,7 @@ function JobQuestions() {
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         required
-                                        className="form-control"
+                                        className="bj-input bg-one"
                                     />
                                 </div>
                             </div>

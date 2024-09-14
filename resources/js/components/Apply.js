@@ -104,7 +104,7 @@ function Apply(props) {
         <div className="progress-bar" id="jb-apply-pbar" role="progressbar" style={{width: "33%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
       <div className="w-lg-50" style={{margin: '0 auto'}}>
-        <h2>Personal Information</h2>
+        <h3 className="text-two">Personal Information</h3>
         <form onSubmit={formik.handleSubmit}>
           <div className="bj-border bj-radius-10 bj-p-20 bg-one">
             <div className="card-body">

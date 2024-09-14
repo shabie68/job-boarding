@@ -112,7 +112,7 @@ function Company() {
 	  		}
 			<div className="my-4">
 				<div>
-					<h3>Registered Companies</h3>
+					<h3 className="text-two">Registered Companies</h3>
 					<span>
 						A list of registered companies with us. You can find more details about a company by clicking on the desire company logo. 
 						Every company has unique culture, core values. You can choose one that align with your interests. Reviews help to understand 
@@ -125,10 +125,10 @@ function Company() {
 						<>
 							<span>Want to add a new company? Just click the Add Company button</span>
 							<div className="d-flex justify-content-between align-items-center my-4 border-bottom">
-							  <h4 className="mb-0">Add New Company </h4>
+							  <h3 className="text-two mb-0">Add New Company </h3>
 							   <div className="">
 								  <Link to="/add-company">
-									  <button type="button" className="btn bg-three text-prime mb-4">Add Company</button>
+									<button type="button" className="btn bg-three text-prime mb-4">Add Company</button>
 								  </Link>
 							  </div>
 						  	</div>
@@ -148,7 +148,7 @@ function Company() {
 									  </div>
 
 									  <div className="w-75">
-									  	<h3>{company.title}</h3>
+									  	<h3 class="bj-font-cursive">{company.title}</h3>
 										 <div className="">
 											<p>{company.title}</p>
 										 </div>

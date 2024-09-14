@@ -56,15 +56,15 @@ function Resume(props) {
             </div>
 
 			<div className="w-lg-50" style={{margin: '0 auto'}}>
-				<h4>Upload your resume</h4>
+				<h3 className="text-two">Upload your resume</h3>
 				<form onSubmit={saveData}>
 					<div className="bj-border bj-radius-10 bj-p-20 bg-one">
 						<div className="card-body">
 							
 							<div className="mb-3">
-							  <label htmlFor="formFileSm" className="form-label">Choose resume</label>
+							  <strong><label htmlFor="formFileSm" className="form-label">Choose resume</label></strong>
 							  <input
-							  	className="form-control form-control-sm"
+						  		className="bj-input bg-one"	
 							  	id="formFileSm"
 							  	type="file"
 							  	onChange={handleResume}

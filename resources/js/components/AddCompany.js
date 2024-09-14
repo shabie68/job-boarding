@@ -204,7 +204,7 @@ function AddCompany() {
 				<strong>Go back</strong>
 			</div>
 
-			<h2>Add Company</h2>
+			<h3 className="text-two">Add Company</h3>
 			<div className="my-4">
 				<form onSubmit={formik.handleSubmit}>
 					<div className="d-flex justify-content-center">
