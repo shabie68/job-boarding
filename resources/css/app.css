@@ -95,6 +95,14 @@ caption {
 	padding: 10px 0
 }
 
+.bj-right-15 {
+	right: 15px;
+}
+
+.bj-top-10 {
+	top: 10px
+}
+
 .bj-border-bottom {
 	border-bottom: 1px solid;
 }
@@ -144,6 +152,10 @@ table a {
 	color: #fbfff6;
 }
 
+.table-striped > tbody > tr:nth-of-type(odd) button {
+	color: #fbfff6;
+}
+
 .table-striped > tbody > tr:nth-of-type(even) > * {
 	background: #fbfff6;
 	color: #238a85;
@@ -155,6 +167,11 @@ table a {
 
 .table-striped > tbody > tr:nth-of-type(odd) a {
 	color: #fbfff6;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) button {
+	background: #fbfff6;
+	color: #238a85;
 }
 
 
@@ -179,6 +196,10 @@ a {
 .bj-company-container:hover {
 	border-color: #99902c;
 
+}
+
+.bj-btn-table {
+	background-color: #447d7a;
 }
 
 .ql-container {

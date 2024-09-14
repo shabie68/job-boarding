@@ -97,6 +97,7 @@ const RecruiterJobs = (props) => {
 			      <th scope="col">Phone</th>
 			      <th scope="col">Email</th>
 			      <th scope="col">Resume</th>
+			      <th scope="col">Confirmation</th>
 			    </tr>
 			  </thead>
 
@@ -109,6 +110,7 @@ const RecruiterJobs = (props) => {
 			    			<td>{submission.phone_number}</td>
 			    			<td>{submission.email}</td>
 			    			<td><a href={`uploads/${submission.resume}`}>Resume</a></td>
+			    			<td><button className="btn bj-btn-table">Accept candidate</button></td>
 			    		</tr>
 
 			    	))}
