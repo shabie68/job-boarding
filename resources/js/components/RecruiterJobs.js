@@ -29,6 +29,17 @@ const RecruiterJobs = (props) => {
  //         })
 	// }
 
+	const acceptCandidate = (submission) => {
+		apiClient.post('http://127.0.0.1:8000/api/accept/submission/' + submission.id, {
+			id: submission.user_id,
+			message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title
+		})
+		.then(() => {
+			window.location = '/home'
+			alert("Congratulations! You have been selected")
+		})
+	}
+
 	
 	const sendMessage = () => {
 		setSendMessages((prevMessages) => [...prevMessages, msg])
@@ -41,6 +52,7 @@ const RecruiterJobs = (props) => {
 			let mess = [sendMessages, receivedMessages]
 			// setChatMessages((prevMessages) => [...prevMessages,[sendMessages, receivedMessages]])
 			setChatMessages(mess)
+
 
 			// messages.push(msg)
 			// messages.push(context.message)
@@ -110,9 +122,8 @@ const RecruiterJobs = (props) => {
 			    			<td>{submission.phone_number}</td>
 			    			<td>{submission.email}</td>
 			    			<td><a href={`uploads/${submission.resume}`}>Resume</a></td>
-			    			<td><button className="btn bj-btn-table">Accept candidate</button></td>
+			    			<td><button className="btn bj-btn-table" onClick={() => {acceptCandidate(submission)}}>Accept candidate</button></td>
 			    		</tr>
-
 			    	))}
 
 			  </tbody>
@@ -143,3 +154,9 @@ const RecruiterJobs = (props) => {
 }
 
 export default RecruiterJobs
+/**
+
+
+// 0337 0304040 yasir
+
+**/

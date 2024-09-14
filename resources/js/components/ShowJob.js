@@ -44,6 +44,7 @@ function ShowJob(props) {
     const [authenticatedUser, setAuthenticatedUser] = useState(-1)
     const [message, setMessage] = useState('')
     const [companies, setCompanies] = useState([])
+    const [submissions, setSubmissions] = useState([])
 
     const msgContext = useContext(MessageContext)
 
@@ -132,6 +133,22 @@ function ShowJob(props) {
             }
 
             setUserName(response.data.name)
+            let submissions = [];
+            if(!search) {
+              setSubmissions(response.data.submissions)  
+              response.data.submissions.map((_submission) => {
+                let user = {
+                  id: _submission.id,
+                  name: _submission.first_name
+                }
+
+                // submissions.push(user)
+                setCandidates((prevCandidates) => [...prevCandidates, user])
+
+              })
+
+            }
+            
 
             const channel = pusher.subscribe('private-company.'+response.data.company_id )
             channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
@@ -175,8 +192,7 @@ function ShowJob(props) {
                 setReceivedMessages((prevMessages) => [...prevMessages, data['message']]);
                 // props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
                  props.updateMessageContext((prevObj) => [...prevObj, {senderName: data['user']['name'], message: data['message']}])
-                  alert("NEW MESSAGE")
-                  console.log(data)
+
                   setSenderName(data['user']['name'])
                   // props.updateJobContext({user_id: null, board_job_id: null, submission: null, message: data})
                   props.updateJobContext({user_id: data['user']['id'], board_job_id: null, submission: null, message: messages})
@@ -198,9 +214,6 @@ function ShowJob(props) {
       if(role == 1) {
         setCandidates((prevCandidates) => [...prevCandidates, {user_id: userId, name: senderName}])
       }
-
-
-
 
 
 
@@ -239,7 +252,7 @@ function ShowJob(props) {
       setReceivedMessages((prevMessages) => [...prevMessages, message])
       // props.updateMessageContext((prevMessages) => [...prevMessages, message])
       props.updateMessageContext((prevObj) => [...prevObj, {senderName: 'You', message: message}])
-    apiClient.post('http://127.0.0.1:8000/api/send-msg/', {
+      apiClient.post('http://127.0.0.1:8000/api/send-msg/', {
           id: Number(company_id),
           message: message
          })
@@ -364,7 +377,7 @@ function ShowJob(props) {
 
 
                   :
-                  <div className="card position-fixed bg-one" style={{bottom: '20px', right: '50px', zIndex: 9, height: '50%', overflow: 'auto'}}>
+                  <div className="card position-fixed bg-one w-25" style={{bottom: '20px', right: '50px', zIndex: 9, height: '50%', overflow: 'auto'}}>
                   <div className="card-header bg-two text-prime d-flex">
                     <div>
                        Chat Messages
@@ -391,19 +404,15 @@ function ShowJob(props) {
                     :
 
                     (
-                    <select onChange={(e) => {setUserId(e.target.value)}}>
-                      {
-                        candidates?.map((candidate) => (
-                        <option value={candidate.id}>{candidate.name}</option>
-
-                        ))
-                      }
-                    </select>
-                    )
-                    }
+                      <select onChange={(e) => {setUserId(e.target.value)}}>
+                        {
+                          candidates?.map((candidate) => (
+                          <option selected={candidate.id == userId} value={candidate.id}>{candidate.name}</option>
+                          ))
+                        }
+                      </select>
+                    )}
                     
-                    
-                   
 
                     {
                       msgContext?.map((msg) => (
@@ -417,10 +426,13 @@ function ShowJob(props) {
                   </div>
 
 
+
+
                   <div className="card-footer bg-one">
-                    <div className="d-flex align-items-center gap-3 mb-4">
-                      <label>Your message </label>
-                      <textarea onChange={(e) => {setMessage(e.target.value)}} value={message}>
+                  <strong><label>Your message </label></strong>
+                    <div className="mb-4">
+                      
+                      <textarea className="w-100" onChange={(e) => {setMessage(e.target.value)}} value={message}>
                       </textarea>
                     </div>
 
@@ -433,9 +445,9 @@ function ShowJob(props) {
                 </div>
 
                 }
-
                   
             </div>
+                
 
 
         </div>

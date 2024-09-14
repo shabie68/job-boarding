@@ -10,6 +10,7 @@ use App\Notifications\ApplicationSubmitted;
 use App\Models\Submission;
 use App\Models\BoardJob;
 use App\Models\Company;
+use App\Models\User;
 use Carbon\Carbon;
 use Redis;
 
@@ -37,9 +38,7 @@ class SubmissionController extends Controller
                 'salary_expectation' => '40000',
                 'notice_period' => '14',
                 'schedule_interview' => Carbon::now()
-                
             ]);
-            
         }
     	
 
@@ -131,6 +130,25 @@ class SubmissionController extends Controller
         return response()->json([
             "submissions" => $submissions,
             "role" => auth()->user()->role
+        ]);
+    }
+
+    public function acceptCandidate(Request $request, $submissionId) {
+
+        $submission = Submission::find($submissionId);
+
+
+        if($submission) {
+            $submission->update([
+                'accept_candidate' => true
+            ]);
+        }
+
+        event(new \App\Events\MessageEvent(auth()->user(), $request));
+
+        return response()->json([
+            "message" => "Congratulation! You have been selected",
+            "accepted" => $submission->accept_candidate
         ]);
     }
 }
