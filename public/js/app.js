@@ -10746,7 +10746,7 @@ function Company() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                     className: "w-75",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-                      "class": "bj-font-cursive",
+                      className: "bj-font-cursive",
                       children: company.title
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                       className: "",
@@ -10758,7 +10758,7 @@ function Company() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                   className: "modal fade",
                   id: "exampleModal-" + company.id,
-                  tabindex: "-1",
+                  tabIndex: "-1",
                   "aria-labelledby": "exampleModalLabel-" + company.id,
                   "aria-hidden": "true",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -10804,18 +10804,18 @@ function Company() {
                                 xmlns: "http://www.w3.org/2000/svg",
                                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                                 viewBox: "0 0 64 64",
-                                "enable-background": "new 0 0 64 64",
+                                enableBackground: "new 0 0 64 64",
                                 xmlSpace: "preserve",
                                 fill: "#000000",
                                 stroke: "#000000",
-                                "stroke-width": "1.6",
+                                strokeWidth: "1.6",
                                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                                   id: "SVGRepo_bgCarrier",
-                                  "stroke-width": "0"
+                                  strokeWidth: "0"
                                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                                   id: "SVGRepo_tracerCarrier",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
+                                  strokeLinecap: "round",
+                                  strokeLinejoin: "round"
                                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                                   id: "SVGRepo_iconCarrier",
                                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -10846,18 +10846,18 @@ function Company() {
                                 xmlns: "http://www.w3.org/2000/svg",
                                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                                 viewBox: "0 0 64 64",
-                                "enable-background": "new 0 0 64 64",
+                                enableBackground: "new 0 0 64 64",
                                 xmlSpace: "preserve",
                                 fill: "#000000",
                                 stroke: "#000000",
-                                "stroke-width": "1.6",
+                                strokeWidth: "1.6",
                                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                                   id: "SVGRepo_bgCarrier",
-                                  "stroke-width": "0"
+                                  strokeWidth: "0"
                                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                                   id: "SVGRepo_tracerCarrier",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
+                                  strokeLinecap: "round",
+                                  strokeLinejoin: "round"
                                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                                   id: "SVGRepo_iconCarrier",
                                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -10888,18 +10888,18 @@ function Company() {
                                 xmlns: "http://www.w3.org/2000/svg",
                                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                                 viewBox: "0 0 64 64",
-                                "enable-background": "new 0 0 64 64",
+                                enableBackground: "new 0 0 64 64",
                                 xmlSpace: "preserve",
                                 fill: "#000000",
                                 stroke: "#000000",
-                                "stroke-width": "1.6",
+                                strokeWidth: "1.6",
                                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                                   id: "SVGRepo_bgCarrier",
-                                  "stroke-width": "0"
+                                  strokeWidth: "0"
                                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                                   id: "SVGRepo_tracerCarrier",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
+                                  strokeLinecap: "round",
+                                  strokeLinejoin: "round"
                                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                                   id: "SVGRepo_iconCarrier",
                                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -10930,18 +10930,18 @@ function Company() {
                                 xmlns: "http://www.w3.org/2000/svg",
                                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                                 viewBox: "0 0 64 64",
-                                "enable-background": "new 0 0 64 64",
+                                enableBackground: "new 0 0 64 64",
                                 xmlSpace: "preserve",
                                 fill: "#000000",
                                 stroke: "#000000",
-                                "stroke-width": "1.6",
+                                strokeWidth: "1.6",
                                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                                   id: "SVGRepo_bgCarrier",
-                                  "stroke-width": "0"
+                                  strokeWidth: "0"
                                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                                   id: "SVGRepo_tracerCarrier",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
+                                  strokeLinecap: "round",
+                                  strokeLinejoin: "round"
                                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                                   id: "SVGRepo_iconCarrier",
                                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -10972,18 +10972,18 @@ function Company() {
                                 xmlns: "http://www.w3.org/2000/svg",
                                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                                 viewBox: "0 0 64 64",
-                                "enable-background": "new 0 0 64 64",
+                                enableBackground: "new 0 0 64 64",
                                 xmlSpace: "preserve",
                                 fill: "#000000",
                                 stroke: "#000000",
-                                "stroke-width": "1.6",
+                                strokeWidth: "1.6",
                                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                                   id: "SVGRepo_bgCarrier",
-                                  "stroke-width": "0"
+                                  strokeWidth: "0"
                                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                                   id: "SVGRepo_tracerCarrier",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
+                                  strokeLinecap: "round",
+                                  strokeLinejoin: "round"
                                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                                   id: "SVGRepo_iconCarrier",
                                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -11094,11 +11094,11 @@ function Company() {
 										<button type="button" className="btn bg-two text-prime" data-bs-toggle="modal" data-bs-target={"#exampleModal-"+company.id}>Add Review</button>
 										: 
 										<div>
-										<svg version="1.0" id="Layer_1" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xmlSpace="preserve" fill="#000000" stroke="#000000" stroke-width="1.6"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#394240" d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0 c-0.775,0-1.48,0.448-1.811,1.15l-8.815,18.778L1.698,22.935c-0.741,0.113-1.356,0.632-1.595,1.343 c-0.238,0.71-0.059,1.494,0.465,2.031l14.294,14.657L11.484,61.67c-0.124,0.756,0.195,1.517,0.822,1.957 c0.344,0.243,0.747,0.366,1.151,0.366c0.332,0,0.666-0.084,0.968-0.25l17.572-9.719l17.572,9.719 c0.302,0.166,0.636,0.25,0.968,0.25c0.404,0,0.808-0.123,1.151-0.366c0.627-0.44,0.946-1.201,0.822-1.957l-3.378-20.704 l14.294-14.657c0.523-0.537,0.703-1.321,0.465-2.031c-0.238-0.711-0.854-1.229-1.595-1.343l-19.674-3.006L33.809,1.15 C33.479,0.448,32.773,0,31.998,0L31.998,0z"></path> <path fill={JSON.parse(company.feedback)?.rating > 0 ? '#F9EBB2' : '#fff'} d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478"></path> </g> </g></svg>
-										<svg version="1.0" id="Layer_1" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xmlSpace="preserve" fill="#000000" stroke="#000000" stroke-width="1.6"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#394240" d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0 c-0.775,0-1.48,0.448-1.811,1.15l-8.815,18.778L1.698,22.935c-0.741,0.113-1.356,0.632-1.595,1.343 c-0.238,0.71-0.059,1.494,0.465,2.031l14.294,14.657L11.484,61.67c-0.124,0.756,0.195,1.517,0.822,1.957 c0.344,0.243,0.747,0.366,1.151,0.366c0.332,0,0.666-0.084,0.968-0.25l17.572-9.719l17.572,9.719 c0.302,0.166,0.636,0.25,0.968,0.25c0.404,0,0.808-0.123,1.151-0.366c0.627-0.44,0.946-1.201,0.822-1.957l-3.378-20.704 l14.294-14.657c0.523-0.537,0.703-1.321,0.465-2.031c-0.238-0.711-0.854-1.229-1.595-1.343l-19.674-3.006L33.809,1.15 C33.479,0.448,32.773,0,31.998,0L31.998,0z"></path> <path fill={JSON.parse(company.feedback)?.rating > 1 ? '#F9EBB2' : '#fff'} d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478"></path> </g> </g></svg>
-										<svg version="1.0" id="Layer_1" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xmlSpace="preserve" fill="#000000" stroke="#000000" stroke-width="1.6"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#394240" d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0 c-0.775,0-1.48,0.448-1.811,1.15l-8.815,18.778L1.698,22.935c-0.741,0.113-1.356,0.632-1.595,1.343 c-0.238,0.71-0.059,1.494,0.465,2.031l14.294,14.657L11.484,61.67c-0.124,0.756,0.195,1.517,0.822,1.957 c0.344,0.243,0.747,0.366,1.151,0.366c0.332,0,0.666-0.084,0.968-0.25l17.572-9.719l17.572,9.719 c0.302,0.166,0.636,0.25,0.968,0.25c0.404,0,0.808-0.123,1.151-0.366c0.627-0.44,0.946-1.201,0.822-1.957l-3.378-20.704 l14.294-14.657c0.523-0.537,0.703-1.321,0.465-2.031c-0.238-0.711-0.854-1.229-1.595-1.343l-19.674-3.006L33.809,1.15 C33.479,0.448,32.773,0,31.998,0L31.998,0z"></path> <path fill={JSON.parse(company.feedback)?.rating > 2 ? '#F9EBB2' : '#fff'} d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478"></path> </g> </g></svg>
-										<svg version="1.0" id="Layer_1" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xmlSpace="preserve" fill="#000000" stroke="#000000" stroke-width="1.6"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#394240" d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0 c-0.775,0-1.48,0.448-1.811,1.15l-8.815,18.778L1.698,22.935c-0.741,0.113-1.356,0.632-1.595,1.343 c-0.238,0.71-0.059,1.494,0.465,2.031l14.294,14.657L11.484,61.67c-0.124,0.756,0.195,1.517,0.822,1.957 c0.344,0.243,0.747,0.366,1.151,0.366c0.332,0,0.666-0.084,0.968-0.25l17.572-9.719l17.572,9.719 c0.302,0.166,0.636,0.25,0.968,0.25c0.404,0,0.808-0.123,1.151-0.366c0.627-0.44,0.946-1.201,0.822-1.957l-3.378-20.704 l14.294-14.657c0.523-0.537,0.703-1.321,0.465-2.031c-0.238-0.711-0.854-1.229-1.595-1.343l-19.674-3.006L33.809,1.15 C33.479,0.448,32.773,0,31.998,0L31.998,0z"></path> <path fill={JSON.parse(company.feedback)?.rating > 3 ? '#F9EBB2' : '#fff'} d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478"></path> </g> </g></svg>
-										<svg version="1.0" id="Layer_1" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xmlSpace="preserve" fill="#000000" stroke="#000000" stroke-width="1.6"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#394240" d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0 c-0.775,0-1.48,0.448-1.811,1.15l-8.815,18.778L1.698,22.935c-0.741,0.113-1.356,0.632-1.595,1.343 c-0.238,0.71-0.059,1.494,0.465,2.031l14.294,14.657L11.484,61.67c-0.124,0.756,0.195,1.517,0.822,1.957 c0.344,0.243,0.747,0.366,1.151,0.366c0.332,0,0.666-0.084,0.968-0.25l17.572-9.719l17.572,9.719 c0.302,0.166,0.636,0.25,0.968,0.25c0.404,0,0.808-0.123,1.151-0.366c0.627-0.44,0.946-1.201,0.822-1.957l-3.378-20.704 l14.294-14.657c0.523-0.537,0.703-1.321,0.465-2.031c-0.238-0.711-0.854-1.229-1.595-1.343l-19.674-3.006L33.809,1.15 C33.479,0.448,32.773,0,31.998,0L31.998,0z"></path> <path fill={JSON.parse(company.feedback)?.rating > 4 ? '#F9EBB2' : '#fff'} d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478"></path> </g> </g></svg>
+										<svg version="1.0" id="Layer_1" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enableBackground="new 0 0 64 64" xmlSpace="preserve" fill="#000000" stroke="#000000" strokeWidth="1.6"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#394240" d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0 c-0.775,0-1.48,0.448-1.811,1.15l-8.815,18.778L1.698,22.935c-0.741,0.113-1.356,0.632-1.595,1.343 c-0.238,0.71-0.059,1.494,0.465,2.031l14.294,14.657L11.484,61.67c-0.124,0.756,0.195,1.517,0.822,1.957 c0.344,0.243,0.747,0.366,1.151,0.366c0.332,0,0.666-0.084,0.968-0.25l17.572-9.719l17.572,9.719 c0.302,0.166,0.636,0.25,0.968,0.25c0.404,0,0.808-0.123,1.151-0.366c0.627-0.44,0.946-1.201,0.822-1.957l-3.378-20.704 l14.294-14.657c0.523-0.537,0.703-1.321,0.465-2.031c-0.238-0.711-0.854-1.229-1.595-1.343l-19.674-3.006L33.809,1.15 C33.479,0.448,32.773,0,31.998,0L31.998,0z"></path> <path fill={JSON.parse(company.feedback)?.rating > 0 ? '#F9EBB2' : '#fff'} d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478"></path> </g> </g></svg>
+										<svg version="1.0" id="Layer_1" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enableBackground="new 0 0 64 64" xmlSpace="preserve" fill="#000000" stroke="#000000" strokeWidth="1.6"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#394240" d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0 c-0.775,0-1.48,0.448-1.811,1.15l-8.815,18.778L1.698,22.935c-0.741,0.113-1.356,0.632-1.595,1.343 c-0.238,0.71-0.059,1.494,0.465,2.031l14.294,14.657L11.484,61.67c-0.124,0.756,0.195,1.517,0.822,1.957 c0.344,0.243,0.747,0.366,1.151,0.366c0.332,0,0.666-0.084,0.968-0.25l17.572-9.719l17.572,9.719 c0.302,0.166,0.636,0.25,0.968,0.25c0.404,0,0.808-0.123,1.151-0.366c0.627-0.44,0.946-1.201,0.822-1.957l-3.378-20.704 l14.294-14.657c0.523-0.537,0.703-1.321,0.465-2.031c-0.238-0.711-0.854-1.229-1.595-1.343l-19.674-3.006L33.809,1.15 C33.479,0.448,32.773,0,31.998,0L31.998,0z"></path> <path fill={JSON.parse(company.feedback)?.rating > 1 ? '#F9EBB2' : '#fff'} d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478"></path> </g> </g></svg>
+										<svg version="1.0" id="Layer_1" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enableBackground="new 0 0 64 64" xmlSpace="preserve" fill="#000000" stroke="#000000" strokeWidth="1.6"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#394240" d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0 c-0.775,0-1.48,0.448-1.811,1.15l-8.815,18.778L1.698,22.935c-0.741,0.113-1.356,0.632-1.595,1.343 c-0.238,0.71-0.059,1.494,0.465,2.031l14.294,14.657L11.484,61.67c-0.124,0.756,0.195,1.517,0.822,1.957 c0.344,0.243,0.747,0.366,1.151,0.366c0.332,0,0.666-0.084,0.968-0.25l17.572-9.719l17.572,9.719 c0.302,0.166,0.636,0.25,0.968,0.25c0.404,0,0.808-0.123,1.151-0.366c0.627-0.44,0.946-1.201,0.822-1.957l-3.378-20.704 l14.294-14.657c0.523-0.537,0.703-1.321,0.465-2.031c-0.238-0.711-0.854-1.229-1.595-1.343l-19.674-3.006L33.809,1.15 C33.479,0.448,32.773,0,31.998,0L31.998,0z"></path> <path fill={JSON.parse(company.feedback)?.rating > 2 ? '#F9EBB2' : '#fff'} d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478"></path> </g> </g></svg>
+										<svg version="1.0" id="Layer_1" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enableBackground="new 0 0 64 64" xmlSpace="preserve" fill="#000000" stroke="#000000" strokeWidth="1.6"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#394240" d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0 c-0.775,0-1.48,0.448-1.811,1.15l-8.815,18.778L1.698,22.935c-0.741,0.113-1.356,0.632-1.595,1.343 c-0.238,0.71-0.059,1.494,0.465,2.031l14.294,14.657L11.484,61.67c-0.124,0.756,0.195,1.517,0.822,1.957 c0.344,0.243,0.747,0.366,1.151,0.366c0.332,0,0.666-0.084,0.968-0.25l17.572-9.719l17.572,9.719 c0.302,0.166,0.636,0.25,0.968,0.25c0.404,0,0.808-0.123,1.151-0.366c0.627-0.44,0.946-1.201,0.822-1.957l-3.378-20.704 l14.294-14.657c0.523-0.537,0.703-1.321,0.465-2.031c-0.238-0.711-0.854-1.229-1.595-1.343l-19.674-3.006L33.809,1.15 C33.479,0.448,32.773,0,31.998,0L31.998,0z"></path> <path fill={JSON.parse(company.feedback)?.rating > 3 ? '#F9EBB2' : '#fff'} d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478"></path> </g> </g></svg>
+										<svg version="1.0" id="Layer_1" width="16" height="16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" enableBackground="new 0 0 64 64" xmlSpace="preserve" fill="#000000" stroke="#000000" strokeWidth="1.6"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#394240" d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0 c-0.775,0-1.48,0.448-1.811,1.15l-8.815,18.778L1.698,22.935c-0.741,0.113-1.356,0.632-1.595,1.343 c-0.238,0.71-0.059,1.494,0.465,2.031l14.294,14.657L11.484,61.67c-0.124,0.756,0.195,1.517,0.822,1.957 c0.344,0.243,0.747,0.366,1.151,0.366c0.332,0,0.666-0.084,0.968-0.25l17.572-9.719l17.572,9.719 c0.302,0.166,0.636,0.25,0.968,0.25c0.404,0,0.808-0.123,1.151-0.366c0.627-0.44,0.946-1.201,0.822-1.957l-3.378-20.704 l14.294-14.657c0.523-0.537,0.703-1.321,0.465-2.031c-0.238-0.711-0.854-1.229-1.595-1.343l-19.674-3.006L33.809,1.15 C33.479,0.448,32.773,0,31.998,0L31.998,0z"></path> <path fill={JSON.parse(company.feedback)?.rating > 4 ? '#F9EBB2' : '#fff'} d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478"></path> </g> </g></svg>
 									
 									</div>
 
@@ -11232,48 +11232,48 @@ function Example() {
                 stroke: "#ffffff",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M22 22L2 22",
                     stroke: "#f5f5f5",
-                    "stroke-width": "1.5",
-                    "stroke-linecap": "round"
+                    strokeWidth: "1.5",
+                    strokeLinecap: "round"
                   }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M2 11L6.06296 7.74968M22 11L13.8741 4.49931C12.7784 3.62279 11.2216 3.62279 10.1259 4.49931L9.34398 5.12486",
                     stroke: "#f5f5f5",
-                    "stroke-width": "1.5",
-                    "stroke-linecap": "round"
+                    strokeWidth: "1.5",
+                    strokeLinecap: "round"
                   }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M15.5 5.5V3.5C15.5 3.22386 15.7239 3 16 3H18.5C18.7761 3 19 3.22386 19 3.5V8.5",
                     stroke: "#f5f5f5",
-                    "stroke-width": "1.5",
-                    "stroke-linecap": "round"
+                    strokeWidth: "1.5",
+                    strokeLinecap: "round"
                   }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M4 22V9.5",
                     stroke: "#f5f5f5",
-                    "stroke-width": "1.5",
-                    "stroke-linecap": "round"
+                    strokeWidth: "1.5",
+                    strokeLinecap: "round"
                   }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M20 9.5V13.5M20 22V17.5",
                     stroke: "#f5f5f5",
-                    "stroke-width": "1.5",
-                    "stroke-linecap": "round"
+                    strokeWidth: "1.5",
+                    strokeLinecap: "round"
                   }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M15 22V17C15 15.5858 15 14.8787 14.5607 14.4393C14.1213 14 13.4142 14 12 14C10.5858 14 9.87868 14 9.43934 14.4393M9 22V17",
                     stroke: "#f5f5f5",
-                    "stroke-width": "1.5",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round"
+                    strokeWidth: "1.5",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round"
                   }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M14 9.5C14 10.6046 13.1046 11.5 12 11.5C10.8954 11.5 10 10.6046 10 9.5C10 8.39543 10.8954 7.5 12 7.5C13.1046 7.5 14 8.39543 14 9.5Z",
                     stroke: "#f5f5f5",
-                    "stroke-width": "1.5"
+                    strokeWidth: "1.5"
                   }), " "]
                 })]
               })
@@ -11293,19 +11293,19 @@ function Example() {
                 xmlns: "http://www.w3.org/2000/svg",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M11 20H21V10C21 8.89543 20.1046 8 19 8H15M11 16H11.01M17 16H17.01M7 16H7.01M11 12H11.01M17 12H17.01M7 12H7.01M11 8H11.01M7 8H7.01M15 20V6C15 4.89543 14.1046 4 13 4H5C3.89543 4 3 4.89543 3 6V20H15Z",
                     stroke: "#ffffff",
-                    "stroke-width": "2",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round"
+                    strokeWidth: "2",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round"
                   }), " "]
                 })]
               })
@@ -11330,8 +11330,8 @@ function Example() {
                   strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("title", {
@@ -11343,9 +11343,9 @@ function Example() {
                   }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                     id: "Page-1",
                     stroke: "none",
-                    "stroke-width": "1",
+                    strokeWidth: "1",
                     fill: "none",
-                    "fill-rule": "evenodd",
+                    fillRule: "evenodd",
                     children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                       id: "Dribbble-Light-Preview",
                       transform: "translate(-140.000000, -2159.000000)",
@@ -11383,11 +11383,11 @@ function Example() {
                 xmlSpace: "preserve",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
@@ -11419,31 +11419,31 @@ function Example() {
                 xmlns: "http://www.w3.org/2000/svg",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M21 12L13 12",
                     stroke: "#ffffff",
-                    "stroke-width": "2",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round"
+                    strokeWidth: "2",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round"
                   }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M18 15L20.913 12.087V12.087C20.961 12.039 20.961 11.961 20.913 11.913V11.913L18 9",
                     stroke: "#ffffff",
-                    "stroke-width": "2",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round"
+                    strokeWidth: "2",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round"
                   }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("path", {
                     d: "M16 5V4.5V4.5C16 3.67157 15.3284 3 14.5 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H14.5C15.3284 21 16 20.3284 16 19.5V19.5V19",
                     stroke: "#ffffff",
-                    "stroke-width": "2",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round"
+                    strokeWidth: "2",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round"
                   }), " "]
                 })]
               })
@@ -11681,7 +11681,7 @@ function JobQuestions() {
     _useState6 = _slicedToArray(_useState5, 2),
     state = _useState6[0],
     setState = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('No'),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('yes'),
     _useState8 = _slicedToArray(_useState7, 2),
     abilityToCommute = _useState8[0],
     setAbilityToCommute = _useState8[1];
@@ -11714,7 +11714,7 @@ function JobQuestions() {
   var formik = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useFormik)({
     initialValues: {
       country: 'pakistan',
-      abilityToCommute: '',
+      abilityToCommute: context.submission.ability_to_commute,
       salaryExpectation: '',
       noticePeriod: '',
       scheduleInterview: ''
@@ -12357,19 +12357,19 @@ function Profile() {
                 xmlns: "http://www.w3.org/2000/svg",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("path", {
                     d: "M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z",
                     stroke: "#000000",
-                    "stroke-width": "2",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round"
+                    strokeWidth: "2",
+                    strokeLinecap: "round",
+                    strokeLinejoin: "round"
                   }), " "]
                 })]
               })
@@ -12391,11 +12391,11 @@ function Profile() {
                 xmlns: "http://www.w3.org/2000/svg",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("path", {
@@ -12582,7 +12582,7 @@ var RecruiterJobs = function RecruiterJobs(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       children: "Here you will find a list of candidates who applied to the jobs that your company posted. You can view candidate's resume by click on the desire candidate column. Candidates can be accepted, rejected by setting the status to accepted."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
-      "class": "table table-striped",
+      className: "table table-striped",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("caption", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
           children: "Received Applications"
@@ -13403,19 +13403,21 @@ function ShowJob(props) {
   var value = "; ".concat(document.cookie);
   var parts = value.split("; XSRF-TOKEN=");
   var xsrfToken = parts.pop().split(';').shift();
-  var pusher = new (pusher_js__WEBPACK_IMPORTED_MODULE_4___default())('de34f80f0848257e88e9', {
-    cluster: 'ap2',
-    encrypted: true,
-    authEndpoint: 'api/broadcasting/auth',
-    withCredentials: true,
-    enableStats: false,
-    enabledTransports: ['ws', 'wss'],
-    auth: {
-      headers: {
-        'X-XSRF-TOKEN': decodeURIComponent(xsrfToken)
-      }
-    }
-  });
+  // const pusher = new Pusher('de34f80f0848257e88e9', {
+  //   cluster: 'ap2',
+  //   encrypted: true,
+  //    authEndpoint: 'api/broadcasting/auth',
+  //    withCredentials: true,
+  //   enableStats: false,
+  //   enabledTransports: ['ws', 'wss'],
+  //          auth: {
+  //           headers: {
+  //       'X-XSRF-TOKEN':decodeURIComponent(xsrfToken),
+  //     },
+
+  //   }
+  // });
+
   var channelSubscription = function channelSubscription() {
     var channel = pusher.subscribe('private-msg.' + selectedUser);
     return channel;
@@ -13439,6 +13441,7 @@ function ShowJob(props) {
     var baseUrl = 'http://127.0.0.1:8000/api/show-jobs';
     var getJobsUrl = !jobTitle ? "?page=".concat(currentPage) : "?title=".concat(encodeURIComponent(jobTitle), "&page=").concat(currentPage);
     _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/show-jobs' + getJobsUrl).then(function (response) {
+      // if(!jobTitle) {
       var pusher = new (pusher_js__WEBPACK_IMPORTED_MODULE_4___default())('de34f80f0848257e88e9', {
         cluster: 'ap2',
         encrypted: true,
@@ -13452,6 +13455,8 @@ function ShowJob(props) {
           }
         }
       });
+      // }
+
       setJobs(response.data.jobs.data);
       setNextPage(response.data.jobs.next_page_url);
       setLastPage(response.data.jobs.last_page);
@@ -13818,19 +13823,19 @@ function ShowJob(props) {
           stroke: "#000000",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
             id: "SVGRepo_bgCarrier",
-            "stroke-width": "0"
+            strokeWidth: "0"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
             id: "SVGRepo_tracerCarrier",
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round"
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
             id: "SVGRepo_iconCarrier",
             children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
               d: "M8 11H8.01M12 11H12.01M16 11H16.01M21 20L17.6757 18.3378C17.4237 18.2118 17.2977 18.1488 17.1656 18.1044C17.0484 18.065 16.9277 18.0365 16.8052 18.0193C16.6672 18 16.5263 18 16.2446 18H6.2C5.07989 18 4.51984 18 4.09202 17.782C3.71569 17.5903 3.40973 17.2843 3.21799 16.908C3 16.4802 3 15.9201 3 14.8V7.2C3 6.07989 3 5.51984 3.21799 5.09202C3.40973 4.71569 3.71569 4.40973 4.09202 4.21799C4.51984 4 5.0799 4 6.2 4H17.8C18.9201 4 19.4802 4 19.908 4.21799C20.2843 4.40973 20.5903 4.71569 20.782 5.09202C21 5.51984 21 6.0799 21 7.2V20Z",
               stroke: "#ffffff",
-              "stroke-width": "2",
-              "stroke-linecap": "round",
-              "stroke-linejoin": "round"
+              strokeWidth: "2",
+              strokeLinecap: "round",
+              strokeLinejoin: "round"
             }), " "]
           })]
         })
@@ -13855,7 +13860,6 @@ function ShowJob(props) {
                 cursor: 'pointer'
               },
               onClick: function onClick() {
-                pusher.unsubscribe("private-candidate.".concat(authenticatedUser));
                 setShowMessage(false);
               },
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("svg", {
@@ -13867,16 +13871,16 @@ function ShowJob(props) {
                 stroke: "#ffffff",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
-                    "fill-rule": "evenodd",
-                    "clip-rule": "evenodd",
+                    fillRule: "evenodd",
+                    "clip-Rule": "evenodd",
                     d: "M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z",
                     fill: "#ffffff"
                   }), " "]
@@ -14129,18 +14133,18 @@ var SingleCompany = function SingleCompany() {
                 xmlns: "http://www.w3.org/2000/svg",
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 64 64",
-                "enable-background": "new 0 0 64 64",
+                enableBackground: "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
                 stroke: "#238a85",
-                "stroke-width": "1.6",
+                strokeWidth: "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -14161,18 +14165,18 @@ var SingleCompany = function SingleCompany() {
                 xmlns: "http://www.w3.org/2000/svg",
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 64 64",
-                "enable-background": "new 0 0 64 64",
+                enableBackground: "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
                 stroke: "#238a85",
-                "stroke-width": "1.6",
+                strokeWidth: "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -14193,18 +14197,18 @@ var SingleCompany = function SingleCompany() {
                 xmlns: "http://www.w3.org/2000/svg",
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 64 64",
-                "enable-background": "new 0 0 64 64",
+                enableBackground: "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
                 stroke: "#238a85",
-                "stroke-width": "1.6",
+                strokeWidth: "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -14225,18 +14229,18 @@ var SingleCompany = function SingleCompany() {
                 xmlns: "http://www.w3.org/2000/svg",
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 64 64",
-                "enable-background": "new 0 0 64 64",
+                enableBackground: "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
                 stroke: "#238a85",
-                "stroke-width": "1.6",
+                strokeWidth: "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -14257,18 +14261,18 @@ var SingleCompany = function SingleCompany() {
                 xmlns: "http://www.w3.org/2000/svg",
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 64 64",
-                "enable-background": "new 0 0 64 64",
+                enableBackground: "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
                 stroke: "#238a85",
-                "stroke-width": "1.6",
+                strokeWidth: "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -14286,11 +14290,11 @@ var SingleCompany = function SingleCompany() {
               className: "",
               children: (_Date = new Date(_feedback === null || _feedback === void 0 ? void 0 : _feedback.created_at)) === null || _Date === void 0 ? void 0 : _Date.toDateString()
             })]
-          }, _feedback.name), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
             className: "my-2 bj-w-66",
             children: _feedback.comment
           })]
-        });
+        }, _feedback.name);
       })]
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
       children: !showFeedback ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -14328,18 +14332,18 @@ var SingleCompany = function SingleCompany() {
                 xmlns: "http://www.w3.org/2000/svg",
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 64 64",
-                "enable-background": "new 0 0 64 64",
+                enableBackground: "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
                 stroke: "#238a85",
-                "stroke-width": "1.6",
+                strokeWidth: "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -14370,18 +14374,18 @@ var SingleCompany = function SingleCompany() {
                 xmlns: "http://www.w3.org/2000/svg",
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 64 64",
-                "enable-background": "new 0 0 64 64",
+                enableBackground: "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
                 stroke: "#238a85",
-                "stroke-width": "1.6",
+                strokeWidth: "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -14412,18 +14416,18 @@ var SingleCompany = function SingleCompany() {
                 xmlns: "http://www.w3.org/2000/svg",
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 64 64",
-                "enable-background": "new 0 0 64 64",
+                enableBackground: "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
                 stroke: "#238a85",
-                "stroke-width": "1.6",
+                strokeWidth: "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -14454,18 +14458,18 @@ var SingleCompany = function SingleCompany() {
                 xmlns: "http://www.w3.org/2000/svg",
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 64 64",
-                "enable-background": "new 0 0 64 64",
+                enableBackground: "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
                 stroke: "#238a85",
-                "stroke-width": "1.6",
+                strokeWidth: "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -14496,18 +14500,18 @@ var SingleCompany = function SingleCompany() {
                 xmlns: "http://www.w3.org/2000/svg",
                 xmlnsXlink: "http://www.w3.org/1999/xlink",
                 viewBox: "0 0 64 64",
-                "enable-background": "new 0 0 64 64",
+                enableBackground: "new 0 0 64 64",
                 xmlSpace: "preserve",
                 fill: "#000000",
                 stroke: "#238a85",
-                "stroke-width": "1.6",
+                strokeWidth: "1.6",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_bgCarrier",
-                  "stroke-width": "0"
+                  strokeWidth: "0"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                   id: "SVGRepo_tracerCarrier",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
@@ -14611,7 +14615,7 @@ function SingleJob(props) {
         className: "bi bi-arrow-left",
         viewBox: "0 0 16 16",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
-          "fill-rule": "evenodd",
+          fillRule: "evenodd",
           d: "M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
         })
       })
@@ -15025,18 +15029,16 @@ function UpdateProfile() {
                 }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                   className: "d-flex align-items-center gap-2",
                   children: moreSkills === null || moreSkills === void 0 ? void 0 : moreSkills.map(function (skill) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                        className: "badge bg-three",
-                        children: skill
-                      }, skill)
-                    });
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                      className: "badge bg-three",
+                      children: skill
+                    }, skill);
                   })
                 })]
               })]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            "class": "text-end mt-2",
+            className: "text-end mt-2",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
               className: "btn text-prime bj-btn-prime",
               type: "submit",

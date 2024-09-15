@@ -30,7 +30,7 @@ function JobQuestions() {
     const [countries, setCountries] = useState(getCountries());
     const [country, setCountry] = useState('pakistan');
     const [state, setState] = useState();
-	const [abilityToCommute, setAbilityToCommute] = useState('No');
+	const [abilityToCommute, setAbilityToCommute] = useState('yes');
 	const [salaryExpectation, setSalaryExpectation] = useState(40000);
 	const [noticePeriod, setNoticePeriod] = useState(10);
 	const [scheduleInterview, setScheduleInterview] = useState('2024-04-11');
@@ -55,7 +55,7 @@ function JobQuestions() {
       const formik = useFormik({
         initialValues: {
           country: 'pakistan',
-          abilityToCommute: '',
+          abilityToCommute: context.submission.ability_to_commute,
           salaryExpectation: '',
           noticePeriod: '',
           scheduleInterview: ''
@@ -134,7 +134,6 @@ function JobQuestions() {
                                   }
                                 </select>
                             </div>
-
 
     						<div className="">
 

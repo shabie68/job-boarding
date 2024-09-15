@@ -54,20 +54,20 @@ function ShowJob(props) {
       const value = `; ${document.cookie}`
       const parts = value.split(`; XSRF-TOKEN=`)
       const xsrfToken = parts.pop().split(';').shift()
-      const pusher = new Pusher('de34f80f0848257e88e9', {
-        cluster: 'ap2',
-        encrypted: true,
-         authEndpoint: 'api/broadcasting/auth',
-         withCredentials: true,
-        enableStats: false,
-        enabledTransports: ['ws', 'wss'],
-               auth: {
-                headers: {
-            'X-XSRF-TOKEN':decodeURIComponent(xsrfToken),
-          },
+      // const pusher = new Pusher('de34f80f0848257e88e9', {
+      //   cluster: 'ap2',
+      //   encrypted: true,
+      //    authEndpoint: 'api/broadcasting/auth',
+      //    withCredentials: true,
+      //   enableStats: false,
+      //   enabledTransports: ['ws', 'wss'],
+      //          auth: {
+      //           headers: {
+      //       'X-XSRF-TOKEN':decodeURIComponent(xsrfToken),
+      //     },
 
-        }
-      });
+      //   }
+      // });
 
 
       const channelSubscription = () => {
@@ -105,20 +105,24 @@ function ShowJob(props) {
        apiClient.get('http://127.0.0.1:8000/api/show-jobs'+getJobsUrl)
         .then(function(response) {
 
-            const pusher = new Pusher('de34f80f0848257e88e9', {
-            cluster: 'ap2',
-            encrypted: true,
-             authEndpoint: 'api/broadcasting/auth',
-             withCredentials: true,
-            enableStats: false,
-            enabledTransports: ['ws', 'wss'],
-                   auth: {
-                    headers: {
-                'X-XSRF-TOKEN':decodeURIComponent(xsrfToken),
-              },
 
-            }
-          });
+          // if(!jobTitle) {
+            const pusher = new Pusher('de34f80f0848257e88e9', {
+              cluster: 'ap2',
+              encrypted: true,
+               authEndpoint: 'api/broadcasting/auth',
+               withCredentials: true,
+              enableStats: false,
+              enabledTransports: ['ws', 'wss'],
+                     auth: {
+                      headers: {
+                  'X-XSRF-TOKEN':decodeURIComponent(xsrfToken),
+                },
+
+              }
+            });
+          // }
+            
             setJobs(response.data.jobs.data)
             setNextPage(response.data.jobs.next_page_url)
             setLastPage(response.data.jobs.last_page)
@@ -378,7 +382,7 @@ function ShowJob(props) {
                   !showMessage ?
                   <div className="position-fixed bg-three" style={{bottom: 20, borderRadius: '50%', padding: '4px', right: '50px', zIndex: 9, cursor: 'pointer'}} onClick={() => {setShowMessage(true)}}>
                     
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 11H8.01M12 11H12.01M16 11H16.01M21 20L17.6757 18.3378C17.4237 18.2118 17.2977 18.1488 17.1656 18.1044C17.0484 18.065 16.9277 18.0365 16.8052 18.0193C16.6672 18 16.5263 18 16.2446 18H6.2C5.07989 18 4.51984 18 4.09202 17.782C3.71569 17.5903 3.40973 17.2843 3.21799 16.908C3 16.4802 3 15.9201 3 14.8V7.2C3 6.07989 3 5.51984 3.21799 5.09202C3.40973 4.71569 3.71569 4.40973 4.09202 4.21799C4.51984 4 5.0799 4 6.2 4H17.8C18.9201 4 19.4802 4 19.908 4.21799C20.2843 4.40973 20.5903 4.71569 20.782 5.09202C21 5.51984 21 6.0799 21 7.2V20Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 11H8.01M12 11H12.01M16 11H16.01M21 20L17.6757 18.3378C17.4237 18.2118 17.2977 18.1488 17.1656 18.1044C17.0484 18.065 16.9277 18.0365 16.8052 18.0193C16.6672 18 16.5263 18 16.2446 18H6.2C5.07989 18 4.51984 18 4.09202 17.782C3.71569 17.5903 3.40973 17.2843 3.21799 16.908C3 16.4802 3 15.9201 3 14.8V7.2C3 6.07989 3 5.51984 3.21799 5.09202C3.40973 4.71569 3.71569 4.40973 4.09202 4.21799C4.51984 4 5.0799 4 6.2 4H17.8C18.9201 4 19.4802 4 19.908 4.21799C20.2843 4.40973 20.5903 4.71569 20.782 5.09202C21 5.51984 21 6.0799 21 7.2V20Z" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
                   </div>
                   :
                   <div className="card position-fixed bg-one w-25" style={{bottom: '20px', right: '50px', zIndex: 9, height: '50%', overflow: 'auto'}}>
@@ -387,8 +391,8 @@ function ShowJob(props) {
                       <div>
                          Chat Messages
                       </div>
-                      <div style={{marginLeft: 'auto', cursor: 'pointer'}} onClick={()=>{pusher.unsubscribe(`private-candidate.${authenticatedUser}`);setShowMessage(false)}}>
-                       <svg viewBox="0 0 24 24" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z" fill="#ffffff"></path> </g></svg>
+                      <div style={{marginLeft: 'auto', cursor: 'pointer'}} onClick={()=>{setShowMessage(false)}}>
+                       <svg viewBox="0 0 24 24" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clip-Rule="evenodd" d="M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z" fill="#ffffff"></path> </g></svg>
                       </div>
                     </div>
                     

@@ -288,9 +288,7 @@ function UpdateProfile() {
 		                                    {
 		                                        moreSkills?.map((skill) => (
 
-		                                            <>
 		                                            <div key={skill} className="badge bg-three">{skill}</div>
-		                                            </>
 		                                        ))
 		                                    }
 		                                </div>
@@ -298,7 +296,7 @@ function UpdateProfile() {
 		                        </div>  
 		                    </div>
 
-		                    <div class="text-end mt-2">
+		                    <div className="text-end mt-2">
                                 <button className="btn text-prime bj-btn-prime" type="submit">Save</button>
                             </div>
 	                    </form>
