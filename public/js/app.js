@@ -13459,8 +13459,9 @@ function ShowJob(props) {
       setUserName(response.data.name);
       var submissions = [];
       if (!search) {
+        var _response$data$submis;
         setSubmissions(response.data.submissions);
-        response.data.submissions.map(function (_submission) {
+        (_response$data$submis = response.data.submissions) === null || _response$data$submis === void 0 || _response$data$submis.map(function (_submission) {
           var user = {
             id: _submission.id,
             name: _submission.first_name
@@ -13520,6 +13521,7 @@ function ShowJob(props) {
         console.log(candidateChannel);
         candidateChannel.bind('job-msg', function (data) {
           messages.push(data['message']);
+          alert("WE ARE HERE");
           setReceivedMessages(function (prevMessages) {
             return [].concat(_toConsumableArray(prevMessages), [data['message']]);
           });
@@ -13838,6 +13840,7 @@ function ShowJob(props) {
               cursor: 'pointer'
             },
             onClick: function onClick() {
+              pusher.unsubscribe("private-candidate.".concat(authenticatedUser));
               setShowMessage(false);
             },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("svg", {
@@ -13878,6 +13881,7 @@ function ShowJob(props) {
               });
             })
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
+            defaultValue: userId,
             onChange: function onChange(e) {
               setUserId(e.target.value);
             },
