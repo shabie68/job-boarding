@@ -30,13 +30,20 @@ const RecruiterJobs = (props) => {
 	// }
 
 	const acceptCandidate = (submission) => {
+		let rejectedSubmissions = props.jobSubmissions.filter((_submission) => {
+			return _submission.id !=submission.id
+		})
+
 		apiClient.post('http://127.0.0.1:8000/api/accept/submission/' + submission.id, {
 			id: submission.user_id,
-			message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title
+			message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title,
+			rejectedSubmissions: rejectedSubmissions
 		})
 		.then(() => {
-			window.location = '/home'
+			// window.location = '/home'
 			alert("Congratulations! You have been selected")
+			// window.location = '/home'
+			
 		})
 	}
 

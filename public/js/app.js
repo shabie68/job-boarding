@@ -12511,12 +12511,17 @@ var RecruiterJobs = function RecruiterJobs(props) {
   // }
 
   var acceptCandidate = function acceptCandidate(submission) {
+    var rejectedSubmissions = props.jobSubmissions.filter(function (_submission) {
+      return _submission.id != submission.id;
+    });
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/accept/submission/' + submission.id, {
       id: submission.user_id,
-      message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title
+      message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title,
+      rejectedSubmissions: rejectedSubmissions
     }).then(function () {
-      window.location = '/home';
+      // window.location = '/home'
       alert("Congratulations! You have been selected");
+      // window.location = '/home'
     });
   };
   var sendMessage = function sendMessage() {
@@ -13682,7 +13687,7 @@ function ShowJob(props) {
               to: "/add-job",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 type: "button",
-                className: "btn bj-btn-secondary text-prime mb-4",
+                className: "btn bj-btn-secondary text-prime mb-3",
                 children: "Add Job"
               })
             })
@@ -13694,7 +13699,7 @@ function ShowJob(props) {
             children: [jobs.map(function (_job) {
               var _job$company, _job$company2;
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                className: "card bg-one mb-4 ".concat((job === null || job === void 0 ? void 0 : job.id) === _job.id ? "bj-border" : ""),
+                className: "card bg-one mb-3 ".concat((job === null || job === void 0 ? void 0 : job.id) === _job.id ? "bj-border" : ""),
                 style: {
                   cursor: 'pointer'
                 },
@@ -13830,44 +13835,47 @@ function ShowJob(props) {
           height: '50%',
           overflow: 'auto'
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "card-header bg-two text-prime d-flex",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            children: "Chat Messages"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            style: {
-              marginLeft: 'auto',
-              cursor: 'pointer'
-            },
-            onClick: function onClick() {
-              pusher.unsubscribe("private-candidate.".concat(authenticatedUser));
-              setShowMessage(false);
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("svg", {
-              viewBox: "0 0 24 24",
-              height: "16",
-              width: "16",
-              fill: "none",
-              xmlns: "http://www.w3.org/2000/svg",
-              stroke: "#ffffff",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
-                id: "SVGRepo_bgCarrier",
-                "stroke-width": "0"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
-                id: "SVGRepo_tracerCarrier",
-                "stroke-linecap": "round",
-                "stroke-linejoin": "round"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
-                id: "SVGRepo_iconCarrier",
-                children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
-                  "fill-rule": "evenodd",
-                  "clip-rule": "evenodd",
-                  d: "M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z",
-                  fill: "#ffffff"
-                }), " "]
-              })]
-            })
-          })]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "card-header position-sticky top-0 bg-two text-prime",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "d-flex",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              children: "Chat Messages"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              style: {
+                marginLeft: 'auto',
+                cursor: 'pointer'
+              },
+              onClick: function onClick() {
+                pusher.unsubscribe("private-candidate.".concat(authenticatedUser));
+                setShowMessage(false);
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("svg", {
+                viewBox: "0 0 24 24",
+                height: "16",
+                width: "16",
+                fill: "none",
+                xmlns: "http://www.w3.org/2000/svg",
+                stroke: "#ffffff",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
+                  id: "SVGRepo_bgCarrier",
+                  "stroke-width": "0"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
+                  id: "SVGRepo_tracerCarrier",
+                  "stroke-linecap": "round",
+                  "stroke-linejoin": "round"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
+                  id: "SVGRepo_iconCarrier",
+                  children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                    "fill-rule": "evenodd",
+                    "clip-rule": "evenodd",
+                    d: "M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z",
+                    fill: "#ffffff"
+                  }), " "]
+                })]
+              })
+            })]
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "card-body",
           children: [role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
@@ -13905,13 +13913,13 @@ function ShowJob(props) {
             });
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "card-footer bg-one",
+          className: "card-footer p-3 bg-one",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
               children: "Your message "
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "mb-4",
+            className: "",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
               className: "w-100",
               onChange: function onChange(e) {
