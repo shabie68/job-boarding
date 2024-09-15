@@ -144,11 +144,32 @@ class SubmissionController extends Controller
             ]);
         }
 
-        event(new \App\Events\MessageEvent(auth()->user(), $request));
+        if($submission->user_id === $request->id) {
+
+            event(new \App\Events\MessageEvent(auth()->user(), $request));
+             
+            return response()->json([
+                "message" => "Congratulation! You have been selected",
+                "accepted" => $submission->accept_candidate
+            ]); 
+        }
+
+
+
+        foreach($request->rejectedSubmissions as $rejectedSubmission) {
+            $details = [
+                'id' => $rejectedSubmission['user_id'],
+                'message' => 'Unfortunately you have not been selected for this role. Good luck for future'
+            ];
+
+            event(new \App\Events\MessageEvent(auth()->user(), $details));  
+        }
+
 
         return response()->json([
-            "message" => "Congratulation! You have been selected",
-            "accepted" => $submission->accept_candidate
+            'message' => "We are sorry, you have not been selected. Good luck for future journey!",
+            'accepted' => false
         ]);
+        
     }
 }

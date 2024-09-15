@@ -1,10 +1,12 @@
 import {useContext, useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 import apiClient from '../services/apiClient';
 import BoardJobContext from '../contexts/BoardJobContext'
 
+
 const RecruiterJobs = (props) => {
 
-	
+	const navigate = useNavigate();
 
 	const context = useContext(BoardJobContext)
 
@@ -30,13 +32,20 @@ const RecruiterJobs = (props) => {
 	// }
 
 	const acceptCandidate = (submission) => {
+		let rejectedSubmissions = props.jobSubmissions.filter((_submission) => {
+			return _submission.id !=submission.id
+		})
+
 		apiClient.post('http://127.0.0.1:8000/api/accept/submission/' + submission.id, {
 			id: submission.user_id,
-			message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title
+			message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title,
+			rejectedSubmissions: rejectedSubmissions
 		})
 		.then(() => {
-			window.location = '/home'
+			// window.location = '/home'
 			alert("Congratulations! You have been selected")
+			navigate('/home')
+			
 		})
 	}
 
@@ -94,7 +103,7 @@ const RecruiterJobs = (props) => {
 				Here you will find a list of candidates who applied to the jobs that your company posted. You can view candidate's resume
 				by click on the desire candidate column. Candidates can be accepted, rejected by setting the status to accepted.
 			</p>
-			<table class="table table-striped">
+			<table className="table table-striped">
 
 
 				<caption>
