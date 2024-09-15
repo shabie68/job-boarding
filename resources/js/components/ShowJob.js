@@ -136,7 +136,7 @@ function ShowJob(props) {
             let submissions = [];
             if(!search) {
               setSubmissions(response.data.submissions)  
-              response.data.submissions.map((_submission) => {
+              response.data.submissions?.map((_submission) => {
                 let user = {
                   id: _submission.id,
                   name: _submission.first_name
@@ -188,6 +188,7 @@ function ShowJob(props) {
               candidateChannel.bind('job-msg', (data) => {
              
                 messages.push(data['message'])
+                alert("WE ARE HERE")
 
                 setReceivedMessages((prevMessages) => [...prevMessages, data['message']]);
                 // props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
@@ -382,7 +383,7 @@ function ShowJob(props) {
                     <div>
                        Chat Messages
                     </div>
-                    <div style={{marginLeft: 'auto', cursor: 'pointer'}} onClick={()=>{setShowMessage(false)}}>
+                    <div style={{marginLeft: 'auto', cursor: 'pointer'}} onClick={()=>{pusher.unsubscribe(`private-candidate.${authenticatedUser}`);setShowMessage(false)}}>
                      <svg viewBox="0 0 24 24" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z" fill="#ffffff"></path> </g></svg>
                     </div>
                    
@@ -404,7 +405,7 @@ function ShowJob(props) {
                     :
 
                     (
-                      <select onChange={(e) => {setUserId(e.target.value)}}>
+                      <select defaultValue={userId} onChange={(e) => {setUserId(e.target.value)}}>
                         {
                           candidates?.map((candidate) => (
                           <option selected={candidate.id == userId} value={candidate.id}>{candidate.name}</option>
@@ -425,9 +426,6 @@ function ShowJob(props) {
 
                   </div>
 
-
-
-
                   <div className="card-footer bg-one">
                   <strong><label>Your message </label></strong>
                     <div className="mb-4">
@@ -443,13 +441,8 @@ function ShowJob(props) {
                     </div>
                   </div>
                 </div>
-
-                }
-                  
+              }
             </div>
-                
-
-
         </div>
     )
 }
