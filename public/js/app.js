@@ -12455,6 +12455,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
 /* harmony import */ var _contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contexts/BoardJobContext */ "./resources/js/contexts/BoardJobContext.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -12472,8 +12473,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var RecruiterJobs = function RecruiterJobs(props) {
   var _context$message;
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
   var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState2 = _slicedToArray(_useState, 2),
@@ -12521,7 +12524,7 @@ var RecruiterJobs = function RecruiterJobs(props) {
     }).then(function () {
       // window.location = '/home'
       alert("Congratulations! You have been selected");
-      // window.location = '/home'
+      navigate('/home');
     });
   };
   var sendMessage = function sendMessage() {
@@ -13473,6 +13476,7 @@ function ShowJob(props) {
           };
 
           // submissions.push(user)
+
           setCandidates(function (prevCandidates) {
             return [].concat(_toConsumableArray(prevCandidates), [user]);
           });
@@ -13623,6 +13627,10 @@ function ShowJob(props) {
     if (!company_id) {
       var _companies$;
       company_id = (_companies$ = companies[0]) === null || _companies$ === void 0 ? void 0 : _companies$.id;
+    }
+    if (company_id < 1) {
+      setMessage('');
+      return;
     }
     setReceivedMessages(function (prevMessages) {
       return [].concat(_toConsumableArray(prevMessages), [message]);
@@ -13895,7 +13903,6 @@ function ShowJob(props) {
             },
             children: candidates === null || candidates === void 0 ? void 0 : candidates.map(function (candidate) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
-                selected: candidate.id == userId,
                 value: candidate.id,
                 children: candidate.name
               });

@@ -1,10 +1,12 @@
 import {useContext, useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 import apiClient from '../services/apiClient';
 import BoardJobContext from '../contexts/BoardJobContext'
 
+
 const RecruiterJobs = (props) => {
 
-	
+	const navigate = useNavigate();
 
 	const context = useContext(BoardJobContext)
 
@@ -42,7 +44,7 @@ const RecruiterJobs = (props) => {
 		.then(() => {
 			// window.location = '/home'
 			alert("Congratulations! You have been selected")
-			// window.location = '/home'
+			navigate('/home')
 			
 		})
 	}

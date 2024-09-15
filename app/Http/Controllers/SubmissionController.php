@@ -144,8 +144,6 @@ class SubmissionController extends Controller
             ]);
         }
 
-        // return "HELL OSIR";
-
         if($submission->user_id === $request->id) {
 
             event(new \App\Events\MessageEvent(auth()->user(), $request));
@@ -155,7 +153,6 @@ class SubmissionController extends Controller
                 "accepted" => $submission->accept_candidate
             ]); 
         }
-
 
 
 

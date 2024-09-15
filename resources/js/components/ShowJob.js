@@ -143,6 +143,7 @@ function ShowJob(props) {
                 }
 
                 // submissions.push(user)
+                
                 setCandidates((prevCandidates) => [...prevCandidates, user])
 
               })
@@ -248,6 +249,11 @@ function ShowJob(props) {
     const sendMessage = (company_id) => {
       if(!company_id) {
         company_id = companies[0]?.id
+      }
+
+      if(company_id < 1) {
+        setMessage('')
+        return
       }
 
       setReceivedMessages((prevMessages) => [...prevMessages, message])
@@ -407,7 +413,7 @@ function ShowJob(props) {
                       <select defaultValue={userId} onChange={(e) => {setUserId(e.target.value)}}>
                         {
                           candidates?.map((candidate) => (
-                          <option selected={candidate.id == userId} value={candidate.id}>{candidate.name}</option>
+                          <option value={candidate.id}>{candidate.name}</option>
                           ))
                         }
                       </select>
