@@ -286,7 +286,7 @@ function ShowJob(props) {
             }
 
             <div className="my-4">
-              <div className="d-sm-block d-lg-flex justify-content-lg-center">
+              <div className="d-sm-block my-4 d-lg-flex justify-content-lg-center">
                 <div className="d-flex ">
                     
                     <span>
@@ -307,7 +307,7 @@ function ShowJob(props) {
                 {
                   role == 1 ?
 
-                    <div className="d-lg-flex justify-content-lg-between my-4 border-bottom">
+                    <div className="d-lg-flex justify-content-lg-between border-bottom">
                         <h1 className="mb-0 text-two">Jobs</h1>
                          <div className="">
                             <Link to="/add-job">
@@ -370,7 +370,7 @@ function ShowJob(props) {
 
                       {job ?
                         <>
-                         <SingleJob job={job} company={company}/>
+                         <SingleJob job={job} company={company} authenticatedUser={authenticatedUser}/>
                          </>
                          : ''
                       }

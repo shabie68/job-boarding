@@ -37,9 +37,18 @@ function SingleJob(props) {
 								</div>
 							</div>
 
-							<div className="ms-auto">
-								<Link to="/apply" state={{job: props.job}}><button className="btn bj-btn-prime text-prime">Apply</button></Link>
-							</div>
+							{
+								props.authenticatedUser ?
+								<div className="ms-auto">
+									<button className="btn bj-btn-prime text-prime" disabled>Already Applied</button>
+								</div>
+								
+								: 
+								<div className="ms-auto">
+									<Link to="/apply" state={{job: props.job}}><button className="btn bj-btn-prime text-prime">Apply</button></Link>
+								</div>	
+							}
+							
 						</div>
 					</div>
 				
