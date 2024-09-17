@@ -123,7 +123,7 @@ class SubmissionController extends Controller
         if(!$company_id) {
             $submissions = Submission::with(['boardJob', 'company'])
                                     ->where('user_id', auth()->user()->id)
-                                    ->paginate(1);
+                                    ->paginate(10);
         }
 
 
@@ -137,6 +137,10 @@ class SubmissionController extends Controller
 
         $submission = Submission::find($submissionId);
 
+        
+        if(!$submission) {
+            return;
+        }
 
         if($submission) {
             $submission->update([
@@ -144,32 +148,34 @@ class SubmissionController extends Controller
             ]);
         }
 
-        if($submission->user_id === $request->id) {
+        $feedback = [
+            'message' => 'Congratulation! You have been selected',
+            'accepted' => $submission->accepted_candidate
+        ];
 
-            event(new \App\Events\MessageEvent(auth()->user(), $request));
-             
-            return response()->json([
-                "message" => "Congratulation! You have been selected",
-                "accepted" => $submission->accept_candidate
-            ]); 
+
+        if($submission->user_id != $request->user_id) {
+            foreach($request->rejectedSubmissions as $rejectedSubmission) {
+                $details = [
+                    'id' => $rejectedSubmission['user_id'],
+                    'message' => 'Unfortunately you have not been selected for this role. Good luck for future'
+                ];
+
+                $feedback = [
+                    'message' => 'Unfortunately you have not been selected for this role. Good luck for future',
+                    'accepted' => false
+                ];
+
+                event(new \App\Events\MessageEvent(auth()->user(), $details));  
+            }
         }
-
-
-
-        foreach($request->rejectedSubmissions as $rejectedSubmission) {
-            $details = [
-                'id' => $rejectedSubmission['user_id'],
-                'message' => 'Unfortunately you have not been selected for this role. Good luck for future'
-            ];
-
-            event(new \App\Events\MessageEvent(auth()->user(), $details));  
-        }
-
-
-        return response()->json([
-            'message' => "We are sorry, you have not been selected. Good luck for future journey!",
-            'accepted' => false
-        ]);
         
+
+        event(new \App\Events\MessageEvent(auth()->user(), $request));
+         
+        return response()->json([
+            "message" => "Congratulation! You have been selected",
+            "accepted" => $submission->accept_candidate
+        ]); 
     }
 }

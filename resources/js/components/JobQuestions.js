@@ -80,8 +80,6 @@ function JobQuestions() {
             .catch((error) => {
 
             })
-
-
         },
       });
 

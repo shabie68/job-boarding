@@ -96,6 +96,7 @@ function ShowJob(props) {
         setCurrentPage(currentPage - 1);
     };
 
+  
     function getJobs(search = false) {
 
 
@@ -137,20 +138,23 @@ function ShowJob(props) {
             }
 
             setUserName(response.data.name)
-            let submissions = [];
+
             if(!search) {
               setSubmissions(response.data.submissions)  
-              response.data.submissions?.map((_submission) => {
-                let user = {
-                  id: _submission.id,
-                  name: _submission.first_name
-                }
+              if(response.data.role == 1) {
+                response.data.submissions?.map((_submission) => {
+                  let user = {
+                    id: _submission.id,
+                    name: _submission.first_name
+                  }
 
-                // submissions.push(user)
-                
-                setCandidates((prevCandidates) => [...prevCandidates, user])
+                  // submissions.push(user)
+                  
+                  setCandidates((prevCandidates) => [...prevCandidates, user])
 
-              })
+                })  
+              }
+              
 
             }
             
@@ -233,9 +237,9 @@ function ShowJob(props) {
         apiClient.get('http://127.0.0.1:8000/api/single-job/'+id)
         .then(function(response) {
             setJob(response.data.job)
-            document.querySelector('.jb-single-job').classList.remove('d-sm-none')
-            document.querySelector('.jb-jobs').classList.add('jb-all-jobs')
-            document.querySelector('.jb-add-job-btn').classList.add('d-sm-none')
+            document.querySelector('.jb-single-job')?.classList.remove('d-sm-none')
+            document.querySelector('.jb-jobs')?.classList.add('jb-all-jobs')
+            document.querySelector('.jb-add-job-btn')?.classList.add('d-sm-none')
 
         })
     }
@@ -286,7 +290,7 @@ function ShowJob(props) {
             }
 
             <div className="my-4">
-              <div className="d-sm-block d-lg-flex justify-content-lg-center">
+              <div className="d-sm-block my-4 d-lg-flex justify-content-lg-center">
                 <div className="d-flex ">
                     
                     <span>
@@ -307,7 +311,7 @@ function ShowJob(props) {
                 {
                   role == 1 ?
 
-                    <div className="d-lg-flex justify-content-lg-between my-4 border-bottom">
+                    <div className="d-lg-flex justify-content-lg-between border-bottom">
                         <h1 className="mb-0 text-two">Jobs</h1>
                          <div className="">
                             <Link to="/add-job">
@@ -370,7 +374,7 @@ function ShowJob(props) {
 
                       {job ?
                         <>
-                         <SingleJob job={job} company={company}/>
+                         <SingleJob job={job} company={company} role={role} submissions={submissions} authenticatedUser={authenticatedUser}/>
                          </>
                          : ''
                       }
