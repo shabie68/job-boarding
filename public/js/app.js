@@ -13499,22 +13499,23 @@ function ShowJob(props) {
         return;
       }
       setUserName(response.data.name);
-      var submissions = [];
       if (!search) {
-        var _response$data$submis;
         setSubmissions(response.data.submissions);
-        (_response$data$submis = response.data.submissions) === null || _response$data$submis === void 0 || _response$data$submis.map(function (_submission) {
-          var user = {
-            id: _submission.id,
-            name: _submission.first_name
-          };
+        if (response.data.role == 1) {
+          var _response$data$submis;
+          (_response$data$submis = response.data.submissions) === null || _response$data$submis === void 0 || _response$data$submis.map(function (_submission) {
+            var user = {
+              id: _submission.id,
+              name: _submission.first_name
+            };
 
-          // submissions.push(user)
+            // submissions.push(user)
 
-          setCandidates(function (prevCandidates) {
-            return [].concat(_toConsumableArray(prevCandidates), [user]);
+            setCandidates(function (prevCandidates) {
+              return [].concat(_toConsumableArray(prevCandidates), [user]);
+            });
           });
-        });
+        }
       }
       var channel = pusher.subscribe('private-company.' + response.data.company_id);
       channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function (data) {
@@ -13623,10 +13624,11 @@ function ShowJob(props) {
           case 5:
             _job = _context.sent;
             _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/single-job/' + id).then(function (response) {
+              var _document$querySelect, _document$querySelect2, _document$querySelect3;
               setJob(response.data.job);
-              document.querySelector('.jb-single-job').classList.remove('d-sm-none');
-              document.querySelector('.jb-jobs').classList.add('jb-all-jobs');
-              document.querySelector('.jb-add-job-btn').classList.add('d-sm-none');
+              (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.remove('d-sm-none');
+              (_document$querySelect2 = document.querySelector('.jb-jobs')) === null || _document$querySelect2 === void 0 || _document$querySelect2.classList.add('jb-all-jobs');
+              (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.add('d-sm-none');
             });
           case 7:
           case "end":
@@ -13827,6 +13829,8 @@ function ShowJob(props) {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SingleJob__WEBPACK_IMPORTED_MODULE_1__["default"], {
               job: job,
               company: company,
+              role: role,
+              submissions: submissions,
               authenticatedUser: authenticatedUser
             })
           }) : '']
@@ -14620,111 +14624,142 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 function SingleJob(props) {
   function handleNavigation() {
-    document.querySelector('.jb-single-job').classList.add('d-sm-none');
-    document.querySelector('.jb-jobs').classList.remove('jb-all-jobs');
-    document.querySelector('.jb-add-job-btn').classList.remove('d-sm-none');
+    var _document$querySelect, _document$querySelect2, _document$querySelect3;
+    (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.add('d-sm-none');
+    (_document$querySelect2 = document.querySelector('.jb-jobs')) === null || _document$querySelect2 === void 0 || _document$querySelect2.classList.remove('jb-all-jobs');
+    (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.remove('d-sm-none');
   }
-
-  //create dummy record for the user and job board
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+  var _react$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState([]),
+    _react$useState2 = _slicedToArray(_react$useState, 2),
+    appliedJobs = _react$useState2[0],
+    setAppliedJobs = _react$useState2[1];
+  var checkForAppliedJobs = function checkForAppliedJobs() {
+    var total = props.submissions.filter(function (submission) {
+      return submission.user_id == props.authenticatedUser && submission.board_job_id === props.job.id;
+    });
+    console.log("HERE IS THE TOTAL");
+    console.log(props.job.id);
+    setAppliedJobs(total);
+    console.log("APPLIED JOBS");
+    console.log(total);
+  };
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    checkForAppliedJobs();
+  }, [props.job]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "jb-single-job w-lg-50 d-sm-none d-lg-block",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
       onClick: handleNavigation,
       className: "jb-back-btn jb-back-sm-btn",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         width: "16",
         height: "16",
         fill: "currentColor",
         className: "bi bi-arrow-left",
         viewBox: "0 0 16 16",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
           fillRule: "evenodd",
           d: "M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "d-lg-block position-sticky end-0",
       style: {
         top: '80px',
         alignSelf: 'flex-start'
       },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         className: "card bg-one",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "card-header",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
               children: props === null || props === void 0 ? void 0 : props.job.title
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
               children: props.company
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
             className: "d-flex",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
                   children: props === null || props === void 0 ? void 0 : props.job.location
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
                   children: props === null || props === void 0 ? void 0 : props.job.job_type
                 })
               })]
-            }), props.authenticatedUser ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            }), (appliedJobs === null || appliedJobs === void 0 ? void 0 : appliedJobs.length) < 1 && props.role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
               className: "ms-auto",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
-                className: "btn bj-btn-prime text-prime",
-                disabled: true,
-                children: "Already Applied"
-              })
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-              className: "ms-auto",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
                 to: "/apply",
                 state: {
                   job: props.job
                 },
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
                   className: "btn bj-btn-prime text-prime",
                   children: "Apply"
                 })
               })
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              className: "ms-auto",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                className: "btn bj-btn-prime text-prime",
+                disabled: true,
+                children: "Apply"
+              })
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "card-body bg-one overflow-auto position-sticky",
           style: {
             height: '400px'
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             dangerouslySetInnerHTML: {
               __html: props.job.description
             }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             dangerouslySetInnerHTML: {
               __html: props.job.responsibilities
             }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
             dangerouslySetInnerHTML: {
               __html: props.job.requirements
             }
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
-            children: [" Salary:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("b", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+            children: [" Salary:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("b", {
               children: [" ", props === null || props === void 0 ? void 0 : props.job.salary, " "]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
-            children: ["Ability to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("b", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
+            children: ["Ability to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
               children: "relocate"
             })]
           })]
+        }), appliedJobs === null || appliedJobs === void 0 ? void 0 : appliedJobs.map(function (jo) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              children: jo.title
+            })
+          }, jo.id);
         })]
       })
     })]

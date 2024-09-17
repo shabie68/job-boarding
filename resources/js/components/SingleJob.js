@@ -1,15 +1,40 @@
 import {Link} from 'react-router-dom'
+import react from 'react'
 function SingleJob(props) {
 
 	 function handleNavigation() {
         
-        document.querySelector('.jb-single-job').classList.add('d-sm-none')
-        document.querySelector('.jb-jobs').classList.remove('jb-all-jobs')
-        document.querySelector('.jb-add-job-btn').classList.remove('d-sm-none')
+        document.querySelector('.jb-single-job')?.classList.add('d-sm-none')
+        document.querySelector('.jb-jobs')?.classList.remove('jb-all-jobs')
+        document.querySelector('.jb-add-job-btn')?.classList.remove('d-sm-none')
     }
 
-	
-	//create dummy record for the user and job board
+   	
+   	const [appliedJobs, setAppliedJobs] = react.useState([]);
+
+   	const checkForAppliedJobs = () => {
+
+      
+      let total = props.submissions.filter((submission) => {
+        return submission.user_id == props.authenticatedUser && submission.board_job_id === props.job.id
+      })
+
+      console.log("HERE IS THE TOTAL")
+      console.log(props.job.id)
+
+      setAppliedJobs(total)
+
+      console.log("APPLIED JOBS")
+      console.log(total)
+
+    }
+
+
+    react.useEffect(() => {
+    	checkForAppliedJobs()
+
+    }, [props.job])
+
 	return (
 		<div className="jb-single-job w-lg-50 d-sm-none d-lg-block">
 			<span onClick={handleNavigation} className="jb-back-btn jb-back-sm-btn">
@@ -38,17 +63,17 @@ function SingleJob(props) {
 							</div>
 
 							{
-								props.authenticatedUser ?
-								<div className="ms-auto">
-									<button className="btn bj-btn-prime text-prime" disabled>Already Applied</button>
-								</div>
-								
-								: 
+								appliedJobs?.length < 1 && props.role == 2 ?
 								<div className="ms-auto">
 									<Link to="/apply" state={{job: props.job}}><button className="btn bj-btn-prime text-prime">Apply</button></Link>
 								</div>	
+								:
+								<div className="ms-auto">
+									<button className="btn bj-btn-prime text-prime" disabled>Apply</button>
+								</div>
+
 							}
-							
+								
 						</div>
 					</div>
 				
@@ -63,6 +88,14 @@ function SingleJob(props) {
 						<br />
 						<span>Ability to <b>relocate</b></span>
 					</div>
+
+					{
+						appliedJobs?.map((jo) => (
+							<div key={jo.id}>
+								<p>{jo.title}</p>
+							</div>
+						))
+					}
 				</div>
 			</div>
 		</div>

@@ -96,6 +96,7 @@ function ShowJob(props) {
         setCurrentPage(currentPage - 1);
     };
 
+  
     function getJobs(search = false) {
 
 
@@ -137,20 +138,23 @@ function ShowJob(props) {
             }
 
             setUserName(response.data.name)
-            let submissions = [];
+
             if(!search) {
               setSubmissions(response.data.submissions)  
-              response.data.submissions?.map((_submission) => {
-                let user = {
-                  id: _submission.id,
-                  name: _submission.first_name
-                }
+              if(response.data.role == 1) {
+                response.data.submissions?.map((_submission) => {
+                  let user = {
+                    id: _submission.id,
+                    name: _submission.first_name
+                  }
 
-                // submissions.push(user)
-                
-                setCandidates((prevCandidates) => [...prevCandidates, user])
+                  // submissions.push(user)
+                  
+                  setCandidates((prevCandidates) => [...prevCandidates, user])
 
-              })
+                })  
+              }
+              
 
             }
             
@@ -233,9 +237,9 @@ function ShowJob(props) {
         apiClient.get('http://127.0.0.1:8000/api/single-job/'+id)
         .then(function(response) {
             setJob(response.data.job)
-            document.querySelector('.jb-single-job').classList.remove('d-sm-none')
-            document.querySelector('.jb-jobs').classList.add('jb-all-jobs')
-            document.querySelector('.jb-add-job-btn').classList.add('d-sm-none')
+            document.querySelector('.jb-single-job')?.classList.remove('d-sm-none')
+            document.querySelector('.jb-jobs')?.classList.add('jb-all-jobs')
+            document.querySelector('.jb-add-job-btn')?.classList.add('d-sm-none')
 
         })
     }
@@ -370,7 +374,7 @@ function ShowJob(props) {
 
                       {job ?
                         <>
-                         <SingleJob job={job} company={company} authenticatedUser={authenticatedUser}/>
+                         <SingleJob job={job} company={company} role={role} submissions={submissions} authenticatedUser={authenticatedUser}/>
                          </>
                          : ''
                       }

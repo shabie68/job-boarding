@@ -39,11 +39,13 @@ class BoardJobController extends Controller
                                 
         $companyIds = $submissions->pluck("company_id");
         $companies = Company::find($companyIds);
-        $submissions = null;
+        // $submissions = null;
 
         if(auth()->user()->role == 1) {
             $submissions = BoardJob::where('company_id', auth()->user()->company->id)->first()->submissions;
-
+        }else {
+            $submissions = Submission::where('user_id', auth()->user()->id)
+                                    ->get();
         }
 
         if(!$request->has('title')) {
@@ -58,7 +60,8 @@ class BoardJobController extends Controller
                 "users" => \App\Models\User::all(),
                 "authenticatedUser" => auth()->user()->id,
                 "companies" => $companies,
-                "submissions" => $submissions
+                "submissions" => $submissions,
+                "role" => auth()->user()->role
             ]);
         }
         
