@@ -13505,7 +13505,7 @@ function ShowJob(props) {
           var _response$data$submis;
           (_response$data$submis = response.data.submissions) === null || _response$data$submis === void 0 || _response$data$submis.map(function (_submission) {
             var user = {
-              id: _submission.id,
+              id: _submission.user_id,
               name: _submission.first_name
             };
 
@@ -13721,7 +13721,7 @@ function ShowJob(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "d-lg-flex justify-content-lg-between border-bottom",
+          className: "d-lg-flex justify-content-lg-between",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
             className: "mb-0 text-two",
             children: "Jobs"
@@ -13736,7 +13736,10 @@ function ShowJob(props) {
               })
             })
           })]
-        }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: "mb-3 border-bottom",
+          children: " "
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "d-sm-block d-lg-flex gap-3",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "w-40 jb-sm-card-w bg-one jb-lg-card-w jb-jobs",
@@ -14707,7 +14710,7 @@ function SingleJob(props) {
                   children: props === null || props === void 0 ? void 0 : props.job.job_type
                 })
               })]
-            }), (appliedJobs === null || appliedJobs === void 0 ? void 0 : appliedJobs.length) < 1 && props.role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            }), (appliedJobs === null || appliedJobs === void 0 ? void 0 : appliedJobs.length) < 1 && props.authenticatedUser != props.job.user_id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
               className: "ms-auto",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
                 to: "/apply",
