@@ -148,9 +148,6 @@ function ShowJob(props) {
                     name: _submission.first_name
                   }
 
-                  // submissions.push(user)
-
-
                   setCandidates((prevCandidates) => [...prevCandidates, user])
 
                 })  
