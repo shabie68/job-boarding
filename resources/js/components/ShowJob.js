@@ -144,18 +144,17 @@ function ShowJob(props) {
               if(response.data.role == 1) {
                 response.data.submissions?.map((_submission) => {
                   let user = {
-                    id: _submission.id,
+                    id: _submission.user_id,
                     name: _submission.first_name
                   }
 
                   // submissions.push(user)
-                  
+
+
                   setCandidates((prevCandidates) => [...prevCandidates, user])
 
                 })  
               }
-              
-
             }
             
 
@@ -311,7 +310,7 @@ function ShowJob(props) {
                 {
                   role == 1 ?
 
-                    <div className="d-lg-flex justify-content-lg-between border-bottom">
+                    <div className="d-lg-flex justify-content-lg-between">
                         <h1 className="mb-0 text-two">Jobs</h1>
                          <div className="">
                             <Link to="/add-job">
@@ -323,6 +322,8 @@ function ShowJob(props) {
                     </div>
                     : ''
                   }
+
+                  <div className="mb-3 border-bottom"> </div>
                   
                   <div className="d-sm-block d-lg-flex gap-3">
                        <div className="w-40 jb-sm-card-w bg-one jb-lg-card-w jb-jobs">

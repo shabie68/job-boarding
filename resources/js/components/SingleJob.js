@@ -63,7 +63,7 @@ function SingleJob(props) {
 							</div>
 
 							{
-								appliedJobs?.length < 1 && props.role == 2 ?
+								appliedJobs?.length < 1 && props.authenticatedUser!=props.job.user_id ?
 								<div className="ms-auto">
 									<Link to="/apply" state={{job: props.job}}><button className="btn bj-btn-prime text-prime">Apply</button></Link>
 								</div>	
