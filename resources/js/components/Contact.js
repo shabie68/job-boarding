@@ -60,7 +60,7 @@ const Contact = () => {
 		                    </div>
 
 		                    <div className="text-end my-2">
-                                <button className="btn text-prime bj-btn-prime" type="submit">Send Message</button>
+                                <button className="btn text-prime bj-btn-prime" type="submit">Submit</button>
                             </div>
 	                    </form>
 	                </div>

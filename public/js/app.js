@@ -11238,7 +11238,7 @@ var Contact = function Contact() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
             className: "btn text-prime bj-btn-prime",
             type: "submit",
-            children: "Send Message"
+            children: "Submit"
           })
         })]
       })
@@ -11786,11 +11786,215 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 var Faqs = function Faqs() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    children: "Here are the most asked questions for you!"
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(-1),
+    _useState2 = _slicedToArray(_useState, 2),
+    role = _useState2[0],
+    setRole = _useState2[1];
+  _services_apiClient__WEBPACK_IMPORTED_MODULE_0__["default"].get('http://127.0.0.1:8000/api/get-user-role').then(function (response) {
+    console.log("ROLE");
+    console.log(response);
+    setRole(response.data.role);
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "accordion accordion-flush",
+      id: "accordionFlushExample",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "accordion-item",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          className: "accordion-header",
+          id: "flush-headingOne",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "accordion-button collapsed",
+            type: "button",
+            "data-bs-toggle": "collapse",
+            "data-bs-target": "#flush-collapseOne",
+            "aria-expanded": "false",
+            "aria-controls": "flush-collapseOne",
+            children: "How many jobs can be added by a company?"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          id: "flush-collapseOne",
+          className: "accordion-collapse collapse",
+          "aria-labelledby": "flush-headingOne",
+          "data-bs-parent": "#accordionFlushExample",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "accordion-body",
+            children: "There is no limitations on adding the number of jobs. Company can add as many jobs as it want"
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "accordion-item",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          className: "accordion-header",
+          id: "flush-headingTwo",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "accordion-button collapsed",
+            type: "button",
+            "data-bs-toggle": "collapse",
+            "data-bs-target": "#flush-collapseTwo",
+            "aria-expanded": "false",
+            "aria-controls": "flush-collapseTwo",
+            children: "How to accept a candidate?"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          id: "flush-collapseTwo",
+          className: "accordion-collapse collapse",
+          "aria-labelledby": "flush-headingTwo",
+          "data-bs-parent": "#accordionFlushExample",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "accordion-body",
+            children: ["Once atleast 1 candidate have applied to the job your company posted. Just go to the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
+              children: "Your Jobs"
+            }), " menubar, there candidate can be added or rejected"]
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "accordion-item",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          className: "accordion-header",
+          id: "flush-headingThree",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "accordion-button collapsed",
+            type: "button",
+            "data-bs-toggle": "collapse",
+            "data-bs-target": "#flush-collapseThree",
+            "aria-expanded": "false",
+            "aria-controls": "flush-collapseThree",
+            children: "We want the reviews for our company?"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          id: "flush-collapseThree",
+          className: "accordion-collapse collapse",
+          "aria-labelledby": "flush-headingThree",
+          "data-bs-parent": "#accordionFlushExample",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "accordion-body",
+            children: "Yes reviews can be added to every company by candidates. Before adding a review candidates are ask to verify their review by contacting the relevant company"
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "accordion-item",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          className: "accordion-header",
+          id: "flush-headingFour",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "accordion-button collapsed",
+            type: "button",
+            "data-bs-toggle": "collapse",
+            "data-bs-target": "#flush-collapseFour",
+            "aria-expanded": "false",
+            "aria-controls": "flush-collapseThree",
+            children: "How a candidate can be contacted?"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          id: "flush-collapseFour",
+          className: "accordion-collapse collapse",
+          "aria-labelledby": "flush-headingFour",
+          "data-bs-parent": "#accordionFlushExample",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "accordion-body",
+            children: ["Recruiters can contact candidates by sending them messages. See message icon at the right bottom ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
+              children: "Home Page"
+            }), " and in the drop down you have a list of all candidates who have applied to the jobs you have posted"]
+          })
+        })]
+      })]
+    }) : role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "accordion accordion-flush",
+      id: "accordionFlushExample",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "accordion-item",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          className: "accordion-header",
+          id: "flush-headingOne",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "accordion-button collapsed",
+            type: "button",
+            "data-bs-toggle": "collapse",
+            "data-bs-target": "#flush-collapseOne",
+            "aria-expanded": "false",
+            "aria-controls": "flush-collapseOne",
+            children: "How to apply for a job?"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          id: "flush-collapseOne",
+          className: "accordion-collapse collapse",
+          "aria-labelledby": "flush-headingOne",
+          "data-bs-parent": "#accordionFlushExample",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "accordion-body",
+            children: ["Just go to the home page, there a list of job will be loaded. Want to find relevant job. Just make use of search input. Try type ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("b", {
+              children: "developer"
+            }), " and it will filter the result for you. Only showing jobs having developer in the title"]
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "accordion-item",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          className: "accordion-header",
+          id: "flush-headingTwo",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "accordion-button collapsed",
+            type: "button",
+            "data-bs-toggle": "collapse",
+            "data-bs-target": "#flush-collapseTwo",
+            "aria-expanded": "false",
+            "aria-controls": "flush-collapseTwo",
+            children: "Can I setup my profile?"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          id: "flush-collapseTwo",
+          className: "accordion-collapse collapse",
+          "aria-labelledby": "flush-headingTwo",
+          "data-bs-parent": "#accordionFlushExample",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "accordion-body",
+            children: ["Yes you have to go to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
+              children: "Profile"
+            }), " menubar and there you can update your profile"]
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "accordion-item",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          className: "accordion-header",
+          id: "flush-headingThree",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            className: "accordion-button collapsed",
+            type: "button",
+            "data-bs-toggle": "collapse",
+            "data-bs-target": "#flush-collapseThree",
+            "aria-expanded": "false",
+            "aria-controls": "flush-collapseThree",
+            children: "Can I review a company?"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          id: "flush-collapseThree",
+          className: "accordion-collapse collapse",
+          "aria-labelledby": "flush-headingThree",
+          "data-bs-parent": "#accordionFlushExample",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "accordion-body",
+            children: "Yes you can add a review for a company but it must be authentic and company may contact you the review you have added"
+          })
+        })]
+      })]
+    }) : ''
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Faqs);
