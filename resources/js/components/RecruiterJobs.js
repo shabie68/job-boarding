@@ -32,8 +32,11 @@ const RecruiterJobs = (props) => {
 	// }
 
 	const acceptCandidate = (submission) => {
+
 		let rejectedSubmissions = props.jobSubmissions.filter((_submission) => {
-			return _submission.id !=submission.id
+			console.log("HERE IS THE SUBMISSION")
+			console.log(_submission.board_job.id == submission.board_job.id ? submission.board_job.title : 'not is not')
+			return _submission.id != submission.id && _submission.board_job.id == submission.board_job.id
 		})
 
 		apiClient.post('http://127.0.0.1:8000/api/accept/submission/' + submission.id, {
@@ -131,7 +134,13 @@ const RecruiterJobs = (props) => {
 			    			<td>{submission.phone_number}</td>
 			    			<td>{submission.email}</td>
 			    			<td><a href={`uploads/${submission.resume}`}>Resume</a></td>
-			    			<td><button className="btn bj-btn-table" onClick={() => {acceptCandidate(submission)}}>Accept candidate</button></td>
+			    			{
+			    				submission.accept_candidate < 1 ?
+			    				<td><button className="btn bj-btn-table" onClick={() => {acceptCandidate(submission)}}>Accept candidate</button></td>
+			    				:
+			    				<td><strong>{submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'}</strong></td>
+			    			}
+			    			
 			    		</tr>
 			    	))}
 

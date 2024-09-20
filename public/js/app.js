@@ -10514,6 +10514,9 @@ var CandidateJobs = function CandidateJobs(props) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
             scope: "col",
             children: "Company name"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
+            scope: "col",
+            children: "Application status"
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
@@ -10529,6 +10532,11 @@ var CandidateJobs = function CandidateJobs(props) {
                 verticalAlign: 'middle'
               },
               children: submission.company.title
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              style: {
+                verticalAlign: 'middle'
+              },
+              children: submission.accepted_candidate == 0 ? 'Evaluating' : submission.accepted_candidate == 1 ? 'Accepted' : 'Rejected'
             })]
           });
         })
@@ -12896,7 +12904,9 @@ var RecruiterJobs = function RecruiterJobs(props) {
 
   var acceptCandidate = function acceptCandidate(submission) {
     var rejectedSubmissions = props.jobSubmissions.filter(function (_submission) {
-      return _submission.id != submission.id;
+      console.log("HERE IS THE SUBMISSION");
+      console.log(_submission.board_job.id == submission.board_job.id ? submission.board_job.title : 'not is not');
+      return _submission.id != submission.id && _submission.board_job.id == submission.board_job.id;
     });
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/accept/submission/' + submission.id, {
       id: submission.user_id,
@@ -13011,13 +13021,17 @@ var RecruiterJobs = function RecruiterJobs(props) {
                 href: "uploads/".concat(submission.resume),
                 children: "Resume"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+            }), submission.accept_candidate < 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                 className: "btn bj-btn-table",
                 onClick: function onClick() {
                   acceptCandidate(submission);
                 },
                 children: "Accept candidate"
+              })
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
+                children: submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'
               })
             })]
           }, submission.id);
