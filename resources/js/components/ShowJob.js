@@ -105,7 +105,10 @@ function ShowJob(props) {
       let getJobsUrl = !jobTitle ? `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
        apiClient.get('http://127.0.0.1:8000/api/show-jobs'+getJobsUrl)
         .then(function(response) {
-
+          setRole(response.data.role)
+          if(response.data.companies.length < 1) {
+            return;
+          }
 
           // if(!jobTitle) {
             const pusher = new Pusher('de34f80f0848257e88e9', {
@@ -123,12 +126,11 @@ function ShowJob(props) {
               }
             });
           // }
-            
             setJobs(response.data.jobs.data)
             setNextPage(response.data.jobs.next_page_url)
             setLastPage(response.data.jobs.last_page)
             setJob(response.data.jobs.data[0])
-            setRole(response.data.role)
+            
             setCompany(response.data.company)
             setUsers(response.data.users)
             setAuthenticatedUser(response.data.authenticatedUser)
@@ -171,17 +173,6 @@ function ShowJob(props) {
                 props.updateJobContext({user_id: data['user']['id'], board_job_id: null, submission: null, message: data['messages']})
                 setSenderName(data['user']['name'])
             })
-
-            // // const msgChannel = pusher.subscribe('private-msg.' + response.data.authenticatedUser)
-            // const msgChannel = pusher.subscribe('private-msg.' + response.data.authenticatedUser)
-            // msgChannel.bind('msg-event', (data) => {
-            //   console.log(data['message'])
-            //   // setReceivedMessage(data['message'])
-            //   setReceivedMessage((prevMessages) => [...prevMessages, data['message']]);
-            //   setIsMsgRecevied(true)
-            //   console.log(data)
-            //   setSenderName(data['name'])
-            // })
 
 
 

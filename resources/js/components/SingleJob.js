@@ -71,7 +71,6 @@ function SingleJob(props) {
 								<div className="ms-auto">
 									<button className="btn bj-btn-prime text-prime" disabled>Apply</button>
 								</div>
-
 							}
 								
 						</div>

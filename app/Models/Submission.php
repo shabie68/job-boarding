@@ -12,7 +12,7 @@ class Submission extends Model
     protected $guarded = [];
 
     public function boardJob() {
-    	return $this->belongsTo(BoardJob::class);
+    	return $this->belongsTo(BoardJob::class)->withTrashed();
     }
 
     public function company() {
