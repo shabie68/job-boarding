@@ -13536,25 +13536,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _services_apiClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/apiClient */ "./resources/js/services/apiClient.js");
 /* harmony import */ var _contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contexts/BoardJobContext */ "./resources/js/contexts/BoardJobContext.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
 
+
+var validate = function validate(values) {
+  var errors = {};
+  if (!values.resume) {
+    errors.resume = 'Please upload your resume!';
+  }
+  return errors;
+};
 function Resume(props) {
   var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)();
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
-    _useState2 = _slicedToArray(_useState, 2),
-    resume = _useState2[0],
-    setResume = _useState2[1];
+  // const [resume, setResume] = useState();
+
   var handleResume = function handleResume(e) {
     setResume(e.target.files[0]);
   };
@@ -13581,6 +13582,82 @@ function Resume(props) {
       navigate('/job-questions');
     })["catch"](function (error) {});
   };
+  var formik = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useFormik)({
+    initialValues: {
+      resume: ''
+    },
+    validate: validate,
+    onSubmit: function onSubmit(values) {
+      // const data = {
+      //   submission: JSON.stringify(submission),
+      //   first_name: values.firstName,
+      //   last_name: values.lastName,
+      //   phone_number: values.phoneNumber,
+      //   email: values.email,
+      //   _method: 'put'
+      // };
+
+      // apiClient.post('http://127.0.0.1:8000/api/apply/candidate/' + location.state.job.user_id + '/job/' + submission.board_job_id, data)
+      //   .then((response) => {
+      //     props.updateJobContext({
+      //       user_id: location.state.job.user_id,
+      //       board_job_id: submission.board_job_id,
+      //       submission: response.data.submission
+      //     });
+      //     navigate('/resume');
+      //   })
+      //   .catch((error) => {
+      //     // Handle error
+      //   });
+
+      var formData = new FormData();
+      formData.append('resume', values.resume);
+      formData.append('submission', JSON.stringify(context.submission));
+      formData.append('_method', 'put');
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, formData).then(function (response) {
+        props.updateJobContext({
+          user_id: response.data.submission.user_id,
+          board_job_id: response.data.submission.board_job_id,
+          submission: response.data.submission
+        });
+        navigate('/job-questions');
+      })["catch"](function (error) {});
+    }
+  });
+
+  // return (
+  // 	<div className="my-4">
+  // 		<div className="progress mb-4" style={{height: '7px'}}>
+  //              <div className="progress-bar" id="jb-resume-pbar" role="progressbar" style={{width: "66%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+  //            </div>
+
+  // 		<div className="w-lg-50" style={{margin: '0 auto'}}>
+  // 			<h3 className="text-two">Upload your resume</h3>
+  // 			<form onSubmit={saveData}>
+  // 				<div className="bj-border bj-radius-10 bj-p-20 bg-one">
+  // 					<div className="card-body">
+
+  // 						<div className="mb-3">
+  // 						  <strong><label htmlFor="formFileSm" className="form-label">Choose resume</label></strong>
+  // 						  <input
+  // 					  		className="bj-input bg-one"	
+  // 						  	id="formFileSm"
+  // 						  	type="file"
+  // 						  	onChange={handleResume}
+  // 					    />
+  // 						</div>
+  // 					</div>
+  // 				</div>
+
+  // 				<div className="mt-2 text-end">
+  //                        <button type="submit" className="btn bj-btn-prime text-prime">Continue</button>
+  //                    </div>
+  // 			</form>
+  // 		</div>
+
+  // 	</div>
+  // )
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -13608,26 +13685,25 @@ function Resume(props) {
         className: "text-two",
         children: "Upload your resume"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-        onSubmit: saveData,
+        onSubmit: formik.handleSubmit,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "bj-border bj-radius-10 bj-p-20 bg-one",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "card-body",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "mb-3",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-                  htmlFor: "formFileSm",
-                  className: "form-label",
-                  children: "Choose resume"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-                className: "bj-input bg-one",
-                id: "formFileSm",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                 type: "file",
-                onChange: handleResume
-              })]
-            })
+                name: "resume",
+                value: formik.values.resume,
+                onChange: formik.handleChange,
+                onBlur: formik.handleBlur,
+                className: "bj-input bg-one"
+              })
+            }), formik.touched.resume && formik.errors.resume ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "text-danger",
+              children: formik.errors.resume
+            }) : null]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "mt-2 text-end",
