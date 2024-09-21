@@ -13,6 +13,8 @@ import Profile from './Profile'
 import YourJob from './YourJob'
 import SingleCompany from './SingleCompany'
 import Aboutme from './Aboutme'
+import Contact from './Contact'
+import Faqs from './Faqs'
 import {useEffect, useState} from 'react'
 import apiClient from '../services/apiClient';
 import BoardJobContext from '../contexts/BoardJobContext.js'
@@ -109,6 +111,8 @@ function Example() {
                         <Route path="/your-jobs" element={<YourJob updateJobContext={updateJobContext} />} /> 
                         <Route path="/companies/show-company/:id" element={<SingleCompany/>} /> 
                         <Route path="/about-me" element={<Aboutme />} />
+                        <Route path="/contact-us" element={<Contact />} />
+                        <Route path="/faqs" element={<Faqs />} />
                     </Routes>
                 </div>
 
@@ -119,8 +123,8 @@ function Example() {
                             <strong className="bj-font-logo text-prime">Gorgeous</strong>
                         </div>
                         <Link className="text-decoration-none text-light" to="/about-me">About</Link>
-                        <a href="#" className="text-decoration-none text-prime">Contact us </a>
-                        <a href="#" className="text-decoration-none text-prime">Faq's</a>
+                        <Link className="text-decoration-none text-light" to="/contact-us">Contact us</Link>
+                        <Link className="text-decoration-none text-light" to="/faqs">Faq's</Link>
                     </div>
 
 

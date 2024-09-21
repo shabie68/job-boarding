@@ -29,8 +29,8 @@ class SubmissionController extends Controller
                 'board_job_id' => $request->jobId,
                 'last_name' => auth()->user()->name,
                 'company_id' => $request->company_id,
-                'email' => 'test@gmail.com',
-                'phone_number' => 00,
+                'email' => auth()->user()->email,
+                'phone_number' => ' ',
                 'country' => 'pakistan',
                 'resume' => 'dummy file',
                 'state' => 'kpk',
@@ -137,14 +137,13 @@ class SubmissionController extends Controller
 
         $submission = Submission::find($submissionId);
 
-        
         if(!$submission) {
             return;
         }
 
         if($submission) {
             $submission->update([
-                'accept_candidate' => true
+                'accept_candidate' => 1
             ]);
         }
 
@@ -155,10 +154,16 @@ class SubmissionController extends Controller
 
 
         if($submission->user_id != $request->user_id) {
+            
+            $submissions = Submission::where('board_job_id', $submission->board_job_id)
+                                    ->where('id', '!=', $submission->id)
+                                    ->update([
+                                        'accept_candidate' => 2
+                                    ]);
             foreach($request->rejectedSubmissions as $rejectedSubmission) {
                 $details = [
                     'id' => $rejectedSubmission['user_id'],
-                    'message' => 'Unfortunately you have not been selected for this role. Good luck for future'
+                    'message' => "Unfortunately you have not been selected for {$rejectedSubmission['board_job']['title']} role. Good luck for future"
                 ];
 
                 $feedback = [

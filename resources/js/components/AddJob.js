@@ -136,7 +136,7 @@ function AddJob() {
 
       <section style={{ margin: '0 auto', width: '50%' }}>
         <h3 className="text-two">Add Job</h3>
-        <div >
+        <div>
             <form onSubmit={formik.handleSubmit}>
               <div className="bj-border bj-p-20 bj-border-radius">
                 <div>

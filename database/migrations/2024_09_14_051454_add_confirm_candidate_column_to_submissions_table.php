@@ -14,7 +14,7 @@ class AddConfirmCandidateColumnToSubmissionsTable extends Migration
     public function up()
     {
         Schema::table('submissions', function (Blueprint $table) {
-            $table->boolean('accept_candidate')->after('salary_expectation')->default(false);
+            $table->tinyInteger('accept_candidate')->after('salary_expectation')->default(0);
         });
     }
 

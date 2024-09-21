@@ -48,10 +48,16 @@ Route::post('start-chat', [App\Http\Controllers\BoardJobController::class, 'star
 Route::post('send-msg', [App\Http\Controllers\BoardJobController::class, 'sendMessage']);
 
 Route::post('accept/submission/{board_id}', [App\Http\Controllers\SubmissionController::class, 'acceptCandidate']);
+Route::get('get-user-role', function() {
+	return response()->json([
+		"role" => auth()->user()->role
+	]);
+});
 
 Route::middleware('auth:sanctum')->get("single-job/{id}", [App\Http\Controllers\BoardJobController::class, 'getJob']);
 Route::group(['prefix' => 'company', 'as' => 'company'], function() {
 	Route::get('show-companies', [\App\Http\Controllers\CompanyController::class, 'show'])->name('show.company');
 	Route::put('/store', [\App\Http\Controllers\CompanyController::class, 'store'])->name('add.company');
 	Route::put('add-review/{id}', [\App\Http\Controllers\CompanyController::class, 'addReview'])->name('review.company');
+	
 });
