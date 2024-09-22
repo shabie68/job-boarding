@@ -227,9 +227,10 @@ function ShowJob(props) {
         apiClient.get('http://127.0.0.1:8000/api/single-job/'+id)
         .then(function(response) {
             setJob(response.data.job)
-            document.querySelector('.jb-single-job')?.classList.remove('d-sm-none')
-            document.querySelector('.jb-jobs')?.classList.add('jb-all-jobs')
-            document.querySelector('.jb-add-job-btn')?.classList.add('d-sm-none')
+            // document.querySelector('.jb-single-job')?.classList.remove('d-sm-none')
+            // document.querySelector('.jb-jobs')?.classList.add('jb-all-jobs')
+            // document.querySelector('.jb-add-job-btn')?.classList.add('d-sm-none')
+            
 
         })
     }
@@ -464,8 +465,9 @@ Todos
 5) Add accept/reject canidate column(send message for accepted candidate)
 6) Make the save button out of card when adding a company
 7) Handle all responsive break points for less than d-sm-flex viewport
-
-
+8) Add menubar icon for mobile sites
+9) Set the height for each grid child (show company page)
+10) Make the card to 100% width for responsive
 
 
 **/
