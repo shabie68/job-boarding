@@ -147,6 +147,8 @@ class SubmissionController extends Controller
             ]);
         }
 
+        $submission->boardJob->delete();
+
         $feedback = [
             'message' => 'Congratulation! You have been selected',
             'accepted' => $submission->accepted_candidate

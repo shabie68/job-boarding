@@ -98,6 +98,11 @@ function Profile() {
         let footerHeight = document.querySelector('.bj-footer').offsetHeight;
         let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height)) + 'px';
         document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
+        // let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+        // let menuHeight = document.querySelector('.menubar-links').offsetHeight;
+        // let containerHeight = document.querySelector('.bj-content').offsetHeight;
+        
+
     }, [])
 
 

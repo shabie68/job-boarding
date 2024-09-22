@@ -12011,6 +12011,9 @@ textarea.form-control-lg {
 .bj-font-cursive {
 	font-family: cursive;
 }
+.jb-back-sm-btn {
+	display: flex;
+}
 
 
 
@@ -12362,6 +12365,9 @@ a {
 	gap: 4px;
 }
 
+.bj-gap-8 {
+	gap: 8px;
+}
 .bj-col-3 {
 	grid-template-columns: repeat(3, 1fr)
 }

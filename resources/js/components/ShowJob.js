@@ -105,6 +105,12 @@ function ShowJob(props) {
       let getJobsUrl = !jobTitle ? `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
        apiClient.get('http://127.0.0.1:8000/api/show-jobs'+getJobsUrl)
         .then(function(response) {
+          setRole(response.data.role)
+          if(response.data?.startupCompanies?.length < 1) {
+
+            return;
+          }
+
 
 
           // if(!jobTitle) {
@@ -123,12 +129,11 @@ function ShowJob(props) {
               }
             });
           // }
-            
             setJobs(response.data.jobs.data)
             setNextPage(response.data.jobs.next_page_url)
             setLastPage(response.data.jobs.last_page)
             setJob(response.data.jobs.data[0])
-            setRole(response.data.role)
+            
             setCompany(response.data.company)
             setUsers(response.data.users)
             setAuthenticatedUser(response.data.authenticatedUser)
@@ -171,17 +176,6 @@ function ShowJob(props) {
                 props.updateJobContext({user_id: data['user']['id'], board_job_id: null, submission: null, message: data['messages']})
                 setSenderName(data['user']['name'])
             })
-
-            // // const msgChannel = pusher.subscribe('private-msg.' + response.data.authenticatedUser)
-            // const msgChannel = pusher.subscribe('private-msg.' + response.data.authenticatedUser)
-            // msgChannel.bind('msg-event', (data) => {
-            //   console.log(data['message'])
-            //   // setReceivedMessage(data['message'])
-            //   setReceivedMessage((prevMessages) => [...prevMessages, data['message']]);
-            //   setIsMsgRecevied(true)
-            //   console.log(data)
-            //   setSenderName(data['name'])
-            // })
 
 
 
@@ -286,7 +280,7 @@ function ShowJob(props) {
             }
 
             <div className="my-4">
-              <div className="d-sm-block my-4 d-lg-flex justify-content-lg-center">
+              <div className="d-flex my-4 justify-content-center">
                 <div className="d-flex ">
                     
                     <span>
@@ -307,7 +301,7 @@ function ShowJob(props) {
                 {
                   role == 1 ?
 
-                    <div className="d-lg-flex justify-content-lg-between">
+                    <div className="d-flex justify-content-between">
                         <h1 className="mb-0 text-two">Jobs</h1>
                          <div className="">
                             <Link to="/add-job">
@@ -446,8 +440,6 @@ function ShowJob(props) {
                       </textarea>
                     </div>
 
-
-
                     <div className="d-flex justify-content-end">
                       <button className="btn bj-btn-prime text-prime" onClick={() => {sendMessage( role == 1 ? userId : recepient)}}>Send</button>
                     </div>
@@ -470,6 +462,8 @@ Todos
 3) Add images to job title................done
 4) Check for text color. Text color should be brown-black
 5) Add accept/reject canidate column(send message for accepted candidate)
+6) Make the save button out of card when adding a company
+7) Handle all responsive break points for less than d-sm-flex viewport
 
 
 

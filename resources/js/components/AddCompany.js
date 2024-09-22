@@ -204,7 +204,7 @@ function AddCompany() {
 				<strong>Go back</strong>
 			</div>
 
-			<h3 className="text-two">Add Company</h3>
+			<h3 className="text-two text-center">Add Company</h3>
 			<div className="my-4">
 				<form onSubmit={formik.handleSubmit}>
 					<div className="d-flex justify-content-center">
@@ -233,7 +233,7 @@ function AddCompany() {
 							  	</div>
 
 							  	<div className="mb-3">
-								  <strong><label htmlFor="formFileSm" className="form-label">Small file input example</label></strong>
+								  <strong><label htmlFor="formFileSm" className="form-label">COmpany logo</label></strong>
 								  <input 
 								  	className="bj-input bg-one" 
 								  	id="formFileSm" 
@@ -411,5 +411,13 @@ function AddCompany() {
 	    </>
 	)
 }
+
+/**
+Issues
+1) Fix the image new a new company is added
+2) When adding review fix the spacing with Add review button
+3) Remove add Feedback for the recruiter who added teh company
+4) When review is added show review in the real time and remove the button at the same time
+**/
 
 export default AddCompany;

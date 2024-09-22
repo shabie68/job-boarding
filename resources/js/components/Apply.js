@@ -40,12 +40,12 @@ function Apply(props) {
 
     saveDefaultData();
     let height = window.innerHeight;
-        let menuHeight = document.querySelector('.menubar-links').offsetHeight;
+    let menuHeight = document.querySelector('.menubar-links').offsetHeight;
 
-        let footerHeight = document.querySelector('.bj-footer').offsetHeight;
-        let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
+    let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
 
-        document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
+    document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
   }, []);
 
 

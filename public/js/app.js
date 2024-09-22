@@ -9535,7 +9535,7 @@ function AddCompany() {
         children: "Go back"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
-      className: "text-two",
+      className: "text-two text-center",
       children: "Add Company"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "my-4",
@@ -9575,7 +9575,7 @@ function AddCompany() {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
                   htmlFor: "formFileSm",
                   className: "form-label",
-                  children: "Small file input example"
+                  children: "COmpany logo"
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
                 className: "bj-input bg-one",
@@ -9798,6 +9798,15 @@ function AddCompany() {
     })]
   });
 }
+
+/**
+Issues
+1) Fix the image new a new company is added
+2) When adding review fix the spacing with Add review button
+3) Remove add Feedback for the recruiter who added teh company
+4) When review is added show review in the real time and remove the button at the same time
+**/
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddCompany);
 
 /***/ }),
@@ -10677,11 +10686,14 @@ function Company() {
     if (currentPage) {
       getCompanies();
     }
-    var height = window.innerHeight;
-    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
-    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
-    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
+
+    // let height = window.innerHeight;
+    //       let menuHeight = document.querySelector('.menubar-links').offsetHeight;
+
+    //       let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    //       let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
+
+    //       document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px'
   }, [currentPage]);
   function getCompanies() {
     // apiClient.get('http://127.0.0.1:8000/api/company/show-companies')
@@ -11353,11 +11365,16 @@ function Example() {
     });
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var height = window.innerHeight;
-    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
-    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
-    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
+    // let height = window.innerHeight;
+    // let menuHeight = document.querySelector('.menubar-links').offsetHeight;
+
+    // let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    // let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
+
+    // document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
+    var headerHeight = document.querySelector('.menubar-links').offsetHeight;
+    var footerHeight = document.querySelector('.bj-footer').offsetHeight + 24;
+    document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) + 'px';
     //height = 1360 ---> 100
     // 23px ---> ?
   }, []);
@@ -11817,7 +11834,29 @@ var Faqs = function Faqs() {
     console.log(response);
     setRole(response.data.role);
   });
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    // let height = window.innerHeight;
+    //       let menuHeight = document.querySelector('.menubar-links').offsetHeight;
+
+    //       let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    //       let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
+
+    //       document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px'
+    var headerHeight = document.querySelector('.menubar-links').offsetHeight;
+    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    var contentHeight = document.querySelector('.bj-content').offsetHeight;
+
+    // const headerHeight = document.querySelector('.menubar-links').offsetHeight;
+    //    const footerHeight = document.querySelector('.bj-footer').offsetHeight+24;
+
+    document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) - 100 + 'px';
+
+    // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) + 'px'
+    // let totalHeight = footerHeight + headerHeight 
+    // alert(window.outerHeight - 159)
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "bj-content",
     children: role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "accordion accordion-flush",
       id: "accordionFlushExample",
@@ -12700,6 +12739,9 @@ function Profile() {
     var footerHeight = document.querySelector('.bj-footer').offsetHeight;
     var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height) + 'px';
     document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
+    // let footerHeight = document.querySelector('.bj-footer').offsetHeight;
+    // let menuHeight = document.querySelector('.menubar-links').offsetHeight;
+    // let containerHeight = document.querySelector('.bj-content').offsetHeight;
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
     children: [success ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
@@ -13912,6 +13954,12 @@ function ShowJob(props) {
     var baseUrl = 'http://127.0.0.1:8000/api/show-jobs';
     var getJobsUrl = !jobTitle ? "?page=".concat(currentPage) : "?title=".concat(encodeURIComponent(jobTitle), "&page=").concat(currentPage);
     _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/show-jobs' + getJobsUrl).then(function (response) {
+      var _response$data;
+      setRole(response.data.role);
+      if (((_response$data = response.data) === null || _response$data === void 0 || (_response$data = _response$data.startupCompanies) === null || _response$data === void 0 ? void 0 : _response$data.length) < 1) {
+        return;
+      }
+
       // if(!jobTitle) {
       var pusher = new (pusher_js__WEBPACK_IMPORTED_MODULE_4___default())('de34f80f0848257e88e9', {
         cluster: 'ap2',
@@ -13927,12 +13975,10 @@ function ShowJob(props) {
         }
       });
       // }
-
       setJobs(response.data.jobs.data);
       setNextPage(response.data.jobs.next_page_url);
       setLastPage(response.data.jobs.last_page);
       setJob(response.data.jobs.data[0]);
-      setRole(response.data.role);
       setCompany(response.data.company);
       setUsers(response.data.users);
       setAuthenticatedUser(response.data.authenticatedUser);
@@ -13985,18 +14031,6 @@ function ShowJob(props) {
         });
         setSenderName(data['user']['name']);
       });
-
-      // // const msgChannel = pusher.subscribe('private-msg.' + response.data.authenticatedUser)
-      // const msgChannel = pusher.subscribe('private-msg.' + response.data.authenticatedUser)
-      // msgChannel.bind('msg-event', (data) => {
-      //   console.log(data['message'])
-      //   // setReceivedMessage(data['message'])
-      //   setReceivedMessage((prevMessages) => [...prevMessages, data['message']]);
-      //   setIsMsgRecevied(true)
-      //   console.log(data)
-      //   setSenderName(data['name'])
-      // })
-
       if (response.data.role == 2) {
         setCompanies(response.data.companies);
         var candidateChannel = pusher.subscribe('private-candidate.' + response.data.authenticatedUser);
@@ -14135,7 +14169,7 @@ function ShowJob(props) {
     }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "my-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "d-sm-block my-4 d-lg-flex justify-content-lg-center",
+        className: "d-flex my-4 justify-content-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "d-flex ",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
@@ -14160,7 +14194,7 @@ function ShowJob(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "d-lg-flex justify-content-lg-between",
+          className: "d-flex justify-content-between",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
             className: "mb-0 text-two",
             children: "Jobs"
@@ -14441,6 +14475,8 @@ Todos
 3) Add images to job title................done
 4) Check for text color. Text color should be brown-black
 5) Add accept/reject canidate column(send message for accepted candidate)
+6) Make the save button out of card when adding a company
+7) Handle all responsive break points for less than d-sm-flex viewport
 
 
 
@@ -15105,21 +15141,25 @@ function SingleJob(props) {
   }, [props.job]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "jb-single-job w-lg-50 d-sm-none d-lg-block",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       onClick: handleNavigation,
-      className: "jb-back-btn jb-back-sm-btn",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+      className: "mb-3 jb-back-btn jb-back-sm-btn bj-gap-8",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+        style: {
+          color: 'black'
+        },
         xmlns: "http://www.w3.org/2000/svg",
-        width: "16",
-        height: "16",
+        width: "24",
+        height: "24",
         fill: "currentColor",
-        className: "bi bi-arrow-left",
+        className: "bi bi-arrow-left-circle-fill",
         viewBox: "0 0 16 16",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
-          fillRule: "evenodd",
-          d: "M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+          d: "M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
         })
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
+        children: "Go back"
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "d-lg-block position-sticky end-0",
       style: {
