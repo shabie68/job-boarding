@@ -41,10 +41,10 @@ class BoardJobController extends Controller
         $companies = Company::find($companyIds);
 
         // $submissions = null;
-        if($companies->count() < 1) {
+        if(Company::all()->count() < 1) {
             
             return response()->json([
-                "companies" => [],
+                "startupCompanies" => [],
                 "role" => auth()->user()->role
 
             ]);

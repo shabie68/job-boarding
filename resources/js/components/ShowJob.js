@@ -106,9 +106,12 @@ function ShowJob(props) {
        apiClient.get('http://127.0.0.1:8000/api/show-jobs'+getJobsUrl)
         .then(function(response) {
           setRole(response.data.role)
-          if(response.data.companies.length < 1) {
+          if(response.data?.startupCompanies?.length < 1) {
+
             return;
           }
+
+
 
           // if(!jobTitle) {
             const pusher = new Pusher('de34f80f0848257e88e9', {
@@ -277,7 +280,7 @@ function ShowJob(props) {
             }
 
             <div className="my-4">
-              <div className="d-sm-block my-4 d-lg-flex justify-content-lg-center">
+              <div className="d-flex my-4 justify-content-center">
                 <div className="d-flex ">
                     
                     <span>
@@ -298,7 +301,7 @@ function ShowJob(props) {
                 {
                   role == 1 ?
 
-                    <div className="d-lg-flex justify-content-lg-between">
+                    <div className="d-flex justify-content-between">
                         <h1 className="mb-0 text-two">Jobs</h1>
                          <div className="">
                             <Link to="/add-job">
@@ -437,8 +440,6 @@ function ShowJob(props) {
                       </textarea>
                     </div>
 
-
-
                     <div className="d-flex justify-content-end">
                       <button className="btn bj-btn-prime text-prime" onClick={() => {sendMessage( role == 1 ? userId : recepient)}}>Send</button>
                     </div>
@@ -461,6 +462,8 @@ Todos
 3) Add images to job title................done
 4) Check for text color. Text color should be brown-black
 5) Add accept/reject canidate column(send message for accepted candidate)
+6) Make the save button out of card when adding a company
+7) Handle all responsive break points for less than d-sm-flex viewport
 
 
 
