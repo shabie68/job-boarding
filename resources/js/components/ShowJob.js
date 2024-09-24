@@ -227,9 +227,9 @@ function ShowJob(props) {
         apiClient.get('http://127.0.0.1:8000/api/single-job/'+id)
         .then(function(response) {
             setJob(response.data.job)
-            // document.querySelector('.jb-single-job')?.classList.remove('d-sm-none')
-            // document.querySelector('.jb-jobs')?.classList.add('jb-all-jobs')
-            // document.querySelector('.jb-add-job-btn')?.classList.add('d-sm-none')
+            document.querySelector('.jb-single-job')?.classList.remove('d-sm-none')
+            document.querySelector('.jb-jobs')?.classList.add('jb-all-jobs')
+            document.querySelector('.jb-add-job-btn')?.classList.add('d-sm-none')
             
 
         })

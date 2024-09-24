@@ -14097,10 +14097,11 @@ function ShowJob(props) {
           case 5:
             _job = _context.sent;
             _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/single-job/' + id).then(function (response) {
+              var _document$querySelect, _document$querySelect2, _document$querySelect3;
               setJob(response.data.job);
-              // document.querySelector('.jb-single-job')?.classList.remove('d-sm-none')
-              // document.querySelector('.jb-jobs')?.classList.add('jb-all-jobs')
-              // document.querySelector('.jb-add-job-btn')?.classList.add('d-sm-none')
+              (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.remove('d-sm-none');
+              (_document$querySelect2 = document.querySelector('.jb-jobs')) === null || _document$querySelect2 === void 0 || _document$querySelect2.classList.add('jb-all-jobs');
+              (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.add('d-sm-none');
             });
           case 7:
           case "end":
