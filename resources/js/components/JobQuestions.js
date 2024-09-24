@@ -109,7 +109,7 @@ function JobQuestions() {
               <div className="progress-bar" id="jb-question-pbar" role="progressbar" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
 
-			<div className="w-50" style={{margin: '0 auto'}}>
+			<div className="w-lg-50" style={{margin: '0 auto'}}>
 				<h3 className="text-two">Miscelleneous</h3>
                  <form onSubmit={formik.handleSubmit}>
     				<div className="bj-border bj-radius-10 bj-p-20 bg-one">

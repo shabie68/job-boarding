@@ -10775,7 +10775,7 @@ function Company() {
             className: "d-grid mt-4 gap-4 bj-grid-col-3 bj-rows-auto",
             children: companies === null || companies === void 0 ? void 0 : companies.map(function (company) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "bg-one bj-border-radius bj-p-20 bj-border rounded bj-cursor-pointer bj-company-container",
+                className: "bg-one bj-border-radius bj-p-20 bj-border bj-w-fit-content rounded bj-cursor-pointer bj-company-container",
                 onClick: function onClick() {
                   singleCompany(company);
                 },
@@ -11172,7 +11172,7 @@ var Contact = function Contact() {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
       className: "col-md-8",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
-        className: "w-75 m-auto",
+        className: "bj-card-w m-auto",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
           className: "text-two",
           children: "Send us a message"
@@ -12193,7 +12193,7 @@ function JobQuestions() {
         "aria-valuemax": "100"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "w-50",
+      className: "w-lg-50",
       style: {
         margin: '0 auto'
       },
@@ -12752,12 +12752,12 @@ function Profile() {
       },
       children: "Profile Successfully Updated!"
     }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "container my-4",
+      className: "my-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("section", {
         style: {
           margin: '0 auto'
         },
-        className: "w-50",
+        className: "bj-card-w",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
           className: "text-two",
           children: "Profile"
@@ -14097,11 +14097,10 @@ function ShowJob(props) {
           case 5:
             _job = _context.sent;
             _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/single-job/' + id).then(function (response) {
-              var _document$querySelect, _document$querySelect2, _document$querySelect3;
               setJob(response.data.job);
-              (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.remove('d-sm-none');
-              (_document$querySelect2 = document.querySelector('.jb-jobs')) === null || _document$querySelect2 === void 0 || _document$querySelect2.classList.add('jb-all-jobs');
-              (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.add('d-sm-none');
+              // document.querySelector('.jb-single-job')?.classList.remove('d-sm-none')
+              // document.querySelector('.jb-jobs')?.classList.add('jb-all-jobs')
+              // document.querySelector('.jb-add-job-btn')?.classList.add('d-sm-none')
             });
           case 7:
           case "end":
@@ -14477,8 +14476,9 @@ Todos
 5) Add accept/reject canidate column(send message for accepted candidate)
 6) Make the save button out of card when adding a company
 7) Handle all responsive break points for less than d-sm-flex viewport
-
-
+8) Add menubar icon for mobile sites
+9) Set the height for each grid child (show company page)
+10) Make the card to 100% width for responsive
 
 
 **/

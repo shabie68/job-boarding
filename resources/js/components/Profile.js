@@ -105,7 +105,6 @@ function Profile() {
 
     }, [])
 
-
     return (
          <div>
             {
@@ -116,8 +115,8 @@ function Profile() {
                 :''
             }
             
-            <div className="container my-4">
-                <section style={{margin: '0 auto'}} className="w-50">
+            <div className="my-4">
+                <section style={{margin: '0 auto'}} className="bj-card-w">
                     <h3 className="text-two">Profile</h3>
                     <div className="card bj-border bg-one p-4">
                         <strong>{user.name}</strong>

@@ -141,7 +141,7 @@ function Company() {
 
 							{companies?.map(company => (
 
-								 <div className="bg-one bj-border-radius bj-p-20 bj-border rounded bj-cursor-pointer bj-company-container"  key={"company--"+company.id} onClick={() => {singleCompany(company)}}>
+								 <div className="bg-one bj-border-radius bj-p-20 bj-border bj-w-fit-content rounded bj-cursor-pointer bj-company-container"  key={"company--"+company.id} onClick={() => {singleCompany(company)}}>
 									<div className="h-100 d-flex gap-4 align-items-center" >
 									  <div className="w-25">
 										<img src={'uploads/images/' + company.logo} className="w-100" />
