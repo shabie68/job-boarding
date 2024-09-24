@@ -12193,7 +12193,7 @@ function JobQuestions() {
         "aria-valuemax": "100"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "w-50",
+      className: "w-lg-50",
       style: {
         margin: '0 auto'
       },
@@ -12762,7 +12762,7 @@ function Profile() {
           className: "text-two",
           children: "Profile"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-          className: "card bj-card-w bj-border bg-one p-4",
+          className: "card bj-border bg-one p-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("strong", {
             children: user.name
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
