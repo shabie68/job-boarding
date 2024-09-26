@@ -14099,9 +14099,12 @@ function ShowJob(props) {
             _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/single-job/' + id).then(function (response) {
               var _document$querySelect, _document$querySelect2, _document$querySelect3;
               setJob(response.data.job);
-              (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.remove('d-sm-none');
+              // document.querySelector('.jb-single-job')?.classList.remove('d-sm-none')
+              // document.querySelector('.jb-jobs')?.classList.add('jb-all-jobs')
+              // document.querySelector('.jb-add-job-btn')?.classList.add('d-sm-none')
+              (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.remove('bj-d-sm-none');
               (_document$querySelect2 = document.querySelector('.jb-jobs')) === null || _document$querySelect2 === void 0 || _document$querySelect2.classList.add('jb-all-jobs');
-              (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.add('d-sm-none');
+              (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.add('bj-d-sm-none');
             });
           case 7:
           case "end":
@@ -15119,9 +15122,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function SingleJob(props) {
   function handleNavigation() {
     var _document$querySelect, _document$querySelect2, _document$querySelect3;
-    (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.add('d-sm-none');
+    // document.querySelector('.jb-single-job')?.classList.add('d-sm-none')
+    // document.querySelector('.jb-jobs')?.classList.remove('jb-all-jobs')
+    // document.querySelector('.jb-add-job-btn')?.classList.remove('d-sm-none')
+    (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.add('bj-d-sm-none');
     (_document$querySelect2 = document.querySelector('.jb-jobs')) === null || _document$querySelect2 === void 0 || _document$querySelect2.classList.remove('jb-all-jobs');
-    (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.remove('d-sm-none');
+    (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.remove('bj-d-sm-none');
   }
   var _react$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState([]),
     _react$useState2 = _slicedToArray(_react$useState, 2),
@@ -15131,17 +15137,12 @@ function SingleJob(props) {
     var total = props.submissions.filter(function (submission) {
       return submission.user_id == props.authenticatedUser && submission.board_job_id === props.job.id;
     });
-    console.log("HERE IS THE TOTAL");
-    console.log(props.job.id);
-    setAppliedJobs(total);
-    console.log("APPLIED JOBS");
-    console.log(total);
   };
   react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
     checkForAppliedJobs();
   }, [props.job]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: "jb-single-job w-lg-50 d-sm-none d-lg-block",
+    className: "jb-single-job w-lg-50 bj-d-sm-none d-lg-block",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       onClick: handleNavigation,
       className: "mb-3 jb-back-btn jb-back-sm-btn bj-gap-8",

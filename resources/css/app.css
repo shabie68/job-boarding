@@ -459,7 +459,7 @@ a {
 
 
 /*@media(min-width: 568px){*/
-@media(min-width: 500px){
+@media(min-width: 280px){
 	.jb-sm-card-w {
 		width: 100%;
 	}	
@@ -474,6 +474,10 @@ a {
 
 	.bj-sm-none {
 		display: none
+	}
+
+	.bj-d-sm-none {
+		display: none;
 	}
 
 	
