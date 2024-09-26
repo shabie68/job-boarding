@@ -479,8 +479,6 @@ a {
 	.bj-d-sm-none {
 		display: none;
 	}
-
-	
 }
 
 @media(min-width: 992px){
@@ -507,6 +505,10 @@ a {
 
 	.bj-card-w {
 		width: 50%
+	}
+
+	.bj-msg-chat-w {
+		width: 25%
 	}
 
 }

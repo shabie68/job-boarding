@@ -14353,10 +14353,10 @@ function ShowJob(props) {
           })]
         })
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "card position-fixed bg-one w-25",
+        className: "card position-fixed bg-one bj-msg-chat-w",
         style: {
           bottom: '20px',
-          right: '50px',
+          right: '10px',
           zIndex: 9,
           height: '50%',
           overflow: 'auto'
