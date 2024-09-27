@@ -12382,6 +12382,14 @@ a {
 	display: flex;
 }
 
+.bj-place-self-start {
+	place-self: start;
+}
+
+.bj-px-16 {
+	padding: 0 16px
+}
+
 
 @keyframes apply-pbar{
 	from {
@@ -12427,8 +12435,9 @@ a {
 }
 
 
+
 /*@media(min-width: 568px){*/
-@media(min-width: 500px){
+@media(min-width: 280px){
 	.jb-sm-card-w {
 		width: 100%;
 	}	
@@ -12445,7 +12454,45 @@ a {
 		display: none
 	}
 
-	
+	.bj-d-sm-none {
+		display: none;
+	}
+
+	.bj-menubar-icon {
+		display: block;
+	}
+
+	.menubar-links {
+		flex-direction: column;
+		justify-content: end;
+		align-items: end;
+	}
+
+	.bj-d-sm-none {
+		display: none
+	}
+
+	.bj-d-responsive {
+		display: none;
+	}
+
+	.bj-d-sm-responsive {
+		display: flex;
+	}
+}
+
+
+@media(min-width: 768px) {
+	.bj-menubar-icon {
+		display: none;
+	}
+
+
+	.menubar-links {
+		justify-content: space-around;
+		align-items: center;
+		flex-direction: row;
+	}
 }
 
 @media(min-width: 992px){
@@ -12474,6 +12521,9 @@ a {
 		width: 50%
 	}
 
+	.bj-msg-chat-w {
+		width: 25%
+	}
 
 }
 

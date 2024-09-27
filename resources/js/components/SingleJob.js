@@ -4,9 +4,12 @@ function SingleJob(props) {
 
 	 function handleNavigation() {
         
-        document.querySelector('.jb-single-job')?.classList.add('d-sm-none')
+        // document.querySelector('.jb-single-job')?.classList.add('d-sm-none')
+        // document.querySelector('.jb-jobs')?.classList.remove('jb-all-jobs')
+        // document.querySelector('.jb-add-job-btn')?.classList.remove('d-sm-none')
+        document.querySelector('.jb-single-job')?.classList.add('bj-d-sm-none')
         document.querySelector('.jb-jobs')?.classList.remove('jb-all-jobs')
-        document.querySelector('.jb-add-job-btn')?.classList.remove('d-sm-none')
+        document.querySelector('.jb-add-job-btn')?.classList.remove('bj-d-sm-none')
     }
 
    	
@@ -19,13 +22,7 @@ function SingleJob(props) {
         return submission.user_id == props.authenticatedUser && submission.board_job_id === props.job.id
       })
 
-      console.log("HERE IS THE TOTAL")
-      console.log(props.job.id)
 
-      setAppliedJobs(total)
-
-      console.log("APPLIED JOBS")
-      console.log(total)
 
     }
 
@@ -35,7 +32,7 @@ function SingleJob(props) {
     }, [props.job])
 
 	return (
-		<div className="jb-single-job w-lg-50 d-sm-none d-lg-block">
+		<div className="jb-single-job w-lg-50 bj-d-sm-none d-lg-block">
 			
 			<div onClick={handleNavigation} className="mb-3 jb-back-btn jb-back-sm-btn bj-gap-8">
 

@@ -11364,6 +11364,16 @@ function Example() {
       }
     });
   };
+  var showMenu = function showMenu() {
+    var _document$querySelect;
+    (_document$querySelect = document.querySelector('.bj-menubar-icon')) === null || _document$querySelect === void 0 || _document$querySelect.addEventListener('click', function () {
+      alert("YES");
+      document.querySelectorAll('.bj-menubar-selector').forEach(function (element) {
+        element.classList.remove('bj-d-responsive');
+        element.classList.add('bj-d-sm-responsive');
+      });
+    });
+  };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // let height = window.innerHeight;
     // let menuHeight = document.querySelector('.menubar-links').offsetHeight;
@@ -11384,15 +11394,16 @@ function Example() {
       value: messageContext,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.BrowserRouter, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-          className: "d-flex justify-content-around bj-gradient-footer w-100 top-0 align-items-center mb-4 text-light menubar-links",
+          className: "d-flex bj-gradient-footer w-100 top-0 bj-px-16 mb-4 text-light menubar-links",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("a", {
             href: "/home",
+            className: "bj-place-self-start",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("strong", {
               className: "bj-font-logo text-prime",
               children: "Gorgeous"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-            className: "d-flex flex-column align-items-center",
+            className: "bj-d-responsive bj-menubar-selector d-md-flex flex-column align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 width: "20",
@@ -11454,7 +11465,7 @@ function Example() {
               children: "Home"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-            className: "d-flex flex-column align-items-center",
+            className: "bj-d-responsive bj-menubar-selector d-md-flex flex-column align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 width: "20",
@@ -11486,7 +11497,7 @@ function Example() {
               children: "Companies"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-            className: "d-flex flex-column align-items-center",
+            className: "bj-d-responsive bj-menubar-selector d-md-flex flex-column align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 width: "20",
@@ -11540,7 +11551,7 @@ function Example() {
               children: "Profile"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-            className: "d-flex flex-column align-items-center",
+            className: "bj-d-responsive bj-menubar-selector d-md-flex flex-column align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 fill: "#fff",
@@ -11580,7 +11591,7 @@ function Example() {
               children: "Your jobs"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-            className: "d-flex flex-column align-items-center",
+            className: "bj-d-responsive bj-menubar-selector d-md-flex flex-column align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 viewBox: "0 0 24 24",
@@ -11626,6 +11637,34 @@ function Example() {
               },
               children: "Logout"
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+            className: "bj-menubar-icon",
+            onClick: showMenu,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
+              viewBox: "0 0 24 24",
+              width: "20",
+              height: "20",
+              fill: "none",
+              xmlns: "http://www.w3.org/2000/svg",
+              stroke: "#000000",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("g", {
+                id: "SVGRepo_bgCarrier",
+                "stroke-width": "0"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("g", {
+                id: "SVGRepo_tracerCarrier",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("g", {
+                id: "SVGRepo_iconCarrier",
+                children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("path", {
+                  d: "M4 6H20M4 12H20M4 18H20",
+                  stroke: "#ffffff",
+                  "stroke-width": "2",
+                  "stroke-linecap": "round",
+                  "stroke-linejoin": "round"
+                }), " "]
+              })]
+            })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
           className: "container",
@@ -14097,10 +14136,14 @@ function ShowJob(props) {
           case 5:
             _job = _context.sent;
             _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/single-job/' + id).then(function (response) {
+              var _document$querySelect, _document$querySelect2, _document$querySelect3;
               setJob(response.data.job);
               // document.querySelector('.jb-single-job')?.classList.remove('d-sm-none')
               // document.querySelector('.jb-jobs')?.classList.add('jb-all-jobs')
               // document.querySelector('.jb-add-job-btn')?.classList.add('d-sm-none')
+              (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.remove('bj-d-sm-none');
+              (_document$querySelect2 = document.querySelector('.jb-jobs')) === null || _document$querySelect2 === void 0 || _document$querySelect2.classList.add('jb-all-jobs');
+              (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.add('bj-d-sm-none');
             });
           case 7:
           case "end":
@@ -14349,10 +14392,10 @@ function ShowJob(props) {
           })]
         })
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "card position-fixed bg-one w-25",
+        className: "card position-fixed bg-one bj-msg-chat-w",
         style: {
           bottom: '20px',
-          right: '50px',
+          right: '10px',
           zIndex: 9,
           height: '50%',
           overflow: 'auto'
@@ -15118,9 +15161,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function SingleJob(props) {
   function handleNavigation() {
     var _document$querySelect, _document$querySelect2, _document$querySelect3;
-    (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.add('d-sm-none');
+    // document.querySelector('.jb-single-job')?.classList.add('d-sm-none')
+    // document.querySelector('.jb-jobs')?.classList.remove('jb-all-jobs')
+    // document.querySelector('.jb-add-job-btn')?.classList.remove('d-sm-none')
+    (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.add('bj-d-sm-none');
     (_document$querySelect2 = document.querySelector('.jb-jobs')) === null || _document$querySelect2 === void 0 || _document$querySelect2.classList.remove('jb-all-jobs');
-    (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.remove('d-sm-none');
+    (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.remove('bj-d-sm-none');
   }
   var _react$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState([]),
     _react$useState2 = _slicedToArray(_react$useState, 2),
@@ -15130,17 +15176,12 @@ function SingleJob(props) {
     var total = props.submissions.filter(function (submission) {
       return submission.user_id == props.authenticatedUser && submission.board_job_id === props.job.id;
     });
-    console.log("HERE IS THE TOTAL");
-    console.log(props.job.id);
-    setAppliedJobs(total);
-    console.log("APPLIED JOBS");
-    console.log(total);
   };
   react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
     checkForAppliedJobs();
   }, [props.job]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: "jb-single-job w-lg-50 d-sm-none d-lg-block",
+    className: "jb-single-job w-lg-50 bj-d-sm-none d-lg-block",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       onClick: handleNavigation,
       className: "mb-3 jb-back-btn jb-back-sm-btn bj-gap-8",
