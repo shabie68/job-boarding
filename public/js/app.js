@@ -11364,6 +11364,16 @@ function Example() {
       }
     });
   };
+  var showMenu = function showMenu() {
+    var _document$querySelect;
+    (_document$querySelect = document.querySelector('.bj-menubar-icon')) === null || _document$querySelect === void 0 || _document$querySelect.addEventListener('click', function () {
+      alert("YES");
+      document.querySelectorAll('.bj-menubar-selector').forEach(function (element) {
+        element.classList.remove('bj-d-responsive');
+        element.classList.add('bj-d-sm-responsive');
+      });
+    });
+  };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // let height = window.innerHeight;
     // let menuHeight = document.querySelector('.menubar-links').offsetHeight;
@@ -11384,15 +11394,16 @@ function Example() {
       value: messageContext,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.BrowserRouter, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-          className: "d-flex justify-content-around bj-gradient-footer w-100 top-0 align-items-center mb-4 text-light menubar-links",
+          className: "d-flex bj-gradient-footer w-100 top-0 bj-px-16 mb-4 text-light menubar-links",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("a", {
             href: "/home",
+            className: "bj-place-self-start",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("strong", {
               className: "bj-font-logo text-prime",
               children: "Gorgeous"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-            className: "d-flex flex-column align-items-center",
+            className: "bj-d-responsive bj-menubar-selector d-md-flex flex-column align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 width: "20",
@@ -11454,7 +11465,7 @@ function Example() {
               children: "Home"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-            className: "d-flex flex-column align-items-center",
+            className: "bj-d-responsive bj-menubar-selector d-md-flex flex-column align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 width: "20",
@@ -11486,7 +11497,7 @@ function Example() {
               children: "Companies"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-            className: "d-flex flex-column align-items-center",
+            className: "bj-d-responsive bj-menubar-selector d-md-flex flex-column align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 width: "20",
@@ -11540,7 +11551,7 @@ function Example() {
               children: "Profile"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-            className: "d-flex flex-column align-items-center",
+            className: "bj-d-responsive bj-menubar-selector d-md-flex flex-column align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 fill: "#fff",
@@ -11580,7 +11591,7 @@ function Example() {
               children: "Your jobs"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-            className: "d-flex flex-column align-items-center",
+            className: "bj-d-responsive bj-menubar-selector d-md-flex flex-column align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 viewBox: "0 0 24 24",
@@ -11626,6 +11637,34 @@ function Example() {
               },
               children: "Logout"
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+            className: "bj-menubar-icon",
+            onClick: showMenu,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
+              viewBox: "0 0 24 24",
+              width: "20",
+              height: "20",
+              fill: "none",
+              xmlns: "http://www.w3.org/2000/svg",
+              stroke: "#000000",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("g", {
+                id: "SVGRepo_bgCarrier",
+                "stroke-width": "0"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("g", {
+                id: "SVGRepo_tracerCarrier",
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("g", {
+                id: "SVGRepo_iconCarrier",
+                children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("path", {
+                  d: "M4 6H20M4 12H20M4 18H20",
+                  stroke: "#ffffff",
+                  "stroke-width": "2",
+                  "stroke-linecap": "round",
+                  "stroke-linejoin": "round"
+                }), " "]
+              })]
+            })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
           className: "container",
