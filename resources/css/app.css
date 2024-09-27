@@ -494,9 +494,9 @@ a {
 	}
 
 	.menubar-links {
-		flex-direction: column;
-		justify-content: end;
-		align-items: end;
+		/*flex-direction: column;*/
+		/*justify-content: end;*/
+		/*align-items: end;*/
 	}
 
 	.bj-d-sm-none {
@@ -509,6 +509,22 @@ a {
 
 	.bj-d-sm-responsive {
 		display: flex;
+	}
+
+	.bj-flex-sm-column {
+		flex-direction: column;
+	}
+
+	.bj-space-between {
+		justify-content: space-between;
+	}
+
+	.bj-align-items-center {
+		align-items: center;
+	}
+
+	.bj-align-items-end {
+		align-items: end;
 	}
 }
 

@@ -47,12 +47,19 @@ function Example() {
     const showMenu = () => {
         document.querySelector('.bj-menubar-icon')?.addEventListener('click', () => {
             alert("YES")
+            document.querySelector('.menubar-links').classList.add('bj-flex-sm-column')
+            document.querySelector('.menubar-links').classList.remove('bj-align-items-center')
+            document.querySelector('.menubar-links').classList.add('bj-align-items-end')
             document.querySelectorAll('.bj-menubar-selector').forEach( (element) => {
                 element.classList.remove('bj-d-responsive');
-                element.classList.add('bj-d-sm-responsive')
+                element.classList.add('bj-d-sm-responsive');
+                
             })
         })
     }
+
+
+
 
     useEffect(() => {
         // let height = window.innerHeight;
@@ -66,17 +73,28 @@ function Example() {
         const footerHeight = document.querySelector('.bj-footer').offsetHeight+24;
 
         document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) + 'px'
+
         //height = 1360 ---> 100
         // 23px ---> ?
 
+        addBackgroundGradient()
+
     }, [])
+
+    const addBackgroundGradient = () => {
+        if(document.querySelector('body'))
+        if(document.body.classList.contains('bj-gradient')){
+            document.body.classList.remove('bj-gradient')
+        }
+    }
+
 
     return (
 
         <BoardJobContext.Provider value={boardJob} >
             <MessageContext.Provider value={messageContext}>
             <BrowserRouter>
-                <div className="d-flex bj-gradient-footer w-100 top-0 bj-px-16 mb-4 text-light menubar-links">
+                <div className="d-flex bj-gradient-footer w-100 top-0 bj-px-16 mb-4 text-light menubar-links bj-space-between bj-align-items-center">
                     <a href="/home" className="bj-place-self-start"><strong className="bj-font-logo text-prime">Gorgeous</strong></a>                 
                     
                     <div className="bj-d-responsive bj-menubar-selector d-md-flex flex-column align-items-center">
