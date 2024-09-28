@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 
@@ -8,11 +8,11 @@ import Example from './Example'
  
 const Login = (props) => {
 
-    const [loading, setLoading] = React.useState(false);
-    const [loggedIn, setLoggedIn] = React.useState(false);
-    const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
-    const [showPassword, setShowPassword] = React.useState(false)
+    const [loading, setLoading] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false)
 
     const handleSubmit = (e) => {
         setLoading(true)
@@ -36,6 +36,14 @@ const Login = (props) => {
         document.querySelector('input[name="password"]').type = showPassword ? 'password' : 'text'
     }
 
+    const addBackgroundGradient = () => {
+        document.querySelector('body').classList.add('bj-gradient')
+    }
+
+    useEffect(() => {
+        addBackgroundGradient()
+    }, [])
+    
     return (
 
         <div className="bj-gradient py-4 h-100vh">
@@ -43,7 +51,7 @@ const Login = (props) => {
                 
                 <div className="">
                         
-                    <div className="bj-margin-auto bj-w-45">
+                    <div className="bj-margin-auto bj-card-w">
                         <h3 className="text-center my-4 text-prime">Welcome back! Login to continue your journey</h3>
                         <h3 className="text-center mb-4 text-prime">Let's Amplify your growth with us!</h3>
                         <div className="">

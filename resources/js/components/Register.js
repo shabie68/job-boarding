@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 
@@ -45,15 +45,24 @@ const Register = (props) => {
 	    });
     }
 
+    const addBackgroundGradient = () => {
+        document.querySelector('body').classList.add('bj-gradient')
+    }
+
+    useEffect(() => {
+        addBackgroundGradient()
+    }, [])
+
+
+
 
     return (
 
-        <div className="bj-gradient h-100 py-4">
+        <div className="h-100 py-4">
             <div className="container">
-                <div className="bj-m-32-auto bj-w-45">
+                <div className="bj-m-32-auto bj-card-w">
                     <h3 className="text-center text-prime">Create an account</h3>
 
-                    
                     <div className="">
                         <div className="bj-border bj-border-radius p-3 bg-one">
 
