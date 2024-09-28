@@ -46,9 +46,10 @@ function Example() {
 
     const showMenu = () => {
         document.querySelector('.bj-menubar-icon')?.addEventListener('click', () => {
-            alert("YES")
+  
             document.querySelector('.menubar-links').classList.add('bj-flex-sm-column')
             document.querySelector('.menubar-links').classList.remove('bj-align-items-center')
+            document.querySelector('.menubar-links').classList.add('bj-menu-animation');
 
             document.querySelector('.bj-menubar-icon').classList.add('d-none');
             document.querySelector('.bj-close').classList.remove('d-none')
@@ -59,7 +60,7 @@ function Example() {
                 element.classList.remove('bj-d-responsive');
                 element.classList.add('bj-d-sm-responsive');
                 element.classList.add('align-items-start');
-                element.classList.add('bj-menu-animation');
+                // element.classList.add('bj-menu-animation');
 
 
                 
@@ -73,6 +74,8 @@ function Example() {
 
             document.querySelector('.bj-menubar-icon').classList.toggle('d-none');
             document.querySelector('.bj-close').classList.toggle('d-none')
+            document.querySelector('.menubar-links').classList.toggle('bj-menu-animation');
+
 
 
             // document.querySelector('.menubar-links').classList.add('bj-align-items-end')
@@ -80,7 +83,7 @@ function Example() {
                 element.classList.toggle('bj-d-responsive');
                 element.classList.toggle('bj-d-sm-responsive');
                 element.classList.toggle('align-items-start');
-                element.classList.toggle('bj-menu-animation');
+                // element.classList.toggle('bj-menu-animation');
 
 
                 

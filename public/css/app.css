@@ -12391,7 +12391,7 @@ a {
 }
 
 .bj-menu-animation {
-	animation: menu-animation 2s 1;
+	animation: menu-animation 1s 1;
 }
 
 .bj-close {
@@ -12432,15 +12432,9 @@ a {
 }
 
 @keyframes menu-animation {
-	0%{
-		opacity: 0
-	}
+	0% {
+		opacity: 0;
 
-	50% {
-		opacity: 50%
-	}
-	100% {
-		opacity: 1
 	}
 }
 
@@ -12563,6 +12557,10 @@ a {
 
 	.bj-msg-chat-w {
 		width: 25%
+	}
+
+	.bj-close {
+		display: none
 	}
 
 }
