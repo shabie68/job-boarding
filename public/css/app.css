@@ -12390,6 +12390,16 @@ a {
 	padding: 0 16px
 }
 
+.bj-menu-animation {
+	animation: menu-animation 2s 1;
+}
+
+.bj-close {
+	top: 10px;
+	right: 14px;
+}
+
+
 
 @keyframes apply-pbar{
 	from {
@@ -12418,6 +12428,19 @@ a {
 
 	to {
 		width:100%;
+	}
+}
+
+@keyframes menu-animation {
+	0%{
+		opacity: 0
+	}
+
+	50% {
+		opacity: 50%
+	}
+	100% {
+		opacity: 1
 	}
 }
 
@@ -12498,11 +12521,12 @@ a {
 }
 
 
+
+
 @media(min-width: 768px) {
 	.bj-menubar-icon {
 		display: none;
 	}
-
 
 	.menubar-links {
 		justify-content: space-around;
