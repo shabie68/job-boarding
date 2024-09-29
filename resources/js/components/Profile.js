@@ -13,7 +13,7 @@ import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 
 
-function Profile() {
+function Profile(props) {
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -101,6 +101,9 @@ function Profile() {
         // let footerHeight = document.querySelector('.bj-footer').offsetHeight;
         // let menuHeight = document.querySelector('.menubar-links').offsetHeight;
         // let containerHeight = document.querySelector('.bj-content').offsetHeight;
+        if(!document.querySelector('.bj-close').classList.contains('d-none')) {
+          props.closeMenu()
+        }
         
 
     }, [])

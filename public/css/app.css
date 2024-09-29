@@ -12519,6 +12519,10 @@ a {
 		width: -moz-fit-content;
 		width: fit-content
 	}
+
+	.bj-text-align {
+		text-align: start
+	}
 }
 
 
@@ -12533,6 +12537,10 @@ a {
 		justify-content: space-around;
 		align-items: center;
 		flex-direction: row;
+	}
+
+	.bj-text-align {
+		text-align: center
 	}
 }
 

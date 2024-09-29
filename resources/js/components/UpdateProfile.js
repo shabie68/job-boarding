@@ -45,6 +45,9 @@ function UpdateProfile() {
 		setMoreSkills(location.state.user.skills)
 		setEducation(location.state.user.education)
 		console.log(location.state.user)
+		if(!document.querySelector('.bj-close').classList.contains('d-none')) {
+          props.closeMenu()
+      	}
 
 	}, [])
 		

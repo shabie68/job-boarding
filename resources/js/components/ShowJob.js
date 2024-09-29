@@ -215,6 +215,10 @@ function ShowJob(props) {
         setCandidates((prevCandidates) => [...prevCandidates, {user_id: userId, name: senderName}])
       }
 
+      if(!document.querySelector('.bj-close').classList.contains('d-none')) {
+          props.closeMenu()
+      }
+
 
 
     }, [currentPage, selectedUser])
