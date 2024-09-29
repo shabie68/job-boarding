@@ -11377,7 +11377,10 @@ function Example() {
       document.querySelectorAll('.bj-menubar-selector').forEach(function (element) {
         element.classList.remove('bj-d-responsive');
         element.classList.add('bj-d-sm-responsive');
-        element.classList.add('align-items-start');
+        element.classList.add('bj-w-fit-content');
+        // element.classList.remove('align-items-center');
+        // element.classList.add('align-items-start');
+
         // element.classList.add('bj-menu-animation');
       });
     });
@@ -11393,7 +11396,10 @@ function Example() {
     document.querySelectorAll('.bj-menubar-selector').forEach(function (element) {
       element.classList.toggle('bj-d-responsive');
       element.classList.toggle('bj-d-sm-responsive');
-      element.classList.toggle('align-items-start');
+      element.classList.toggle('bj-w-fit-content');
+      // element.classList.toggle('align-items-center');
+      // element.classList.toggle('align-items-start');
+
       // element.classList.toggle('bj-menu-animation');
     });
   };
@@ -15529,9 +15535,9 @@ function UpdateProfile() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "my-4",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "d-flex gap-2 align-items-center ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "bj-back-mb d-flex gap-2 align-items-center bj-cursor-pointer",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
         onClick: handleNavigation,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
           style: {
@@ -15547,18 +15553,12 @@ function UpdateProfile() {
             d: "M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
-        style: {
-          pointer: 'cursor'
-        },
-        children: "Go back"
-      })]
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "row justify-content-center",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "col-md-8",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
-          className: "w-75 m-auto",
+          className: "bj-card-w m-auto",
           onSubmit: formik.handleSubmit,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
             className: "text-two",

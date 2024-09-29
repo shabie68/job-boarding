@@ -12451,8 +12451,6 @@ a {
 	animation: question-pbar 1.2s 1;
 }
 
-
-
 /*@media(min-width: 568px){*/
 @media(min-width: 280px){
 	.jb-sm-card-w {
@@ -12512,6 +12510,15 @@ a {
 	.bj-align-items-end {
 		align-items: end;
 	}
+
+	.bj-back-mb {
+		margin-bottom: 8px;
+	}
+
+	.bj-w-fit-content {
+		width: -moz-fit-content;
+		width: fit-content
+	}
 }
 
 
@@ -12561,6 +12568,10 @@ a {
 
 	.bj-close {
 		display: none
+	}
+
+	.bj-back-mb {
+		margin-bottom: 0px
 	}
 
 }

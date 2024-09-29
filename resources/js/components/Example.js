@@ -59,10 +59,11 @@ function Example() {
             document.querySelectorAll('.bj-menubar-selector').forEach( (element) => {
                 element.classList.remove('bj-d-responsive');
                 element.classList.add('bj-d-sm-responsive');
-                element.classList.add('align-items-start');
+                element.classList.add('bj-w-fit-content');
+                // element.classList.remove('align-items-center');
+                // element.classList.add('align-items-start');
+
                 // element.classList.add('bj-menu-animation');
-
-
                 
             })
         })
@@ -82,7 +83,10 @@ function Example() {
             document.querySelectorAll('.bj-menubar-selector').forEach( (element) => {
                 element.classList.toggle('bj-d-responsive');
                 element.classList.toggle('bj-d-sm-responsive');
-                element.classList.toggle('align-items-start');
+                element.classList.toggle('bj-w-fit-content');
+                // element.classList.toggle('align-items-center');
+                // element.classList.toggle('align-items-start');
+
                 // element.classList.toggle('bj-menu-animation');
 
 
