@@ -4,7 +4,7 @@ import apiClient from '../services/apiClient';
 
 
 
-function Company() {
+function Company(props) {
 
 	const location = useLocation();
 	const navigate = useNavigate();
@@ -34,6 +34,10 @@ function Company() {
 		if(currentPage) {
 			getCompanies()	
 		}
+
+		if(!document.querySelector('.bj-close').classList.contains('d-none')) {
+	        props.closeMenu()
+	    }
 		
 		// let height = window.innerHeight;
   //       let menuHeight = document.querySelector('.menubar-links').offsetHeight;

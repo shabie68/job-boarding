@@ -1,4 +1,14 @@
-const Contact = () => {
+import {useEffect} from 'react'
+
+const Contact = (props) => {
+
+	useEffect(() => {
+		
+		if(!document.querySelector('.bj-close').classList.contains('d-none')) {
+          props.closeMenu()
+        }
+
+	}, [])
 	
 	return (
 		<div className="row justify-content-center">

@@ -21,7 +21,7 @@
     @yield('styles')
 </head>
 <body class="bg-one h-100vh">
-    <div id="app">
+    <div id="app" class="h-100">
         <main class="py-4">
             @yield('content')
         </main>

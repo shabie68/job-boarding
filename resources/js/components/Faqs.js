@@ -1,7 +1,7 @@
 import apiClient from '../services/apiClient';
 import {useState, useEffect} from 'react'
 
-const Faqs = () => {
+const Faqs = (props) => {
 
 	const [role, setRole] = useState(-1);
 
@@ -23,6 +23,11 @@ const Faqs = () => {
   			const headerHeight = document.querySelector('.menubar-links').offsetHeight;
   			const footerHeight = document.querySelector('.bj-footer').offsetHeight
   			const contentHeight = document.querySelector('.bj-content').offsetHeight;
+		
+			if(!document.querySelector('.bj-close').classList.contains('d-none')) {
+	          props.closeMenu()
+	        }
+
 
   			// const headerHeight = document.querySelector('.menubar-links').offsetHeight;
      //    const footerHeight = document.querySelector('.bj-footer').offsetHeight+24;
