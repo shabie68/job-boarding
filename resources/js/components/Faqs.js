@@ -13,32 +13,10 @@ const Faqs = (props) => {
 	})
 
 	useEffect(() => {
-		// let height = window.innerHeight;
-  //       let menuHeight = document.querySelector('.menubar-links').offsetHeight;
-
-  //       let footerHeight = document.querySelector('.bj-footer').offsetHeight;
-  //       let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
-
-  //       document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px'
-  			const headerHeight = document.querySelector('.menubar-links').offsetHeight;
-  			const footerHeight = document.querySelector('.bj-footer').offsetHeight
-  			const contentHeight = document.querySelector('.bj-content').offsetHeight;
 		
-			if(!document.querySelector('.bj-close').classList.contains('d-none')) {
-	          props.closeMenu()
-	        }
-
-
-  			// const headerHeight = document.querySelector('.menubar-links').offsetHeight;
-     //    const footerHeight = document.querySelector('.bj-footer').offsetHeight+24;
-
-        document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) - 100 + 'px'
-
-
-  			// document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) + 'px'
-  			// let totalHeight = footerHeight + headerHeight 
-  			// alert(window.outerHeight - 159)
-
+		if(!document.querySelector('.bj-close').classList.contains('d-none')) {
+          props.closeMenu()
+        }
 	})
 
 

@@ -10697,14 +10697,6 @@ function Company(props) {
     if (!document.querySelector('.bj-close').classList.contains('d-none')) {
       props.closeMenu();
     }
-
-    // let height = window.innerHeight;
-    //       let menuHeight = document.querySelector('.menubar-links').offsetHeight;
-
-    //       let footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    //       let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
-
-    //       document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px'
   }, [currentPage]);
   function getCompanies() {
     // apiClient.get('http://127.0.0.1:8000/api/company/show-companies')
@@ -10783,7 +10775,7 @@ function Company(props) {
         }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "d-grid mt-4 gap-4 bj-grid-col-3 bj-rows-auto",
+            className: "d-grid my-4 gap-4 bj-grid-col-3 bj-rows-auto",
             children: companies === null || companies === void 0 ? void 0 : companies.map(function (company) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "bg-one bj-border-radius bj-p-20 bj-border bj-w-fit-content rounded bj-cursor-pointer bj-company-container",
@@ -11189,7 +11181,6 @@ var Contact = function Contact(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "row justify-content-center",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "col-md-8",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
         className: "bj-card-w m-auto",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
@@ -11433,7 +11424,9 @@ function Example() {
     // document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
     var headerHeight = document.querySelector('.menubar-links').offsetHeight;
     var footerHeight = document.querySelector('.bj-footer').offsetHeight + 24;
-    document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) + 'px';
+
+    // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) + 'px'
+    document.querySelector('.container').style.minHeight = window.innerHeight - (headerHeight + footerHeight - 20) + 'px';
 
     //height = 1360 ---> 100
     // 23px ---> ?
@@ -11996,7 +11989,7 @@ var Faqs = function Faqs(props) {
     // const headerHeight = document.querySelector('.menubar-links').offsetHeight;
     //    const footerHeight = document.querySelector('.bj-footer').offsetHeight+24;
 
-    document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) - 100 + 'px';
+    // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) - 100 + 'px'
 
     // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) + 'px'
     // let totalHeight = footerHeight + headerHeight 
