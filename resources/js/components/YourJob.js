@@ -33,7 +33,6 @@ const YourJob = (props) => {
 	}
 
 	const next = () => {
-
         setCurrentPage(currentPage + 1);
     };
 

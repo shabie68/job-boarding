@@ -233,7 +233,7 @@
             }
 
             li {
-                margin-bottom: 12px;
+                margin-bottom: 8px;
             }
 
 

@@ -9282,10 +9282,43 @@ var Aboutme = function Aboutme(props) {
       props.closeMenu();
     }
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-      children: "Gorgeous, is a forward-thinking technology solutions provider specializing in cloud-based infrastructure, AI-driven analytics, and customized software development. With a team of experienced professionals, Skybridge Innovations helps businesses optimize operations, streamline workflows, and unlock new growth opportunities. Our commitment to excellence and innovative approach ensures that we deliver scalable, secure, and efficient solutions tailored to the unique needs of our clients. Trusted by enterprises across industries, we aim to bridge the gap between today's technology challenges and tomorrow's breakthroughs."
-    })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+      children: "Who we are"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "d-flex justify-content-between bj-flex-col-res",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "w-75",
+        children: "Gorgeous, is a forward-thinking technology solutions provider specializing in cloud-based infrastructure, AI-driven analytics, and customized software development. With a team of experienced professionals, Skybridge Innovations helps businesses optimize operations, streamline workflows, and unlock new growth opportunities. Our commitment to excellence and innovative approach ensures that we deliver scalable, secure, and efficient solutions tailored to the unique needs of our clients. Trusted by enterprises across industries, we aim to bridge the gap between today's technology challenges and tomorrow's breakthroughs. Currently we have one main office in Pakistan Peshawar and we are working to extend it through out the world"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "bj-w-20",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          src: "images/about.jpg",
+          className: "w-100 bj-border-radius"
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
+        children: "Our values"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+        className: "gorgeous-mb-8",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          children: "We love diverse environment, have an unique idea? Just bring it on the table and let's implement it together"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          children: "Your success is our responsibility. We celebrate your success"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          children: "Our office timing is from 9:00 am to 5:00 pm"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          children: "25 paid holidays + your birthday is also a holiday"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          children: "Self improvement sessions like on medidations and yoga"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          children: "2 times promotion a year"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+          children: "Home office setup (every 4 years)"
+        })]
+      })]
+    })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Aboutme);
@@ -10686,7 +10719,6 @@ function Company(props) {
     setFeedback = _useState18[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var _location$state;
-    // let menuHeight = document.querySelector('')
     setSuccess((_location$state = location.state) === null || _location$state === void 0 ? void 0 : _location$state.addCompany);
     setTimeout(function () {
       setSuccess(false);
@@ -11415,17 +11447,9 @@ function Example() {
     });
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // let height = window.innerHeight;
-    // let menuHeight = document.querySelector('.menubar-links').offsetHeight;
-
-    // let footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    // let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
-
-    // document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
     var headerHeight = document.querySelector('.menubar-links').offsetHeight;
     var footerHeight = document.querySelector('.bj-footer').offsetHeight + 24;
-
-    // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) + 'px'
+    //20 is padding for footer
     document.querySelector('.container').style.minHeight = window.innerHeight - (headerHeight + footerHeight - 20) + 'px';
 
     //height = 1360 ---> 100
@@ -11444,7 +11468,7 @@ function Example() {
       value: messageContext,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.BrowserRouter, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-          className: "position-relative d-flex bj-gradient-footer w-100 top-0 bj-px-16 mb-4 text-light menubar-links bj-space-between bj-align-items-center",
+          className: "position-relative d-flex bj-gradient-footer w-100 top-0 bj-px-16 mb-3 text-light menubar-links bj-space-between bj-align-items-center",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("a", {
             href: "/home",
             className: "bj-place-self-start",
@@ -11972,28 +11996,9 @@ var Faqs = function Faqs(props) {
     setRole(response.data.role);
   });
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    // let height = window.innerHeight;
-    //       let menuHeight = document.querySelector('.menubar-links').offsetHeight;
-
-    //       let footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    //       let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
-
-    //       document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px'
-    var headerHeight = document.querySelector('.menubar-links').offsetHeight;
-    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    var contentHeight = document.querySelector('.bj-content').offsetHeight;
     if (!document.querySelector('.bj-close').classList.contains('d-none')) {
       props.closeMenu();
     }
-
-    // const headerHeight = document.querySelector('.menubar-links').offsetHeight;
-    //    const footerHeight = document.querySelector('.bj-footer').offsetHeight+24;
-
-    // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) - 100 + 'px'
-
-    // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight) + 'px'
-    // let totalHeight = footerHeight + headerHeight 
-    // alert(window.outerHeight - 159)
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "bj-content",
@@ -12880,14 +12885,6 @@ function Profile(props) {
     setTimeout(function () {
       setSuccess(false);
     }, 3000);
-    var height = window.innerHeight;
-    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
-    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height) + 'px';
-    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
-    // let footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    // let menuHeight = document.querySelector('.menubar-links').offsetHeight;
-    // let containerHeight = document.querySelector('.bj-content').offsetHeight;
     if (!document.querySelector('.bj-close').classList.contains('d-none')) {
       props.closeMenu();
     }
