@@ -236,6 +236,14 @@
                 margin-bottom: 8px;
             }
 
+            .bj-border-radius {
+                border-radius: 10px
+            }
+
+            .bj-justify-evenly {
+                justify-content: space-evenly;
+            }
+
 
         </style>
 
@@ -272,29 +280,40 @@
             <div>
                 <section class="text-start bj-px-4 bj-text-secondary">
                     <div class="">
-                        <div class="bj-margin-32">
-                            <h4 class="bj-text-three">Find and apply to jobs</h4>
+                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
                             <div>
-                                Candidates can filter, search and apply to jobs they love. Process is very simple
-                                <ul>
-                                    <li>Search your desire job</li>
-                                    <li>Apply to that job</li>
-                                    <li>Complete the application process in just a few steps</li>
-                                    <li>Track your application status easily</li>
-                                </ul>
+                                <img src="images/search_job.jpg" class="bj-border-radius"/>
+                            </div>
+
+                            <div>
+                                <h4 class="bj-text-three">Find and apply to jobs</h4>
+                                <div>
+                                    Candidates can filter, search and apply to jobs they love. Process is very simple
+                                    <ul>
+                                        <li>Search your desire job</li>
+                                        <li>Apply to that job</li>
+                                        <li>Complete the application process in just a few steps</li>
+                                        <li>Track your application status easily</li>
+                                    </ul>
+                                </div>
                             </div>
 
                         </div>
 
-                        <div class="bj-margin-32">
-                            <h4 class="bj-text-three">Message recruiters</h4>
+                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
                             <div>
-                                Candidates can engage directly with recruiters through live chat to inquire about the status of their job applications. Benefits include:
-                                <ul>
-                                    <li>Get instant feedback from recruiters in real-time.</li>
-                                    <li>Apply to that job</li>
-                                    <li>Fill the application</li>
-                                </ul>
+                                <img src="images/message.jpg" />
+                            </div>
+                            <div>
+                                <h4 class="bj-text-three">Message recruiters</h4>
+                                <div>
+                                    Candidates can engage directly with recruiters through live chat to inquire about the status of their job applications. Benefits include:
+                                    <ul>
+                                        <li>Get instant feedback from recruiters in real-time.</li>
+                                        <li>Apply to that job</li>
+                                        <li>Fill the application</li>
+                                    </ul>
+                                </div>
                             </div>
 
                         </div>
@@ -311,8 +330,6 @@
                             </div>
 
                         </div>
-
-
                     </div>
                 </section>
 
