@@ -127,7 +127,7 @@ function Example() {
         <BoardJobContext.Provider value={boardJob} >
             <MessageContext.Provider value={messageContext}>
             <BrowserRouter>
-                <div className="position-relative d-flex bj-gradient-footer w-100 top-0 bj-px-16 mb-4 text-light menubar-links bj-space-between bj-align-items-center">
+                <div className="position-relative d-flex bj-gradient-footer w-100 top-0 bj-px-16 mb-3 text-light menubar-links bj-space-between bj-align-items-center">
                     <a href="/home" className="bj-place-self-start"><strong className="bj-font-logo text-prime">Gorgeous</strong></a>                 
                     
                     <div className="bj-back-mb bj-text-align bj-d-responsive bj-menubar-selector d-md-flex flex-column">

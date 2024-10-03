@@ -233,7 +233,27 @@
             }
 
             li {
-                margin-bottom: 12px;
+                margin-bottom: 8px;
+            }
+
+            .bj-border-radius {
+                border-radius: 10px
+            }
+
+            .bj-justify-evenly {
+                justify-content: space-evenly;
+            }
+
+            .bj-w-25 {
+                width: 25%
+            }
+
+            .bj-w-50 {
+                width: 50%
+            }
+
+            .bj-w-100 {
+                width: 100%
             }
 
 
@@ -272,47 +292,63 @@
             <div>
                 <section class="text-start bj-px-4 bj-text-secondary">
                     <div class="">
-                        <div class="bj-margin-32">
-                            <h4 class="bj-text-three">Find and apply to jobs</h4>
-                            <div>
-                                Candidates can filter, search and apply to jobs they love. Process is very simple
-                                <ul>
-                                    <li>Search your desire job</li>
-                                    <li>Apply to that job</li>
-                                    <li>Complete the application process in just a few steps</li>
-                                    <li>Track your application status easily</li>
-                                </ul>
+                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
+                            <div class="bj-w-25">
+                                <img src="images/js.jpg" class="bj-border-radius bj-w-100"/>
                             </div>
 
+                            <div class="bj-w-50">
+                                <h4 class="bj-text-three">Find and apply to jobs</h4>
+                                <div>
+                                    Candidates can filter, search and apply to jobs they love. Process is very simple
+                                    <ul>
+                                        <li>Search your desire job</li>
+                                        <li>Apply to that job</li>
+                                        <li>Complete the application process in just a few steps</li>
+                                        <li>Track your application status easily</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="bj-margin-32">
-                            <h4 class="bj-text-three">Message recruiters</h4>
-                            <div>
-                                Candidates can engage directly with recruiters through live chat to inquire about the status of their job applications. Benefits include:
-                                <ul>
-                                    <li>Get instant feedback from recruiters in real-time.</li>
-                                    <li>Apply to that job</li>
-                                    <li>Fill the application</li>
-                                </ul>
+
+                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
+                            <div class="bj-w-25">
+                                <img src="images/message.jpg" class="bj-w-100 bj-border-radius" />
+                            </div>
+
+                            <div class="bj-w-50">
+                                <h4 class="bj-text-three">Message recruiters</h4>
+                                <div>
+                                    Candidates can engage directly with recruiters through live chat to inquire about the status of their job applications. Benefits include:
+                                    <ul>
+                                        <li>Get instant feedback from recruiters in real-time.</li>
+                                        <li>Apply to that job</li>
+                                        <li>Fill the application</li>
+                                    </ul>
+                                </div>
                             </div>
 
                         </div>
                         
-                        <div >
-                            <h4 class="bj-text-three">Review companies</h4>
-                            <div>
-                                Candidates can leave feedback for the company they have worked.
-                                <ul>
-                                    <li>Authentic and reliable with real experiences shared by employees</li>
-                                    <li>Transparent, allowing candidates to read other people's reviews and insights</li>
-                                    <li>Helpful for making informed decisions about future job opportunities</li>
-                                </ul>
+                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
+                            <div class="bj-w-25">
+                                <img src="images/feedback.jpg" class="bj-w-100 bj-border-radius" />
+                            </div>
+
+                            <div class="bj-w-50">
+                                <h4 class="bj-text-three">Review companies</h4>
+                                <div>
+                                    Candidates can leave feedback for the company they have worked.
+                                    <ul>
+                                        <li>Authentic and reliable with real experiences shared by employees</li>
+                                        <li>Transparent, allowing candidates to read other people's reviews and insights</li>
+                                        <li>Helpful for making informed decisions about future job opportunities</li>
+                                    </ul>
+                                </div>
                             </div>
 
                         </div>
-
-
                     </div>
                 </section>
 

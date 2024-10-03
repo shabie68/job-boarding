@@ -430,6 +430,10 @@ a {
 	right: 14px;
 }
 
+.gorgeous-mb-8 li {
+	margin-bottom: 8px
+}
+
 
 
 @keyframes apply-pbar{
@@ -553,6 +557,10 @@ a {
 	.bj-text-align {
 		text-align: start
 	}
+
+	.bj-flex-col-res {
+		flex-direction: column-reverse;
+	}
 }
 
 
@@ -610,6 +618,10 @@ a {
 
 	.bj-back-mb {
 		margin-bottom: 0px
+	}
+
+	.bj-flex-col-res {
+		flex-direction: row
 	}
 
 }
