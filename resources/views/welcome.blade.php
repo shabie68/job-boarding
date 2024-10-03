@@ -244,6 +244,18 @@
                 justify-content: space-evenly;
             }
 
+            .bj-w-25 {
+                width: 25%
+            }
+
+            .bj-w-50 {
+                width: 50%
+            }
+
+            .bj-w-100 {
+                width: 100%
+            }
+
 
         </style>
 
@@ -281,11 +293,11 @@
                 <section class="text-start bj-px-4 bj-text-secondary">
                     <div class="">
                         <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
-                            <div>
-                                <img src="images/search_job.jpg" class="bj-border-radius"/>
+                            <div class="bj-w-25">
+                                <img src="images/js.jpg" class="bj-border-radius bj-w-100"/>
                             </div>
 
-                            <div>
+                            <div class="bj-w-50">
                                 <h4 class="bj-text-three">Find and apply to jobs</h4>
                                 <div>
                                     Candidates can filter, search and apply to jobs they love. Process is very simple
@@ -297,14 +309,15 @@
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
 
+
                         <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
-                            <div>
-                                <img src="images/message.jpg" />
+                            <div class="bj-w-25">
+                                <img src="images/message.jpg" class="bj-w-100 bj-border-radius" />
                             </div>
-                            <div>
+
+                            <div class="bj-w-50">
                                 <h4 class="bj-text-three">Message recruiters</h4>
                                 <div>
                                     Candidates can engage directly with recruiters through live chat to inquire about the status of their job applications. Benefits include:
@@ -318,15 +331,21 @@
 
                         </div>
                         
-                        <div >
-                            <h4 class="bj-text-three">Review companies</h4>
-                            <div>
-                                Candidates can leave feedback for the company they have worked.
-                                <ul>
-                                    <li>Authentic and reliable with real experiences shared by employees</li>
-                                    <li>Transparent, allowing candidates to read other people's reviews and insights</li>
-                                    <li>Helpful for making informed decisions about future job opportunities</li>
-                                </ul>
+                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
+                            <div class="bj-w-25">
+                                <img src="images/feedback.jpg" class="bj-w-100 bj-border-radius" />
+                            </div>
+
+                            <div class="bj-w-50">
+                                <h4 class="bj-text-three">Review companies</h4>
+                                <div>
+                                    Candidates can leave feedback for the company they have worked.
+                                    <ul>
+                                        <li>Authentic and reliable with real experiences shared by employees</li>
+                                        <li>Transparent, allowing candidates to read other people's reviews and insights</li>
+                                        <li>Helpful for making informed decisions about future job opportunities</li>
+                                    </ul>
+                                </div>
                             </div>
 
                         </div>
