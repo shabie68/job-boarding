@@ -256,6 +256,17 @@
                 width: 100%
             }
 
+            .gorgeous-p-16 {
+                padding: 16px;
+                align-self: start
+            }
+
+            .gorgeous-home-img {
+                aspect-ratio: 2;
+            }
+
+
+
 
         </style>
 
@@ -293,8 +304,8 @@
                 <section class="text-start bj-px-4 bj-text-secondary">
                     <div class="">
                         <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
-                            <div class="bj-w-25">
-                                <img src="images/js.jpg" class="bj-border-radius bj-w-100"/>
+                            <div class="bj-w-25 gorgeous-p-16">
+                                <img src="images/js.jpg" class="bj-border-radius bj-w-100 gorgeous-home-img"/>
                             </div>
 
                             <div class="bj-w-50">
@@ -313,8 +324,8 @@
 
 
                         <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
-                            <div class="bj-w-25">
-                                <img src="images/message.jpg" class="bj-w-100 bj-border-radius" />
+                            <div class="bj-w-25 gorgeous-p-16">
+                                <img src="images/message.jpg" class="bj-w-100 bj-border-radius gorgeous-home-img" />
                             </div>
 
                             <div class="bj-w-50">
@@ -332,8 +343,8 @@
                         </div>
                         
                         <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
-                            <div class="bj-w-25">
-                                <img src="images/feedback.jpg" class="bj-w-100 bj-border-radius" />
+                            <div class="bj-w-25 gorgeous-p-16">
+                                <img src="images/feedback.jpg" class="bj-w-100 bj-border-radius gorgeous-home-img" />
                             </div>
 
                             <div class="bj-w-50">
@@ -347,7 +358,6 @@
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </section>
