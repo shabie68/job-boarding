@@ -626,6 +626,13 @@ a {
 		flex-direction: row
 	}
 
+	.gorgeous-w-20 {
+		width: 20%
+	}
+
+	.gorgeous-w-75 {
+		width: 75%
+	}
 }
 
 

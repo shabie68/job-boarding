@@ -265,9 +265,6 @@
                 aspect-ratio: 2;
             }
 
-
-
-
         </style>
 
         
@@ -463,19 +460,16 @@
                     </div>
                 </section>
 
-                
-
                 <section class=" bj-p-10 bj-gradient bj-footer position-relative w-100 bottom-0 bj-text-prime">
                         
                     <div class="bj-flex bj-content-evenly bj-items-center">
                         <div class=" ">
                             <strong class="bj-font-logo bj-text-prime">Gorgeous</strong>
                         </div>
-                        <a href="#" class="text-decoration-none bj-text-prime">About</a>
-                        <a href="#" class="text-decoration-none bj-text-prime">Contact us </a>
-                        <a href="#" class="text-decoration-none bj-text-prime">Faq's</a>
+                        <a href="/about-us" class="text-decoration-none bj-text-prime">About</a>
+                        <a href="/contact-us" class="text-decoration-none bj-text-prime">Contact us </a>
+                        <a href="/faqs" class="text-decoration-none bj-text-prime">Faq's</a>
                     </div>
-
 
                     <div class="bj-text-prime text-center">
                         ©2024 Gorgeous All Rights Reserved
