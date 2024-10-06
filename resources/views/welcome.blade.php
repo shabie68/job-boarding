@@ -257,14 +257,11 @@
                 width: 100%
             }
 
-
-
-
             .gorgeous-home-img {
                 aspect-ratio: 2;
             }
 
-            @media(min-width: 500px) {
+            @media(min-width: 300px) {
                 .gorgeous-r-w {
                     width: 100%
                 }
