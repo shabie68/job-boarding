@@ -9288,10 +9288,10 @@ var Aboutme = function Aboutme(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "d-flex justify-content-between bj-flex-col-res",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        className: "w-75",
+        className: "gorgeous-w-75",
         children: "Gorgeous, is a forward-thinking technology solutions provider specializing in cloud-based infrastructure, AI-driven analytics, and customized software development. With a team of experienced professionals, Skybridge Innovations helps businesses optimize operations, streamline workflows, and unlock new growth opportunities. Our commitment to excellence and innovative approach ensures that we deliver scalable, secure, and efficient solutions tailored to the unique needs of our clients. Trusted by enterprises across industries, we aim to bridge the gap between today's technology challenges and tomorrow's breakthroughs. Currently we have one main office in Pakistan Peshawar and we are working to extend it through out the world"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "bj-w-20",
+        className: "gorgeous-w-20",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
           src: "images/about.jpg",
           className: "w-100 bj-border-radius"
@@ -11839,7 +11839,7 @@ function Example() {
               path: "/companies/show-company/:id",
               element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_SingleCompany__WEBPACK_IMPORTED_MODULE_13__["default"], {})
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
-              path: "/about-me",
+              path: "/about-us",
               element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Aboutme__WEBPACK_IMPORTED_MODULE_14__["default"], {
                 closeMenu: closeMenu
               })
@@ -11867,7 +11867,7 @@ function Example() {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Link, {
               className: "text-decoration-none text-light",
-              to: "/about-me",
+              to: "/about-us",
               children: "About"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_21__.Link, {
               className: "text-decoration-none text-light",

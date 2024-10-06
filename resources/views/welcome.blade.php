@@ -230,6 +230,7 @@
 
             .bj-margin-32 {
                 margin-bottom: 32px;
+
             }
 
             li {
@@ -256,6 +257,64 @@
                 width: 100%
             }
 
+            .gorgeous-home-img {
+                aspect-ratio: 2;
+            }
+
+            @media(min-width: 300px) {
+                .gorgeous-r-w {
+                    width: 100%
+                }
+
+                .gorgeous-display {
+                    display: block;
+                }
+                .gorgeous-img-w {
+                    width: 100%
+                }
+
+                .gorgeous-px {
+                    padding: 0;
+                    align-self: start
+                }
+
+                .gorgeous-mt-16 {
+                    margin-top: 16px
+                }
+
+                .gorgeous-img-w img {
+                    width: 100%
+                }
+            }
+
+            @media(min-width: 768px) {
+                .gorgeous-img-w img {
+                    width: 75%
+                }
+            }
+
+            @media(min-width: 992px) {
+                .gorgeous-r-w {
+                    width: 50%
+                }
+
+                .gorgeous-display {
+                    display: flex;
+                }
+
+                .gorgeous-img-w {
+                    width: 25%
+                }
+
+                .gorgeous-px {
+                    padding: 0 16px;
+                    align-self: start
+                }
+
+                .gorgeous-img-w img {
+                    width: 100%
+                }
+            }
 
         </style>
 
@@ -279,7 +338,6 @@
                     </div>
                 @endif
 
-        
 
                 <div>
                     <h3>Gorgeous</h3>
@@ -292,12 +350,12 @@
             <div>
                 <section class="text-start bj-px-4 bj-text-secondary">
                     <div class="">
-                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
-                            <div class="bj-w-25">
-                                <img src="images/js.jpg" class="bj-border-radius bj-w-100"/>
+                        <div class="bj-margin-32 gorgeous-mt-16 gorgeous-display bj-justify-evenly bj-items-center">
+                            <div class="gorgeous-img-w gorgeous-px">
+                                <img src="images/js.jpg" class="bj-border-radius gorgeous-home-img"/>
                             </div>
 
-                            <div class="bj-w-50">
+                            <div class="gorgeous-r-w">
                                 <h4 class="bj-text-three">Find and apply to jobs</h4>
                                 <div>
                                     Candidates can filter, search and apply to jobs they love. Process is very simple
@@ -311,13 +369,12 @@
                             </div>
                         </div>
 
-
-                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
-                            <div class="bj-w-25">
-                                <img src="images/message.jpg" class="bj-w-100 bj-border-radius" />
+                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center">
+                            <div class="gorgeous-img-w gorgeous-px">
+                                <img src="images/message.jpg" class="bj-border-radius gorgeous-home-img" />
                             </div>
 
-                            <div class="bj-w-50">
+                            <div class="gorgeous-r-w">
                                 <h4 class="bj-text-three">Message recruiters</h4>
                                 <div>
                                     Candidates can engage directly with recruiters through live chat to inquire about the status of their job applications. Benefits include:
@@ -331,12 +388,12 @@
 
                         </div>
                         
-                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
-                            <div class="bj-w-25">
-                                <img src="images/feedback.jpg" class="bj-w-100 bj-border-radius" />
+                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center">
+                            <div class="gorgeous-img-w gorgeous-px">
+                                <img src="images/feedback.jpg" class="bj-border-radius gorgeous-home-img" />
                             </div>
 
-                            <div class="bj-w-50">
+                            <div class="gorgeous-r-w">
                                 <h4 class="bj-text-three">Review companies</h4>
                                 <div>
                                     Candidates can leave feedback for the company they have worked.
@@ -347,7 +404,6 @@
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </section>
@@ -453,19 +509,16 @@
                     </div>
                 </section>
 
-                
-
                 <section class=" bj-p-10 bj-gradient bj-footer position-relative w-100 bottom-0 bj-text-prime">
                         
                     <div class="bj-flex bj-content-evenly bj-items-center">
                         <div class=" ">
                             <strong class="bj-font-logo bj-text-prime">Gorgeous</strong>
                         </div>
-                        <a href="#" class="text-decoration-none bj-text-prime">About</a>
-                        <a href="#" class="text-decoration-none bj-text-prime">Contact us </a>
-                        <a href="#" class="text-decoration-none bj-text-prime">Faq's</a>
+                        <a href="/about-us" class="text-decoration-none bj-text-prime">About</a>
+                        <a href="/contact-us" class="text-decoration-none bj-text-prime">Contact us </a>
+                        <a href="/faqs" class="text-decoration-none bj-text-prime">Faq's</a>
                     </div>
-
 
                     <div class="bj-text-prime text-center">
                         ©2024 Gorgeous All Rights Reserved

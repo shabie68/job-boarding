@@ -180,7 +180,7 @@ function Example() {
                         <Route path="/update-profile" element={<UpdateProfile />} /> 
                         <Route path="/your-jobs" element={<YourJob updateJobContext={updateJobContext} closeMenu={closeMenu} />} /> 
                         <Route path="/companies/show-company/:id" element={<SingleCompany />} /> 
-                        <Route path="/about-me" element={<Aboutme closeMenu={closeMenu} />} />
+                        <Route path="/about-us" element={<Aboutme closeMenu={closeMenu} />} />
                         <Route path="/contact-us" element={<Contact closeMenu={closeMenu} />} />
                         <Route path="/faqs" element={<Faqs closeMenu={closeMenu} />} />
                     </Routes>
@@ -192,7 +192,7 @@ function Example() {
                         <div className=" ">
                             <strong className="bj-font-logo text-prime">Gorgeous</strong>
                         </div>
-                        <Link className="text-decoration-none text-light" to="/about-me">About</Link>
+                        <Link className="text-decoration-none text-light" to="/about-us">About</Link>
                         <Link className="text-decoration-none text-light" to="/contact-us">Contact us</Link>
                         <Link className="text-decoration-none text-light" to="/faqs">Faq's</Link>
                     </div>
