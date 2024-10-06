@@ -230,6 +230,7 @@
 
             .bj-margin-32 {
                 margin-bottom: 32px;
+
             }
 
             li {
@@ -256,13 +257,66 @@
                 width: 100%
             }
 
-            .gorgeous-p-16 {
-                padding: 16px;
-                align-self: start
-            }
+
+
 
             .gorgeous-home-img {
                 aspect-ratio: 2;
+            }
+
+            @media(min-width: 500px) {
+                .gorgeous-r-w {
+                    width: 100%
+                }
+
+                .gorgeous-display {
+                    display: block;
+                }
+                .gorgeous-img-w {
+                    width: 100%
+                }
+
+                .gorgeous-px {
+                    padding: 0;
+                    align-self: start
+                }
+
+                .gorgeous-mt-16 {
+                    margin-top: 16px
+                }
+
+                .gorgeous-img-w img {
+                    width: 100%
+                }
+            }
+
+            @media(min-width: 768px) {
+                .gorgeous-img-w img {
+                    width: 75%
+                }
+            }
+
+            @media(min-width: 992px) {
+                .gorgeous-r-w {
+                    width: 50%
+                }
+
+                .gorgeous-display {
+                    display: flex;
+                }
+
+                .gorgeous-img-w {
+                    width: 25%
+                }
+
+                .gorgeous-px {
+                    padding: 0 16px;
+                    align-self: start
+                }
+
+                .gorgeous-img-w img {
+                    width: 100%
+                }
             }
 
         </style>
@@ -287,7 +341,6 @@
                     </div>
                 @endif
 
-        
 
                 <div>
                     <h3>Gorgeous</h3>
@@ -300,12 +353,12 @@
             <div>
                 <section class="text-start bj-px-4 bj-text-secondary">
                     <div class="">
-                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
-                            <div class="bj-w-25 gorgeous-p-16">
-                                <img src="images/js.jpg" class="bj-border-radius bj-w-100 gorgeous-home-img"/>
+                        <div class="bj-margin-32 gorgeous-mt-16 gorgeous-display bj-justify-evenly bj-items-center">
+                            <div class="gorgeous-img-w gorgeous-px">
+                                <img src="images/js.jpg" class="bj-border-radius gorgeous-home-img"/>
                             </div>
 
-                            <div class="bj-w-50">
+                            <div class="gorgeous-r-w">
                                 <h4 class="bj-text-three">Find and apply to jobs</h4>
                                 <div>
                                     Candidates can filter, search and apply to jobs they love. Process is very simple
@@ -319,13 +372,12 @@
                             </div>
                         </div>
 
-
-                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
-                            <div class="bj-w-25 gorgeous-p-16">
-                                <img src="images/message.jpg" class="bj-w-100 bj-border-radius gorgeous-home-img" />
+                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center">
+                            <div class="gorgeous-img-w gorgeous-px">
+                                <img src="images/message.jpg" class="bj-border-radius gorgeous-home-img" />
                             </div>
 
-                            <div class="bj-w-50">
+                            <div class="gorgeous-r-w">
                                 <h4 class="bj-text-three">Message recruiters</h4>
                                 <div>
                                     Candidates can engage directly with recruiters through live chat to inquire about the status of their job applications. Benefits include:
@@ -339,12 +391,12 @@
 
                         </div>
                         
-                        <div class="bj-margin-32 bj-flex bj-justify-evenly bj-items-center">
-                            <div class="bj-w-25 gorgeous-p-16">
-                                <img src="images/feedback.jpg" class="bj-w-100 bj-border-radius gorgeous-home-img" />
+                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center">
+                            <div class="gorgeous-img-w gorgeous-px">
+                                <img src="images/feedback.jpg" class="bj-border-radius gorgeous-home-img" />
                             </div>
 
-                            <div class="bj-w-50">
+                            <div class="gorgeous-r-w">
                                 <h4 class="bj-text-three">Review companies</h4>
                                 <div>
                                     Candidates can leave feedback for the company they have worked.
