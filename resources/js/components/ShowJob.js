@@ -11,6 +11,7 @@ import Pusher from 'pusher-js';
 
 function ShowJob(props) {
     const location = useLocation();
+    const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
     const [userName, setUserName] = useState("")
     const [receivedMessages, setReceivedMessages] = useState([])
@@ -99,15 +100,19 @@ function ShowJob(props) {
   
     function getJobs(search = false) {
 
+      if(search) {
+        setLoading(true)
+      }
+      
 
        
       let baseUrl = 'http://127.0.0.1:8000/api/show-jobs';
       let getJobsUrl = !jobTitle ? `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
        apiClient.get('http://127.0.0.1:8000/api/show-jobs'+getJobsUrl)
         .then(function(response) {
+          setLoading(false)
           setRole(response.data.role)
           if(response.data?.startupCompanies?.length < 1) {
-
             return;
           }
 
@@ -300,7 +305,9 @@ function ShowJob(props) {
                       />
                     </span>
 
-                    <span><button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>Search Job</button></span>
+                    <span><button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>{!loading ? 'Search Job' : <div class="spinner-border" role="status">
+  <span class="sr-only"></span>
+</div>}</button></span>
                 </div>
               </div>
               
@@ -388,7 +395,7 @@ function ShowJob(props) {
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 11H8.01M12 11H12.01M16 11H16.01M21 20L17.6757 18.3378C17.4237 18.2118 17.2977 18.1488 17.1656 18.1044C17.0484 18.065 16.9277 18.0365 16.8052 18.0193C16.6672 18 16.5263 18 16.2446 18H6.2C5.07989 18 4.51984 18 4.09202 17.782C3.71569 17.5903 3.40973 17.2843 3.21799 16.908C3 16.4802 3 15.9201 3 14.8V7.2C3 6.07989 3 5.51984 3.21799 5.09202C3.40973 4.71569 3.71569 4.40973 4.09202 4.21799C4.51984 4 5.0799 4 6.2 4H17.8C18.9201 4 19.4802 4 19.908 4.21799C20.2843 4.40973 20.5903 4.71569 20.782 5.09202C21 5.51984 21 6.0799 21 7.2V20Z" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
                   </div>
                   :
-                  <div className="card position-fixed bg-one bj-msg-chat-w" style={{bottom: '20px', right: '10px', zIndex: 9, height: '50%', overflow: 'auto'}}>
+                  <div className="card position-fixed gorgeous-animate-menu bg-one bj-msg-chat-w" style={{bottom: '20px', right: '10px', zIndex: 9, height: '50%', overflow: 'auto'}}>
                   <div className="card-header position-sticky top-0 bg-two text-prime">
                     <div className="d-flex">
                       <div>

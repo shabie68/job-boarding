@@ -353,7 +353,7 @@
             @keyframes scaleHorizontalPositive {
                 0% {
                     opacity: 0;
-                    transform: translateX(50px)
+                    transform: translateX(100%)
                 }
                 100% {
                     opacity: 1;
@@ -364,7 +364,7 @@
             @keyframes scaleHorizontalNegative {
                 0% {
                     opacity: 0;
-                    transform: translateX(-50px)
+                    transform: translateX(-100%)
                 }
                 100% {
                     opacity: 1;
@@ -610,7 +610,9 @@
                             let attribute = element.getAttribute('data-idx')
                             if(attribute > (count - 3) && attribute < count + 1 ) {
                                 element.style.display = 'block'
+                                element.classList.remove('gorgeous-scalex')
                                 element.classList.add('gorgeous-scaleX')
+
                             }
                         })
                     }
@@ -637,7 +639,6 @@
                 document.querySelector('#bj-prev-btn').addEventListener('click', prev)
 
                 const animateElements = (entries, observer) => {
-                    console.log("HERE")
                     entries.forEach((entry) => {
                         if(entry.intersectionRatio > 0.75) {
                             entry.target.classList.toggle('gorgeous-animate')
