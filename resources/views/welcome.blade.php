@@ -261,6 +261,27 @@
                 aspect-ratio: 2;
             }
 
+            .gorgeous-m-0 {
+                margin: 0
+            }
+
+            .gorgeous-observe {
+                visibility: hidden;
+            }
+
+            .gorgeous-animate {
+                visibility: visible;
+                animation: scaleVertical 2s 1;
+            }
+
+            .gorgeous-scaleX {
+                animation: scaleHorizontalPositive 2s 1;
+            }
+
+            .gorgeous-scalex {
+                animation: scaleHorizontalNegative 2s 1;
+            }
+
             @media(min-width: 300px) {
                 .gorgeous-r-w {
                     width: 100%
@@ -316,6 +337,43 @@
                 }
             }
 
+            @keyframes scaleVertical {
+                0% {
+                    opacity: 0;
+                    transform: translateY(50px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+
+            @keyframes scaleHorizontalPositive {
+                0% {
+                    opacity: 0;
+                    transform: translateX(50px)
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0)
+                }
+            }
+
+            @keyframes scaleHorizontalNegative {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-50px)
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0)
+                }
+            }
+
+
+
         </style>
 
         
@@ -356,7 +414,7 @@
                             </div>
 
                             <div class="gorgeous-r-w">
-                                <h4 class="bj-text-three">Find and apply to jobs</h4>
+                                <h4 class="bj-text-three gorgeous-m-0">Find and apply to jobs</h4>
                                 <div>
                                     Candidates can filter, search and apply to jobs they love. Process is very simple
                                     <ul>
@@ -369,13 +427,13 @@
                             </div>
                         </div>
 
-                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center">
+                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-observe">
                             <div class="gorgeous-img-w gorgeous-px">
                                 <img src="images/message.jpg" class="bj-border-radius gorgeous-home-img" />
                             </div>
 
                             <div class="gorgeous-r-w">
-                                <h4 class="bj-text-three">Message recruiters</h4>
+                                <h4 class="bj-text-three gorgeous-m-0">Message recruiters</h4>
                                 <div>
                                     Candidates can engage directly with recruiters through live chat to inquire about the status of their job applications. Benefits include:
                                     <ul>
@@ -388,13 +446,13 @@
 
                         </div>
                         
-                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center">
+                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-observe">
                             <div class="gorgeous-img-w gorgeous-px">
                                 <img src="images/feedback.jpg" class="bj-border-radius gorgeous-home-img" />
                             </div>
 
                             <div class="gorgeous-r-w">
-                                <h4 class="bj-text-three">Review companies</h4>
+                                <h4 class="bj-text-three gorgeous-m-0">Review companies</h4>
                                 <div>
                                     Candidates can leave feedback for the company they have worked.
                                     <ul>
@@ -408,9 +466,7 @@
                     </div>
                 </section>
 
-
                 <section>
-
                     <div class="bj-flex bj-content-evenly bj-align-center bj-text-secondary">
                         <span class="bj-border-line "></span>
                         <h4>Get a job in the following categories</h4>
@@ -547,30 +603,15 @@
                         // document.querySelector('.bj-talent-container').parentElement.classList.remove('bj-slider')
                         count = count + 3
 
-                        const newspaperSpinning = [
-                            {
-
-                                transform: 'translateX(-50%)'
-                            }
-                        ]
-
-                        const newspaperTiming = {
-                          duration: 2000,
-                          iterations: 1,
-                        };
                         
                         document.querySelectorAll('.bj-talent-container').forEach((element ) => {
                             element.style.display = 'none';
 
                             let attribute = element.getAttribute('data-idx')
                             if(attribute > (count - 3) && attribute < count + 1 ) {
-
                                 element.style.display = 'block'
-
-                                // element.animate(newspaperSpinning, newspaperTiming)
-                                // document.querySelector('.bj-talent-container').parentElement.classList.add('bj-slider')
+                                element.classList.add('gorgeous-scaleX')
                             }
-                            
                         })
                     }
                 }
@@ -584,6 +625,8 @@
 
                             if(attribute >= (count - 2) && attribute <= count) {
                                 element.style.display = 'block';
+                                element.classList.remove('gorgeous-scaleX')
+                                element.classList.add('gorgeous-scalex')
                             }
                         })
                     }
@@ -592,6 +635,28 @@
                 document.querySelector('#bj-next-btn').addEventListener('click', next)
 
                 document.querySelector('#bj-prev-btn').addEventListener('click', prev)
+
+                const animateElements = (entries, observer) => {
+                    console.log("HERE")
+                    entries.forEach((entry) => {
+                        if(entry.intersectionRatio > 0.75) {
+                            entry.target.classList.toggle('gorgeous-animate')
+                            observer.unobserve(entry.target)
+                        }
+                    })
+                }
+
+                const options = {
+                    rootMargin: "0px",
+                    threshold: 0.75
+                }
+
+                const observer = new IntersectionObserver(animateElements, options)
+
+                let elementsToObserve = document.querySelectorAll('.gorgeous-observe')
+                elementsToObserve.forEach((element) => {
+                    observer.observe(element)
+                })
             </script>
     </body>
 </html>
