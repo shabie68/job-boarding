@@ -11414,7 +11414,7 @@ function Example() {
       document.querySelector('.menubar-links').classList.add('bj-menu-animation');
       document.querySelector('.bj-menubar-icon').classList.add('d-none');
       document.querySelector('.bj-close').classList.remove('d-none');
-
+      document.querySelector('.menubar-links').classList.add('gorgeous-animate-menu');
       // document.querySelector('.menubar-links').classList.add('bj-align-items-end')
       document.querySelectorAll('.bj-menubar-selector').forEach(function (element) {
         element.classList.remove('bj-d-responsive');
@@ -11431,6 +11431,7 @@ function Example() {
   var closeMenu = function closeMenu() {
     document.querySelector('.menubar-links').classList.toggle('bj-flex-sm-column');
     document.querySelector('.menubar-links').classList.toggle('bj-align-items-center');
+    document.querySelector('.menubar-links').classList.toggle('gorgeous-animate-menu');
     document.querySelector('.bj-menubar-icon').classList.toggle('d-none');
     document.querySelector('.bj-close').classList.toggle('d-none');
     document.querySelector('.menubar-links').classList.toggle('bj-menu-animation');
@@ -13962,107 +13963,111 @@ function ShowJob(props) {
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useLocation)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
-    success = _useState2[0],
-    setSuccess = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+    loading = _useState2[0],
+    setLoading = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState4 = _slicedToArray(_useState3, 2),
-    userName = _useState4[0],
-    setUserName = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    success = _useState4[0],
+    setSuccess = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
     _useState6 = _slicedToArray(_useState5, 2),
-    receivedMessages = _useState6[0],
-    setReceivedMessages = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(companies ? companies[0].id : null),
+    userName = _useState6[0],
+    setUserName = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState8 = _slicedToArray(_useState7, 2),
-    recepient = _useState8[0],
-    setRecepient = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(-1),
+    receivedMessages = _useState8[0],
+    setReceivedMessages = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(companies ? companies[0].id : null),
     _useState10 = _slicedToArray(_useState9, 2),
-    userId = _useState10[0],
-    setUserId = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    recepient = _useState10[0],
+    setRecepient = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(-1),
     _useState12 = _slicedToArray(_useState11, 2),
-    showMessage = _useState12[0],
-    setShowMessage = _useState12[1];
+    userId = _useState12[0],
+    setUserId = _useState12[1];
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState14 = _slicedToArray(_useState13, 2),
-    isMsgReceived = _useState14[0],
-    setIsMsgRecevied = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    showMessage = _useState14[0],
+    setShowMessage = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState16 = _slicedToArray(_useState15, 2),
-    senderName = _useState16[0],
-    setSenderName = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
+    isMsgReceived = _useState16[0],
+    setIsMsgRecevied = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState18 = _slicedToArray(_useState17, 2),
+    senderName = _useState18[0],
+    setSenderName = _useState18[1];
+  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
       name: 'Default',
       id: -1
     }]),
-    _useState18 = _slicedToArray(_useState17, 2),
-    candidates = _useState18[0],
-    setCandidates = _useState18[1];
-  var _useState19 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState20 = _slicedToArray(_useState19, 2),
-    jobs = _useState20[0],
-    setJobs = _useState20[1];
-  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+    candidates = _useState20[0],
+    setCandidates = _useState20[1];
+  var _useState21 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState22 = _slicedToArray(_useState21, 2),
-    role = _useState22[0],
-    setRole = _useState22[1];
-  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    jobs = _useState22[0],
+    setJobs = _useState22[1];
+  var _useState23 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState24 = _slicedToArray(_useState23, 2),
-    job = _useState24[0],
-    setJob = _useState24[1];
-  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    role = _useState24[0],
+    setRole = _useState24[1];
+  var _useState25 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState26 = _slicedToArray(_useState25, 2),
-    addJob = _useState26[0],
-    setAddJob = _useState26[1];
-  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    job = _useState26[0],
+    setJob = _useState26[1];
+  var _useState27 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState28 = _slicedToArray(_useState27, 2),
-    jobTitle = _useState28[0],
-    setJobTitle = _useState28[1];
+    addJob = _useState28[0],
+    setAddJob = _useState28[1];
   var _useState29 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState30 = _slicedToArray(_useState29, 2),
-    jobType = _useState30[0],
-    setJobType = _useState30[1];
-  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    jobTitle = _useState30[0],
+    setJobTitle = _useState30[1];
+  var _useState31 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState32 = _slicedToArray(_useState31, 2),
-    currentPage = _useState32[0],
-    setCurrentPage = _useState32[1];
-  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    jobType = _useState32[0],
+    setJobType = _useState32[1];
+  var _useState33 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState34 = _slicedToArray(_useState33, 2),
-    nextPage = _useState34[0],
-    setNextPage = _useState34[1];
-  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    currentPage = _useState34[0],
+    setCurrentPage = _useState34[1];
+  var _useState35 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
     _useState36 = _slicedToArray(_useState35, 2),
-    lastPage = _useState36[0],
-    setLastPage = _useState36[1];
-  var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    nextPage = _useState36[0],
+    setNextPage = _useState36[1];
+  var _useState37 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState38 = _slicedToArray(_useState37, 2),
-    company = _useState38[0],
-    setCompany = _useState38[1];
-  var _useState39 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    lastPage = _useState38[0],
+    setLastPage = _useState38[1];
+  var _useState39 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState40 = _slicedToArray(_useState39, 2),
-    users = _useState40[0],
-    setUsers = _useState40[1];
-  var _useState41 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    company = _useState40[0],
+    setCompany = _useState40[1];
+  var _useState41 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState42 = _slicedToArray(_useState41, 2),
-    selectedUser = _useState42[0],
-    setSelectedUser = _useState42[1];
-  var _useState43 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(-1),
+    users = _useState42[0],
+    setUsers = _useState42[1];
+  var _useState43 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState44 = _slicedToArray(_useState43, 2),
-    authenticatedUser = _useState44[0],
-    setAuthenticatedUser = _useState44[1];
-  var _useState45 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    selectedUser = _useState44[0],
+    setSelectedUser = _useState44[1];
+  var _useState45 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(-1),
     _useState46 = _slicedToArray(_useState45, 2),
-    message = _useState46[0],
-    setMessage = _useState46[1];
-  var _useState47 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    authenticatedUser = _useState46[0],
+    setAuthenticatedUser = _useState46[1];
+  var _useState47 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState48 = _slicedToArray(_useState47, 2),
-    companies = _useState48[0],
-    setCompanies = _useState48[1];
+    message = _useState48[0],
+    setMessage = _useState48[1];
   var _useState49 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState50 = _slicedToArray(_useState49, 2),
-    submissions = _useState50[0],
-    setSubmissions = _useState50[1];
+    companies = _useState50[0],
+    setCompanies = _useState50[1];
+  var _useState51 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState52 = _slicedToArray(_useState51, 2),
+    submissions = _useState52[0],
+    setSubmissions = _useState52[1];
   var msgContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_MessageContext__WEBPACK_IMPORTED_MODULE_3__["default"]);
   var messages = [];
   var value = "; ".concat(document.cookie);
@@ -14103,10 +14108,14 @@ function ShowJob(props) {
   };
   function getJobs() {
     var search = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+    if (search) {
+      setLoading(true);
+    }
     var baseUrl = 'http://127.0.0.1:8000/api/show-jobs';
     var getJobsUrl = !jobTitle ? "?page=".concat(currentPage) : "?title=".concat(encodeURIComponent(jobTitle), "&page=").concat(currentPage);
     _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/show-jobs' + getJobsUrl).then(function (response) {
       var _response$data;
+      setLoading(false);
       setRole(response.data.role);
       if (((_response$data = response.data) === null || _response$data === void 0 || (_response$data = _response$data.startupCompanies) === null || _response$data === void 0 ? void 0 : _response$data.length) < 1) {
         return;
@@ -14346,7 +14355,13 @@ function ShowJob(props) {
               onClick: function onClick() {
                 return getJobs(true, 'first-time');
               },
-              children: "Search Job"
+              children: !loading ? 'Search Job' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                "class": "spinner-border",
+                role: "status",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                  "class": "sr-only"
+                })
+              })
             })
           })]
         })
@@ -14508,7 +14523,7 @@ function ShowJob(props) {
           })]
         })
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "card position-fixed bg-one bj-msg-chat-w",
+        className: "card position-fixed gorgeous-animate-menu bg-one bj-msg-chat-w",
         style: {
           bottom: '20px',
           right: '10px',

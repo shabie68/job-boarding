@@ -54,7 +54,7 @@ function Example() {
             document.querySelector('.bj-menubar-icon').classList.add('d-none');
             document.querySelector('.bj-close').classList.remove('d-none')
 
-
+            document.querySelector('.menubar-links').classList.add('gorgeous-animate-menu')
             // document.querySelector('.menubar-links').classList.add('bj-align-items-end')
             document.querySelectorAll('.bj-menubar-selector').forEach( (element) => {
                 element.classList.remove('bj-d-responsive');
@@ -73,6 +73,7 @@ function Example() {
     const closeMenu = () => {
             document.querySelector('.menubar-links').classList.toggle('bj-flex-sm-column')
             document.querySelector('.menubar-links').classList.toggle('bj-align-items-center')
+            document.querySelector('.menubar-links').classList.toggle('gorgeous-animate-menu')
 
             document.querySelector('.bj-menubar-icon').classList.toggle('d-none');
             document.querySelector('.bj-close').classList.toggle('d-none')
