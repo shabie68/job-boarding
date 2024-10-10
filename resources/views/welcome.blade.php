@@ -298,7 +298,6 @@
                     padding: 0;
                     align-self: start
                 }
-
                 
                 .gorgeous-img-w img {
                     width: 100%
@@ -331,8 +330,6 @@
                     width: 75%;
                     text-align: center;
                 }
-
-
             }
 
             @media(min-width: 768px) {
@@ -348,7 +345,6 @@
 
                 .bj-border-line {
                     width: 30%
-
                 }
 
             }

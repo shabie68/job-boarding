@@ -42,13 +42,6 @@ const YourJob = (props) => {
 
 	useEffect(() => {
 		getSubmissions()
-		let height = window.innerHeight;
-        let menuHeight = document.querySelector('.menubar-links').offsetHeight;
-
-        let footerHeight = document.querySelector('.bj-footer').offsetHeight;
-        let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
-
-        document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
        
        	if(!document.querySelector('.bj-close').classList.contains('d-none')) {
           props.closeMenu()

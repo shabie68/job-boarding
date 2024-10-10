@@ -11411,20 +11411,13 @@ function Example() {
     (_document$querySelect = document.querySelector('.bj-menubar-icon')) === null || _document$querySelect === void 0 || _document$querySelect.addEventListener('click', function () {
       document.querySelector('.menubar-links').classList.add('bj-flex-sm-column');
       document.querySelector('.menubar-links').classList.remove('bj-align-items-center');
-      document.querySelector('.menubar-links').classList.add('bj-menu-animation');
       document.querySelector('.bj-menubar-icon').classList.add('d-none');
       document.querySelector('.bj-close').classList.remove('d-none');
       document.querySelector('.menubar-links').classList.add('gorgeous-animate-menu');
-      // document.querySelector('.menubar-links').classList.add('bj-align-items-end')
       document.querySelectorAll('.bj-menubar-selector').forEach(function (element) {
         element.classList.remove('bj-d-responsive');
         element.classList.add('bj-d-sm-responsive');
         element.classList.add('bj-w-fit-content');
-
-        // element.classList.remove('align-items-center');
-        // element.classList.add('align-items-start');
-
-        // element.classList.add('bj-menu-animation');
       });
     });
   };
@@ -11434,28 +11427,19 @@ function Example() {
     document.querySelector('.menubar-links').classList.toggle('gorgeous-animate-menu');
     document.querySelector('.bj-menubar-icon').classList.toggle('d-none');
     document.querySelector('.bj-close').classList.toggle('d-none');
-    document.querySelector('.menubar-links').classList.toggle('bj-menu-animation');
 
     // document.querySelector('.menubar-links').classList.add('bj-align-items-end')
     document.querySelectorAll('.bj-menubar-selector').forEach(function (element) {
       element.classList.toggle('bj-d-responsive');
       element.classList.toggle('bj-d-sm-responsive');
       element.classList.toggle('bj-w-fit-content');
-      // element.classList.toggle('align-items-center');
-      // element.classList.toggle('align-items-start');
-
-      // element.classList.toggle('bj-menu-animation');
     });
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var headerHeight = document.querySelector('.menubar-links').offsetHeight;
     var footerHeight = document.querySelector('.bj-footer').offsetHeight + 24;
     //20 is padding for footer
-    document.querySelector('.container').style.minHeight = window.innerHeight - (headerHeight + footerHeight - 20) + 'px';
-
-    //height = 1360 ---> 100
-    // 23px ---> ?
-
+    document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) + 'px';
     addBackgroundGradient();
   }, []);
   var addBackgroundGradient = function addBackgroundGradient() {
@@ -11713,7 +11697,7 @@ function Example() {
               children: "Logout"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
-            className: "bj-menubar-icon bj-cursor-pointer",
+            className: "bj-menubar-icon gorgeous-cursor-pointer",
             onClick: showMenu,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
               viewBox: "0 0 24 24",
@@ -11741,7 +11725,7 @@ function Example() {
               })]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
-            className: "bj-cursor-pointer d-none bj-close position-absolute",
+            className: "gorgeous-cursor-pointer d-none bj-close position-absolute",
             onClick: closeMenu,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
               viewBox: "0 0 24 24",
@@ -13083,14 +13067,6 @@ var RecruiterJobs = function RecruiterJobs(props) {
     _useState12 = _slicedToArray(_useState11, 2),
     chatMessages = _useState12[0],
     setChatMessages = _useState12[1];
-
-  // const sendMessage = (candidate_id) => {
-  // 	apiClient.post('http://127.0.0.1:8000/api/send-msg/', {
-  //          id: candidate_id,
-  //          message: 'Hello Admin!'
-  //         })
-  // }
-
   var acceptCandidate = function acceptCandidate(submission) {
     var rejectedSubmissions = props.jobSubmissions.filter(function (_submission) {
       console.log("HERE IS THE SUBMISSION");
@@ -13102,7 +13078,6 @@ var RecruiterJobs = function RecruiterJobs(props) {
       message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title,
       rejectedSubmissions: rejectedSubmissions
     }).then(function () {
-      // window.location = '/home'
       alert("Congratulations! You have been selected");
       navigate('/home');
     });
@@ -13119,17 +13094,8 @@ var RecruiterJobs = function RecruiterJobs(props) {
       message: msg
     }).then(function () {
       var mess = [sendMessages, receivedMessages];
-      // setChatMessages((prevMessages) => [...prevMessages,[sendMessages, receivedMessages]])
       setChatMessages(mess);
-
-      // messages.push(msg)
-      // messages.push(context.message)
-      // console.log(messages.flat())
-
-      // console.log("HERE IS THE MESSAgE")
-
       m.push(context.message);
-      // m.push(msg)
       m = m.flat();
       console.log("Message is here");
       console.log(context.message);
@@ -13142,19 +13108,6 @@ var RecruiterJobs = function RecruiterJobs(props) {
       setMessages(function (prevMessages) {
         return [].concat(_toConsumableArray(prevMessages), [msg]);
       });
-
-      // let msg = context.message.message;
-      // msg.push()
-      // props.updateJobContext({user_id: null, submission: null, message})
-
-      // props.updateJobContext((prevMessages) => [...prevMessages, data['message']]);
-
-      // props.updateJobContext((prevMessages) => ({
-      //   ...prevMessages,
-      //   message: [...prevMessages.message, 'new message'],
-      //   user_id: null,
-      //   submission: null
-      // }));
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -13162,7 +13115,7 @@ var RecruiterJobs = function RecruiterJobs(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       children: "Here you will find a list of candidates who applied to the jobs that your company posted. You can view candidate's resume by click on the desire candidate column. Candidates can be accepted, rejected by setting the status to accepted."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
-      className: "table table-striped",
+      className: "table table-striped gorgeous-table",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("caption", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
           children: "Received Applications"
@@ -13226,6 +13179,28 @@ var RecruiterJobs = function RecruiterJobs(props) {
           }, submission.id);
         })
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "gorgeous-table-card",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "gorgeous-bold d-flex",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: "Job title"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: "Name"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: "Country"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: "Resume"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          children: "Confirmation"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "gorgeous-table-col",
+          children: "Phone"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: "gorgeous-table-col",
+          children: "Email"
+        })]
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "d-flex gap-2 align-items-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
@@ -15847,11 +15822,6 @@ var YourJob = function YourJob(props) {
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     getSubmissions();
-    var height = window.innerHeight;
-    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
-    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
-    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
     if (!document.querySelector('.bj-close').classList.contains('d-none')) {
       props.closeMenu();
     }
