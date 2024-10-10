@@ -601,6 +601,19 @@ a {
 	.gorgeous-table-col {
 		display: none;
 	}
+
+	.gorgeous-word-break {
+		word-break: break-word;
+		padding-top: 4px
+	}
+
+	.gorgeous-zebra-strip:nth-of-type(odd) > * {
+		background: lightblue;
+	}
+
+	.gorgeous-zebra-strip:nth-of-type(even) > * {
+		background: green;
+	}
 }
 
 

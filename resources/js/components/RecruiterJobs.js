@@ -112,16 +112,32 @@ const RecruiterJobs = (props) => {
 			  </tbody>
 			</table>
 
-			<div className="gorgeous-table-card">
-				<div className="gorgeous-bold d-flex">
-					<span>Job title</span>
-					<span>Name</span>
-					<span>Country</span>
-					<span>Resume</span>
-					<span>Confirmation</span>
-					<span className="gorgeous-table-col">Phone</span>
-					<span className="gorgeous-table-col">Email</span>
+			<div className="gorgeous-table-card mt-4">
+				<strong>Received applications</strong>
+				<div className="gorgeous-bold d-flex justify-content-between mt-3">
+					<span className="w-25">Job title</span>
+					<span className="w-25">Name</span>
+					<span className="w-25">Resume</span>
+					<span className="w-25">Confirmation</span>
 				</div>
+
+				{
+					props?.jobSubmissions.map((submission) => (
+						<div className="d-flex justify-content-between my-3 gorgeous-zebra-strip" key={submission.id}>
+							<span className="gorgeous-word-break w-25">{submission?.board_job.title}</span>
+							<span className="gorgeous-word-break w-25">{submission?.first_name}</span>
+							<span className="gorgeous-word-break w-25"><a href={`uploads/${submission.resume}`}>Resume</a></span>
+							{
+			    				submission.accept_candidate < 1 ?
+			    				<span className="w-25"><button className="btn bj-btn-table" onClick={() => {acceptCandidate(submission)}}>Accept</button></span>
+			    				:
+			    				<span className="w-25"><strong>{submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'}</strong></span>
+			    			}
+						</div>
+
+					))
+				}
+
 			</div>
 
 			<div className="d-flex gap-2 align-items-center">
