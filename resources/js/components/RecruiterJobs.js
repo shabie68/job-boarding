@@ -20,17 +20,6 @@ const RecruiterJobs = (props) => {
 	const [sendMessages, setSendMessages] = useState([])
 	const [chatMessages, setChatMessages] = useState([])
 
-
-
-
-
-	// const sendMessage = (candidate_id) => {
-	// 	apiClient.post('http://127.0.0.1:8000/api/send-msg/', {
- //          id: candidate_id,
- //          message: 'Hello Admin!'
- //         })
-	// }
-
 	const acceptCandidate = (submission) => {
 
 		let rejectedSubmissions = props.jobSubmissions.filter((_submission) => {
@@ -45,7 +34,7 @@ const RecruiterJobs = (props) => {
 			rejectedSubmissions: rejectedSubmissions
 		})
 		.then(() => {
-			// window.location = '/home'
+
 			alert("Congratulations! You have been selected")
 			navigate('/home')
 			
@@ -61,19 +50,11 @@ const RecruiterJobs = (props) => {
 			message: msg
 		})
 		.then(() => {
+
 			let mess = [sendMessages, receivedMessages]
-			// setChatMessages((prevMessages) => [...prevMessages,[sendMessages, receivedMessages]])
 			setChatMessages(mess)
 
-
-			// messages.push(msg)
-			// messages.push(context.message)
-			// console.log(messages.flat())
-
-			// console.log("HERE IS THE MESSAgE")
-
 			m.push(context.message)
-			// m.push(msg)
 			m = m.flat()
 			console.log("Message is here")
 			console.log(context.message)
@@ -81,22 +62,8 @@ const RecruiterJobs = (props) => {
 			if(context.message) {
 				setMessages((prevMessages) => [...prevMessages, context.message])
 			}
-			
 
 			setMessages((prevMessages) => [...prevMessages, msg])
-
-			// let msg = context.message.message;
-			// msg.push()
-			// props.updateJobContext({user_id: null, submission: null, message})
-
-			// props.updateJobContext((prevMessages) => [...prevMessages, data['message']]);
-
-			// props.updateJobContext((prevMessages) => ({
-			//   ...prevMessages,
-			//   message: [...prevMessages.message, 'new message'],
-			//   user_id: null,
-			//   submission: null
-			// }));
 		})
 	}
 
@@ -106,9 +73,7 @@ const RecruiterJobs = (props) => {
 				Here you will find a list of candidates who applied to the jobs that your company posted. You can view candidate's resume
 				by click on the desire candidate column. Candidates can be accepted, rejected by setting the status to accepted.
 			</p>
-			<table className="table table-striped">
-
-
+			<table className="table table-striped gorgeous-table">
 				<caption>
 					<strong>Received Applications</strong>
 				</caption>
@@ -146,6 +111,18 @@ const RecruiterJobs = (props) => {
 
 			  </tbody>
 			</table>
+
+			<div className="gorgeous-table-card">
+				<div className="gorgeous-bold d-flex">
+					<span>Job title</span>
+					<span>Name</span>
+					<span>Country</span>
+					<span>Resume</span>
+					<span>Confirmation</span>
+					<span className="gorgeous-table-col">Phone</span>
+					<span className="gorgeous-table-col">Email</span>
+				</div>
+			</div>
 
 			<div className="d-flex gap-2 align-items-center">
                <button className="btn bj-btn-prime btn-link"  onClick={props.prev} disabled={props.currentPage === 1} style={{border: '1px solid lightslategrey'}}>

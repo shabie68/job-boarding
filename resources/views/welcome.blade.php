@@ -104,15 +104,11 @@
             }
 
             .bj-img-container {
-                width: 200px;
-                height: 200px;
                 background-repeat: no-repeat;
                 background-size: 100%; 
                 border-radius: 10px;
 
             }
-
-
 
             .bj-talent-container[data-idx="1"] div {
                 background-image: url('images/health.jpg');
@@ -211,7 +207,6 @@
             }
 
             .bj-border-line {
-                width: 30%;
                 height: 1px;
                 background-color: #238a85;
             }
@@ -267,6 +262,7 @@
 
             .gorgeous-observe {
                 visibility: hidden;
+
             }
 
             .gorgeous-animate {
@@ -282,7 +278,11 @@
                 animation: scaleHorizontalNegative 2s 1;
             }
 
-            @media(min-width: 300px) {
+            .slider-wrapper {
+                margin-bottom: 32px
+            }
+
+            @media(min-width: 100px) {
                 .gorgeous-r-w {
                     width: 100%
                 }
@@ -291,27 +291,62 @@
                     display: block;
                 }
                 .gorgeous-img-w {
-                    width: 100%
+                    width: 75%
                 }
 
                 .gorgeous-px {
                     padding: 0;
                     align-self: start
                 }
+                
+                .gorgeous-img-w img {
+                    width: 100%
+                }
+
+                .gorgeous-desc {
+                    margin: auto;
+                    width: 75%
+                }
 
                 .gorgeous-mt-16 {
                     margin-top: 16px
                 }
 
-                .gorgeous-img-w img {
-                    width: 100%
+                .bj-img-container {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                .bj-talent-container {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                .bj-border-line {
+                    width: 12.5%;
+                }
+
+                .gorgeous-border {
+                    width: 75%;
+                    text-align: center;
                 }
             }
 
             @media(min-width: 768px) {
-                .gorgeous-img-w img {
-                    width: 75%
+                .bj-img-container {
+                    width: 150px;
+                    height: 150px;
+                }  
+
+                .bj-talent-container {
+                    width: 150px; 
+                    height: 150px;
+                } 
+
+                .bj-border-line {
+                    width: 30%
                 }
+
             }
 
             @media(min-width: 992px) {
@@ -335,6 +370,27 @@
                 .gorgeous-img-w img {
                     width: 100%
                 }
+
+                .gorgeous-desc {
+                    margin: 0 0 24px 0;
+                    width: 100%
+                }
+
+                .gorgeous-mt-16 {
+                    margin-top: 16px
+                }
+
+                .bj-img-container {
+                    width: 200px;
+                    height: 200px;
+                }
+
+                .bj-talent-container {
+                    width: 200px; 
+                    height: 200px;
+                }
+
+
             }
 
             @keyframes scaleVertical {
@@ -372,8 +428,6 @@
                 }
             }
 
-
-
         </style>
 
         
@@ -408,7 +462,7 @@
             <div>
                 <section class="text-start bj-px-4 bj-text-secondary">
                     <div class="">
-                        <div class="bj-margin-32 gorgeous-mt-16 gorgeous-display bj-justify-evenly bj-items-center">
+                        <div class="bj-margin-32 gorgeous-mt-16 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
                             <div class="gorgeous-img-w gorgeous-px">
                                 <img src="images/js.jpg" class="bj-border-radius gorgeous-home-img"/>
                             </div>
@@ -427,7 +481,7 @@
                             </div>
                         </div>
 
-                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-observe">
+                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-observe gorgeous-desc">
                             <div class="gorgeous-img-w gorgeous-px">
                                 <img src="images/message.jpg" class="bj-border-radius gorgeous-home-img" />
                             </div>
@@ -446,7 +500,7 @@
 
                         </div>
                         
-                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-observe">
+                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-observe gorgeous-desc">
                             <div class="gorgeous-img-w gorgeous-px">
                                 <img src="images/feedback.jpg" class="bj-border-radius gorgeous-home-img" />
                             </div>
@@ -467,9 +521,9 @@
                 </section>
 
                 <section>
-                    <div class="bj-flex bj-content-evenly bj-align-center bj-text-secondary">
+                    <div class="bj-flex bj-content-evenly bj-align-center bj-text-secondary ">
                         <span class="bj-border-line "></span>
-                        <h4>Get a job in the following categories</h4>
+                        <h4 class="gorgeous-border">Get a job in the following categories</h4>
                         <span class="bj-border-line"></span>
                     </div>
                     <div class="bj-slider-container bj-text-secondary">

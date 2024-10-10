@@ -49,23 +49,15 @@ function Example() {
   
             document.querySelector('.menubar-links').classList.add('bj-flex-sm-column')
             document.querySelector('.menubar-links').classList.remove('bj-align-items-center')
-            document.querySelector('.menubar-links').classList.add('bj-menu-animation');
 
             document.querySelector('.bj-menubar-icon').classList.add('d-none');
             document.querySelector('.bj-close').classList.remove('d-none')
 
             document.querySelector('.menubar-links').classList.add('gorgeous-animate-menu')
-            // document.querySelector('.menubar-links').classList.add('bj-align-items-end')
             document.querySelectorAll('.bj-menubar-selector').forEach( (element) => {
                 element.classList.remove('bj-d-responsive');
                 element.classList.add('bj-d-sm-responsive');
                 element.classList.add('bj-w-fit-content');
-
-                // element.classList.remove('align-items-center');
-                // element.classList.add('align-items-start');
-
-                // element.classList.add('bj-menu-animation');
-                
             })
         })
     }
@@ -77,7 +69,6 @@ function Example() {
 
             document.querySelector('.bj-menubar-icon').classList.toggle('d-none');
             document.querySelector('.bj-close').classList.toggle('d-none')
-            document.querySelector('.menubar-links').classList.toggle('bj-menu-animation');
 
 
 
@@ -86,13 +77,6 @@ function Example() {
                 element.classList.toggle('bj-d-responsive');
                 element.classList.toggle('bj-d-sm-responsive');
                 element.classList.toggle('bj-w-fit-content');
-                // element.classList.toggle('align-items-center');
-                // element.classList.toggle('align-items-start');
-
-                // element.classList.toggle('bj-menu-animation');
-
-
-                
             })
     }
 
@@ -104,11 +88,7 @@ function Example() {
         const headerHeight = document.querySelector('.menubar-links').offsetHeight;
         const footerHeight = document.querySelector('.bj-footer').offsetHeight+24;
         //20 is padding for footer
-        document.querySelector('.container').style.minHeight = window.innerHeight - (headerHeight + footerHeight - 20) + 'px'
-
-
-        //height = 1360 ---> 100
-        // 23px ---> ?
+        document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) + 'px'
 
         addBackgroundGradient()
         
@@ -158,11 +138,11 @@ function Example() {
                         </div>
                     </div>
 
-                    <div className="bj-menubar-icon bj-cursor-pointer" onClick={showMenu}>
+                    <div className="bj-menubar-icon gorgeous-cursor-pointer" onClick={showMenu}>
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                     </div>
 
-                    <span className="bj-cursor-pointer d-none bj-close position-absolute" onClick={closeMenu}>
+                    <span className="gorgeous-cursor-pointer d-none bj-close position-absolute" onClick={closeMenu}>
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" stroke=""><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect width="24" height="24" fill=""></rect> <path d="M7 17L16.8995 7.10051" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7 7.00001L16.8995 16.8995" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                     </span>
                 </div>
