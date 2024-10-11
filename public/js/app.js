@@ -10586,7 +10586,7 @@ var CandidateJobs = function CandidateJobs(props) {
               style: {
                 verticalAlign: 'middle'
               },
-              children: submission.accepted_candidate == 0 ? 'Evaluating' : submission.accepted_candidate == 1 ? 'Accepted' : 'Rejected'
+              children: submission.accept_candidate == -1 ? 'Evaluating' : submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'
             })]
           });
         })
@@ -13179,7 +13179,7 @@ var RecruiterJobs = function RecruiterJobs(props) {
             }), submission.accept_candidate < 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               className: "align-middle text-center",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                className: "btn bj-btn-table",
+                className: "btn",
                 onClick: function onClick() {
                   acceptCandidate(submission);
                 },

@@ -65,7 +65,7 @@ const CandidateJobs = (props) => {
 			  			<tr>
 			  				<td style={{verticalAlign: 'middle'}}>{submission.board_job.title}</td>
 			  				<td style={{verticalAlign: 'middle'}}>{submission.company.title}</td>
-			  				<td style={{verticalAlign: 'middle'}}>{submission.accepted_candidate == 0 ? 'Evaluating' : submission.accepted_candidate == 1 ? 'Accepted' : 'Rejected'}</td> 
+			  				<td style={{verticalAlign: 'middle'}}>{submission.accept_candidate == -1 ? 'Evaluating' : submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'}</td> 
 			  			</tr>
 			  		))
 			  	}

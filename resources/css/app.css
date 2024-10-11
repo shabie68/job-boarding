@@ -151,12 +151,13 @@ table a {
 	color: #4f4a47;
 }
 .table-striped > tbody > tr:nth-of-type(odd) > * {
-	background: #99902c;
+	background: #4f4a47;
 	color: #fbfff6;
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) button {
 	color: #fbfff6;
+	background-color: #837629
 }
 
 .table-striped > tbody > tr:nth-of-type(even) > * {
@@ -517,6 +518,8 @@ a {
 .gorgeous-vertical-middle {
 	vertical-align: middle
 }
+
+
 
 /*@media(min-width: 568px){*/
 @media(min-width: 100px){

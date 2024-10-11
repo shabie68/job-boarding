@@ -101,7 +101,7 @@ const RecruiterJobs = (props) => {
 			    			<td className="align-middle text-center"><a href={`uploads/${submission.resume}`}>Resume</a></td>
 			    			{
 			    				submission.accept_candidate < 1 ?
-			    				<td className="align-middle text-center"><button className="btn bj-btn-table" onClick={() => {acceptCandidate(submission)}}>Accept</button></td>
+			    				<td className="align-middle text-center"><button className="btn" onClick={() => {acceptCandidate(submission)}}>Accept</button></td>
 			    				:
 			    				<td className="align-middle text-center"><strong>{submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'}</strong></td>
 			    			}
