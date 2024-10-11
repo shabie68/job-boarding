@@ -80,30 +80,30 @@ const RecruiterJobs = (props) => {
 
 			  <thead>
 			    <tr>
-			      <th scope="col"> Job title</th>
-			      <th scope="col">First name</th>
-			      <th scope="col">Country</th>
-			      <th scope="col">Phone</th>
-			      <th scope="col">Email</th>
-			      <th scope="col">Resume</th>
-			      <th scope="col">Confirmation</th>
+			      <th scope="col" className="text-center"> Job title</th>
+			      <th scope="col" className="text-center">Name</th>
+			      <th scope="col" className="gorgeous-table-col text-center">Country</th>
+			      <th scope="col" className="gorgeous-table-col text-center">Phone</th>
+			      <th scope="col" className="gorgeous-table-col text-center">Email</th>
+			      <th scope="col" className="text-center">Resume</th>
+			      <th scope="col" className="text-center">Confirmation</th>
 			    </tr>
 			  </thead>
 
 			  <tbody>
 				   {props.jobSubmissions.map((submission) => (
 			    		<tr key={submission.id}>
-			    			<td>{submission.board_job.title}</td>
-			    			<td>{submission.first_name}</td>
-			    			<td>{submission.country} </td>
-			    			<td>{submission.phone_number}</td>
-			    			<td>{submission.email}</td>
-			    			<td><a href={`uploads/${submission.resume}`}>Resume</a></td>
+			    			<td className="align-middle text-center">{submission.board_job.title}</td>
+			    			<td className="align-middle text-center">{submission.first_name}</td>
+			    			<td className="gorgeous-table-col align-middle text-center">{submission.country} </td>
+			    			<td className="gorgeous-table-col align-middle text-center">{submission.phone_number}</td>
+			    			<td className="gorgeous-table-col align-middle text-center">{submission.email}</td>
+			    			<td className="align-middle text-center"><a href={`uploads/${submission.resume}`}>Resume</a></td>
 			    			{
 			    				submission.accept_candidate < 1 ?
-			    				<td><button className="btn bj-btn-table" onClick={() => {acceptCandidate(submission)}}>Accept candidate</button></td>
+			    				<td className="align-middle text-center"><button className="btn bj-btn-table" onClick={() => {acceptCandidate(submission)}}>Accept</button></td>
 			    				:
-			    				<td><strong>{submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'}</strong></td>
+			    				<td className="align-middle text-center"><strong>{submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'}</strong></td>
 			    			}
 			    			
 			    		</tr>
@@ -111,18 +111,6 @@ const RecruiterJobs = (props) => {
 
 			  </tbody>
 			</table>
-
-			<div className="gorgeous-table-card">
-				<div className="gorgeous-bold d-flex">
-					<span>Job title</span>
-					<span>Name</span>
-					<span>Country</span>
-					<span>Resume</span>
-					<span>Confirmation</span>
-					<span className="gorgeous-table-col">Phone</span>
-					<span className="gorgeous-table-col">Email</span>
-				</div>
-			</div>
 
 			<div className="d-flex gap-2 align-items-center">
                <button className="btn bj-btn-prime btn-link"  onClick={props.prev} disabled={props.currentPage === 1} style={{border: '1px solid lightslategrey'}}>
