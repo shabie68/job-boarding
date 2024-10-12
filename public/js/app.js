@@ -10554,18 +10554,21 @@ var CandidateJobs = function CandidateJobs(props) {
       "class": "table table-striped",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("caption", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
-          children: "Received Applications"
+          children: "Applied Jobs"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
             scope: "col",
+            className: "text-center",
             children: "Job title"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
             scope: "col",
+            className: "text-center",
             children: "Company name"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("th", {
             scope: "col",
+            className: "text-center",
             children: "Application status"
           })]
         })
@@ -10573,19 +10576,13 @@ var CandidateJobs = function CandidateJobs(props) {
         children: props.jobSubmissions.map(function (submission) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-              style: {
-                verticalAlign: 'middle'
-              },
+              className: "align-middle text-center",
               children: submission.board_job.title
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-              style: {
-                verticalAlign: 'middle'
-              },
+              className: "align-middle text-center",
               children: submission.company.title
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-              style: {
-                verticalAlign: 'middle'
-              },
+              className: "align-middle text-center",
               children: submission.accept_candidate == -1 ? 'Evaluating' : submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'
             })]
           });
@@ -11987,191 +11984,197 @@ var Faqs = function Faqs(props) {
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "bj-content",
-    children: role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "accordion accordion-flush",
-      id: "accordionFlushExample",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "accordion-item",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-          className: "accordion-header",
-          id: "flush-headingOne",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "accordion-button collapsed",
-            type: "button",
-            "data-bs-toggle": "collapse",
-            "data-bs-target": "#flush-collapseOne",
-            "aria-expanded": "false",
-            "aria-controls": "flush-collapseOne",
-            children: "How many jobs can be added by a company?"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          id: "flush-collapseOne",
-          className: "accordion-collapse collapse",
-          "aria-labelledby": "flush-headingOne",
-          "data-bs-parent": "#accordionFlushExample",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "accordion-body",
-            children: "There is no limitations on adding the number of jobs. Company can add as many jobs as it want"
-          })
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+        children: "Frequently Asked Questions"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "Here you will find the most common questions being asked. If you cannot find the relevant solution then do not hesitate to contact us at gorgeous@gmail.com"
+      }), role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "accordion accordion-flush",
+        id: "accordionFlushExample",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "gorgeous-accordion-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+            className: "accordion-header",
+            id: "flush-headingOne",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+              className: "gorgeous-accordion-button collapsed",
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#flush-collapseOne",
+              "aria-expanded": "false",
+              "aria-controls": "flush-collapseOne",
+              children: "How many jobs can be added by a company?"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            id: "flush-collapseOne",
+            className: "accordion-collapse collapse",
+            "aria-labelledby": "flush-headingOne",
+            "data-bs-parent": "#accordionFlushExample",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "accordion-body",
+              children: "There is no limitations on adding the number of jobs. Company can add as many jobs as it want"
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "gorgeous-accordion-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+            className: "accordion-header",
+            id: "flush-headingTwo",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+              className: "gorgeous-accordion-button collapsed",
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#flush-collapseTwo",
+              "aria-expanded": "false",
+              "aria-controls": "flush-collapseTwo",
+              children: "How to accept a candidate?"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            id: "flush-collapseTwo",
+            className: "accordion-collapse collapse",
+            "aria-labelledby": "flush-headingTwo",
+            "data-bs-parent": "#accordionFlushExample",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "accordion-body",
+              children: ["Once atleast 1 candidate have applied to the job your company posted. Just go to the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
+                children: "Your Jobs"
+              }), " menubar, there candidate can be added or rejected"]
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "gorgeous-accordion-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+            className: "accordion-header",
+            id: "flush-headingThree",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+              className: "gorgeous-accordion-button collapsed",
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#flush-collapseThree",
+              "aria-expanded": "false",
+              "aria-controls": "flush-collapseThree",
+              children: "We want the reviews for our company?"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            id: "flush-collapseThree",
+            className: "accordion-collapse collapse",
+            "aria-labelledby": "flush-headingThree",
+            "data-bs-parent": "#accordionFlushExample",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "accordion-body",
+              children: "Yes reviews can be added to every company by candidates. Before adding a review candidates are ask to verify their review by contacting the relevant company"
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "gorgeous-accordion-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+            className: "accordion-header",
+            id: "flush-headingFour",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+              className: "gorgeous-accordion-button collapsed",
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#flush-collapseFour",
+              "aria-expanded": "false",
+              "aria-controls": "flush-collapseThree",
+              children: "How a candidate can be contacted?"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            id: "flush-collapseFour",
+            className: "accordion-collapse collapse",
+            "aria-labelledby": "flush-headingFour",
+            "data-bs-parent": "#accordionFlushExample",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "accordion-body",
+              children: ["Recruiters can contact candidates by sending them messages. See message icon at the right bottom ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
+                children: "Home Page"
+              }), " and in the drop down you have a list of all candidates who have applied to the jobs you have posted"]
+            })
+          })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "accordion-item",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-          className: "accordion-header",
-          id: "flush-headingTwo",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "accordion-button collapsed",
-            type: "button",
-            "data-bs-toggle": "collapse",
-            "data-bs-target": "#flush-collapseTwo",
-            "aria-expanded": "false",
-            "aria-controls": "flush-collapseTwo",
-            children: "How to accept a candidate?"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          id: "flush-collapseTwo",
-          className: "accordion-collapse collapse",
-          "aria-labelledby": "flush-headingTwo",
-          "data-bs-parent": "#accordionFlushExample",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "accordion-body",
-            children: ["Once atleast 1 candidate have applied to the job your company posted. Just go to the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
-              children: "Your Jobs"
-            }), " menubar, there candidate can be added or rejected"]
-          })
+      }) : role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "accordion accordion-flush",
+        id: "accordionFlushExample",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "gorgeous-accordion-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+            className: "accordion-header",
+            id: "flush-headingOne",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+              className: "gorgeous-accordion-button collapsed",
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#flush-collapseOne",
+              "aria-expanded": "false",
+              "aria-controls": "flush-collapseOne",
+              children: "How to apply for a job?"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            id: "flush-collapseOne",
+            className: "accordion-collapse collapse",
+            "aria-labelledby": "flush-headingOne",
+            "data-bs-parent": "#accordionFlushExample",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "accordion-body",
+              children: ["Just go to the home page, there a list of job will be loaded. Want to find relevant job. Just make use of search input. Try type ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("b", {
+                children: "developer"
+              }), " and it will filter the result for you. Only showing jobs having developer in the title"]
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "gorgeous-accordion-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+            className: "accordion-header",
+            id: "flush-headingTwo",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+              className: "gorgeous-accordion-button collapsed",
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#flush-collapseTwo",
+              "aria-expanded": "false",
+              "aria-controls": "flush-collapseTwo",
+              children: "Can I setup my profile?"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            id: "flush-collapseTwo",
+            className: "accordion-collapse collapse",
+            "aria-labelledby": "flush-headingTwo",
+            "data-bs-parent": "#accordionFlushExample",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "accordion-body",
+              children: ["Yes you have to go to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
+                children: "Profile"
+              }), " menubar and there you can update your profile"]
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "gorgeous-accordion-item",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+            className: "accordion-header",
+            id: "flush-headingThree",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+              className: "gorgeous-accordion-button collapsed",
+              type: "button",
+              "data-bs-toggle": "collapse",
+              "data-bs-target": "#flush-collapseThree",
+              "aria-expanded": "false",
+              "aria-controls": "flush-collapseThree",
+              children: "Can I review a company?"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            id: "flush-collapseThree",
+            className: "accordion-collapse collapse",
+            "aria-labelledby": "flush-headingThree",
+            "data-bs-parent": "#accordionFlushExample",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "accordion-body",
+              children: "Yes you can add a review for a company but it must be authentic and company may contact you the review you have added"
+            })
+          })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "accordion-item",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-          className: "accordion-header",
-          id: "flush-headingThree",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "accordion-button collapsed",
-            type: "button",
-            "data-bs-toggle": "collapse",
-            "data-bs-target": "#flush-collapseThree",
-            "aria-expanded": "false",
-            "aria-controls": "flush-collapseThree",
-            children: "We want the reviews for our company?"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          id: "flush-collapseThree",
-          className: "accordion-collapse collapse",
-          "aria-labelledby": "flush-headingThree",
-          "data-bs-parent": "#accordionFlushExample",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "accordion-body",
-            children: "Yes reviews can be added to every company by candidates. Before adding a review candidates are ask to verify their review by contacting the relevant company"
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "accordion-item",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-          className: "accordion-header",
-          id: "flush-headingFour",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "accordion-button collapsed",
-            type: "button",
-            "data-bs-toggle": "collapse",
-            "data-bs-target": "#flush-collapseFour",
-            "aria-expanded": "false",
-            "aria-controls": "flush-collapseThree",
-            children: "How a candidate can be contacted?"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          id: "flush-collapseFour",
-          className: "accordion-collapse collapse",
-          "aria-labelledby": "flush-headingFour",
-          "data-bs-parent": "#accordionFlushExample",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "accordion-body",
-            children: ["Recruiters can contact candidates by sending them messages. See message icon at the right bottom ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
-              children: "Home Page"
-            }), " and in the drop down you have a list of all candidates who have applied to the jobs you have posted"]
-          })
-        })]
-      })]
-    }) : role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "accordion accordion-flush",
-      id: "accordionFlushExample",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "accordion-item",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-          className: "accordion-header",
-          id: "flush-headingOne",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "accordion-button collapsed",
-            type: "button",
-            "data-bs-toggle": "collapse",
-            "data-bs-target": "#flush-collapseOne",
-            "aria-expanded": "false",
-            "aria-controls": "flush-collapseOne",
-            children: "How to apply for a job?"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          id: "flush-collapseOne",
-          className: "accordion-collapse collapse",
-          "aria-labelledby": "flush-headingOne",
-          "data-bs-parent": "#accordionFlushExample",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "accordion-body",
-            children: ["Just go to the home page, there a list of job will be loaded. Want to find relevant job. Just make use of search input. Try type ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("b", {
-              children: "developer"
-            }), " and it will filter the result for you. Only showing jobs having developer in the title"]
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "accordion-item",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-          className: "accordion-header",
-          id: "flush-headingTwo",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "accordion-button collapsed",
-            type: "button",
-            "data-bs-toggle": "collapse",
-            "data-bs-target": "#flush-collapseTwo",
-            "aria-expanded": "false",
-            "aria-controls": "flush-collapseTwo",
-            children: "Can I setup my profile?"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          id: "flush-collapseTwo",
-          className: "accordion-collapse collapse",
-          "aria-labelledby": "flush-headingTwo",
-          "data-bs-parent": "#accordionFlushExample",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "accordion-body",
-            children: ["Yes you have to go to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
-              children: "Profile"
-            }), " menubar and there you can update your profile"]
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "accordion-item",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-          className: "accordion-header",
-          id: "flush-headingThree",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "accordion-button collapsed",
-            type: "button",
-            "data-bs-toggle": "collapse",
-            "data-bs-target": "#flush-collapseThree",
-            "aria-expanded": "false",
-            "aria-controls": "flush-collapseThree",
-            children: "Can I review a company?"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          id: "flush-collapseThree",
-          className: "accordion-collapse collapse",
-          "aria-labelledby": "flush-headingThree",
-          "data-bs-parent": "#accordionFlushExample",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "accordion-body",
-            children: "Yes you can add a review for a company but it must be authentic and company may contact you the review you have added"
-          })
-        })]
-      })]
-    }) : ''
+      }) : '']
+    })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Faqs);

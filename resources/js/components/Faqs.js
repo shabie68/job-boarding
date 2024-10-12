@@ -22,12 +22,15 @@ const Faqs = (props) => {
 
 	return (
 		<div className="bj-content">
+			<section>
+				<h3>Frequently Asked Questions</h3>
+				<p>Here you will find the most common questions being asked. If you cannot find the relevant solution then do not hesitate to contact us at gorgeous@gmail.com</p>
 			{
 				role == 1 ?
 				<div className="accordion accordion-flush" id="accordionFlushExample">
-				  <div className="accordion-item">
+				  <div className="gorgeous-accordion-item">
 				    <h2 className="accordion-header" id="flush-headingOne">
-				      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+				      <button className="gorgeous-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
 				        How many jobs can be added by a company?
 				      </button>
 				    </h2>
@@ -35,9 +38,9 @@ const Faqs = (props) => {
 				      <div className="accordion-body">There is no limitations on adding the number of jobs. Company can add as many jobs as it want</div>
 				    </div>
 				  </div>
-				  <div className="accordion-item">
+				  <div className="gorgeous-accordion-item">
 				    <h2 className="accordion-header" id="flush-headingTwo">
-				      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+				      <button className="gorgeous-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
 				        How to accept a candidate?
 				      </button>
 				    </h2>
@@ -45,9 +48,9 @@ const Faqs = (props) => {
 				      <div className="accordion-body">Once atleast 1 candidate have applied to the job your company posted. Just go to the <strong>Your Jobs</strong> menubar, there candidate can be added or rejected</div>
 				    </div>
 				  </div>
-				  <div className="accordion-item">
+				  <div className="gorgeous-accordion-item">
 				    <h2 className="accordion-header" id="flush-headingThree">
-				      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+				      <button className="gorgeous-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
 				        We want the reviews for our company?
 				      </button>
 				    </h2>
@@ -56,9 +59,9 @@ const Faqs = (props) => {
 				    </div>
 				  </div>
 
-				  <div className="accordion-item">
+				  <div className="gorgeous-accordion-item">
 				    <h2 className="accordion-header" id="flush-headingFour">
-				      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseThree">
+				      <button className="gorgeous-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseThree">
 				        How a candidate can be contacted?
 				      </button>
 				    </h2>
@@ -74,9 +77,9 @@ const Faqs = (props) => {
 				?
 
 				<div className="accordion accordion-flush" id="accordionFlushExample">
-				  <div className="accordion-item">
+				  <div className="gorgeous-accordion-item">
 				    <h2 className="accordion-header" id="flush-headingOne">
-				      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+				      <button className="gorgeous-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
 				        How to apply for a job?				      
 				      </button>
 				    </h2>
@@ -84,9 +87,9 @@ const Faqs = (props) => {
 				      <div className="accordion-body">Just go to the home page, there a list of job will be loaded. Want to find relevant job. Just make use of search input. Try type <b>developer</b> and it will filter the result for you. Only showing jobs having developer in the title</div>
 				    </div>
 				  </div>
-				  <div className="accordion-item">
+				  <div className="gorgeous-accordion-item">
 				    <h2 className="accordion-header" id="flush-headingTwo">
-				      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+				      <button className="gorgeous-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
 				        Can I setup my profile?
 				      </button>
 				    </h2>
@@ -94,9 +97,9 @@ const Faqs = (props) => {
 				      <div className="accordion-body">Yes you have to go to <strong>Profile</strong> menubar and there you can update your profile</div>
 				    </div>
 				  </div>
-				  <div className="accordion-item">
+				  <div className="gorgeous-accordion-item">
 				    <h2 className="accordion-header" id="flush-headingThree">
-				      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+				      <button className="gorgeous-accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
 				        Can I review a company?
 				      </button>
 				    </h2>
@@ -107,6 +110,8 @@ const Faqs = (props) => {
 				</div>
 				: ''
 			}
+
+			</section>
 			
 		</div>
 	)
