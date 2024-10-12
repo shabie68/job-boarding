@@ -291,6 +291,11 @@ function ShowJob(props) {
               :''
             }
 
+            <div className="text-center my-4">
+              <h3>Search jobs</h3>
+              <span>Here you can search jobs</span>
+            </div>
+
             <div className="my-4">
               <div className="d-flex my-4 justify-content-center">
                 <div className="d-flex ">
@@ -306,8 +311,9 @@ function ShowJob(props) {
                     </span>
 
                     <span><button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>{!loading ? 'Search Job' : <div class="spinner-border" role="status">
-  <span class="sr-only"></span>
-</div>}</button></span>
+                        <span class="sr-only"></span>
+                      </div>}</button>
+                    </span>
                 </div>
               </div>
               

@@ -43,7 +43,7 @@ function SingleJob(props) {
             </div>
 
 			<div className="d-lg-block position-sticky end-0" style={{top: '80px', alignSelf: 'flex-start'}} >
-				<div className="card bg-one">
+				<div className="card bg-one gorgeous-b-dashed">
 					<div className="card-header">
 						<div className="">
 							<h3>{props?.job.title}</h3>

@@ -88,7 +88,8 @@ function Example() {
         const headerHeight = document.querySelector('.menubar-links').offsetHeight;
         const footerHeight = document.querySelector('.bj-footer').offsetHeight+24;
         //20 is padding for footer
-        document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) + 'px'
+        // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) + 'px'
+        document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) - headerHeight + 'px'
 
         addBackgroundGradient()
         

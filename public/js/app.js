@@ -11436,7 +11436,8 @@ function Example() {
     var headerHeight = document.querySelector('.menubar-links').offsetHeight;
     var footerHeight = document.querySelector('.bj-footer').offsetHeight + 24;
     //20 is padding for footer
-    document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) + 'px';
+    // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) + 'px'
+    document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) - headerHeight + 'px';
     addBackgroundGradient();
   }, []);
   var addBackgroundGradient = function addBackgroundGradient() {
@@ -14305,6 +14306,13 @@ function ShowJob(props) {
       },
       children: "Job Created Successfully!"
     }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "text-center my-4",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+        children: "Search jobs"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+        children: "Here you can search jobs"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "my-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "d-flex my-4 justify-content-center",
@@ -15310,7 +15318,7 @@ function SingleJob(props) {
         alignSelf: 'flex-start'
       },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-        className: "card bg-one",
+        className: "card bg-one gorgeous-b-dashed",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "card-header",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
