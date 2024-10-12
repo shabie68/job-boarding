@@ -12119,12 +12119,13 @@ table a {
 	color: #4f4a47;
 }
 .table-striped > tbody > tr:nth-of-type(odd) > * {
-	background: #99902c;
+	background: #4f4a47;
 	color: #fbfff6;
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) button {
 	color: #fbfff6;
+	background-color: #837629
 }
 
 .table-striped > tbody > tr:nth-of-type(even) > * {
@@ -12407,9 +12408,42 @@ a {
 	cursor: pointer
 }
 
+.gorgeous-accordion-item {
+	background-color: #4f4a47;
+	color: #fbfff6;
+	border-bottom: 1px solid #fbfff6;
+}
 
+.gorgeous-accordion-button {
+	position: relative;
+	background-color: #4f4a47;
+	color: #fbfff6;
+	display: flex;
+    align-items: center;
+    width: 100%;
+    padding: var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x);
+    font-size: 0.9rem;
+    text-align: left;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: var(--bs-accordion-transition);
+}
 
+.gorgeous-accordion-button::after {
+	flex-shrink: 0;
+    width: var(--bs-accordion-btn-icon-width);
+    height: var(--bs-accordion-btn-icon-width);
+    margin-left: auto;
+    content: "";
+   	background-image: url('data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20id%3D%22SVGRepo_bgCarrier%22%20stroke-width%3D%220%22%3E%3C/g%3E%3Cg%20id%3D%22SVGRepo_tracerCarrier%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3C/g%3E%3Cg%20id%3D%22SVGRepo_iconCarrier%22%3E%20%3Cpath%20d%3D%22M19.1416%209.92896L12.7776%2016.2929C12.3871%2016.6834%2011.7539%2016.6834%2011.3634%2016.2929L4.99946%209.92895%22%20stroke%3D%22%23ffffff%22%20stroke-linecap%3D%22round%22%3E%3C/path%3E%20%3C/g%3E%3C/svg%3E');
+    background-size: var(--bs-accordion-btn-icon-width);
+    transition: var(--bs-accordion-btn-icon-transition);
+}
 
+.gorgeous-accordion-button:not(.collapsed)::after {
+	background-image: url('data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2024%2024%22%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20id%3D%22SVGRepo_bgCarrier%22%20stroke-width%3D%220%22%3E%3C/g%3E%3Cg%20id%3D%22SVGRepo_tracerCarrier%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3C/g%3E%3Cg%20id%3D%22SVGRepo_iconCarrier%22%3E%20%3Cpath%20d%3D%22M5%2014.0711L11.364%207.70711C11.7545%207.31658%2012.3877%207.31658%2012.7782%207.70711L19.1421%2014.0711%22%20stroke%3D%22%23ffffff%22%20stroke-linecap%3D%22round%22%3E%3C/path%3E%20%3C/g%3E%3C/svg%3E');
+}
 
 @keyframes apply-pbar{
 	from {
@@ -12486,6 +12520,8 @@ a {
 .gorgeous-vertical-middle {
 	vertical-align: middle
 }
+
+
 
 /*@media(min-width: 568px){*/
 @media(min-width: 100px){

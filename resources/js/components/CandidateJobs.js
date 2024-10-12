@@ -49,13 +49,13 @@ const CandidateJobs = (props) => {
 			<table class="table table-striped">
 
 				<caption>
-					<strong>Received Applications</strong>
+					<strong>Applied Jobs</strong>
 				</caption>
 			  <thead>
 			    <tr>
-			      <th scope="col">Job title</th>
-			      <th scope="col">Company name</th>
-			      <th scope="col">Application status</th>
+			      <th scope="col" className="text-center">Job title</th>
+			      <th scope="col" className="text-center">Company name</th>
+			      <th scope="col" className="text-center">Application status</th>
 			    </tr>
 			  </thead>
 
@@ -63,9 +63,9 @@ const CandidateJobs = (props) => {
 			  	{
 			  		props.jobSubmissions.map((submission) => (
 			  			<tr>
-			  				<td style={{verticalAlign: 'middle'}}>{submission.board_job.title}</td>
-			  				<td style={{verticalAlign: 'middle'}}>{submission.company.title}</td>
-			  				<td style={{verticalAlign: 'middle'}}>{submission.accepted_candidate == 0 ? 'Evaluating' : submission.accepted_candidate == 1 ? 'Accepted' : 'Rejected'}</td> 
+			  				<td className="align-middle text-center">{submission.board_job.title}</td>
+			  				<td className="align-middle text-center">{submission.company.title}</td>
+			  				<td className="align-middle text-center">{submission.accept_candidate == -1 ? 'Evaluating' : submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'}</td> 
 			  			</tr>
 			  		))
 			  	}

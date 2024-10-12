@@ -37,7 +37,8 @@ class SubmissionController extends Controller
                 'ability_to_commute' => 'yes',
                 'salary_expectation' => '40000',
                 'notice_period' => '14',
-                'schedule_interview' => Carbon::now()
+                'schedule_interview' => Carbon::now(),
+                'accept_candidate' => -1
             ]);
         }
     	
@@ -73,7 +74,7 @@ class SubmissionController extends Controller
 
         		'country' => $request->has('country') ? $request->country : $submission->country,
         		'resume' => $request->file('resume') ? $resume : $submission->resume,
-                // 'resume' => 'profile.pdf',
+                'accept_candidate' => -1,
                 'company_id' => $company_id,
         		'state' => $request->has('state') ? $request->state : $submission->state,
         		'ability_to_commute' => $request->has('ability_to_commute') ? $request->ability_to_commute : $submission->ability_to_commute,
