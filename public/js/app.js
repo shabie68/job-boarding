@@ -14310,7 +14310,7 @@ function ShowJob(props) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
         children: "Search jobs"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-        children: "Here you can search jobs"
+        children: "Here you can search for your jobs. To search for a specific job, just enter the title of the job you want and a list of jobs will be there for you"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "my-4",
@@ -14502,7 +14502,7 @@ function ShowJob(props) {
           })]
         })
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "card position-fixed gorgeous-animate-menu bg-one bj-msg-chat-w",
+        className: "card position-fixed gorgeous-animate-chat bg-one bj-msg-chat-w",
         style: {
           bottom: '20px',
           right: '10px',

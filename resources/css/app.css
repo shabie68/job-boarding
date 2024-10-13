@@ -526,7 +526,7 @@ a {
 @keyframes animate_chat {
 	0% {
 		opacity: 0;
-		transform: translateY(-25%)
+		transform: translateY(-100%)
 	}
 
 	100% {
@@ -550,6 +550,10 @@ a {
 
 .gorgeous-animate-menu {
 	animation: animate_menu 2s 1;
+}
+
+.gorgeous-animate-chat {
+	animation: animate_chat 2s 1;
 }
 
 .gorgeous-vertical-middle {
