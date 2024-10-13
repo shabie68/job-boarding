@@ -49,45 +49,46 @@ const SingleCompany = () => {
 		<div>
 			<div className="">
 				<section>
-					<h3 className="text-two">{location.state?.company.title}</h3>
-
-					<div className="d-flex justify-content-between">
-						<div className="w-50">
+					<div className="d-flex">
+						<h3 className="text-two">{location.state?.company.title}</h3>
+						<div className="gorgeous-sm-img">
+							<img src={'/uploads/images/' + location.state?.company.logo} className="w-100" />
+						</div>
+					</div>
+					<div className="gorgeous-company-info">
+						<div className="gorgeous-company-dw">
 							<strong>Who we are</strong>
 							<div className="mt-2" dangerouslySetInnerHTML={{__html: location.state?.company.description}}></div>
 						</div>
 
-						<div className="bj-w-45">
-							<div>
+						<div className="gorgeous-company-info-w">
+							<div className="gorgeous-lg-img">
 								<img src={'/uploads/images/' + location.state?.company.logo} className="w-100" />
 							</div>
-							<div className="mb-2">
-								<span>Total Employees: </span>
-								<strong>{location?.state.company.total_employees}</strong>
-							</div>
 
-							<div className="mb-2">
-								<span>Location: </span>
-								<strong>{location?.state.company.locations}</strong>
-							</div>
+							<div className="w-100">
+								<div className="mb-2">
+									<span>Total Employees: </span>
+									<strong>{location?.state.company.total_employees}</strong>
+								</div>
 
-							<div className="mb-2">
-								<span>Webiste: </span>
-								<span>
-									<a className="bj-text-secondary" href={location?.state.company.website} target="_blank">
-									{location?.state.company.website}
-									</a>
-								</span>
+								<div className="mb-2">
+									<span>Location: </span>
+									<strong>{location?.state.company.locations}</strong>
+								</div>
+
+								<div className="mb-2">
+									<span>Webiste: </span>
+									<span>
+										<a className="bj-text-secondary" href={location?.state.company.website} target="_blank">
+										{location?.state.company.website}
+										</a>
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
-					
-
-					
 				</section>
-				
-
-				
 			</div>
 
 			<div className="d-flex align-items-center justify-content-center">
@@ -133,9 +134,18 @@ const SingleCompany = () => {
 
 					{
 						!showFeedback ?
-						<div className="d-flex justify-content-between">
-							<h4>Be the first one to add a feedback</h4>
-							<button className="bj-btn bg-three text-prime" onClick={() => {setShowFeedback(true)}}>Add Feedback</button>
+						<div>
+							<div className="d-flex justify-content-between mb-3">
+								<h4>Feedback</h4>
+								<button className="bj-btn bg-three text-prime" onClick={() => {setShowFeedback(true)}}>Add Feedback</button>
+							</div>
+
+							<div className="mb-3 text-center">
+								<p>No feedback yet! Be the first one to add a feedback by clicking the button below</p>
+								<div>
+									<button className="bj-btn bg-three text-prime" onClick={() => {setShowFeedback(true)}}>Add Feedback</button>
+								</div>
+							</div>
 						</div>
 						:
 
