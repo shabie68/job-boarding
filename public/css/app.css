@@ -12534,6 +12534,8 @@ a {
 
 
 
+
+
 /*@media(min-width: 568px){*/
 @media(min-width: 100px){
 
@@ -12641,6 +12643,10 @@ a {
 		width: 100%
 	}
 
+	.gorgeous-empty-record {
+		inline-size: 40px;
+	}
+
 }
 
 
@@ -12683,10 +12689,15 @@ a {
 
 	.gorgeous-lg-img {
 		display: block;
+		width: 50%
 	}
 
 	.gorgeous-company-info-w {
 		width: 45%
+	}
+
+	.gorgeous-empty-record {
+		inline-size: 60px;
 	}
 }
 
@@ -12743,6 +12754,10 @@ a {
 
 	.gorgeous-w-75 {
 		width: 75%
+	}
+
+	.gorgeous-empty-record {
+		inline-size: 80px;
 	}
 
 	
