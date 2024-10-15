@@ -68,7 +68,6 @@ function Company(props) {
         setCurrentPage(currentPage - 1);
     };
 
-
     const singleCompany = (company) => {
     	navigate('show-company/'+ company.id, {
     		state: {
