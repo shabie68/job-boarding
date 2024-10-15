@@ -11706,19 +11706,19 @@ function Example() {
               stroke: "#000000",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("g", {
                 id: "SVGRepo_bgCarrier",
-                "stroke-width": "0"
+                strokeWidth: "0"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("g", {
                 id: "SVGRepo_tracerCarrier",
-                "stroke-linecap": "round",
-                "stroke-linejoin": "round"
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("g", {
                 id: "SVGRepo_iconCarrier",
                 children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("path", {
                   d: "M4 6H20M4 12H20M4 18H20",
                   stroke: "#ffffff",
-                  "stroke-width": "2",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeWidth: "2",
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), " "]
               })]
             })
@@ -11734,11 +11734,11 @@ function Example() {
               stroke: "",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("g", {
                 id: "SVGRepo_bgCarrier",
-                "stroke-width": "0"
+                strokeWidth: "0"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("g", {
                 id: "SVGRepo_tracerCarrier",
-                "stroke-linecap": "round",
-                "stroke-linejoin": "round"
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("g", {
                 id: "SVGRepo_iconCarrier",
                 children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("rect", {
@@ -11748,13 +11748,13 @@ function Example() {
                 }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("path", {
                   d: "M7 17L16.8995 7.10051",
                   stroke: "white",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("path", {
                   d: "M7 7.00001L16.8995 16.8995",
                   stroke: "white",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round"
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round"
                 }), " "]
               })]
             })
@@ -14989,12 +14989,16 @@ var SingleCompany = function SingleCompany() {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "mb-3 text-center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            children: "No feedback yet! Be the first one to add a feedback by clicking the button below"
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
+              children: "No feedback yet!"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+              children: "Be the first one to add a feedback by clicking the button below"
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "bj-mt-12",
+            className: "gorgeous-mt-8",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("svg", {
-              "class": "gorgeous-empty-record",
+              className: "gorgeous-empty-record",
               fill: "#000000",
               version: "1.1",
               id: "Capa_1",
@@ -15004,11 +15008,11 @@ var SingleCompany = function SingleCompany() {
               xmlSpace: "preserve",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                 id: "SVGRepo_bgCarrier",
-                "stroke-width": "0"
+                strokeWidth: "0"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("g", {
                 id: "SVGRepo_tracerCarrier",
-                "stroke-linecap": "round",
-                "stroke-linejoin": "round"
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
                 id: "SVGRepo_iconCarrier",
                 children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("g", {
