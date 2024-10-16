@@ -83,4 +83,11 @@ class CompanyController extends Controller
             "company" => $company,
         ]);
     }
+
+    public function getRecentCompanies() {
+        $companies = Company::limit(3)->get();
+        return response()->json([
+            "companies" => $companies
+        ]);
+    }
 }

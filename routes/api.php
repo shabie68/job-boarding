@@ -35,6 +35,7 @@ Broadcast::routes(['middleware' => 'auth:sanctum']);
 // Route::post("add-job-data/", [App\Http\Controllers\SubmissionController::class, 'addJobData'])->middleware('role');
 
 Route::post("add-job-data/", [App\Http\Controllers\SubmissionController::class, 'addJobData']);
+Route::get("get-recent-companies", [App\Http\Controllers\CompanyController::class, 'getRecentCompanies']);
 
 
 Route::put("save-profile/", [App\Http\Controllers\ProfileController::class, 'saveProfile'])->name('save.profile');
