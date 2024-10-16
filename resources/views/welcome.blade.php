@@ -90,7 +90,7 @@
                 font-size: 36px;
             }
 
-            .bj-flex {
+            .gorgeous-flex {
                 display: flex;
             }
 
@@ -282,6 +282,20 @@
                 margin-bottom: 32px
             }
 
+
+            .gorgeous-company-img {
+                width: 40%
+            }
+
+            .gorgeous-companies-container {
+                margin-top: 16px;
+            }
+
+            .gorgeous-company-title {
+                width: 70%
+            }
+
+
             @media(min-width: 100px) {
                 .gorgeous-r-w {
                     width: 100%
@@ -462,7 +476,17 @@
             <div>
                 <section class="text-start bj-px-4 bj-text-secondary">
                     <div class="">
-                        <div class="bj-margin-32 gorgeous-mt-16 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
+                        <section>
+                            <div class="gorgeous-flex bj-content-evenly bj-align-center bj-text-secondary ">
+                                <h4 class="gorgeous-border">Recently registered companies</h4>
+                            </div>
+                            <div class="gorgeous-companies-container">
+
+                            </div>
+                        </section>
+                        
+                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
+                            
                             <div class="gorgeous-img-w gorgeous-px">
                                 <img src="images/js.jpg" class="bj-border-radius gorgeous-home-img"/>
                             </div>
@@ -521,7 +545,7 @@
                 </section>
 
                 <section>
-                    <div class="bj-flex bj-content-evenly bj-align-center bj-text-secondary ">
+                    <div class="gorgeous-flex bj-content-evenly bj-align-center bj-text-secondary ">
                         <span class="bj-border-line "></span>
                         <h4 class="gorgeous-border">Get a job in the following categories</h4>
                         <span class="bj-border-line"></span>
@@ -529,7 +553,7 @@
                     <div class="bj-slider-container bj-text-secondary">
 
                         <div class="slider-wrapper">
-                            <div class="bj-slider bj-flex text-center slider-right">
+                            <div class="bj-slider gorgeous-flex text-center slider-right">
                                 <div class="bj-align-center bj-justify-center bj-talent-container" data-idx="1">
                                     <div class="bj-img-container">
 
@@ -579,7 +603,7 @@
                                    <strong> UX/UI Designers</strong>
                                 </div>
 
-                                <div class="bj-flex bj-align-center bj-justify-center bj-talent-container" data-idx="8">
+                                <div class="gorgeous-flex bj-align-center bj-justify-center bj-talent-container" data-idx="8">
                                     <div class="bj-img-container">
 
                                     </div>
@@ -621,7 +645,7 @@
 
                 <section class=" bj-p-10 bj-gradient bj-footer position-relative w-100 bottom-0 bj-text-prime">
                         
-                    <div class="bj-flex bj-content-evenly bj-items-center">
+                    <div class="gorgeous-flex bj-content-evenly bj-items-center">
                         <div class=" ">
                             <strong class="bj-font-logo bj-text-prime">Gorgeous</strong>
                         </div>
@@ -712,6 +736,42 @@
                 elementsToObserve.forEach((element) => {
                     observer.observe(element)
                 })
+
+                const appendCompanies = async() => {
+                   
+                    let data = await fetch('/api/get-recent-companies')
+                    data = data.json()
+                    
+
+                    data.then((response) => {
+                        console.log("RESPONSE")
+                        console.log(response.companies)
+
+                        response.companies.forEach((company) => {
+                            let element = document.createElement('div')
+                            element.innerHTML = `
+                                <div class="gorgeous-company bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
+                                    <div class="gorgeous-img-w gorgeous-px">
+                                        <img src="images/js.jpg" class="bj-border-radius gorgeous-home-img"/>
+                                    </div>
+                                    <div class="gorgeous-company-title gorgeous-r-w">
+                                        <h4 class="bj-text-three gorgeous-m-0">${company.title}</h4>
+                                        <p>${company.description}</p>
+                                    </div>
+
+                                    
+                                </div>
+                            `
+
+                            document.querySelector('.gorgeous-companies-container').append(element)
+                        })
+                        
+
+                    })
+                    
+                }
+
+                appendCompanies()
             </script>
     </body>
 </html>
