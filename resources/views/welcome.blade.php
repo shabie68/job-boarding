@@ -295,6 +295,32 @@
                 width: 70%
             }
 
+            .gorgeous-mt-24 {
+                margin-top: 24px
+            }
+
+            .gorgeous-company-recently-join {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .gorgeous-company-recently-join::before {
+                display: block;
+                content: "";
+                height: 2px;
+                background-color: black;
+                width: 33%;
+            }
+
+
+            .gorgeous-company-recently-join::after {
+                display: block;
+                content: "";
+                height: 2px;
+                background-color: black;
+                width: 33%;
+            }
+
 
             @media(min-width: 100px) {
                 .gorgeous-r-w {
@@ -386,7 +412,7 @@
                 }
 
                 .gorgeous-desc {
-                    margin: 0 0 24px 0;
+                    margin: 0 0 16px 0;
                     width: 100%
                 }
 
@@ -404,7 +430,9 @@
                     height: 200px;
                 }
 
-
+                .gorgeous-px-30 {
+                    padding: 0 30px;
+                }
             }
 
             @keyframes scaleVertical {
@@ -476,13 +504,21 @@
             <div>
                 <section class="text-start bj-px-4 bj-text-secondary">
                     <div class="">
-                        <section>
-                            <div class="gorgeous-flex bj-content-evenly bj-align-center bj-text-secondary ">
-                                <h4 class="gorgeous-border">Recently registered companies</h4>
+                        <section class="gorgeous-mt-24">
+
+                            <div class="gorgeous-company-recently-join gorgeous-company bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
+                                <div class="gorgeous-img-w gorgeous-px">
+                                    &nbsp
+                                </div>
+                                <div class="gorgeous-r-w">
+                                    <h3 class="gorgeous-m-0">Recently registered companies</h3>
+                                </div>
                             </div>
+
                             <div class="gorgeous-companies-container">
 
                             </div>
+                            
                         </section>
                         
                         <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
@@ -545,7 +581,7 @@
                 </section>
 
                 <section>
-                    <div class="gorgeous-flex bj-content-evenly bj-align-center bj-text-secondary ">
+                    <div class="gorgeous-flex bj-content-evenly bj-align-center bj-text-secondary gorgeous-px-30">
                         <span class="bj-border-line "></span>
                         <h4 class="gorgeous-border">Get a job in the following categories</h4>
                         <span class="bj-border-line"></span>
@@ -758,8 +794,6 @@
                                         <h4 class="bj-text-three gorgeous-m-0">${company.title}</h4>
                                         <p>${company.description}</p>
                                     </div>
-
-                                    
                                 </div>
                             `
 
