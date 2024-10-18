@@ -295,10 +295,6 @@
                 margin-top: 16px;
             }
 
-            .gorgeous-company-title {
-                width: 75%
-            }
-
             .gorgeous-mt-24 {
                 margin-top: 24px
             }
@@ -324,6 +320,10 @@
                 height: 2px;
                 background-color: #238a85;
                 width: 33%;
+            }
+
+            .gorgeous-mb-16 {
+                margin-bottom: 16px
             }
 
 
@@ -455,7 +455,7 @@
             @keyframes scaleHorizontalPositive {
                 0% {
                     opacity: 0;
-                    transform: translateX(75%)
+                    transform: translateX(50%)
                 }
                 100% {
                     opacity: 1;
@@ -526,6 +526,7 @@
                         </section>
 
                         <section>
+                            
                             <div class="gorgeous-section-divider gorgeous-company bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
                                 <div class="gorgeous-img-w gorgeous-px">
                                     &nbsp
@@ -534,7 +535,6 @@
                                     <h3 class="gorgeous-m-0">Features that we offers</h3>
                                 </div>
                             </div>
-
 
                             <div class="bj-margin-32 gorgeous-display gorgeous-justify-between bj-items-center gorgeous-desc">
                                 
@@ -595,8 +595,8 @@
                     </div>
                 </section>
 
-                <section>
-                    <div class="gorgeous-flex bj-content-evenly bj-align-center bj-text-secondary gorgeous-px-30">
+                <section class="bj-px-4">
+                    <div class="gorgeous-flex bj-content-evenly bj-align-center bj-text-secondary">
                         <span class="bj-border-line "></span>
                         <h4 class="gorgeous-border">Get a job in the following categories</h4>
                         <span class="bj-border-line"></span>
