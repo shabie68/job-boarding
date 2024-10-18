@@ -164,7 +164,7 @@
             }
 
             .bj-px-4 {
-                padding: 0 30px;
+                padding: 0 80px;
             }
 
             #bj-next-btn svg path {
@@ -207,7 +207,7 @@
             }
 
             .bj-border-line {
-                height: 1px;
+                height: 2px;
                 background-color: #238a85;
             }
 
@@ -238,6 +238,10 @@
 
             .bj-justify-evenly {
                 justify-content: space-evenly;
+            }
+
+            .gorgeous-justify-between {
+                justify-content: space-between;
             }
 
             .bj-w-25 {
@@ -292,32 +296,33 @@
             }
 
             .gorgeous-company-title {
-                width: 70%
+                width: 75%
             }
 
             .gorgeous-mt-24 {
                 margin-top: 24px
             }
 
-            .gorgeous-company-recently-join {
+            .gorgeous-section-divider {
                 display: flex;
                 justify-content: space-between;
+                color: #4f4a47;
             }
 
-            .gorgeous-company-recently-join::before {
+            .gorgeous-section-divider::before {
                 display: block;
                 content: "";
                 height: 2px;
-                background-color: black;
+                background-color: #238a85;
                 width: 33%;
             }
 
 
-            .gorgeous-company-recently-join::after {
+            .gorgeous-section-divider::after {
                 display: block;
                 content: "";
                 height: 2px;
-                background-color: black;
+                background-color: #238a85;
                 width: 33%;
             }
 
@@ -403,7 +408,6 @@
                 }
 
                 .gorgeous-px {
-                    padding: 0 16px;
                     align-self: start
                 }
 
@@ -506,7 +510,7 @@
                     <div class="">
                         <section class="gorgeous-mt-24">
 
-                            <div class="gorgeous-company-recently-join gorgeous-company bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
+                            <div class="gorgeous-section-divider gorgeous-company bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
                                 <div class="gorgeous-img-w gorgeous-px">
                                     &nbsp
                                 </div>
@@ -520,28 +524,40 @@
                             </div>
                             
                         </section>
-                        
-                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
-                            
-                            <div class="gorgeous-img-w gorgeous-px">
-                                <img src="images/js.jpg" class="bj-border-radius gorgeous-home-img"/>
-                            </div>
 
-                            <div class="gorgeous-r-w">
-                                <h4 class="bj-text-three gorgeous-m-0">Find and apply to jobs</h4>
-                                <div>
-                                    Candidates can filter, search and apply to jobs they love. Process is very simple
-                                    <ul>
-                                        <li>Search your desire job</li>
-                                        <li>Apply to that job</li>
-                                        <li>Complete the application process in just a few steps</li>
-                                        <li>Track your application status easily</li>
-                                    </ul>
+                        <section>
+                            <div class="gorgeous-section-divider gorgeous-company bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
+                                <div class="gorgeous-img-w gorgeous-px">
+                                    &nbsp
+                                </div>
+                                <div class="gorgeous-r-w">
+                                    <h3 class="gorgeous-m-0">Features that we offers</h3>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-observe gorgeous-desc">
+
+                            <div class="bj-margin-32 gorgeous-display gorgeous-justify-between bj-items-center gorgeous-desc">
+                                
+                                <div class="gorgeous-img-w gorgeous-px">
+                                    <img src="images/js.jpg" class="bj-border-radius gorgeous-home-img"/>
+                                </div>
+
+                                <div class="gorgeous-r-w">
+                                    <h4 class="bj-text-three gorgeous-m-0">Find and apply to jobs</h4>
+                                    <div>
+                                        Candidates can filter, search and apply to jobs they love. Process is very simple
+                                        <ul>
+                                            <li>Search your desire job</li>
+                                            <li>Apply to that job</li>
+                                            <li>Complete the application process in just a few steps</li>
+                                            <li>Track your application status easily</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="bj-margin-32 gorgeous-display gorgeous-justify-between bj-items-center gorgeous-observe gorgeous-desc">
                             <div class="gorgeous-img-w gorgeous-px">
                                 <img src="images/message.jpg" class="bj-border-radius gorgeous-home-img" />
                             </div>
@@ -557,10 +573,9 @@
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
                         
-                        <div class="bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-observe gorgeous-desc">
+                        <div class="bj-margin-32 gorgeous-display gorgeous-justify-between bj-items-center gorgeous-observe gorgeous-desc">
                             <div class="gorgeous-img-w gorgeous-px">
                                 <img src="images/feedback.jpg" class="bj-border-radius gorgeous-home-img" />
                             </div>
@@ -786,11 +801,9 @@
                         response.companies.forEach((company) => {
                             let element = document.createElement('div')
                             element.innerHTML = `
-                                <div class="gorgeous-company bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
-                                    <div class="gorgeous-img-w gorgeous-px">
-                                        <img src="images/js.jpg" class="bj-border-radius gorgeous-home-img"/>
-                                    </div>
-                                    <div class="gorgeous-company-title gorgeous-r-w">
+                                <div class="">
+                                    
+                                    <div class="gorgeous-company-title">
                                         <h4 class="bj-text-three gorgeous-m-0">${company.title}</h4>
                                         <p>${company.description}</p>
                                     </div>
@@ -806,6 +819,25 @@
                 }
 
                 appendCompanies()
+                /**
+
+                <section class="gorgeous-mt-24">
+
+                            <div class="gorgeous-section-divider gorgeous-company bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
+                                <div class="gorgeous-img-w gorgeous-px">
+                                    &nbsp
+                                </div>
+                                <div class="gorgeous-r-w">
+                                    <h3 class="gorgeous-m-0">Recently registered companies</h3>
+                                </div>
+                            </div>
+
+                            <div class="gorgeous-companies-container">
+
+                            </div>
+                            
+                        </section>
+                        **/
             </script>
     </body>
 </html>
