@@ -286,7 +286,6 @@
                 margin-bottom: 32px
             }
 
-
             .gorgeous-company-img {
                 width: 40%
             }
