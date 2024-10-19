@@ -296,8 +296,6 @@
                 color: #4f4a47;
             }
 
-         
-
             .gorgeous-mb-16 {
                 margin-bottom: 16px
             }
@@ -308,13 +306,22 @@
                 justify-content: space-between;
             }
 
-            .gorgeous-w-10 {
-                width: 10%
+            .gorgeous-w-15 {
+                width: 15%
             }
 
             .gorgeous-company-title {
                 display: flex;
                 justify-content: space-between;
+                margin-top: 8px;
+            }
+
+            .gorgeous-company-desc {
+                width: 80%
+            }
+
+            .gorgeous-company-title p {
+                margin: 0
             }
 
 
@@ -327,7 +334,7 @@
                     display: block;
                 }
                 .gorgeous-img-w {
-                    width: 75%
+                    width: 50%
                 }
 
                 .gorgeous-px {
@@ -389,10 +396,6 @@
 
                 .gorgeous-px-4 {
                     padding: 0 60px;
-                }
-
-                .gorgeous-img-w {
-                    width: 50%
                 }
 
             }
@@ -804,12 +807,14 @@
                             element.innerHTML = `
                                 <div class="">
                                     
-                                    <div class="gorgeous-company-title">
-                                        <div>
-                                            <h4 class="bj-text-three gorgeous-m-0">${company.title}</h4>
-                                            <p>${company.description}</p>
+                                    <div class="gorgeous-company-body">
+                                        <h4 class="bj-text-three gorgeous-m-0">${company.title}</h4>
+                                        <div class="gorgeous-company-title">
+                                            
+                                            <div class="gorgeous-company-desc">${company.description}</div>
+                                            <div class="gorgeous-w-15"><img src=${'/uploads/images/' + company.logo} class="bj-w-100" /></div>
                                         </div>
-                                        <div class="gorgeous-w-10"><img src=${'/uploads/images/' + company.logo} class="bj-w-100" /></div>
+                                        
                                     </div>
                                 </div>
                             `
