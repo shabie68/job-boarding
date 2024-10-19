@@ -163,10 +163,6 @@
                 margin: 20px 0;
             }
 
-            .bj-px-4 {
-                padding: 0 80px;
-            }
-
             #bj-next-btn svg path {
                 fill: none;
             }
@@ -290,10 +286,6 @@
                 width: 40%
             }
 
-            .gorgeous-companies-container {
-                margin-top: 16px;
-            }
-
             .gorgeous-mt-24 {
                 margin-top: 24px
             }
@@ -304,25 +296,32 @@
                 color: #4f4a47;
             }
 
-            .gorgeous-section-divider::before {
-                display: block;
-                content: "";
-                height: 2px;
-                background-color: #238a85;
-                width: 33%;
-            }
-
-
-            .gorgeous-section-divider::after {
-                display: block;
-                content: "";
-                height: 2px;
-                background-color: #238a85;
-                width: 33%;
-            }
-
             .gorgeous-mb-16 {
                 margin-bottom: 16px
+            }
+
+            .gorgeous-company-header {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .gorgeous-w-15 {
+                width: 15%
+            }
+
+            .gorgeous-company-title {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 8px;
+            }
+
+            .gorgeous-company-desc {
+                width: 80%
+            }
+
+            .gorgeous-company-title p {
+                margin: 0
             }
 
 
@@ -335,7 +334,7 @@
                     display: block;
                 }
                 .gorgeous-img-w {
-                    width: 75%
+                    width: 50%
                 }
 
                 .gorgeous-px {
@@ -349,7 +348,7 @@
 
                 .gorgeous-desc {
                     margin: auto;
-                    width: 75%
+                    width: 100%
                 }
 
                 .gorgeous-mt-16 {
@@ -374,6 +373,10 @@
                     width: 75%;
                     text-align: center;
                 }
+
+                .gorgeous-px-4 {
+                    padding: 0 20px;
+                }
             }
 
             @media(min-width: 768px) {
@@ -389,6 +392,10 @@
 
                 .bj-border-line {
                     width: 30%
+                }
+
+                .gorgeous-px-4 {
+                    padding: 0 60px;
                 }
 
             }
@@ -416,7 +423,7 @@
 
                 .gorgeous-desc {
                     margin: 0 0 16px 0;
-                    width: 100%
+                    width: 85%
                 }
 
                 .gorgeous-mt-16 {
@@ -435,6 +442,10 @@
 
                 .gorgeous-px-30 {
                     padding: 0 30px;
+                }
+
+                .gorgeous-px-4 {
+                    padding: 0 80px;
                 }
             }
 
@@ -505,17 +516,14 @@
             </section>
 
             <div>
-                <section class="text-start bj-px-4 bj-text-secondary">
+                <section class="text-start gorgeous-px-4 bj-text-secondary">
                     <div class="">
                         <section class="gorgeous-mt-24">
 
-                            <div class="gorgeous-section-divider gorgeous-company bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
-                                <div class="gorgeous-img-w gorgeous-px">
-                                    &nbsp
-                                </div>
-                                <div class="gorgeous-r-w">
-                                    <h3 class="gorgeous-m-0">Recently registered companies</h3>
-                                </div>
+                            <div class="gorgeous-flex bj-content-evenly bj-align-center bj-text-secondary">
+                                <span class="bj-border-line "></span>
+                                <h4 class="gorgeous-border">Recently registered companies</h4>
+                                <span class="bj-border-line"></span>
                             </div>
 
                             <div class="gorgeous-companies-container">
@@ -526,13 +534,10 @@
 
                         <section>
                             
-                            <div class="gorgeous-section-divider gorgeous-company bj-margin-32 gorgeous-display bj-justify-evenly bj-items-center gorgeous-desc">
-                                <div class="gorgeous-img-w gorgeous-px">
-                                    &nbsp
-                                </div>
-                                <div class="gorgeous-r-w">
-                                    <h3 class="gorgeous-m-0">Features that we offers</h3>
-                                </div>
+                            <div class="gorgeous-flex bj-content-evenly bj-align-center bj-text-secondary">
+                                <span class="bj-border-line "></span>
+                                <h4 class="gorgeous-border">Features that we offers</h4>
+                                <span class="bj-border-line"></span>
                             </div>
 
                             <div class="bj-margin-32 gorgeous-display gorgeous-justify-between bj-items-center gorgeous-desc">
@@ -594,10 +599,10 @@
                     </div>
                 </section>
 
-                <section class="bj-px-4">
+                <section class="gorgeous-px-4">
                     <div class="gorgeous-flex bj-content-evenly bj-align-center bj-text-secondary">
                         <span class="bj-border-line "></span>
-                        <h4 class="gorgeous-border">Get a job in the following categories</h4>
+                        <h4 class="gorgeous-border">Look for the following categories</h4>
                         <span class="bj-border-line"></span>
                     </div>
                     <div class="bj-slider-container bj-text-secondary">
@@ -802,9 +807,14 @@
                             element.innerHTML = `
                                 <div class="">
                                     
-                                    <div class="gorgeous-company-title">
+                                    <div class="gorgeous-company-body">
                                         <h4 class="bj-text-three gorgeous-m-0">${company.title}</h4>
-                                        <p>${company.description}</p>
+                                        <div class="gorgeous-company-title">
+                                            
+                                            <div class="gorgeous-company-desc">${company.description}</div>
+                                            <div class="gorgeous-w-15"><img src=${'/uploads/images/' + company.logo} class="bj-w-100" /></div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             `
