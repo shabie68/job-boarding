@@ -36,7 +36,6 @@
                 flex-direction: column;
                 justify-content: end;
                 color: #fbfff6;
-                padding: 20px 30px
             }
 
             .bj-gradient {
@@ -306,9 +305,7 @@
                 justify-content: space-between;
             }
 
-            .gorgeous-w-15 {
-                width: 15%
-            }
+            
 
             .gorgeous-company-title {
                 display: flex;
@@ -377,7 +374,16 @@
                 .gorgeous-px-4 {
                     padding: 0 20px;
                 }
+
+                .gorgeous-company-logo {
+                    width: 25%
+                }
+
+                .bj-header-img {
+                    padding: 16px 20px;
+                }
             }
+
 
             @media(min-width: 768px) {
                 .bj-img-container {
@@ -396,6 +402,18 @@
 
                 .gorgeous-px-4 {
                     padding: 0 60px;
+                }
+
+                .gorgeous-company-logo {
+                    width: 15%
+                }
+
+                .gorgeous-img-w {
+                    width: 40%
+                }
+
+                .bj-header-img {
+                    padding: 20px 60px
                 }
 
             }
@@ -446,6 +464,10 @@
 
                 .gorgeous-px-4 {
                     padding: 0 80px;
+                }
+
+                .bj-header-img {
+                    padding: 20px 80px
                 }
             }
 
@@ -508,8 +530,8 @@
 
 
                 <div>
-                    <h3>Gorgeous</h3>
-                    <h4>Find the suitable jobs in remote, on site and hybrid</h4>
+                    <h2>Gorgeous</h2>
+                    <h3>Find the suitable jobs in remote, on site and hybrid</h3>
                 </div>
                 
                 <span><a href="login"><button class="bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></a></span>           
@@ -812,7 +834,7 @@
                                         <div class="gorgeous-company-title">
                                             
                                             <div class="gorgeous-company-desc">${company.description}</div>
-                                            <div class="gorgeous-w-15"><img src=${'/uploads/images/' + company.logo} class="bj-w-100" /></div>
+                                            <div class="gorgeous-company-logo"><img src=${'/uploads/images/' + company.logo} class="bj-w-100" /></div>
                                         </div>
                                         
                                     </div>
