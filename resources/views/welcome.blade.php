@@ -256,8 +256,8 @@
                 aspect-ratio: 2;
             }
 
-            .gorgeous-m-0 {
-                margin: 0
+            .gorgeous-m {
+                margin: 0 0 8px 0
             }
 
             .gorgeous-observe {
@@ -353,6 +353,7 @@
                 .gorgeous-display {
                     display: flex;
                     flex-direction: row-reverse;
+                    gap: 16px;
                 }
                 .gorgeous-img-w {
                     width: 40%
@@ -433,7 +434,7 @@
                 }
 
                 .gorgeous-img-w {
-                    width: 25%%
+                    width: 25%
                 }
 
                 .bj-header-img {
@@ -449,7 +450,8 @@
 
                 .gorgeous-display {
                     display: flex;
-                    flex-direction: row
+                    flex-direction: row;
+                    gap: 0;
                 }
 
                 .gorgeous-img-w {
@@ -545,7 +547,7 @@
                         @auth
                             <a href="{{ url('/home') }}" class="gorgeous-nav-link text-sm">Home</a>
                         @else
-                            <a href="{{ route('login') }}" class="gorgeous-nav-link text-sm">Login</a>
+                            <a href="{{ route('login') }}" class="gorgeous-nav-link text-sm">Log In</a>
 
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="gorgeous-nav-link ml-4 text-sm">Register</a>
@@ -598,7 +600,7 @@
                                 </div>
 
                                 <div class="gorgeous-r-w">
-                                    <h4 class="bj-text-three gorgeous-m-0">Find and apply to jobs</h4>
+                                    <h4 class="bj-text-three gorgeous-m">Find and apply to jobs</h4>
                                     <div>
                                         Candidates can filter, search and apply to jobs they love. Process is very simple
                                         <ul>
@@ -618,7 +620,7 @@
                             </div>
 
                             <div class="gorgeous-r-w">
-                                <h4 class="bj-text-three gorgeous-m-0">Message recruiters</h4>
+                                <h4 class="bj-text-three gorgeous-m">Message recruiters</h4>
                                 <div>
                                     Candidates can engage directly with recruiters through live chat to inquire about the status of their job applications. Benefits include:
                                     <ul>
@@ -636,7 +638,7 @@
                             </div>
 
                             <div class="gorgeous-r-w">
-                                <h4 class="bj-text-three gorgeous-m-0">Review companies</h4>
+                                <h4 class="bj-text-three gorgeous-m">Review companies</h4>
                                 <div>
                                     Candidates can leave feedback for the company they have worked.
                                     <ul>
@@ -803,6 +805,7 @@
                 }
 
                 const prev = () => {
+                    
                     if(count > 3) {
                         count = count - 3;
                         document.querySelectorAll('.bj-talent-container').forEach((element) => {
@@ -816,6 +819,7 @@
                             }
                         })
                     }
+                    
                 }
 
                 document.querySelector('#bj-next-btn').addEventListener('click', next)
