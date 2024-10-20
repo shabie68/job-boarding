@@ -9983,12 +9983,13 @@ function AddJob() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "d-flex gap-4 align-items-center",
+      className: "d-flex gap-2 align-items-center gorgeous-mb-8",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
         to: "/home",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
           style: {
-            color: 'black'
+            color: 'black',
+            verticalAlign: 'middle'
           },
           xmlns: "http://www.w3.org/2000/svg",
           width: "24",
@@ -10004,10 +10005,7 @@ function AddJob() {
         children: "Go back"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
-      style: {
-        margin: '0 auto',
-        width: '50%'
-      },
+      className: "gorgeous-card",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
         className: "text-two",
         children: "Add Job"
@@ -14116,7 +14114,11 @@ function ShowJob(props) {
       setUsers(response.data.users);
       setAuthenticatedUser(response.data.authenticatedUser);
       if (search) {
-        setCurrentPage(1);
+        var _response$data$jobs$d, _response$data$jobs$d2;
+        var _lastPage = ((_response$data$jobs$d = response.data.jobs.data) === null || _response$data$jobs$d === void 0 ? void 0 : _response$data$jobs$d.length) > 0 ? response.data.jobs.last_page : 0;
+        setLastPage(_lastPage);
+        // setCurrentPage(1)
+        setCurrentPage((_response$data$jobs$d2 = response.data.jobs.data) === null || _response$data$jobs$d2 === void 0 ? void 0 : _response$data$jobs$d2.length);
         return;
       }
       setUserName(response.data.name);
@@ -14262,6 +14264,8 @@ function ShowJob(props) {
               setJobs(response.data.jobs.data);
               setNextPage(response.data.jobs.next_page_url);
               setLastPage(response.data.jobs.last_page);
+              console.log("CURRENT PAGES");
+              console.log(response);
             });
           case 1:
           case "end":
@@ -14335,7 +14339,7 @@ function ShowJob(props) {
                 return getJobs(true, 'first-time');
               },
               children: !loading ? 'Search Job' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                "class": "spinner-border",
+                className: "spinner-border",
                 role: "status",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                   "class": "sr-only"
@@ -15339,7 +15343,8 @@ function SingleJob(props) {
     appliedJobs = _react$useState2[0],
     setAppliedJobs = _react$useState2[1];
   var checkForAppliedJobs = function checkForAppliedJobs() {
-    var total = props.submissions.filter(function (submission) {
+    var _props$submissions;
+    var total = (_props$submissions = props.submissions) === null || _props$submissions === void 0 ? void 0 : _props$submissions.filter(function (submission) {
       return submission.user_id == props.authenticatedUser && submission.board_job_id === props.job.id;
     });
   };

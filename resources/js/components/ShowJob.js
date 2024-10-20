@@ -138,12 +138,18 @@ function ShowJob(props) {
             setNextPage(response.data.jobs.next_page_url)
             setLastPage(response.data.jobs.last_page)
             setJob(response.data.jobs.data[0])
+
             
             setCompany(response.data.company)
             setUsers(response.data.users)
             setAuthenticatedUser(response.data.authenticatedUser)
+
             if(search) {
-              setCurrentPage(1)
+              let lastPage = response.data.jobs.data?.length > 0 ? response.data.jobs.last_page : 0;
+
+              setLastPage(lastPage)
+              // setCurrentPage(1)
+              setCurrentPage(response.data.jobs.data?.length)
               return
             }
 
@@ -253,6 +259,8 @@ function ShowJob(props) {
             setJobs(response.data.jobs.data)
             setNextPage(response.data.jobs.next_page_url)
             setLastPage(response.data.jobs.last_page)
+            console.log("CURRENT PAGES")
+            console.log(response)
         })
     }
 
@@ -310,7 +318,7 @@ function ShowJob(props) {
                       />
                     </span>
 
-                    <span><button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>{!loading ? 'Search Job' : <div class="spinner-border" role="status">
+                    <span><button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>{!loading ? 'Search Job' : <div className="spinner-border" role="status">
                         <span class="sr-only"></span>
                       </div>}</button>
                     </span>

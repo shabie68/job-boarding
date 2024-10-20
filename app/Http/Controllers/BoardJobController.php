@@ -59,7 +59,7 @@ class BoardJobController extends Controller
         }
 
         if(!$request->has('title')) {
-            $jobs = BoardJob::with('company')->paginate(5);
+            $jobs = BoardJob::with('company')->paginate(2);
             
             return response()->json([
                 "jobs" => $jobs,
@@ -78,7 +78,7 @@ class BoardJobController extends Controller
         $jobs = DB::table('board_jobs')
                     ->where('title', 'like', '%' . $request->title . '%')
                     ->whereNull('deleted_at')
-                    ->paginate(2);
+                    ->paginate(1);
         
         return response()->json([
             "jobs" => $jobs,
