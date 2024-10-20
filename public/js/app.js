@@ -14418,7 +14418,7 @@ function ShowJob(props) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 className: "btn bj-btn-prime btn-link",
                 onClick: prev,
-                disabled: currentPage === 1,
+                disabled: currentPage === 1 || currentPage === 0,
                 style: {
                   border: '1px solid lightslategrey'
                 },
