@@ -340,15 +340,18 @@
                 top: 0;
                 right: 0;
                 width: 100%;
-                z-index: 2;
+                z-index: 3;
                 padding: 20px;
             }
 
             .gorgeous-z-10 {
-                z-index: 10;
                 position: relative;
+                z-index: 10;
             }
 
+            .gorgeous-cursor {
+                cursor: pointer;
+            }
 
             @media(min-width: 100px) {
                 .gorgeous-r-w {
@@ -545,34 +548,31 @@
     <body class="antialiased bj-bg-one bj-text-prime">
         <div class="relative items-top justify-center min-h-screen sm:items-center sm:pt-0">
 
-            <section class="my-4 bj-gradient">
-                @if (Route::has('login'))
+            <section class="my-4 bj-gradient bj-header-img">
+
+                    @if (Route::has('login'))
                     <div class="gorgeous-text-end px-6 py-4 sm:block gorgeous-menu">
                         @auth
-                            <a href="{{ url('login') }}" class="gorgeous-nav-link text-sm gorgeous-z-10">Home</a>
+                            <a href="{{ url('home') }}" class="gorgeous-nav-link text-sm gorgeous-z-10">Home</a>
                         @else
                             <a href="{{ route('login') }}" class="gorgeous-nav-link text-sm gorgeous-z-10">Log In</a>
 
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="gorgeous-nav-link ml-4 text-sm gorgeous-z-10">Register</a>
-
                             @endif
                         @endif
                     </div>
                 @endif
 
-                <div class="bj-header-img">
+                <div class="gorgeous-z-10">
                     <div>
                         <h2>Gorgeous</h2>
                         <h3>Find the suitable jobs in remote, on site and hybrid</h3>
                     </div>
                     
-                    <span><a href="login"><button class="bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></a></span> 
-
+                    <span class="gorgeous-cursor"><a href="login"><button class="bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></a></span> 
                 </div>       
             </section>
-
-             <a href="{{ route('register') }}" class="gorgeous-nav-link ml-4 text-sm">Register</a>
 
             <div>
                 <section class="text-start gorgeous-px-4 bj-text-secondary">
