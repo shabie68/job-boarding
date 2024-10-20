@@ -32,10 +32,11 @@
 
             .bj-header-img {
                 height: 225px;
-                display: flex;
                 flex-direction: column;
                 justify-content: end;
                 color: #fbfff6;
+                position: relative;
+                z-index: 3
             }
 
             .bj-gradient {
@@ -321,6 +322,28 @@
                 margin: 0
             }
 
+            .gorgeous-nav-link {
+                color: white;
+                font-weight: 700;
+                border: 2px solid;
+                padding: 8px;
+                border-radius: 10px
+            }
+
+            .gorgeous-text-end {
+                text-align: end
+            }
+
+            .gorgeous-menu {
+                background: linear-gradient(150deg, #238a85, #4f4a47);
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 100%;
+                z-index: 2;
+                padding: 20px;
+            }
+
 
             @media(min-width: 100px) {
                 .gorgeous-r-w {
@@ -328,10 +351,11 @@
                 }
 
                 .gorgeous-display {
-                    display: block;
+                    display: flex;
+                    flex-direction: row-reverse;
                 }
                 .gorgeous-img-w {
-                    width: 50%
+                    width: 40%
                 }
 
                 .gorgeous-px {
@@ -409,7 +433,7 @@
                 }
 
                 .gorgeous-img-w {
-                    width: 40%
+                    width: 25%%
                 }
 
                 .bj-header-img {
@@ -425,6 +449,7 @@
 
                 .gorgeous-display {
                     display: flex;
+                    flex-direction: row
                 }
 
                 .gorgeous-img-w {
@@ -513,33 +538,37 @@
     <body class="antialiased bj-bg-one bj-text-prime">
         <div class="relative items-top justify-center min-h-screen sm:items-center sm:pt-0">
 
-            <section class="my-4 bj-gradient bj-header-img">
+            <section class="my-4 bj-gradient">
+
                 @if (Route::has('login'))
-                    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    <div class="gorgeous-text-end px-6 py-4 sm:block gorgeous-menu">
                         @auth
-                            <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                            <a href="{{ url('/home') }}" class="gorgeous-nav-link text-sm">Home</a>
                         @else
-                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                            <a href="{{ route('login') }}" class="gorgeous-nav-link text-sm">Login</a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                                <a href="{{ route('register') }}" class="gorgeous-nav-link ml-4 text-sm">Register</a>
                             @endif
                         @endif
                     </div>
                 @endif
 
-
-                <div>
-                    <h2>Gorgeous</h2>
-                    <h3>Find the suitable jobs in remote, on site and hybrid</h3>
-                </div>
-                
-                <span><a href="login"><button class="bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></a></span>           
+                <div class="bj-header-img">
+                    <div>
+                        <h2>Gorgeous</h2>
+                        <h3>Find the suitable jobs in remote, on site and hybrid</h3>
+                    </div>
+                    
+                    <span><a href="login"><button class="bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></a></span>    
+                </div>       
             </section>
 
             <div>
                 <section class="text-start gorgeous-px-4 bj-text-secondary">
                     <div class="">
+
+
                         <section class="gorgeous-mt-24">
 
                             <div class="gorgeous-flex bj-content-evenly bj-align-center bj-text-secondary">
