@@ -18,7 +18,7 @@ function SingleJob(props) {
    	const checkForAppliedJobs = () => {
 
       
-      let total = props.submissions.filter((submission) => {
+      let total = props.submissions?.filter((submission) => {
         return submission.user_id == props.authenticatedUser && submission.board_job_id === props.job.id
       })
 

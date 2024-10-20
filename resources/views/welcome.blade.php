@@ -344,6 +344,11 @@
                 padding: 20px;
             }
 
+            .gorgeous-z-10 {
+                z-index: 10;
+                position: relative;
+            }
+
 
             @media(min-width: 100px) {
                 .gorgeous-r-w {
@@ -541,16 +546,16 @@
         <div class="relative items-top justify-center min-h-screen sm:items-center sm:pt-0">
 
             <section class="my-4 bj-gradient">
-
                 @if (Route::has('login'))
                     <div class="gorgeous-text-end px-6 py-4 sm:block gorgeous-menu">
                         @auth
-                            <a href="{{ url('/home') }}" class="gorgeous-nav-link text-sm">Home</a>
+                            <a href="{{ url('login') }}" class="gorgeous-nav-link text-sm gorgeous-z-10">Home</a>
                         @else
-                            <a href="{{ route('login') }}" class="gorgeous-nav-link text-sm">Log In</a>
+                            <a href="{{ route('login') }}" class="gorgeous-nav-link text-sm gorgeous-z-10">Log In</a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="gorgeous-nav-link ml-4 text-sm">Register</a>
+                                <a href="{{ route('register') }}" class="gorgeous-nav-link ml-4 text-sm gorgeous-z-10">Register</a>
+
                             @endif
                         @endif
                     </div>
@@ -562,9 +567,12 @@
                         <h3>Find the suitable jobs in remote, on site and hybrid</h3>
                     </div>
                     
-                    <span><a href="login"><button class="bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></a></span>    
+                    <span><a href="login"><button class="bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></a></span> 
+
                 </div>       
             </section>
+
+             <a href="{{ route('register') }}" class="gorgeous-nav-link ml-4 text-sm">Register</a>
 
             <div>
                 <section class="text-start gorgeous-px-4 bj-text-secondary">
@@ -735,6 +743,8 @@
                                 <button id="bj-prev-btn" class="bj-cursor bj-vertical-middle bj-bg-one">
                                 
                                     <svg fill="#99902c" height="20" width="20" viewBox="0 0 24 24" id="previous" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M17,3V21L5,12Z" style="stroke: #99902c; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
+
+
                                 </button>
                             <span>
 
@@ -795,17 +805,22 @@
 
                             let attribute = element.getAttribute('data-idx')
                             if(attribute > (count - 3) && attribute < count + 1 ) {
+                                document.querySelector('#bj-prev-btn svg path').style.fill = 'white'
                                 element.style.display = 'block'
                                 element.classList.remove('gorgeous-scalex')
                                 element.classList.add('gorgeous-scaleX')
-
+                                document.querySelector('#bj-next-btn svg path').style.fill = '#99902c'
                             }
+
                         })
+                        return
                     }
+
+                    document.querySelector('#bj-next-btn svg path').style.fill = '#99902c'
                 }
 
                 const prev = () => {
-                    
+
                     if(count > 3) {
                         count = count - 3;
                         document.querySelectorAll('.bj-talent-container').forEach((element) => {
@@ -816,9 +831,15 @@
                                 element.style.display = 'block';
                                 element.classList.remove('gorgeous-scaleX')
                                 element.classList.add('gorgeous-scalex')
+                                document.querySelector('#bj-next-btn svg path').style.fill = 'white'
+
                             }
                         })
+
+                        return
                     }
+
+                    document.querySelector('#bj-prev-btn svg path').style.fill = '#99902c'
                     
                 }
 

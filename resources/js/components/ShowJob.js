@@ -138,12 +138,18 @@ function ShowJob(props) {
             setNextPage(response.data.jobs.next_page_url)
             setLastPage(response.data.jobs.last_page)
             setJob(response.data.jobs.data[0])
+
             
             setCompany(response.data.company)
             setUsers(response.data.users)
             setAuthenticatedUser(response.data.authenticatedUser)
+
             if(search) {
-              setCurrentPage(1)
+              let lastPage = response.data.jobs.data?.length > 0 ? response.data.jobs.last_page : 0;
+
+              setLastPage(lastPage)
+              // setCurrentPage(1)
+              setCurrentPage(response.data.jobs.data?.length)
               return
             }
 
@@ -253,6 +259,8 @@ function ShowJob(props) {
             setJobs(response.data.jobs.data)
             setNextPage(response.data.jobs.next_page_url)
             setLastPage(response.data.jobs.last_page)
+            console.log("CURRENT PAGES")
+            console.log(response)
         })
     }
 
@@ -310,7 +318,7 @@ function ShowJob(props) {
                       />
                     </span>
 
-                    <span><button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>{!loading ? 'Search Job' : <div class="spinner-border" role="status">
+                    <span><button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>{!loading ? 'Search Job' : <div className="spinner-border" role="status">
                         <span class="sr-only"></span>
                       </div>}</button>
                     </span>
@@ -365,7 +373,7 @@ function ShowJob(props) {
 
 
                            <div className="d-flex gap-2 align-items-center">
-                             <button className="btn bj-btn-prime btn-link"  onClick={prev} disabled={currentPage === 1} style={{border: '1px solid lightslategrey'}}>
+                             <button className="btn bj-btn-prime btn-link"  onClick={prev} disabled={currentPage === 1 || currentPage === 0} style={{border: '1px solid lightslategrey'}}>
 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
