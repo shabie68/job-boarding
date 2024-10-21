@@ -59,7 +59,7 @@ class BoardJobController extends Controller
         }
 
         if(!$request->has('title')) {
-            $jobs = BoardJob::with('company')->paginate(1);
+            $jobs = BoardJob::with('company')->paginate(5);
             
             return response()->json([
                 "jobs" => $jobs,

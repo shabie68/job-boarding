@@ -11,7 +11,7 @@ const Contact = (props) => {
 	}, [])
 	
 	return (
-		<div className="row justify-content-center">
+		<div className="row justify-content-center gorgeous-mt-70">
 	        <div>
 	        	<form className="bj-card-w m-auto">
 	        		<h3 className="text-two">Send us a message</h3>

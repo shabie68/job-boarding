@@ -10,7 +10,7 @@ const Aboutme = (props) => {
 
 	}, [])
 	return(
-		<div>
+		<div className="gorgeous-mt-70">
 			<h3>Who we are</h3>
 			<div className="d-flex justify-content-between bj-flex-col-res">
 				<p className="gorgeous-w-75">

@@ -106,7 +106,7 @@ function Company(props) {
 	  			</div>
 	  			:''
 	  		}
-			<div className="my-4">
+			<div className="gorgeous-mt-70">
 				<div>
 					<h3 className="text-two">Registered Companies</h3>
 					<span>

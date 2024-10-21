@@ -12148,6 +12148,9 @@ table a {
 	color: #238a85;
 }
 
+.gorgeous-footer {
+	margin-top: 12.5px;
+}
 
 a {
 	text-decoration: none;
@@ -12238,7 +12241,8 @@ a {
 }
 
 .bj-border {
-	border: 2px solid #4f4a47;
+	border: 2px solid;
+	border-color: #4f4a47;
 }
 
 .bj-border-prime {
@@ -12454,6 +12458,10 @@ a {
 	margin-top: 8px;
 }
 
+.gorgeous-mt-70 {
+	margin-top: 70px
+}
+
 
 
 
@@ -12656,6 +12664,10 @@ a {
 		width: 100%
 	}
 
+	.gorgeous-position {
+		position: fixed;
+		z-index: 5
+	}
 }
 
 
@@ -12777,8 +12789,6 @@ a {
 	.gorgeous-card {
 		width: 50%
 	}
-
-	
 }
 
 
