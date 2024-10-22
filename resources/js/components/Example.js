@@ -70,8 +70,6 @@ function Example() {
             document.querySelector('.bj-menubar-icon').classList.toggle('d-none');
             document.querySelector('.bj-close').classList.toggle('d-none')
 
-
-
             // document.querySelector('.menubar-links').classList.add('bj-align-items-end')
             document.querySelectorAll('.bj-menubar-selector').forEach( (element) => {
                 element.classList.toggle('bj-d-responsive');
@@ -89,7 +87,7 @@ function Example() {
         const footerHeight = document.querySelector('.bj-footer').offsetHeight+24;
         //20 is padding for footer
         // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) + 'px'
-        document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) - headerHeight + 'px'
+        // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) - headerHeight + 'px'
 
         addBackgroundGradient()
         
@@ -149,6 +147,7 @@ function Example() {
                 </div>
             
                 <div className="container">
+                    <div className="gorgeous-divider-space"></div>
                     <Routes>
                         <Route path="/home" element={<ShowJob user={user} updateMessageContext={updateMessageContext} updateJobContext={updateJobContext} closeMenu={closeMenu}/>} />
                         <Route path="/add-job" element={<AddJob />} />

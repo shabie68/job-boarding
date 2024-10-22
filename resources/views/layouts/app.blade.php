@@ -19,6 +19,17 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')
+    <style>
+        #app {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .gorgeous-footer {
+            margin-top: auto
+        }
+    </style>
 </head>
 <body class="bg-one h-100vh">
     <div id="app" class="h-100">
