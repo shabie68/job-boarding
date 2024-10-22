@@ -143,7 +143,7 @@ function Resume(props) {
 	// )
 
 	return (
-		<div className="my-4">
+		<div className="gorgeous-mt-70">
 			<div className="progress mb-4" style={{height: '7px'}}>
               <div className="progress-bar" id="jb-resume-pbar" role="progressbar" style={{width: "66%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
             </div>

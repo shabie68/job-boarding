@@ -104,7 +104,7 @@ function JobQuestions() {
 
 
 	return (
-		<div className="my-4">
+		<div className="gorgeous-mt-70">
             <div className="progress mb-4" style={{height: '7px'}}>
               <div className="progress-bar" id="jb-question-pbar" role="progressbar" style={{width: "100%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
             </div>

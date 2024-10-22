@@ -21,7 +21,7 @@ const Faqs = (props) => {
 
 
 	return (
-		<div className="bj-content">
+		<div className="bj-content gorgeous-mt-70">
 			<section>
 				<h3>Frequently Asked Questions</h3>
 				<p>Here you will find the most common questions being asked. If you cannot find the relevant solution then do not hesitate to contact us at gorgeous@gmail.com</p>
