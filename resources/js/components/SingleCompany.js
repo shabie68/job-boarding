@@ -44,8 +44,8 @@ const SingleCompany = () => {
 	}
 
 	return(
-		<div>
-			<div className="">
+		<div className="my-4">
+			<div>
 				<section>
 					<div className="d-flex">
 						<h3 className="text-two">{location.state?.company.title}</h3>

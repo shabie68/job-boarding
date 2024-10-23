@@ -299,7 +299,7 @@ function ShowJob(props) {
               :''
             }
 
-            <div className="text-center gorgeous-mt-70">
+            <div className="text-center my-4">
               <h3>Search jobs</h3>
               <span>Here you can search for your jobs. To search for a specific job, just enter the title of the job you want and a list of jobs will be there for you</span>
             </div>

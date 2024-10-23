@@ -14,9 +14,9 @@ const Contact = (props) => {
 		<div className="row justify-content-center my-4">
 	        <div>
 	        	<form className="bj-card-w m-auto">
-	        		<h3 className="text-two">Send us a message</h3>
+	        		<h3 className="text-two">Contact us</h3>
+	        		<p>Have any questions? We would like to hear from you</p>
 	                    
-
 	                <div className="bj-border bj-border-radius bg-one p-4">
 	                	<div>
 	                        <div className="mb-3 d-flex justify-content-between">
