@@ -49,7 +49,8 @@ const YourJob = (props) => {
 	}, [currentPage])
 
 	return (
-		<div>
+		<div className="my-4">
+			<h3>Track job applications</h3>
 			{
 				role == 1 
 				?

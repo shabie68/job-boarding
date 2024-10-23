@@ -12687,6 +12687,11 @@ a {
 		position: fixed;
 		z-index: 5
 	}
+
+	.bj-msg-chat-w {
+		width: 220px;
+		max-width: 220px;
+	}
 }
 
 

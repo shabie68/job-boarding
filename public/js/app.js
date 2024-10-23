@@ -10281,11 +10281,6 @@ function Apply(props) {
     setSubmission = _useState2[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     saveDefaultData();
-    var height = window.innerHeight;
-    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
-    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
-    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
   }, []);
   var saveDefaultData = function saveDefaultData() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/add-job-data', {
@@ -10331,7 +10326,7 @@ function Apply(props) {
     }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "gorgeous-mt-70",
+    className: "my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "progress mb-4",
       style: {
@@ -11207,7 +11202,7 @@ var Contact = function Contact(props) {
     }
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "row justify-content-center gorgeous-mt-70",
+    className: "row justify-content-center my-4",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
         className: "bj-card-w m-auto",
@@ -12268,11 +12263,7 @@ function JobQuestions() {
     setSalaryExpectation(context.submission.salary_expectation);
     setNoticePeriod(context.submission.notice_period);
     setScheduleInterview(new Date(context.submission.schedule_interview).toISOString().split('T')[0]);
-    var height = window.innerHeight;
-    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
-    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
-    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
+
     // props.updateJobContext({user_id: response.submission.user_id, board_job_id: response.submission.board_job_id, submission: response.data.submission})
   }, []);
   var formik = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useFormik)({
@@ -12311,7 +12302,7 @@ function JobQuestions() {
     })["catch"](function (error) {});
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    className: "gorgeous-mt-70",
+    className: "my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "progress mb-4",
       style: {
@@ -12889,7 +12880,7 @@ function Profile(props) {
       },
       children: "Profile Successfully Updated!"
     }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-      className: "gorgeous-mt-70",
+      className: "my-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("section", {
         style: {
           margin: '0 auto'
@@ -13117,7 +13108,6 @@ var RecruiterJobs = function RecruiterJobs(props) {
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "mb-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       children: "Here you will find a list of candidates who applied to the jobs that your company posted. You can view candidate's resume by click on the desire candidate column. Candidates can be accepted, rejected by setting the status to accepted."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
@@ -13729,13 +13719,6 @@ function Resume(props) {
     setResume(e.target.files[0]);
   };
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var height = window.innerHeight;
-    var menuHeight = document.querySelector('.menubar-links').offsetHeight;
-    var footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    var containerHeight = 100 - (menuHeight * 100 / height + footerHeight * 100 / height);
-    document.querySelector('.container').style.minHeight = height - (menuHeight + footerHeight) + 'px';
-  });
   var saveData = function saveData(e) {
     e.preventDefault();
     var formData = new FormData();
@@ -13828,7 +13811,7 @@ function Resume(props) {
   // )
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "gorgeous-mt-70",
+    className: "my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "progress mb-4",
       style: {
@@ -15424,18 +15407,6 @@ function SingleJob(props) {
                 disabled: true,
                 children: "Apply"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-              className: "ms-auto",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-                to: "/apply",
-                state: {
-                  job: props.job
-                },
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-                  className: "btn bj-btn-prime text-prime",
-                  children: "Apply"
-                })
-              })
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -15640,9 +15611,9 @@ function UpdateProfile() {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "my-4",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "bj-back-mb d-flex gap-2 align-items-center bj-cursor-pointer",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
         onClick: handleNavigation,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
           style: {
@@ -15658,7 +15629,9 @@ function UpdateProfile() {
             d: "M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
           })
         })
-      })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("strong", {
+        children: "Go back"
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "row justify-content-center",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -15908,7 +15881,10 @@ var YourJob = function YourJob(props) {
     }
   }, [currentPage]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RecruiterJobs__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    className: "my-4",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h3", {
+      children: "Track job applications"
+    }), role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RecruiterJobs__WEBPACK_IMPORTED_MODULE_3__["default"], {
       next: next,
       prev: prev,
       currentPage: currentPage,

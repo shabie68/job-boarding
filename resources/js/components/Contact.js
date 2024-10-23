@@ -11,7 +11,7 @@ const Contact = (props) => {
 	}, [])
 	
 	return (
-		<div className="row justify-content-center gorgeous-mt-70">
+		<div className="row justify-content-center my-4">
 	        <div>
 	        	<form className="bj-card-w m-auto">
 	        		<h3 className="text-two">Send us a message</h3>
@@ -31,7 +31,6 @@ const Contact = (props) => {
 	                            </div>
 	                        </div>
 	                    </div>
-
 
 	                    <div>
 	                        <div className="mb-3 d-flex justify-content-between">
