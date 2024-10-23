@@ -12187,7 +12187,6 @@ a {
 
 .bj-company-container:hover {
 	border-color: #99902c;
-
 }
 
 .bj-btn-table {
@@ -12565,9 +12564,6 @@ a {
 }
 
 
-
-
-
 /*@media(min-width: 568px){*/
 @media(min-width: 100px){
 
@@ -12783,7 +12779,8 @@ a {
 	}
 
 	.bj-msg-chat-w {
-		width: 25%
+		width: 25%;
+		max-width: 25%
 	}
 
 	.bj-close {

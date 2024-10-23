@@ -99,6 +99,7 @@ function ShowJob(props) {
 
   
     function getJobs(search = false) {
+      let candidateIds = [];
 
       if(search) {
         setLoading(true)
@@ -158,13 +159,24 @@ function ShowJob(props) {
             if(!search) {
               setSubmissions(response.data.submissions)  
               if(response.data.role == 1) {
-                response.data.submissions?.map((_submission) => {
-                  let user = {
-                    id: _submission.user_id,
-                    name: _submission.first_name
-                  }
 
-                  setCandidates((prevCandidates) => [...prevCandidates, user])
+                response.data.submissions?.map((_submission) => {
+                  // let user = {
+                  //   id: _submission.user_id,
+                  //   name: _submission.first_name
+                  // }
+                  let user = null
+
+                  if(!candidateIds.includes(_submission.user_id)) {
+                    candidateIds.push(_submission.user_id)
+                    user = {
+                      id: _submission.user_id,
+                      name: _submission.first_name
+                    }
+
+                    setCandidates((prevCandidates) => [...prevCandidates, user])
+                  }
+                  
 
                 })  
               }
@@ -175,7 +187,10 @@ function ShowJob(props) {
             channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
                 alert("GOOD NEWS")
 
-                setCandidates((prevCandidates) => [...prevCandidates, data['user']])
+                if(!candidateIds.includes(data['user']['id'])) {
+                  setCandidates((prevCandidates) => [...prevCandidates, data['user']])
+                }
+                
                 setReceivedMessages((prevMessages) => [...prevMessages, data['message']] );
                 // messages.push(data['message'])
                 setUserId(data['user']['id'])
@@ -416,7 +431,7 @@ function ShowJob(props) {
                          Chat Messages
                       </div>
                       <div style={{marginLeft: 'auto', cursor: 'pointer'}} onClick={()=>{setShowMessage(false)}}>
-                       <svg viewBox="0 0 24 24" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clip-Rule="evenodd" d="M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z" fill="#ffffff"></path> </g></svg>
+                       <svg viewBox="0 0 24 24" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clipRule="evenodd" d="M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z" fill="#ffffff"></path> </g></svg>
                       </div>
                     </div>
                     
@@ -429,7 +444,7 @@ function ShowJob(props) {
                       <select  onChange={(e) => {setRecepient(e.target.value)}}>
                       {
                         companies.map((company) => (
-                        <option value={company.id}>{company.title}</option>
+                        <option key={company.id} value={company.id}>{company.title}</option>
 
                         ))
                       }
@@ -441,7 +456,7 @@ function ShowJob(props) {
                       <select defaultValue={userId} onChange={(e) => {setUserId(e.target.value)}}>
                         {
                           candidates?.map((candidate) => (
-                          <option value={candidate.id}>{candidate.name}</option>
+                          <option key={candidate.id} value={candidate.id}>{candidate.name}</option>
                           ))
                         }
                       </select>
@@ -450,10 +465,10 @@ function ShowJob(props) {
 
                     {
                       msgContext?.map((msg) => (
-                      <>
+                      <div key={msg.message}>
                         <div className="my-2"><strong>{msg.senderName}</strong></div>
                         <div>{msg.message}</div>
-                      </>
+                      </div>
                       ))
                     }
 

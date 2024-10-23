@@ -14067,6 +14067,7 @@ function ShowJob(props) {
   };
   function getJobs() {
     var search = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+    var candidateIds = [];
     if (search) {
       setLoading(true);
     }
@@ -14116,22 +14117,32 @@ function ShowJob(props) {
         if (response.data.role == 1) {
           var _response$data$submis;
           (_response$data$submis = response.data.submissions) === null || _response$data$submis === void 0 || _response$data$submis.map(function (_submission) {
-            var user = {
-              id: _submission.user_id,
-              name: _submission.first_name
-            };
-            setCandidates(function (prevCandidates) {
-              return [].concat(_toConsumableArray(prevCandidates), [user]);
-            });
+            // let user = {
+            //   id: _submission.user_id,
+            //   name: _submission.first_name
+            // }
+            var user = null;
+            if (!candidateIds.includes(_submission.user_id)) {
+              candidateIds.push(_submission.user_id);
+              user = {
+                id: _submission.user_id,
+                name: _submission.first_name
+              };
+              setCandidates(function (prevCandidates) {
+                return [].concat(_toConsumableArray(prevCandidates), [user]);
+              });
+            }
           });
         }
       }
       var channel = pusher.subscribe('private-company.' + response.data.company_id);
       channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function (data) {
         alert("GOOD NEWS");
-        setCandidates(function (prevCandidates) {
-          return [].concat(_toConsumableArray(prevCandidates), [data['user']]);
-        });
+        if (!candidateIds.includes(data['user']['id'])) {
+          setCandidates(function (prevCandidates) {
+            return [].concat(_toConsumableArray(prevCandidates), [data['user']]);
+          });
+        }
         setReceivedMessages(function (prevMessages) {
           return [].concat(_toConsumableArray(prevMessages), [data['message']]);
         });
@@ -14535,7 +14546,7 @@ function ShowJob(props) {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
                     fillRule: "evenodd",
-                    "clip-Rule": "evenodd",
+                    clipRule: "evenodd",
                     d: "M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z",
                     fill: "#ffffff"
                   }), " "]
@@ -14553,7 +14564,7 @@ function ShowJob(props) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                 value: company.id,
                 children: company.title
-              });
+              }, company.id);
             })
           }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
             defaultValue: userId,
@@ -14564,10 +14575,10 @@ function ShowJob(props) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                 value: candidate.id,
                 children: candidate.name
-              });
+              }, candidate.id);
             })
           }), msgContext === null || msgContext === void 0 ? void 0 : msgContext.map(function (msg) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "my-2",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
@@ -14576,7 +14587,7 @@ function ShowJob(props) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 children: msg.message
               })]
-            });
+            }, msg.message);
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "card-footer p-3 bg-one",
