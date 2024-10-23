@@ -39,13 +39,6 @@ function Apply(props) {
   useEffect(() => {
 
     saveDefaultData();
-    let height = window.innerHeight;
-    let menuHeight = document.querySelector('.menubar-links').offsetHeight;
-
-    let footerHeight = document.querySelector('.bj-footer').offsetHeight;
-    let containerHeight = 100 - (((menuHeight*100)/height) + ((footerHeight* 100)/height));
-
-    document.querySelector('.container').style.minHeight = height - (menuHeight+footerHeight) + 'px'
   }, []);
 
 
@@ -99,7 +92,7 @@ function Apply(props) {
   });
 
   return (
-    <div className="gorgeous-mt-70">
+    <div className="my-4">
       <div className="progress mb-4" style={{height: '7px'}}>
         <div className="progress-bar" id="jb-apply-pbar" role="progressbar" style={{width: "33%"}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
