@@ -51,8 +51,14 @@ class BoardJobController extends Controller
         }
 
         if(auth()->user()->role == 1) {
+            $submissions = [];
+            if(auth()->user()->company) {
+                $submissions = Submission::where('company_id', auth()->user()->company->id)->get();    
+            }
+            // $submissions = BoardJob::where('company_id', auth()->user()->company->id)->first()->submissions;
+            
 
-            $submissions = BoardJob::where('company_id', auth()->user()->company->id)->first()->submissions;
+
         }else {
             $submissions = Submission::where('user_id', auth()->user()->id)
                                     ->get();

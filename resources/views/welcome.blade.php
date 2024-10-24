@@ -570,7 +570,7 @@
                         <h3>Find the suitable jobs in remote, on site and hybrid</h3>
                     </div>
                     
-                    <span class="gorgeous-cursor"><a href="login"><button class="bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></a></span> 
+                    <span><a href="login"><button class="gorgeous-cursor bj-font-size-18 bj-btn bg-secondary bj-text-prime">Get Started</button></a></span> 
                 </div>       
             </section>
 

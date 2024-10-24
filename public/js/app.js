@@ -9283,7 +9283,7 @@ var Aboutme = function Aboutme(props) {
     }
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: "gorgeous-mt-70",
+    className: "my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
       children: "Who we are"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
@@ -10768,7 +10768,7 @@ function Company(props) {
       },
       children: "Company Created Successfully!"
     }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "gorgeous-mt-70",
+      className: "my-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
           className: "text-two",
@@ -11208,7 +11208,9 @@ var Contact = function Contact(props) {
         className: "bj-card-w m-auto",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
           className: "text-two",
-          children: "Send us a message"
+          children: "Contact us"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          children: "Have any questions? We would like to hear from you"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
           className: "bj-border bj-border-radius bg-one p-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -11981,7 +11983,7 @@ var Faqs = function Faqs(props) {
     }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "bj-content gorgeous-mt-70",
+    className: "bj-content my-4",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
         children: "Frequently Asked Questions"
@@ -14065,6 +14067,7 @@ function ShowJob(props) {
   };
   function getJobs() {
     var search = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+    var candidateIds = [];
     if (search) {
       setLoading(true);
     }
@@ -14114,22 +14117,32 @@ function ShowJob(props) {
         if (response.data.role == 1) {
           var _response$data$submis;
           (_response$data$submis = response.data.submissions) === null || _response$data$submis === void 0 || _response$data$submis.map(function (_submission) {
-            var user = {
-              id: _submission.user_id,
-              name: _submission.first_name
-            };
-            setCandidates(function (prevCandidates) {
-              return [].concat(_toConsumableArray(prevCandidates), [user]);
-            });
+            // let user = {
+            //   id: _submission.user_id,
+            //   name: _submission.first_name
+            // }
+            var user = null;
+            if (!candidateIds.includes(_submission.user_id)) {
+              candidateIds.push(_submission.user_id);
+              user = {
+                id: _submission.user_id,
+                name: _submission.first_name
+              };
+              setCandidates(function (prevCandidates) {
+                return [].concat(_toConsumableArray(prevCandidates), [user]);
+              });
+            }
           });
         }
       }
       var channel = pusher.subscribe('private-company.' + response.data.company_id);
       channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function (data) {
         alert("GOOD NEWS");
-        setCandidates(function (prevCandidates) {
-          return [].concat(_toConsumableArray(prevCandidates), [data['user']]);
-        });
+        if (!candidateIds.includes(data['user']['id'])) {
+          setCandidates(function (prevCandidates) {
+            return [].concat(_toConsumableArray(prevCandidates), [data['user']]);
+          });
+        }
         setReceivedMessages(function (prevMessages) {
           return [].concat(_toConsumableArray(prevMessages), [data['message']]);
         });
@@ -14297,7 +14310,7 @@ function ShowJob(props) {
       },
       children: "Job Created Successfully!"
     }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "text-center gorgeous-mt-70",
+      className: "text-center my-4",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
         children: "Search jobs"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
@@ -14533,7 +14546,7 @@ function ShowJob(props) {
                   id: "SVGRepo_iconCarrier",
                   children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
                     fillRule: "evenodd",
-                    "clip-Rule": "evenodd",
+                    clipRule: "evenodd",
                     d: "M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z",
                     fill: "#ffffff"
                   }), " "]
@@ -14543,29 +14556,41 @@ function ShowJob(props) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "card-body",
-          children: [role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
-            onChange: function onChange(e) {
-              setRecepient(e.target.value);
-            },
-            children: companies.map(function (company) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
-                value: company.id,
-                children: company.title
-              });
-            })
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
-            defaultValue: userId,
-            onChange: function onChange(e) {
-              setUserId(e.target.value);
-            },
-            children: candidates === null || candidates === void 0 ? void 0 : candidates.map(function (candidate) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
-                value: candidate.id,
-                children: candidate.name
-              });
-            })
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+              className: "text-primary",
+              children: "Note "
+            }), role == 1 ? 'Atleast 1 candidate must applied to one of your jobs to send messages' : 'You must atleast apply to 1 job for sending messages']
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "gorgeous-msg-recepient",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                children: "Recepient"
+              })
+            }), role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
+              onChange: function onChange(e) {
+                setRecepient(e.target.value);
+              },
+              children: companies.map(function (company) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                  value: company.id,
+                  children: company.title
+                }, company.id);
+              })
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
+              defaultValue: userId,
+              onChange: function onChange(e) {
+                setUserId(e.target.value);
+              },
+              children: candidates === null || candidates === void 0 ? void 0 : candidates.map(function (candidate) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                  value: candidate.id,
+                  children: candidate.name
+                }, candidate.id);
+              })
+            })]
           }), msgContext === null || msgContext === void 0 ? void 0 : msgContext.map(function (msg) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "my-2",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
@@ -14574,7 +14599,7 @@ function ShowJob(props) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 children: msg.message
               })]
-            });
+            }, msg.message);
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "card-footer p-3 bg-one",
@@ -14702,8 +14727,8 @@ var SingleCompany = function SingleCompany() {
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "d-flex",

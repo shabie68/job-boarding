@@ -99,6 +99,7 @@ function ShowJob(props) {
 
   
     function getJobs(search = false) {
+      let candidateIds = [];
 
       if(search) {
         setLoading(true)
@@ -158,13 +159,24 @@ function ShowJob(props) {
             if(!search) {
               setSubmissions(response.data.submissions)  
               if(response.data.role == 1) {
-                response.data.submissions?.map((_submission) => {
-                  let user = {
-                    id: _submission.user_id,
-                    name: _submission.first_name
-                  }
 
-                  setCandidates((prevCandidates) => [...prevCandidates, user])
+                response.data.submissions?.map((_submission) => {
+                  // let user = {
+                  //   id: _submission.user_id,
+                  //   name: _submission.first_name
+                  // }
+                  let user = null
+
+                  if(!candidateIds.includes(_submission.user_id)) {
+                    candidateIds.push(_submission.user_id)
+                    user = {
+                      id: _submission.user_id,
+                      name: _submission.first_name
+                    }
+
+                    setCandidates((prevCandidates) => [...prevCandidates, user])
+                  }
+                  
 
                 })  
               }
@@ -175,7 +187,10 @@ function ShowJob(props) {
             channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
                 alert("GOOD NEWS")
 
-                setCandidates((prevCandidates) => [...prevCandidates, data['user']])
+                if(!candidateIds.includes(data['user']['id'])) {
+                  setCandidates((prevCandidates) => [...prevCandidates, data['user']])
+                }
+                
                 setReceivedMessages((prevMessages) => [...prevMessages, data['message']] );
                 // messages.push(data['message'])
                 setUserId(data['user']['id'])
@@ -299,7 +314,7 @@ function ShowJob(props) {
               :''
             }
 
-            <div className="text-center gorgeous-mt-70">
+            <div className="text-center my-4">
               <h3>Search jobs</h3>
               <span>Here you can search for your jobs. To search for a specific job, just enter the title of the job you want and a list of jobs will be there for you</span>
             </div>
@@ -411,12 +426,13 @@ function ShowJob(props) {
                   :
                   <div className="card position-fixed gorgeous-animate-chat bg-one bj-msg-chat-w" style={{bottom: '20px', right: '10px', zIndex: 9, height: '50%', overflow: 'auto'}}>
                   <div className="card-header position-sticky top-0 bg-two text-prime">
+
                     <div className="d-flex">
                       <div>
                          Chat Messages
                       </div>
                       <div style={{marginLeft: 'auto', cursor: 'pointer'}} onClick={()=>{setShowMessage(false)}}>
-                       <svg viewBox="0 0 24 24" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clip-Rule="evenodd" d="M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z" fill="#ffffff"></path> </g></svg>
+                       <svg viewBox="0 0 24 24" height="16" width="16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fillRule="evenodd" clipRule="evenodd" d="M6.00001 11.25L18 11.25L18 12.75L6.00001 12.75L6.00001 11.25Z" fill="#ffffff"></path> </g></svg>
                       </div>
                     </div>
                     
@@ -424,36 +440,41 @@ function ShowJob(props) {
                   </div>
 
                   <div className="card-body">
-                    {
-                      role == 2 ?
-                      <select  onChange={(e) => {setRecepient(e.target.value)}}>
+                    <span><strong className="text-primary">Note </strong>{role == 1 ? 'Atleast 1 candidate must applied to one of your jobs to send messages' : 'You must atleast apply to 1 job for sending messages'}</span>
+                    <p></p>
+                    <div className="gorgeous-msg-recepient">
+                      <strong><label>Recepient</label></strong>
                       {
-                        companies.map((company) => (
-                        <option value={company.id}>{company.title}</option>
-
-                        ))
-                      }
-                    </select>
-
-                    :
-
-                    (
-                      <select defaultValue={userId} onChange={(e) => {setUserId(e.target.value)}}>
+                        role == 2 ?
+                        <select  onChange={(e) => {setRecepient(e.target.value)}}>
                         {
-                          candidates?.map((candidate) => (
-                          <option value={candidate.id}>{candidate.name}</option>
+                          companies.map((company) => (
+                          <option key={company.id} value={company.id}>{company.title}</option>
+
                           ))
                         }
                       </select>
-                    )}
+
+                      :
+
+                      (
+                        <select defaultValue={userId} onChange={(e) => {setUserId(e.target.value)}}>
+                          {
+                            candidates?.map((candidate) => (
+                            <option key={candidate.id} value={candidate.id}>{candidate.name}</option>
+                            ))
+                          }
+                        </select>
+                      )}
+                    </div>
                     
 
                     {
                       msgContext?.map((msg) => (
-                      <>
+                      <div key={msg.message}>
                         <div className="my-2"><strong>{msg.senderName}</strong></div>
                         <div>{msg.message}</div>
-                      </>
+                      </div>
                       ))
                     }
 
@@ -471,6 +492,8 @@ function ShowJob(props) {
                     <div className="d-flex justify-content-end">
                       <button className="btn bj-btn-prime text-prime" onClick={() => {sendMessage( role == 1 ? userId : recepient)}}>Send</button>
                     </div>
+                    
+                    
                   </div>
                 </div>
               }
