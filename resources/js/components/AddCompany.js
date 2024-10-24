@@ -83,7 +83,6 @@ function AddCompany() {
     },
     validate,
     onSubmit: values => {
-    	alert("SUBMITTING")
       setLoading(true)
 		let contactInformation = {
 			phone_number: formik.phoneNumber,

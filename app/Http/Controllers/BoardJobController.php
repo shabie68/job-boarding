@@ -72,7 +72,6 @@ class BoardJobController extends Controller
                 "role" => auth()->user()->role,
                 "name" => auth()->user()->name,
                 "company_id" => auth()->user()->company ? auth()->user()->company->id : -1,
-                // "company" => auth()->user()->company->title
                 "users" => \App\Models\User::all(),
                 "authenticatedUser" => auth()->user()->id,
                 "companies" => $companies,
