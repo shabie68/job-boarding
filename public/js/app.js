@@ -9441,7 +9441,6 @@ function AddCompany() {
     },
     validate: validate,
     onSubmit: function onSubmit(values) {
-      alert("SUBMITTING");
       setLoading(true);
       var contactInformation = {
         phone_number: formik.phoneNumber,
@@ -10146,8 +10145,10 @@ function AddJob() {
                 style: {
                   display: formik.values.additionalDetails === 'description' ? 'block' : 'none'
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                  children: "Description"
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                    children: "Description"
+                  })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                   id: "description",
                   children: "Description"
@@ -10156,8 +10157,10 @@ function AddJob() {
                 style: {
                   display: formik.values.additionalDetails === 'responsibilities' ? 'block' : 'none'
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                  children: "Responsibilities"
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                    children: "Responsibilities"
+                  })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                   id: "responsibilities",
                   children: "Responsibilities"
@@ -10166,8 +10169,10 @@ function AddJob() {
                 style: {
                   display: formik.values.additionalDetails === 'requirements' ? 'block' : 'none'
                 },
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
-                  children: "Requirements"
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                    children: "Requirements"
+                  })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                   id: "requirements",
                   children: "Requirements"
@@ -12448,7 +12453,9 @@ function JobQuestions() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                children: "Tell us few dates where you are free"
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("small", {
+                  children: "Tell us few dates where you are free"
+                })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                   htmlFor: "first-name",
@@ -14007,26 +14014,30 @@ function ShowJob(props) {
     _useState42 = _slicedToArray(_useState41, 2),
     users = _useState42[0],
     setUsers = _useState42[1];
-  var _useState43 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+  var _useState43 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(-1),
     _useState44 = _slicedToArray(_useState43, 2),
-    selectedUser = _useState44[0],
-    setSelectedUser = _useState44[1];
-  var _useState45 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(-1),
+    companyId = _useState44[0],
+    setCompanyId = _useState44[1];
+  var _useState45 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
     _useState46 = _slicedToArray(_useState45, 2),
-    authenticatedUser = _useState46[0],
-    setAuthenticatedUser = _useState46[1];
-  var _useState47 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    selectedUser = _useState46[0],
+    setSelectedUser = _useState46[1];
+  var _useState47 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(-1),
     _useState48 = _slicedToArray(_useState47, 2),
-    message = _useState48[0],
-    setMessage = _useState48[1];
-  var _useState49 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    authenticatedUser = _useState48[0],
+    setAuthenticatedUser = _useState48[1];
+  var _useState49 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
     _useState50 = _slicedToArray(_useState49, 2),
-    companies = _useState50[0],
-    setCompanies = _useState50[1];
+    message = _useState50[0],
+    setMessage = _useState50[1];
   var _useState51 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
     _useState52 = _slicedToArray(_useState51, 2),
-    submissions = _useState52[0],
-    setSubmissions = _useState52[1];
+    companies = _useState52[0],
+    setCompanies = _useState52[1];
+  var _useState53 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState54 = _slicedToArray(_useState53, 2),
+    submissions = _useState54[0],
+    setSubmissions = _useState54[1];
   var msgContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_MessageContext__WEBPACK_IMPORTED_MODULE_3__["default"]);
   var messages = [];
   var value = "; ".concat(document.cookie);
@@ -14100,6 +14111,7 @@ function ShowJob(props) {
       setNextPage(response.data.jobs.next_page_url);
       setLastPage(response.data.jobs.last_page);
       setJob(response.data.jobs.data[0]);
+      setCompanyId(response.data.company_id);
       setCompany(response.data.company);
       setUsers(response.data.users);
       setAuthenticatedUser(response.data.authenticatedUser);
@@ -14350,21 +14362,34 @@ function ShowJob(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         children: [role == 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "d-flex justify-content-between",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
-            className: "mb-0 text-two",
-            children: "Jobs"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-              to: "/add-job",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "d-flex justify-content-between",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
+              className: "mb-0 text-two",
+              children: "Jobs"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              className: "",
+              children: companyId > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+                to: "/add-job",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                  type: "button",
+                  className: "btn bj-btn-secondary text-prime mb-3",
+                  children: "Add Job"
+                })
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 type: "button",
+                disabled: true,
                 className: "btn bj-btn-secondary text-prime mb-3",
                 children: "Add Job"
               })
-            })
-          })]
+            })]
+          }), companyId < 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "text-end",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+              className: "text-primary",
+              children: "Note:"
+            }), " You will need to create a company before adding a job"]
+          }) : '']
         }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "mb-3 border-bottom",
           children: " "

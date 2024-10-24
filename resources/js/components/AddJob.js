@@ -250,17 +250,17 @@ function AddJob() {
 
                 <div>
                   <div style={{ display: formik.values.additionalDetails === 'description' ? 'block' : 'none' }}>
-                    <label>Description</label>
+                    <strong><label>Description</label></strong>
                     <div id="description">Description</div>
                   </div>
 
                   <div style={{ display: formik.values.additionalDetails === 'responsibilities' ? 'block' : 'none' }}>
-                    <label>Responsibilities</label>
+                    <strong><label>Responsibilities</label></strong>
                     <div id="responsibilities">Responsibilities</div>
                   </div>
 
                   <div style={{ display: formik.values.additionalDetails === 'requirements' ? 'block' : 'none' }}>
-                    <label>Requirements</label>
+                    <strong><label>Requirements</label></strong>
                     <div id="requirements">Requirements</div>
                   </div>
 

@@ -40,6 +40,7 @@ function ShowJob(props) {
     const [lastPage, setLastPage] = useState(1);
     const [company, setCompany] = useState();
     const [users, setUsers] = useState([])
+    const [companyId, setCompanyId] = useState(-1)
 
     const [selectedUser, setSelectedUser] = useState(1);
     const [authenticatedUser, setAuthenticatedUser] = useState(-1)
@@ -139,6 +140,7 @@ function ShowJob(props) {
             setNextPage(response.data.jobs.next_page_url)
             setLastPage(response.data.jobs.last_page)
             setJob(response.data.jobs.data[0])
+            setCompanyId(response.data.company_id)
 
             
             setCompany(response.data.company)
@@ -343,16 +345,34 @@ function ShowJob(props) {
               <div>
                 {
                   role == 1 ?
+                    <div>
 
-                    <div className="d-flex justify-content-between">
-                        <h1 className="mb-0 text-two">Jobs</h1>
-                         <div className="">
-                            <Link to="/add-job">
-                                <button type="button" className="btn bj-btn-secondary text-prime mb-3">
-                                    Add Job
+                      <div className="d-flex justify-content-between">
+
+                          <h1 className="mb-0 text-two">Jobs</h1>
+                           <div className="">
+                              {
+                                companyId > 0 ?
+                                  <Link to="/add-job">
+                                    <button type="button" className="btn bj-btn-secondary text-prime mb-3">
+                                        Add Job
+                                    </button>
+                                </Link>
+                                :
+                                <button type="button" disabled className="btn bj-btn-secondary text-prime mb-3">
+                                  Add Job
                                 </button>
-                            </Link>
-                        </div>
+                              }
+                              
+                          </div>
+                      </div>
+
+                      {
+                        companyId < 0 ?
+                        <div className="text-end"><strong className="text-primary">Note:</strong> You will need to create a company before adding a job</div>
+                        : ''
+                      }
+                      
                     </div>
                     : ''
                   }

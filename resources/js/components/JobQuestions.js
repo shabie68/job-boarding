@@ -203,7 +203,7 @@ function JobQuestions() {
                             </div>
 
                             <div className="">
-                            	<p>Tell us few dates where you are free</p>
+                            	<p><small>Tell us few dates where you are free</small></p>
                                 <strong><label htmlFor="first-name" className="col-form-label">Interview Date</label></strong>
                                 <div className="">
                                     <input
