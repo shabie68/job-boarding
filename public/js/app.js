@@ -14556,27 +14556,39 @@ function ShowJob(props) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "card-body",
-          children: [role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
-            onChange: function onChange(e) {
-              setRecepient(e.target.value);
-            },
-            children: companies.map(function (company) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
-                value: company.id,
-                children: company.title
-              }, company.id);
-            })
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
-            defaultValue: userId,
-            onChange: function onChange(e) {
-              setUserId(e.target.value);
-            },
-            children: candidates === null || candidates === void 0 ? void 0 : candidates.map(function (candidate) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
-                value: candidate.id,
-                children: candidate.name
-              }, candidate.id);
-            })
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+              className: "text-primary",
+              children: "Note "
+            }), role == 1 ? 'Atleast 1 candidate must applied to one of your jobs to send messages' : 'You must atleast apply to 1 job for sending messages']
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            className: "gorgeous-msg-recepient",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                children: "Recepient"
+              })
+            }), role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
+              onChange: function onChange(e) {
+                setRecepient(e.target.value);
+              },
+              children: companies.map(function (company) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                  value: company.id,
+                  children: company.title
+                }, company.id);
+              })
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
+              defaultValue: userId,
+              onChange: function onChange(e) {
+                setUserId(e.target.value);
+              },
+              children: candidates === null || candidates === void 0 ? void 0 : candidates.map(function (candidate) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                  value: candidate.id,
+                  children: candidate.name
+                }, candidate.id);
+              })
+            })]
           }), msgContext === null || msgContext === void 0 ? void 0 : msgContext.map(function (msg) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {

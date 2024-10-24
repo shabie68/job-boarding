@@ -12480,7 +12480,11 @@ a {
 	height: 70px
 }
 
-
+.gorgeous-msg-recepient {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
 
 
 @keyframes apply-pbar{
@@ -12561,6 +12565,12 @@ a {
 
 .gorgeous-vertical-middle {
 	vertical-align: middle
+}
+
+.gorgeous-msg-send {
+	padding: 8px 0;
+	margin-bottom: 8px;
+	border-bottom: 1px solid #4f4a47
 }
 
 

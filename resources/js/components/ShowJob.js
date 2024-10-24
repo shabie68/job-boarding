@@ -426,6 +426,7 @@ function ShowJob(props) {
                   :
                   <div className="card position-fixed gorgeous-animate-chat bg-one bj-msg-chat-w" style={{bottom: '20px', right: '10px', zIndex: 9, height: '50%', overflow: 'auto'}}>
                   <div className="card-header position-sticky top-0 bg-two text-prime">
+
                     <div className="d-flex">
                       <div>
                          Chat Messages
@@ -439,28 +440,33 @@ function ShowJob(props) {
                   </div>
 
                   <div className="card-body">
-                    {
-                      role == 2 ?
-                      <select  onChange={(e) => {setRecepient(e.target.value)}}>
+                    <span><strong className="text-primary">Note </strong>{role == 1 ? 'Atleast 1 candidate must applied to one of your jobs to send messages' : 'You must atleast apply to 1 job for sending messages'}</span>
+                    <p></p>
+                    <div className="gorgeous-msg-recepient">
+                      <strong><label>Recepient</label></strong>
                       {
-                        companies.map((company) => (
-                        <option key={company.id} value={company.id}>{company.title}</option>
-
-                        ))
-                      }
-                    </select>
-
-                    :
-
-                    (
-                      <select defaultValue={userId} onChange={(e) => {setUserId(e.target.value)}}>
+                        role == 2 ?
+                        <select  onChange={(e) => {setRecepient(e.target.value)}}>
                         {
-                          candidates?.map((candidate) => (
-                          <option key={candidate.id} value={candidate.id}>{candidate.name}</option>
+                          companies.map((company) => (
+                          <option key={company.id} value={company.id}>{company.title}</option>
+
                           ))
                         }
                       </select>
-                    )}
+
+                      :
+
+                      (
+                        <select defaultValue={userId} onChange={(e) => {setUserId(e.target.value)}}>
+                          {
+                            candidates?.map((candidate) => (
+                            <option key={candidate.id} value={candidate.id}>{candidate.name}</option>
+                            ))
+                          }
+                        </select>
+                      )}
+                    </div>
                     
 
                     {
@@ -486,6 +492,8 @@ function ShowJob(props) {
                     <div className="d-flex justify-content-end">
                       <button className="btn bj-btn-prime text-prime" onClick={() => {sendMessage( role == 1 ? userId : recepient)}}>Send</button>
                     </div>
+                    
+                    
                   </div>
                 </div>
               }
