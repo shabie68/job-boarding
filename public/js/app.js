@@ -14624,7 +14624,7 @@ function ShowJob(props) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 children: msg.message
               })]
-            }, msg.message);
+            }, msg.message + msg.senderName);
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "card-footer p-3 bg-one",
@@ -15368,9 +15368,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function SingleJob(props) {
   function handleNavigation() {
     var _document$querySelect, _document$querySelect2, _document$querySelect3;
-    // document.querySelector('.jb-single-job')?.classList.add('d-sm-none')
-    // document.querySelector('.jb-jobs')?.classList.remove('jb-all-jobs')
-    // document.querySelector('.jb-add-job-btn')?.classList.remove('d-sm-none')
     (_document$querySelect = document.querySelector('.jb-single-job')) === null || _document$querySelect === void 0 || _document$querySelect.classList.add('bj-d-sm-none');
     (_document$querySelect2 = document.querySelector('.jb-jobs')) === null || _document$querySelect2 === void 0 || _document$querySelect2.classList.remove('jb-all-jobs');
     (_document$querySelect3 = document.querySelector('.jb-add-job-btn')) === null || _document$querySelect3 === void 0 || _document$querySelect3.classList.remove('bj-d-sm-none');
@@ -15382,8 +15379,9 @@ function SingleJob(props) {
   var checkForAppliedJobs = function checkForAppliedJobs() {
     var _props$submissions;
     var total = (_props$submissions = props.submissions) === null || _props$submissions === void 0 ? void 0 : _props$submissions.filter(function (submission) {
-      return submission.user_id == props.authenticatedUser && submission.board_job_id === props.job.id;
+      return submission.user_id == props.authenticatedUser && submission.board_job_id == props.job.id;
     });
+    setAppliedJobs(total);
   };
   react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
     checkForAppliedJobs();
