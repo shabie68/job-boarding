@@ -491,7 +491,7 @@ function ShowJob(props) {
 
                     {
                       msgContext?.map((msg) => (
-                      <div key={msg.message}>
+                      <div key={msg.message+msg.senderName}>
                         <div className="my-2"><strong>{msg.senderName}</strong></div>
                         <div>{msg.message}</div>
                       </div>

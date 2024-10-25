@@ -3,10 +3,7 @@ import react from 'react'
 function SingleJob(props) {
 
 	 function handleNavigation() {
-        
-        // document.querySelector('.jb-single-job')?.classList.add('d-sm-none')
-        // document.querySelector('.jb-jobs')?.classList.remove('jb-all-jobs')
-        // document.querySelector('.jb-add-job-btn')?.classList.remove('d-sm-none')
+	 	
         document.querySelector('.jb-single-job')?.classList.add('bj-d-sm-none')
         document.querySelector('.jb-jobs')?.classList.remove('jb-all-jobs')
         document.querySelector('.jb-add-job-btn')?.classList.remove('bj-d-sm-none')
@@ -19,11 +16,10 @@ function SingleJob(props) {
 
       
       let total = props.submissions?.filter((submission) => {
-        return submission.user_id == props.authenticatedUser && submission.board_job_id === props.job.id
+        return submission.user_id == props.authenticatedUser && submission.board_job_id == props.job.id
       })
 
-
-
+      setAppliedJobs(total)
     }
 
     react.useEffect(() => {
