@@ -13043,7 +13043,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var RecruiterJobs = function RecruiterJobs(props) {
-  var _context$message;
+  var _context$message, _props$jobSubmissions;
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
   var context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_BoardJobContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
@@ -13158,30 +13158,30 @@ var RecruiterJobs = function RecruiterJobs(props) {
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
-        children: props.jobSubmissions.map(function (submission) {
+        children: (_props$jobSubmissions = props.jobSubmissions) === null || _props$jobSubmissions === void 0 ? void 0 : _props$jobSubmissions.map(function (submission) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               className: "align-middle text-center",
-              children: submission.board_job.title
+              children: submission === null || submission === void 0 ? void 0 : submission.board_job.title
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               className: "align-middle text-center",
-              children: submission.first_name
+              children: submission === null || submission === void 0 ? void 0 : submission.first_name
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
               className: "gorgeous-table-col align-middle text-center",
-              children: [submission.country, " "]
+              children: [submission === null || submission === void 0 ? void 0 : submission.country, " "]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               className: "gorgeous-table-col align-middle text-center",
-              children: submission.phone_number
+              children: submission === null || submission === void 0 ? void 0 : submission.phone_number
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               className: "gorgeous-table-col align-middle text-center",
-              children: submission.email
+              children: submission === null || submission === void 0 ? void 0 : submission.email
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               className: "align-middle text-center",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-                href: "uploads/".concat(submission.resume),
+                href: "uploads/".concat(submission === null || submission === void 0 ? void 0 : submission.resume),
                 children: "Resume"
               })
-            }), submission.accept_candidate < 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
+            }), (submission === null || submission === void 0 ? void 0 : submission.accept_candidate) < 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               className: "align-middle text-center",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
                 className: "btn",
@@ -13193,10 +13193,10 @@ var RecruiterJobs = function RecruiterJobs(props) {
             }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
               className: "align-middle text-center",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
-                children: submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'
+                children: (submission === null || submission === void 0 ? void 0 : submission.accept_candidate) == 1 ? 'Accepted' : 'Rejected'
               })
             })]
-          }, submission.id);
+          }, submission === null || submission === void 0 ? void 0 : submission.id);
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -14120,7 +14120,13 @@ function ShowJob(props) {
         var _lastPage = ((_response$data$jobs$d = response.data.jobs.data) === null || _response$data$jobs$d === void 0 ? void 0 : _response$data$jobs$d.length) > 0 ? response.data.jobs.last_page : 0;
         setLastPage(_lastPage);
         // setCurrentPage(1)
-        setCurrentPage((_response$data$jobs$d2 = response.data.jobs.data) === null || _response$data$jobs$d2 === void 0 ? void 0 : _response$data$jobs$d2.length);
+
+        var page = ((_response$data$jobs$d2 = response.data.jobs.data) === null || _response$data$jobs$d2 === void 0 ? void 0 : _response$data$jobs$d2.length) > 0 ? 1 : 0;
+
+        // setCurrentPage(response.data.jobs.data?.length)
+        setCurrentPage(page);
+        console.log("CURRENT PAGE");
+        console.log(response.data);
         return;
       }
       setUserName(response.data.name);
@@ -14354,7 +14360,7 @@ function ShowJob(props) {
                 className: "spinner-border",
                 role: "status",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-                  "class": "sr-only"
+                  className: "sr-only"
                 })
               })
             })
@@ -14674,6 +14680,32 @@ Todos
 9) Set the height for each grid child (show company page)
 10) Make the card to 100% width for responsive
 
+Following files have been uploaded to hosting site************
+1) BoardJobController
+2) SubmissionController
+3) CompanyController
+4) ProfileController
+5) api.php
+6) web.php
+7) channels.php
+8) console.php
+9) Broadcasting/SubmissionChannel.php
+10) User.php
+11) BoardJob.php
+12) Company.php
+13) Skill.php
+14) Submission.php
+15) Notifications/ApplicationSubmitted
+16) Events/MessageEvent
+17) StatusLiked
+18) app.css
+19) welcome.blade.php
+20) MessageContext
+21) js/countries.js
+
+
+Todos fixes for******
+1) Issue with recruiter applying to a job. You can provide message 
 
 **/
 

@@ -87,13 +87,8 @@ class BoardJobController extends Controller
         $jobs = BoardJob::where('title', 'LIKE', '%' . $request->title . '%')
                         ->whereNull('deleted_at')
                         ->with('company')
-                        ->paginate(1);
+                        ->paginate(5);
 
-
-
-        // $companies =
-
-        
         
         return response()->json([
             "jobs" => $jobs,

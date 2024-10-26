@@ -49,9 +49,9 @@ class CompanyController extends Controller
     	]);
 
        
-        $user = User::find(auth()->user()->id);
-        $user->recruiter_of = auth()->user()->name . '-' . $company->title;
-        $user->save();
+        // $user = User::find(auth()->user()->id);
+        // $user->recruiter_of = auth()->user()->name . '-' . $company->title;
+        // $user->save();
 
 // 
         // auth()->user()->recruiter_of = auth()->user()->name . '-' . $company->title;

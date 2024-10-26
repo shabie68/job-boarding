@@ -91,19 +91,19 @@ const RecruiterJobs = (props) => {
 			  </thead>
 
 			  <tbody>
-				   {props.jobSubmissions.map((submission) => (
-			    		<tr key={submission.id}>
-			    			<td className="align-middle text-center">{submission.board_job.title}</td>
-			    			<td className="align-middle text-center">{submission.first_name}</td>
-			    			<td className="gorgeous-table-col align-middle text-center">{submission.country} </td>
-			    			<td className="gorgeous-table-col align-middle text-center">{submission.phone_number}</td>
-			    			<td className="gorgeous-table-col align-middle text-center">{submission.email}</td>
-			    			<td className="align-middle text-center"><a href={`uploads/${submission.resume}`}>Resume</a></td>
+				   {props.jobSubmissions?.map((submission) => (
+			    		<tr key={submission?.id}>
+			    			<td className="align-middle text-center">{submission?.board_job.title}</td>
+			    			<td className="align-middle text-center">{submission?.first_name}</td>
+			    			<td className="gorgeous-table-col align-middle text-center">{submission?.country} </td>
+			    			<td className="gorgeous-table-col align-middle text-center">{submission?.phone_number}</td>
+			    			<td className="gorgeous-table-col align-middle text-center">{submission?.email}</td>
+			    			<td className="align-middle text-center"><a href={`uploads/${submission?.resume}`}>Resume</a></td>
 			    			{
-			    				submission.accept_candidate < 1 ?
+			    				submission?.accept_candidate < 1 ?
 			    				<td className="align-middle text-center"><button className="btn" onClick={() => {acceptCandidate(submission)}}>Accept</button></td>
 			    				:
-			    				<td className="align-middle text-center"><strong>{submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'}</strong></td>
+			    				<td className="align-middle text-center"><strong>{submission?.accept_candidate == 1 ? 'Accepted' : 'Rejected'}</strong></td>
 			    			}
 			    			
 			    		</tr>

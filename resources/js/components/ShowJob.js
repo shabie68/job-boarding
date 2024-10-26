@@ -152,7 +152,14 @@ function ShowJob(props) {
 
               setLastPage(lastPage)
               // setCurrentPage(1)
-              setCurrentPage(response.data.jobs.data?.length)
+
+              let page = response.data.jobs.data?.length > 0 ? 1 : 0;
+
+              // setCurrentPage(response.data.jobs.data?.length)
+              setCurrentPage(page)
+              console.log("CURRENT PAGE")
+              console.log(response.data)
+
               return
             }
 
@@ -336,7 +343,7 @@ function ShowJob(props) {
                     </span>
 
                     <span><button className="bj-btn bj-btn-prime text-prime" onClick={() => getJobs(true, 'first-time')}>{!loading ? 'Search Job' : <div className="spinner-border" role="status">
-                        <span class="sr-only"></span>
+                        <span className="sr-only"></span>
                       </div>}</button>
                     </span>
                 </div>
@@ -539,6 +546,32 @@ Todos
 9) Set the height for each grid child (show company page)
 10) Make the card to 100% width for responsive
 
+Following files have been uploaded to hosting site************
+1) BoardJobController
+2) SubmissionController
+3) CompanyController
+4) ProfileController
+5) api.php
+6) web.php
+7) channels.php
+8) console.php
+9) Broadcasting/SubmissionChannel.php
+10) User.php
+11) BoardJob.php
+12) Company.php
+13) Skill.php
+14) Submission.php
+15) Notifications/ApplicationSubmitted
+16) Events/MessageEvent
+17) StatusLiked
+18) app.css
+19) welcome.blade.php
+20) MessageContext
+21) js/countries.js
+
+
+Todos fixes for******
+1) Issue with recruiter applying to a job. You can provide message 
 
 **/
 
