@@ -15436,7 +15436,7 @@ function SingleJob(props) {
                   children: props === null || props === void 0 ? void 0 : props.job.job_type
                 })
               })]
-            }), (appliedJobs === null || appliedJobs === void 0 ? void 0 : appliedJobs.length) < 1 && props.authenticatedUser != props.job.user_id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            }), (appliedJobs === null || appliedJobs === void 0 ? void 0 : appliedJobs.length) < 1 && props.authenticatedUser != props.job.user_id && props.role == 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
               className: "ms-auto",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
                 to: "/apply",
