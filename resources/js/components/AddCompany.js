@@ -232,7 +232,7 @@ function AddCompany() {
 							  	</div>
 
 							  	<div className="mb-3">
-								  <strong><label htmlFor="formFileSm" className="form-label">COmpany logo</label></strong>
+								  <strong><label htmlFor="formFileSm" className="form-label">Company logo</label></strong>
 								  <input 
 								  	className="bj-input bg-one" 
 								  	id="formFileSm" 
@@ -395,7 +395,7 @@ function AddCompany() {
 				                                </div>
 				                                :
 				                                <div>
-				                                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+				                                    <span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
 				                                    Loading...
 				                                </div>
 				                            }

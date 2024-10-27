@@ -135,7 +135,7 @@ const SingleCompany = () => {
 						<div>
 							<div className="d-flex justify-content-between mb-3">
 								<h4>Feedback</h4>
-								<button className="bj-btn bg-three text-prime" onClick={() => {setShowFeedback(true)}}>Add Feedback</button>
+								<button className="btn bj-btn-secondary text-prime" onClick={() => {setShowFeedback(true)}}>Add Feedback</button>
 							</div>
 
 							<div className="mb-3 text-center">
