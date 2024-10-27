@@ -11,7 +11,7 @@ class CompanyController extends Controller
     
     public function show() {
 
-    	$companies = Company::paginate(6);
+    	$companies = Company::paginate(1);
         $hasCompany = false;
         if(auth()->user()->company) {
             $hasCompany = true;

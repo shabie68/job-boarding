@@ -9616,7 +9616,7 @@ function AddCompany() {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
                   htmlFor: "formFileSm",
                   className: "form-label",
-                  children: "COmpany logo"
+                  children: "Company logo"
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("input", {
                 className: "bj-input bg-one",
@@ -9826,7 +9826,7 @@ function AddCompany() {
                   children: "Save"
                 }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
-                    "class": "spinner-grow spinner-grow-sm",
+                    className: "spinner-grow spinner-grow-sm",
                     role: "status",
                     "aria-hidden": "true"
                   }), "Loading..."]
@@ -12639,11 +12639,11 @@ var Login = function Login(props) {
                           fill: "#000000",
                           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
                             id: "SVGRepo_bgCarrier",
-                            "stroke-width": "0"
+                            strokeWidth: "0"
                           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
                             id: "SVGRepo_tracerCarrier",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
+                            strokeLinecap: "round",
+                            strokeLinejoin: "round"
                           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
                             id: "SVGRepo_iconCarrier",
                             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
@@ -12665,33 +12665,33 @@ var Login = function Login(props) {
                           xmlns: "http://www.w3.org/2000/svg",
                           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
                             id: "SVGRepo_bgCarrier",
-                            "stroke-width": "0"
+                            strokeWidth: "0"
                           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("g", {
                             id: "SVGRepo_tracerCarrier",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round"
+                            strokeLinecap: "round",
+                            strokeLinejoin: "round"
                           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
                             id: "SVGRepo_iconCarrier",
                             children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
                               d: "M1 12C1 12 5 4 12 4C19 4 23 12 23 12",
                               stroke: "#000000",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
+                              strokeWidth: "2",
+                              strokeLinecap: "round",
+                              strokeLinejoin: "round"
                             }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
                               d: "M1 12C1 12 5 20 12 20C19 20 23 12 23 12",
                               stroke: "#000000",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
+                              strokeWidth: "2",
+                              strokeLinecap: "round",
+                              strokeLinejoin: "round"
                             }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("circle", {
                               cx: "12",
                               cy: "12",
                               r: "3",
                               stroke: "#000000",
-                              "stroke-width": "2",
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round"
+                              strokeWidth: "2",
+                              strokeLinecap: "round",
+                              strokeLinejoin: "round"
                             }), " "]
                           })]
                         })
@@ -15055,7 +15055,7 @@ var SingleCompany = function SingleCompany() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
             children: "Feedback"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-            className: "bj-btn bg-three text-prime",
+            className: "btn bj-btn-secondary text-prime",
             onClick: function onClick() {
               setShowFeedback(true);
             },
