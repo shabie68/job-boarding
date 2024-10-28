@@ -203,101 +203,99 @@ function AddCompany() {
 				<strong>Go back</strong>
 			</div>
 
-			<h3 className="text-two text-center">Add Company</h3>
+			<h3 className="text-two">Add Company</h3>
 			<div className="my-4">
 				<form onSubmit={formik.handleSubmit}>
 					<div className="d-flex justify-content-center">
 
 						{
 							!showNext ?
-							<div className="bj-border bj-border-radius bj-p-20 w-50">
+							<div className="gorgeous-editor-min-width">
+								<div className="bj-border bj-border-radius bj-p-20">
 
-								<div className="form-group mb-3">
-								    <strong><label htmlFor="title">Title</label></strong>
-								    <input 
-								    	type="text"
-								    	className="bj-input bg-one" 
-								    	id="title" 
-								    	aria-describedby="titleHelp"
-								    	placeholder="Enter title"
-								    	value={formik.values.title}
-								    	onChange={formik.handleChange}
-								    	onBlur={formik.handleBlur}
+									<div className="form-group mb-3">
+									    <strong><label htmlFor="title">Title</label></strong>
+									    <input 
+									    	type="text"
+									    	className="bj-input bg-one" 
+									    	id="title" 
+									    	aria-describedby="titleHelp"
+									    	placeholder="Enter title"
+									    	value={formik.values.title}
+									    	onChange={formik.handleChange}
+									    	onBlur={formik.handleBlur}
+									    />
+								    	<small id="titleHelp" className="form-text text-muted">Enter the title for the company</small>
+								    	{formik.touched.title && formik.errors.title ? (
+						                  <div className="text-danger">{formik.errors.title}</div>
+						                ) : null}
+								  	</div>
 
+								  	<div className="mb-3">
+									  <strong><label htmlFor="formFileSm" className="form-label">Company logo</label></strong>
+									  <input 
+									  	className="bj-input bg-one" 
+									  	id="formFileSm" 
+									  	type="file" 
+									  	onChange={handleFileChange}
 								    />
-							    	<small id="titleHelp" className="form-text text-muted">Enter the title for the company</small>
-							    	{formik.touched.title && formik.errors.title ? (
-					                  <div className="text-danger">{formik.errors.title}</div>
-					                ) : null}
-							  	</div>
 
-							  	<div className="mb-3">
-								  <strong><label htmlFor="formFileSm" className="form-label">Company logo</label></strong>
-								  <input 
-								  	className="bj-input bg-one" 
-								  	id="formFileSm" 
-								  	type="file" 
-								  	onChange={handleFileChange}
-							    />
+								    {formik.touched.logo && formik.errors.logo ? (
+							          <div className="text-danger">{formik.errors.logo}</div>
+							        ) : null}
+									</div>
 
-							    {formik.touched.logo && formik.errors.logo ? (
-						          <div className="text-danger">{formik.errors.logo}</div>
-						        ) : null}
-								</div>
-
-								<div className="form-group mb-3">
-								    <strong><label htmlFor="desc">Locations</label></strong>
-								    <input 
-								    	type="text" 
-								    	className="bj-input bg-one" 
-								    	id="locations" 
-								    	aria-describedby="locationHelp" 
-								    	placeholder="Enter locations"
-								    	value={formik.values.locations}
-								    	onChange={formik.handleChange}
-								    	onBlur={formik.handleBlur}
+									<div className="form-group mb-3">
+									    <strong><label htmlFor="desc">Locations</label></strong>
+									    <input 
+									    	type="text" 
+									    	className="bj-input bg-one" 
+									    	id="locations" 
+									    	aria-describedby="locationHelp" 
+									    	placeholder="Enter locations"
+									    	value={formik.values.locations}
+									    	onChange={formik.handleChange}
+									    	onBlur={formik.handleBlur}
 
 
-								   	/>
-							    	<small id="locationHelp" className="form-text text-muted">Enter locations of the company. Can be multiple</small>
-							  		{formik.touched.locations && formik.errors.locations ? (
-					                  <div className="text-danger">{formik.errors.locations}</div>
-					                ) : null}
-							  	</div>
+									   	/>
+								    	<small id="locationHelp" className="form-text text-muted">Enter locations of the company. Can be multiple</small>
+								  		{formik.touched.locations && formik.errors.locations ? (
+						                  <div className="text-danger">{formik.errors.locations}</div>
+						                ) : null}
+								  	</div>
 
-							  	<div className="form-group mb-3">
-							  		<ul>
-							  		{
-							  			locations ? locations.split(',').map((location) => (
-							  				<li key={location}>{location}</li>
-							  			))
-							  			:''
-							  		}
+								  	<div className="form-group mb-3">
+								  		<ul>
+								  		{
+								  			locations ? locations.split(',').map((location) => (
+								  				<li key={location}>{location}</li>
+								  			))
+								  			:''
+								  		}
 
-							  		</ul>
-							  		<span className="p-4">
+								  		</ul>
+								  		<span className="p-4">
 
-							  		</span>
-							  	</div>
+								  		</span>
+								  	</div>
 
-							  	<div className="mb-3">	
-									<strong><label>Description</label></strong>
-									<div id="company-description">
+								  	<div className="mb-3">	
+										<strong><label>Description</label></strong>
+										<div id="company-description">
+										</div>
 									</div>
 								</div>
 
-								<div className="text-end" onClick={handleShowNext}>
+								<div className="text-end mt-3" onClick={handleShowNext}>
 									<button className="btn bj-btn-prime">Next</button>
 								</div>
 							</div>
 
 							:
 
-
-							<>
-
-								<div className="bj-border bj-border-radius bj-p-20 w-50">
-
+							<div className="gorgeous-editor-min-width">
+								<div className="bj-border bj-border-radius bj-p-20">
 									<div style={{margin: '20px 0'}}>
 								  		<strong><label htmlFor="websiteUrl">Website url</label></strong>
 									    <input
@@ -386,23 +384,24 @@ function AddCompany() {
 										</select>
 									</div>
 
-									<div className="text-end">
-						                <button type="button" className="btn bj-btn-prime text-prime" type="submit">
-						                	{
-				                                !loading ?
-				                                <div>
-				                                    Save
-				                                </div>
-				                                :
-				                                <div>
-				                                    <span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-				                                    Loading...
-				                                </div>
-				                            }
-						                </button>
-						        	</div>
+									
 								</div>
-					       	</>
+								<div className="text-end mt-3">
+					                <button type="button" className="btn bj-btn-prime text-prime" type="submit">
+					                	{
+			                                !loading ?
+			                                <div>
+			                                    Save
+			                                </div>
+			                                :
+			                                <div>
+			                                    <span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+			                                    Loading...
+			                                </div>
+			                            }
+					                </button>
+					        	</div>
+					       	</div>
 						}
 					</div>
 			    </form>
