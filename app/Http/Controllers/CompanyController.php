@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\User;
 
+/**
+Route::get('/{any}', function () {
+    return view('app');
+})->where('any', '.*');
+**/
 class CompanyController extends Controller
 {
     

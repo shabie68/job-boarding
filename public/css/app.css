@@ -12208,6 +12208,7 @@ a {
   width: 100%;
 }
 
+
 .menubar-links a {
 	font-size: 12px;
 }
@@ -12484,6 +12485,10 @@ a {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+}
+
+.gorgeous-gap-8 {
+	gap: 8px;
 }
 
 
@@ -12819,6 +12824,10 @@ a {
 
 	.gorgeous-card {
 		width: 50%
+	}
+
+	.gorgeous-editor-min-width {
+		min-width: 575px;
 	}
 }
 
