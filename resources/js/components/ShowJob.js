@@ -301,7 +301,7 @@ function ShowJob(props) {
       setReceivedMessages((prevMessages) => [...prevMessages, message])
       // props.updateMessageContext((prevMessages) => [...prevMessages, message])
       props.updateMessageContext((prevObj) => [...prevObj, {senderName: 'You', message: message}])
-      apiClient.post('http://127.0.0.1:8000/api/send-msg/', {
+      apiClient.post('http://127.0.0.1:8000/api/send-msg', {
           id: Number(company_id),
           message: message
          })
