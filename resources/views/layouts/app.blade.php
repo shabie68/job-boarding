@@ -23,7 +23,10 @@
         #app {
             display: flex;
             flex-direction: column;
+        }
 
+        .gorgeous-body {
+            height: 100vh;
         }
 
         .gorgeous-footer {
@@ -31,13 +34,16 @@
         }
     </style>
 </head>
-<body class="bg-one h-100vh">
+<body class="bg-one gorgeous-body">
     <div id="app" class="h-100">
         <main class="py-4">
             @yield('content')
         </main>
 
         @yield('scripts')
+        <script>
+            alert(window.location.href)
+        </script>
     </div>
 </body>
 </html>
