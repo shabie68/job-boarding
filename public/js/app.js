@@ -13696,7 +13696,13 @@ var Register = function Register(props) {
                       })
                     })
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                }), password.length > 0 && password_confirmation.length > 0 && password !== password_confirmation ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                  className: "text-danger d-flex align-items-center gorgeous-gap-8",
+                  children: "Password and confirm password must match"
+                }) : '', password.length > 0 && password_confirmation.length > 0 && password.length < 8 && password.length < 8 && password == password_confirmation ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                  className: "text-danger d-flex align-items-center gorgeous-gap-8",
+                  children: "Password must be atleast 8 characters"
+                }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
                   className: "bj-font-12",
                   children: "By clicking \"Register,\" you agree to our Terms of Use and our Privacy Policy."
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -14790,6 +14796,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var SingleCompany = function SingleCompany() {
   var _location$state2, _location$state3, _location$state4, _location$state5, _location$state6, _location$state7, _checkFeedback, _location$state8;
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
   var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useParams)(),
     id = _useParams.id;
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
@@ -14807,9 +14814,10 @@ var SingleCompany = function SingleCompany() {
     feedback = _useState4[0],
     setFeedback = _useState4[1];
   function addReview(id) {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('https://board-job.byethost16.com/api/company/add-review/' + id, {
-      feedback: feedback
-    }).then(function (response) {
+    var formData = new FormData();
+    formData.append('feedback', JSON.stringify(feedback));
+    formData.append('_method', 'put');
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/company/add-review/' + id, formData).then(function (response) {
       // setFeedback(response.data.company.feedback)
       setFeedback({
         comment: '',
@@ -14818,7 +14826,7 @@ var SingleCompany = function SingleCompany() {
       });
       navigate('/companies');
       setShowFeedback(false);
-    })["catch"](function (error) {});
+    });
   }
   var checkFeedback = function checkFeedback() {
     var _location$state;
@@ -15386,7 +15394,7 @@ var SingleCompany = function SingleCompany() {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "text-end mb-3",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                className: "bj-btn bg-three text-prime",
+                className: "btn bj-btn-secondary text-prime",
                 onClick: function onClick() {
                   var _location$state10;
                   addReview(location === null || location === void 0 || (_location$state10 = location.state) === null || _location$state10 === void 0 || (_location$state10 = _location$state10.company) === null || _location$state10 === void 0 ? void 0 : _location$state10.id);

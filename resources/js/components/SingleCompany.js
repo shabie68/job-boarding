@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react'
-import { useParams, useLocation } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import apiClient from '../services/apiClient';
 
 
 const SingleCompany = () => {
 
-
+	const navigate = useNavigate();
 	const { id } = useParams();
 	const location = useLocation();
 	const [showFeedback, setShowFeedback] = useState(false)
@@ -19,7 +19,11 @@ const SingleCompany = () => {
 
 	function addReview(id) {
 
-		apiClient.put('http://127.0.0.1:8000/api/company/add-review/'+id, {feedback: feedback})
+		let formData = new FormData();
+		formData.append('feedback', JSON.stringify(feedback))
+		formData.append('_method', 'put')
+
+		apiClient.post('http://127.0.0.1:8000/api/company/add-review/'+id, formData)
 		.then(function(response) {
 			// setFeedback(response.data.company.feedback)
 			setFeedback({
@@ -31,9 +35,6 @@ const SingleCompany = () => {
 			navigate('/companies')
 			setShowFeedback(false)
 			
-		})
-		.catch((error) => {
-
 		})
 	}
 
@@ -187,7 +188,7 @@ const SingleCompany = () => {
 										
 										<textarea type="text" name="title" rows="3" className="bj-input bg-one" onChange={(e) => {setFeedback({...feedback, comment: e.target.value, name: location.state?.user.name, created_at: new Date()})}} defaultValue={feedback.comment}></textarea>
 										<div className="text-end mb-3">
-											<button className="bj-btn bg-three text-prime" onClick={() => {addReview(location?.state?.company?.id)}}>Add Feedback</button>
+											<button className="btn bj-btn-secondary text-prime" onClick={() => {addReview(location?.state?.company?.id)}}>Add Feedback</button>
 										</div>
 									</div>
 								</>

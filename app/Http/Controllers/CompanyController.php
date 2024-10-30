@@ -77,7 +77,7 @@ class CompanyController extends Controller
             $feedback = [];
         }
         
-        $feedback[] = $request->feedback;
+        $feedback[] = json_decode($request->feedback, true);
 
 
         $company->update([
