@@ -10534,7 +10534,7 @@ var CandidateJobs = function CandidateJobs(props) {
     setSendMessages(function (prevMessages) {
       return [].concat(_toConsumableArray(prevMessages), [msg]);
     });
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/send-msg/', {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/send-msg', {
       id: company_id,
       message: msg
     }).then(function (res) {
@@ -12582,7 +12582,7 @@ var Login = function Login(props) {
     addBackgroundGradient();
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-    className: "bj-gradient py-4 h-100",
+    className: "bj-gradient py-4 gorgeous-min-height",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "container text-two",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
