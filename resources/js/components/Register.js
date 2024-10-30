@@ -202,6 +202,21 @@ const Register = (props) => {
                                         </div>
                                     </div>
 
+                                    {
+                                      password.length > 0 && password_confirmation.length > 0 && password !== password_confirmation ?
+                                      <div className="text-danger d-flex align-items-center gorgeous-gap-8">
+                                        Password and confirm password must match
+                                      </div>
+                                      :''
+                                    }
+
+                                    {
+                                        password.length > 0 && password_confirmation.length > 0 && password.length < 8 && password.length < 8 && password == password_confirmation ?
+                                        <div className="text-danger d-flex align-items-center gorgeous-gap-8">
+                                            Password must be atleast 8 characters
+                                        </div>
+                                        :''
+                                    }
                                     <p className="bj-font-12">By clicking "Register," you agree to our Terms of Use and our Privacy Policy.</p>
                                     <div className="d-flex align-items-center mb-2">
                                         <span className="bj-w-40 bg-3" ></span>

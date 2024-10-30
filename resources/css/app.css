@@ -737,6 +737,10 @@ a {
 		width: 220px;
 		max-width: 220px;
 	}
+
+	.gorgeous-editor-min-width {
+		width: 351px
+	}
 }
 
 
@@ -793,6 +797,10 @@ a {
 	.gorgeous-card {
 		width: 75%;
 		margin: auto
+	}
+
+	.gorgeous-editor-min-width {
+		width: 522px
 	}
 }
 
@@ -861,7 +869,7 @@ a {
 	}
 
 	.gorgeous-editor-min-width {
-		min-width: 575px;
+		width: 558px
 	}
 }
 
