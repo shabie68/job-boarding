@@ -51,7 +51,7 @@ const Login = (props) => {
     
     return (
 
-        <div className="bj-gradient py-4 h-100">
+        <div className="bj-gradient py-4 gorgeous-min-height">
             <div className="container text-two">
                 
                 <div className="">

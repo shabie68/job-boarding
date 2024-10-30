@@ -25,24 +25,27 @@
             flex-direction: column;
         }
 
-        .gorgeous-body {
-            height: 100vh;
+        .gorgeous-min-height {
+            min-height: 100vh;
         }
 
         .gorgeous-footer {
             margin-top: auto
         }
+
     </style>
 </head>
-<body class="bg-one gorgeous-body">
-    <div id="app" class="h-100">
+<body class="bg-one">
+    <div id="app" class="gorgeous-min-height">
         <main class="py-4">
             @yield('content')
         </main>
 
         @yield('scripts')
         <script>
-            alert(window.location.href)
+            if(window.location.href.includes('login')) {
+                document.body.classList.add('gorgeous-body')
+            }
         </script>
     </div>
 </body>

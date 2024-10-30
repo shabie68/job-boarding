@@ -609,6 +609,10 @@ a {
 	border-bottom: 1px solid #4f4a47
 }
 
+.gorgeous-min-height {
+	min-height: 100vh;
+}
+
 
 /*@media(min-width: 568px){*/
 @media(min-width: 100px){
