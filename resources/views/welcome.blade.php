@@ -9,7 +9,6 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         
-        <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
 
         <!-- Styles -->
         <style>
@@ -252,9 +251,9 @@
                 width: 100%
             }
 
-            .gorgeous-home-img {
+         /*   .gorgeous-home-img {
                 aspect-ratio: 2;
-            }
+            }*/
 
             .gorgeous-m {
                 margin: 0 0 8px 0
@@ -463,7 +462,7 @@
                 }
 
                 .gorgeous-img-w {
-                    width: 25%
+                    width: 20%
                 }
 
                 .gorgeous-px {
