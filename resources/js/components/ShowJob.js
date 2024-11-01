@@ -494,7 +494,6 @@ function ShowJob(props) {
                         </select>
                       )}
                     </div>
-                    
 
                     {
                       msgContext?.map((msg) => (
