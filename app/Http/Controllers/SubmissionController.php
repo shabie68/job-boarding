@@ -54,14 +54,16 @@ class SubmissionController extends Controller
         $company_user_id = Company::find($company_id)->user_id;
         $resume = null;
 
+
         // return \App\Models\User::find($company_user_id)->recruiter_of;
 
-        if($request->file('resume')) {
+        if($request->file('resume')){
             $destinationPath = 'uploads';
             $resume = $request->file('resume')->getClientOriginalName();
             $request->file('resume')->move(public_path($destinationPath), $resume);  
              
         }
+
 
         $submission = json_decode($request->submission); 
             $submission = Submission::updateOrCreate(

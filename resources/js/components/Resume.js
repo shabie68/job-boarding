@@ -23,11 +23,18 @@ function Resume(props) {
 	const location = useLocation()
 	// const [resume, setResume] = useState();
 
-	const handleResume = (e) => {
-		setResume(e.target.files[0])
-	}
+	// const handleResume = (e) => {
+	// 	setResume(e.target.files[0])
+	// }
+
+	const handleFileChange = (event) => {
+	  formik.setFieldValue('resume', event.currentTarget.files[0]);
+	};
+
 
 	const navigate = useNavigate();
+
+
 
 	const saveData = (e) => {
 
@@ -150,9 +157,8 @@ function Resume(props) {
 			                    <input
 			                      type="file"
 			                      name="resume"
-			                      value={formik.values.resume}
-			                      onChange={formik.handleChange}
-			                      onBlur={formik.handleBlur}
+			                      onChange={handleFileChange}
+
 			                      className="bj-input bg-one"
 			                    />
 			                </div>

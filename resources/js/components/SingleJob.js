@@ -64,7 +64,7 @@ function SingleJob(props) {
 								</div>	
 								:
 								<div className="ms-auto">
-									<button className="btn bj-btn-prime text-prime" disabled>Apply</button>
+									<button className="btn bj-btn-prime text-prime" disabled>{props.role > 1 ? 'Applied' : 'Apply'}</button>
 								</div>
 							}
 						</div>

@@ -10557,7 +10557,7 @@ var CandidateJobs = function CandidateJobs(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       children: "You will find all the jobs that you have applied for. You can know the status of your application in application status column. Additionally you will receive a message from recruiter if you have been selected."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
-      "class": "table table-striped",
+      className: "table table-striped",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("caption", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
           children: "Applied Jobs"
@@ -10591,7 +10591,7 @@ var CandidateJobs = function CandidateJobs(props) {
               className: "align-middle text-center",
               children: submission.accept_candidate == -1 ? 'Evaluating' : submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'
             })]
-          });
+          }, submission.id);
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -12488,7 +12488,7 @@ function JobQuestions() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", _defineProperty(_defineProperty({
             type: "button",
             className: "btn bj-btn-prime text-prime"
-          }, "type", "submit"), "children", "Continue"))
+          }, "type", "submit"), "children", "Send Application"))
         })]
       })]
     })]
@@ -13773,8 +13773,12 @@ function Resume(props) {
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)();
   // const [resume, setResume] = useState();
 
-  var handleResume = function handleResume(e) {
-    setResume(e.target.files[0]);
+  // const handleResume = (e) => {
+  // 	setResume(e.target.files[0])
+  // }
+
+  var handleFileChange = function handleFileChange(event) {
+    formik.setFieldValue('resume', event.currentTarget.files[0]);
   };
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
   var saveData = function saveData(e) {
@@ -13905,9 +13909,7 @@ function Resume(props) {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                 type: "file",
                 name: "resume",
-                value: formik.values.resume,
-                onChange: formik.handleChange,
-                onBlur: formik.handleBlur,
+                onChange: handleFileChange,
                 className: "bj-input bg-one"
               })
             }), formik.touched.resume && formik.errors.resume ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -14804,16 +14806,24 @@ var SingleCompany = function SingleCompany() {
     _useState2 = _slicedToArray(_useState, 2),
     showFeedback = _useState2[0],
     setShowFeedback = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+    _useState4 = _slicedToArray(_useState3, 2),
+    rating = _useState4[0],
+    setRating = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
       comment: '',
       name: '',
       rating: 0,
       created_at: null
     }),
-    _useState4 = _slicedToArray(_useState3, 2),
-    feedback = _useState4[0],
-    setFeedback = _useState4[1];
+    _useState6 = _slicedToArray(_useState5, 2),
+    feedback = _useState6[0],
+    setFeedback = _useState6[1];
   function addReview(id) {
+    if (feedback.rating < 1) {
+      setRating(false);
+      return;
+    }
     var formData = new FormData();
     formData.append('feedback', JSON.stringify(feedback));
     formData.append('_method', 'put');
@@ -14979,6 +14989,7 @@ var SingleCompany = function SingleCompany() {
             className: "text-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               onClick: function onClick() {
+                setRating(true);
                 setFeedback(_objectSpread(_objectSpread({}, feedback), {}, {
                   rating: 1
                 }));
@@ -15021,6 +15032,7 @@ var SingleCompany = function SingleCompany() {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               onClick: function onClick() {
+                setRating(true);
                 setFeedback(_objectSpread(_objectSpread({}, feedback), {}, {
                   rating: 2
                 }));
@@ -15063,6 +15075,7 @@ var SingleCompany = function SingleCompany() {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               onClick: function onClick() {
+                setRating(true);
                 setFeedback(_objectSpread(_objectSpread({}, feedback), {}, {
                   rating: 3
                 }));
@@ -15105,6 +15118,7 @@ var SingleCompany = function SingleCompany() {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               onClick: function onClick() {
+                setRating(true);
                 setFeedback(_objectSpread(_objectSpread({}, feedback), {}, {
                   rating: 4
                 }));
@@ -15147,6 +15161,7 @@ var SingleCompany = function SingleCompany() {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               onClick: function onClick() {
+                setRating(true);
                 setFeedback(_objectSpread(_objectSpread({}, feedback), {}, {
                   rating: 5
                 }));
@@ -15189,7 +15204,10 @@ var SingleCompany = function SingleCompany() {
               })
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+        }), !rating ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          className: "text-danger text-end",
+          children: "Please add rating too"
+        }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
           type: "text",
           name: "title",
           rows: "3",
@@ -15499,11 +15517,15 @@ var SingleCompany = function SingleCompany() {
 												</span>
 											</div>	
 										</div>
+
+
 										
 										<textarea type="text" name="title" rows="3" className="bj-input bg-one" onChange={(e) => {setFeedback({...feedback, comment: e.target.value, name: location.state?.user.name, created_at: new Date()})}} defaultValue={feedback.comment}></textarea>
 										<div className="text-end mb-3">
 											<button className="btn bj-btn-secondary text-prime" onClick={() => {addReview(location?.state?.company?.id)}}>Add Feedback</button>
 										</div>
+
+
 									</div>
 								</>
 								: ''
@@ -15643,7 +15665,7 @@ function SingleJob(props) {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
                 className: "btn bj-btn-prime text-prime",
                 disabled: true,
-                children: "Apply"
+                children: props.role > 1 ? 'Applied' : 'Apply'
               })
             })]
           })]
