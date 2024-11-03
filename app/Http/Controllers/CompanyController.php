@@ -31,6 +31,7 @@ class CompanyController extends Controller
     }
 
     public function store(Request $request) {
+        
 
         $logo = null;
 

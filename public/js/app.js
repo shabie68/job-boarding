@@ -9456,7 +9456,7 @@ function AddCompany() {
       formData.append('locations', formik.values.locations);
       formData.append('contact_information', JSON.stringify(contactInformation));
       formData.append('_method', 'put');
-      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/company/store', formData).then(function (response) {
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/company/store', formData).then(function (response) {
         // window.location = '/companies'
         navigate('/companies', {
           state: {
@@ -9544,7 +9544,7 @@ function AddCompany() {
     formData.append('locations', locations);
     formData.append('contact_information', JSON.stringify(contactInformation));
     formData.append('_method', 'put');
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/company/store', formData).then(function (response) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/company/store', formData).then(function (response) {
       // window.location = '/companies'
       navigate('/companies', {
         state: {
@@ -9967,7 +9967,7 @@ function AddJob() {
         requirements: values.requirements,
         salary: values.salary
       };
-      fetch("https://board-job.byethost16.com/api/add-job", {
+      fetch("http://127.0.0.1:8000/api/add-job", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -10295,7 +10295,7 @@ function Apply(props) {
     saveDefaultData();
   }, []);
   var saveDefaultData = function saveDefaultData() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/add-job-data', {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/add-job-data', {
       jobId: location.state.job.id,
       company_id: location.state.job.company_id
     }).then(function (response) {
@@ -10325,7 +10325,7 @@ function Apply(props) {
         email: values.email,
         _method: 'put'
       };
-      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/apply/candidate/' + location.state.job.user_id + '/job/' + submission.board_job_id, data).then(function (response) {
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/apply/candidate/' + location.state.job.user_id + '/job/' + submission.board_job_id, data).then(function (response) {
         props.updateJobContext({
           user_id: location.state.job.user_id,
           board_job_id: submission.board_job_id,
@@ -10534,7 +10534,7 @@ var CandidateJobs = function CandidateJobs(props) {
     setSendMessages(function (prevMessages) {
       return [].concat(_toConsumableArray(prevMessages), [msg]);
     });
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/send-msg', {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/send-msg/', {
       id: company_id,
       message: msg
     }).then(function (res) {
@@ -10557,7 +10557,7 @@ var CandidateJobs = function CandidateJobs(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       children: "You will find all the jobs that you have applied for. You can know the status of your application in application status column. Additionally you will receive a message from recruiter if you have been selected."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
-      "class": "table table-striped",
+      className: "table table-striped",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("caption", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("strong", {
           children: "Applied Jobs"
@@ -10591,7 +10591,7 @@ var CandidateJobs = function CandidateJobs(props) {
               className: "align-middle text-center",
               children: submission.accept_candidate == -1 ? 'Evaluating' : submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'
             })]
-          });
+          }, submission.id);
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -10734,9 +10734,9 @@ function Company(props) {
     }
   }, [currentPage]);
   function getCompanies() {
-    // apiClient.get('https://board-job.byethost16.com/api/company/show-companies')
+    // apiClient.get('http://127.0.0.1:8000/api/company/show-companies')
     // let getJobsUrl = `?page=${currentPage}` : `?title=${encodeURIComponent(jobTitle)}&page=${currentPage}`
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].get("https://board-job.byethost16.com/api/company/show-companies?page=".concat(currentPage)).then(function (response) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].get("http://127.0.0.1:8000/api/company/show-companies?page=".concat(currentPage)).then(function (response) {
       setCompanies(response.data.companies.data);
       setNextPage(response.data.companies.next_page_url);
       setLastPage(response.data.companies.last_page);
@@ -10760,7 +10760,7 @@ function Company(props) {
     });
   };
   function addReview(id) {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('https://board-job.byethost16.com/api/company/add-review/' + id, {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/company/add-review/' + id, {
       feedback: feedback
     }).then(function (response) {
       // setFeedback(response.data.company.feedback)
@@ -11405,7 +11405,7 @@ function Example() {
     setMessageContext(context);
   };
   var logout = function logout() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_17__["default"].post('https://board-job.byethost16.com/logout').then(function (response) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_17__["default"].post('http://127.0.0.1:8000/logout').then(function (response) {
       if (response.status === 204) {
         window.location = '/login';
       }
@@ -11910,7 +11910,7 @@ function Experience() {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_2__.useNavigate)();
   var saveData = function saveData() {
     navigate('/job-questions');
-    aplClient.post('https://board-job.byethost16.com/api/apply').then(function (response) {
+    aplClient.post('http://127.0.0.1:8000/api/apply').then(function (response) {
       window.location = '/resume';
     })["catch"](function (error) {});
   };
@@ -11984,7 +11984,7 @@ var Faqs = function Faqs(props) {
     _useState2 = _slicedToArray(_useState, 2),
     role = _useState2[0],
     setRole = _useState2[1];
-  _services_apiClient__WEBPACK_IMPORTED_MODULE_0__["default"].get('https://board-job.byethost16.com/api/get-user-role').then(function (response) {
+  _services_apiClient__WEBPACK_IMPORTED_MODULE_0__["default"].get('http://127.0.0.1:8000/api/get-user-role').then(function (response) {
     console.log("ROLE");
     console.log(response);
     setRole(response.data.role);
@@ -12290,7 +12290,7 @@ function JobQuestions() {
     },
     validate: validate,
     onSubmit: function onSubmit(values) {
-      _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].post('https://board-job.byethost16.com/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, {
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].post('http://127.0.0.1:8000/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, {
         ability_to_commute: formik.values.abilityToCommute,
         salary_expectation: formik.values.salaryExpectation,
         notice_period: formik.values.noticePeriod,
@@ -12304,7 +12304,7 @@ function JobQuestions() {
     }
   });
   var saveData = function saveData() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].put('https://board-job.byethost16.com/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].put('http://127.0.0.1:8000/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, {
       ability_to_commute: abilityToCommute,
       salary_expectation: salaryExpectation,
       notice_period: noticePeriod,
@@ -12488,7 +12488,7 @@ function JobQuestions() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", _defineProperty(_defineProperty({
             type: "button",
             className: "btn bj-btn-prime text-prime"
-          }, "type", "submit"), "children", "Continue"))
+          }, "type", "submit"), "children", "Send Application"))
         })]
       })]
     })]
@@ -12558,8 +12558,8 @@ var Login = function Login(props) {
     setError(false);
     setLoading(true);
     e.preventDefault();
-    axios__WEBPACK_IMPORTED_MODULE_1___default().get('https://board-job.byethost16.com/sanctum/csrf-cookie').then(function (response) {
-      _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].post('https://board-job.byethost16.com/login', {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get('http://127.0.0.1:8000/sanctum/csrf-cookie').then(function (response) {
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].post('http://127.0.0.1:8000/login', {
         email: email,
         password: password
       }).then(function (response) {
@@ -12897,7 +12897,7 @@ function Profile(props) {
     });
   };
   function getProfile() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_7__["default"].get('https://board-job.byethost16.com/api/get-profile/').then(function (response) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_7__["default"].get('http://127.0.0.1:8000/api/get-profile/').then(function (response) {
       setUser(response.data.user);
       setEmail(response.data.user.email);
       setProfile(response.data.profile);
@@ -13122,7 +13122,7 @@ var RecruiterJobs = function RecruiterJobs(props) {
       console.log(_submission.board_job.id == submission.board_job.id ? submission.board_job.title : 'not is not');
       return _submission.id != submission.id && _submission.board_job.id == submission.board_job.id;
     });
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/accept/submission/' + submission.id, {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/accept/submission/' + submission.id, {
       id: submission.user_id,
       message: 'Congraturlations! You have been selected for the job ' + submission.board_job.title,
       rejectedSubmissions: rejectedSubmissions
@@ -13138,7 +13138,7 @@ var RecruiterJobs = function RecruiterJobs(props) {
     setReceivedMessages(function (prevMessages) {
       return [].concat(_toConsumableArray(prevMessages), [context.message]);
     });
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/send-msg', {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/send-msg', {
       id: context === null || context === void 0 ? void 0 : context.user_id,
       message: msg
     }).then(function () {
@@ -13376,9 +13376,9 @@ var Register = function Register(props) {
   };
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
-    axios__WEBPACK_IMPORTED_MODULE_1___default().get('https://board-job.byethost16.com/sanctum/csrf-cookie').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get('http://127.0.0.1:8000/sanctum/csrf-cookie').then(function (response) {
       setLoading(true);
-      _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].post('https://board-job.byethost16.com/register', {
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_3__["default"].post('http://127.0.0.1:8000/register', {
         name: name,
         email: email,
         password: password,
@@ -13773,8 +13773,12 @@ function Resume(props) {
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)();
   // const [resume, setResume] = useState();
 
-  var handleResume = function handleResume(e) {
-    setResume(e.target.files[0]);
+  // const handleResume = (e) => {
+  // 	setResume(e.target.files[0])
+  // }
+
+  var handleFileChange = function handleFileChange(event) {
+    formik.setFieldValue('resume', event.currentTarget.files[0]);
   };
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useNavigate)();
   var saveData = function saveData(e) {
@@ -13783,7 +13787,7 @@ function Resume(props) {
     formData.append('resume', resume);
     formData.append('submission', JSON.stringify(context.submission));
     formData.append('_method', 'put');
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, formData).then(function (response) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, formData).then(function (response) {
       props.updateJobContext({
         user_id: response.data.submission.user_id,
         board_job_id: response.data.submission.board_job_id,
@@ -13807,7 +13811,7 @@ function Resume(props) {
       //   _method: 'put'
       // };
 
-      // apiClient.post('https://board-job.byethost16.com/api/apply/candidate/' + location.state.job.user_id + '/job/' + submission.board_job_id, data)
+      // apiClient.post('http://127.0.0.1:8000/api/apply/candidate/' + location.state.job.user_id + '/job/' + submission.board_job_id, data)
       //   .then((response) => {
       //     props.updateJobContext({
       //       user_id: location.state.job.user_id,
@@ -13824,7 +13828,7 @@ function Resume(props) {
       formData.append('resume', values.resume);
       formData.append('submission', JSON.stringify(context.submission));
       formData.append('_method', 'put');
-      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, formData).then(function (response) {
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/apply/candidate/' + context.user_id + '/job/' + context.board_job_id, formData).then(function (response) {
         props.updateJobContext({
           user_id: response.data.submission.user_id,
           board_job_id: response.data.submission.board_job_id,
@@ -13905,9 +13909,7 @@ function Resume(props) {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
                 type: "file",
                 name: "resume",
-                value: formik.values.resume,
-                onChange: formik.handleChange,
-                onBlur: formik.handleBlur,
+                onChange: handleFileChange,
                 className: "bj-input bg-one"
               })
             }), formik.touched.resume && formik.errors.resume ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -14112,7 +14114,7 @@ function ShowJob(props) {
     return channel;
   };
   function startChat() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].post('https://board-job.byethost16.com/api/start-chat/', {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].post('http://127.0.0.1:8000/api/start-chat/', {
       id: selectedUser,
       message: message
     }).then(function (data) {
@@ -14131,9 +14133,9 @@ function ShowJob(props) {
     if (search) {
       setLoading(true);
     }
-    var baseUrl = 'https://board-job.byethost16.com/api/show-jobs';
+    var baseUrl = 'http://127.0.0.1:8000/api/show-jobs';
     var getJobsUrl = !jobTitle ? "?page=".concat(currentPage) : "?title=".concat(encodeURIComponent(jobTitle), "&page=").concat(currentPage);
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('https://board-job.byethost16.com/api/show-jobs' + getJobsUrl).then(function (response) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/show-jobs' + getJobsUrl).then(function (response) {
       var _response$data;
       setLoading(false);
       setRole(response.data.role);
@@ -14294,14 +14296,14 @@ function ShowJob(props) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return fetch('https://board-job.byethost16.com/api/single-job/' + id);
+            return fetch('http://127.0.0.1:8000/api/single-job/' + id);
           case 2:
             response = _context.sent;
             _context.next = 5;
             return response.json();
           case 5:
             _job = _context.sent;
-            _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('https://board-job.byethost16.com/api/single-job/' + id).then(function (response) {
+            _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/single-job/' + id).then(function (response) {
               var _document$querySelect, _document$querySelect2, _document$querySelect3;
               setJob(response.data.job);
               // document.querySelector('.jb-single-job')?.classList.remove('d-sm-none')
@@ -14327,7 +14329,7 @@ function ShowJob(props) {
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
-            _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('https://board-job.byethost16.com/api/filter-jobs?title=' + encodeURIComponent(jobTitle) + '&page=' + currentPage).then(function (response) {
+            _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get('http://127.0.0.1:8000/api/filter-jobs?title=' + encodeURIComponent(jobTitle) + '&page=' + currentPage).then(function (response) {
               setJobs(response.data.jobs.data);
               setNextPage(response.data.jobs.next_page_url);
               setLastPage(response.data.jobs.last_page);
@@ -14361,7 +14363,7 @@ function ShowJob(props) {
         message: message
       }]);
     });
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].post('https://board-job.byethost16.com/api/send-msg', {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].post('http://127.0.0.1:8000/api/send-msg', {
       id: Number(company_id),
       message: message
     }).then(function (res) {
@@ -14825,7 +14827,7 @@ var SingleCompany = function SingleCompany() {
     var formData = new FormData();
     formData.append('feedback', JSON.stringify(feedback));
     formData.append('_method', 'put');
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('https://board-job.byethost16.com/api/company/add-review/' + id, formData).then(function (response) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('http://127.0.0.1:8000/api/company/add-review/' + id, formData).then(function (response) {
       // setFeedback(response.data.company.feedback)
       setFeedback({
         comment: '',
@@ -15663,7 +15665,7 @@ function SingleJob(props) {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
                 className: "btn bj-btn-prime text-prime",
                 disabled: true,
-                children: "Apply"
+                children: props.role > 1 ? 'Applied' : 'Apply'
               })
             })]
           })]
@@ -15824,7 +15826,7 @@ function UpdateProfile() {
     },
     validate: validate,
     onSubmit: function onSubmit(values) {
-      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('https://board-job.byethost16.com/api/save-profile/', {
+      _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/save-profile/', {
         address: formik.values.address,
         phoneNumber: formik.values.phoneNumber,
         summary: formik.values.summary,
@@ -15840,7 +15842,7 @@ function UpdateProfile() {
     }
   });
   function saveProfile() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('https://board-job.byethost16.com/api/save-profile/', _defineProperty(_defineProperty(_defineProperty({
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_1__["default"].put('http://127.0.0.1:8000/api/save-profile/', _defineProperty(_defineProperty(_defineProperty({
       address: address,
       phoneNumber: phoneNumber,
       summary: summary
@@ -16119,7 +16121,7 @@ var YourJob = function YourJob(props) {
     lastPage = _useState10[0],
     setLastPage = _useState10[1];
   var getSubmissions = function getSubmissions() {
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get("https://board-job.byethost16.com/api/get-submissions?page=".concat(currentPage)).then(function (response) {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].get("http://127.0.0.1:8000/api/get-submissions?page=".concat(currentPage)).then(function (response) {
       setRole(response.data.role);
       setJobSubmissions(response.data.submissions.data);
       setNextPage(response.data.submissions.next_page_url);

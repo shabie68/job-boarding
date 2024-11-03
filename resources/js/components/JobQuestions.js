@@ -221,7 +221,7 @@ function JobQuestions() {
     				</div>
 
                     <div className="mt-2 mb-4 text-end">
-                        <button type="button" className="btn bj-btn-prime text-prime" type="submit">Continue</button>
+                        <button type="button" className="btn bj-btn-prime text-prime" type="submit">Send Application</button>
                     </div>
                 </form>
 

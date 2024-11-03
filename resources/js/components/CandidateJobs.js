@@ -46,7 +46,7 @@ const CandidateJobs = (props) => {
 				You will find all the jobs that you have applied for. You can know the status of your application in application status column.
 				Additionally you will receive a message from recruiter if you have been selected.
 			</p>
-			<table class="table table-striped">
+			<table className="table table-striped">
 
 				<caption>
 					<strong>Applied Jobs</strong>
@@ -62,7 +62,7 @@ const CandidateJobs = (props) => {
 			  <tbody>
 			  	{
 			  		props.jobSubmissions.map((submission) => (
-			  			<tr>
+			  			<tr key={submission.id}>
 			  				<td className="align-middle text-center">{submission.board_job.title}</td>
 			  				<td className="align-middle text-center">{submission.company.title}</td>
 			  				<td className="align-middle text-center">{submission.accept_candidate == -1 ? 'Evaluating' : submission.accept_candidate == 1 ? 'Accepted' : 'Rejected'}</td> 
