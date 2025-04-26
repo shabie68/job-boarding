@@ -194,7 +194,6 @@ function ShowJob(props) {
 
             const channel = pusher.subscribe('private-company.'+response.data.company_id )
             channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
-                alert("GOOD NEWS")
 
                 if(!candidateIds.includes(data['user']['id'])) {
                   setCandidates((prevCandidates) => [...prevCandidates, data['user']])
@@ -203,6 +202,29 @@ function ShowJob(props) {
                 setReceivedMessages((prevMessages) => [...prevMessages, data['message']] );
                 // messages.push(data['message'])
                 setUserId(data['user']['id'])
+                console.log("HERE IS THE DATA")
+                console.log(data)
+                if(data.message?.length < 1) {
+                  alert("Congratulations! You have received new job application")
+                }
+                // document.querySelector("a[href='/home'] + div").innerHTML+=`
+                //   <div style="
+                //     padding: 2px;
+                //     position: relative;
+                //     right: -18px;
+                //     top: 13px;
+                //     width: fit-content;
+                //     color: white;
+                //     background: black;
+                //     border-radius: 50%;
+                //     font-size: 7px;
+                //     /* height: fit-content; */
+                //     vertical-align: middle;
+                // ">
+                      
+                //     </div>
+                // `
+
 
                 // props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
                  props.updateMessageContext((prevObj) => [...prevObj, {senderName: data['user']['name'], message: data['message']}])
@@ -217,12 +239,10 @@ function ShowJob(props) {
             if(response.data.role == 2) {
               setCompanies(response.data.companies)
               const candidateChannel = pusher.subscribe('private-candidate.' + response.data.authenticatedUser)
-              console.log("HER IS THE channel")
-              console.log(candidateChannel)
+
               candidateChannel.bind('job-msg', (data) => {
              
                 messages.push(data['message'])
-                alert("WE ARE HERE")
 
                 setReceivedMessages((prevMessages) => [...prevMessages, data['message']]);
                 // props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])
