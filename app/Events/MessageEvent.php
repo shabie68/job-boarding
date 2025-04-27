@@ -27,7 +27,7 @@ class MessageEvent implements ShouldBroadcast
     public function __construct($user, $request)
     {
         $this->user = $user;
-        $this->recep = $request['id'];
+        $this->recep = $request['user_id'];
         $this->message = $request['message'];
     }
 

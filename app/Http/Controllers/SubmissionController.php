@@ -11,6 +11,7 @@ use App\Models\Submission;
 use App\Models\BoardJob;
 use App\Models\Company;
 use App\Models\User;
+use App\Models\Notification;
 use Carbon\Carbon;
 use Redis;
 
@@ -139,7 +140,6 @@ class SubmissionController extends Controller
     public function acceptCandidate(Request $request, $submissionId) {
 
         $submission = Submission::find($submissionId);
-
         if(!$submission) {
             return;
         }
@@ -158,8 +158,8 @@ class SubmissionController extends Controller
         ];
 
 
-        if($submission->user_id != $request->user_id) {
-            
+        // if($submission->user_id != $request->user_id) {
+
             $submissions = Submission::where('board_job_id', $submission->board_job_id)
                                     ->where('id', '!=', $submission->id)
                                     ->update([
@@ -167,7 +167,7 @@ class SubmissionController extends Controller
                                     ]);
             foreach($request->rejectedSubmissions as $rejectedSubmission) {
                 $details = [
-                    'id' => $rejectedSubmission['user_id'],
+                    'user_id' => $rejectedSubmission['user_id'],
                     'message' => "Unfortunately you have not been selected for {$rejectedSubmission['board_job']['title']} role. Good luck for future"
                 ];
 
@@ -178,10 +178,26 @@ class SubmissionController extends Controller
 
                 event(new \App\Events\MessageEvent(auth()->user(), $details));  
             }
-        }
+
+            $notification= Notification::create([
+                'user_id' => $rejectedSubmission['user_id'],
+                'message' => [
+                    'accepted' => false,
+                    'description' => 'You have rejected for the job {$rejectedSubmission["board_job"]["title"]}'
+                ]
+            ]);
+        // }
         
 
         event(new \App\Events\MessageEvent(auth()->user(), $request));
+
+        $notification = Notification::create([
+                'user_id' => $request->user_id,
+                'message' => [
+                    'accepted' => true,
+                    'description' => 'You have accepted for the job'
+                ]
+            ]);
          
         return response()->json([
             "message" => "Congratulation! You have been selected",

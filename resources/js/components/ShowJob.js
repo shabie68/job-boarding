@@ -217,12 +217,10 @@ function ShowJob(props) {
             if(response.data.role == 2) {
               setCompanies(response.data.companies)
               const candidateChannel = pusher.subscribe('private-candidate.' + response.data.authenticatedUser)
-              console.log("HER IS THE channel")
-              console.log(candidateChannel)
+
               candidateChannel.bind('job-msg', (data) => {
-             
+
                 messages.push(data['message'])
-                alert("WE ARE HERE")
 
                 setReceivedMessages((prevMessages) => [...prevMessages, data['message']]);
                 // props.updateMessageContext((prevMessages) => [...prevMessages, data['message']])

@@ -29,8 +29,5 @@ Broadcast::channel('msg.{recepient}' , function($user, $recepient) {
 });
 
 Broadcast::channel('candidate.{recep}' , function($user, $recep) {
-	\Log::info("SENDING");
-	// \Log::info("NEW ID****", ["CHECKING" => (int) $recep]);
-	// \Log::info("NEW CHECKING", ["ID***" => (int)$recep]);
 	return $user->id == $recep;
 });
