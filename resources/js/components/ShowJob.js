@@ -223,10 +223,12 @@ function ShowJob(props) {
                 // element.classList.add('gorgeous-notifications-count')
                 // element.innerHTML = '1'
                 // document.querySelector('.gorgeous-notifications').prepend(element)
-                console.log("HERE IS THE DATA")
-                console.log(data)
-                document.querySelector('.gorgeous-notifications-count').innerHTML = data.totalNotifications
-                document.querySelector('.gorgeous-notifications-count').classList.remove('d-none')
+
+                props.setNotificationsCount(data.totalNotifications)
+                // props.setNotifications(data.totalNotifications)
+                document.querySelector('.gorgeous-notifications-count').innerHTML = props.notificationsCount
+                // document.querySelector('.gorgeous-notifications-count').innerHTML = data.totalNotifications
+                // document.querySelector('.gorgeous-notifications-count').classList.remove('d-none')
 
                 messages.push(data['message'])
 

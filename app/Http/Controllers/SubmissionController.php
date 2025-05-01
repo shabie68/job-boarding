@@ -204,12 +204,12 @@ class SubmissionController extends Controller
  
         
         $notification = Notification::create([
-                'user_id' => $request->user_id,
-                'message' => [
-                    'accepted' => true,
-                    'description' => 'You have accepted for the job ' . $submission->boardJob->title
-                ]
-            ]);
+                            'user_id' => $request->user_id,
+                            'message' => [
+                                'accepted' => true,
+                                'description' => 'You have accepted for the job ' . $submission->boardJob->title
+                            ]
+        ]);
 
         $totalNotifications = Notification::where('user_id', $request->user_id)
                                             ->where('is_read', false)

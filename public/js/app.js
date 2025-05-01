@@ -11406,6 +11406,10 @@ function Example() {
     _useState10 = _slicedToArray(_useState9, 2),
     totalNotifications = _useState10[0],
     setTotalNotifications = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+    _useState12 = _slicedToArray(_useState11, 2),
+    notificationsCount = _useState12[0],
+    setNotificationsCount = _useState12[1];
   var updateJobContext = function updateJobContext(newContextValue) {
     setBoardJob(newContextValue);
   };
@@ -11422,14 +11426,18 @@ function Example() {
   var showNotifications = function showNotifications() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_17__["default"].get('http://127.0.0.1:8000/api/get-notifications').then(function (response) {
       setNotifications(response.data.notifications.data);
+      setNotificationsCount();
+      // getUnreadNotifications()
     });
   };
   var getUnreadNotifications = function getUnreadNotifications() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_17__["default"].get('http://127.0.0.1:8000/api/get-unread-notifications').then(function (response) {
       var _response$data;
       if (response !== null && response !== void 0 && (_response$data = response.data) !== null && _response$data !== void 0 && _response$data.total_notifications) {
-        document.querySelector('.gorgeous-notifications-count').innerHTML = response.data.total_notifications;
-        document.querySelector('.gorgeous-notifications-count').classList.remove('d-none');
+        var _response$data2;
+        setNotificationsCount(response === null || response === void 0 || (_response$data2 = response.data) === null || _response$data2 === void 0 ? void 0 : _response$data2.total_notifications);
+        // document.querySelector('.gorgeous-notifications-count').innerHTML = response.data.total_notifications
+        // document.querySelector('.gorgeous-notifications-count').classList.remove('d-none')    
       }
     });
   };
@@ -11679,7 +11687,7 @@ function Example() {
               to: "/your-jobs",
               children: "Your jobs"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+          }), notificationsCount, " are the count", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
             "data-bs-toggle": "modal",
             "data-bs-target": "#exampleModal",
             className: "bj-back-mb bj-text-align bj-d-responsive bj-menubar-selector d-md-flex flex-column",
@@ -11690,7 +11698,8 @@ function Example() {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("span", {
               className: "gorgeous-notifications position-relative",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
-                className: "gorgeous-notifications-count d-none"
+                className: "gorgeous-notifications-count",
+                children: notificationsCount
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 width: "20",
                 height: "20",
@@ -11863,8 +11872,20 @@ function Example() {
                   className: "modal-body",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("ul", {
                     children: notifications === null || notifications === void 0 ? void 0 : notifications.map(function (notification) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("li", {
-                        children: notification.message.description
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("li", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+                          children: notification.message.description
+                        }), !notification.is_read ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+                          style: {
+                            color: "red",
+                            backgroundColor: "yellow",
+                            verticalAlign: "middle",
+                            fontSize: "10px",
+                            marginLeft: "6px",
+                            animation: "blinker 1s linear infinite"
+                          },
+                          children: "New"
+                        }) : '']
                       }, 'notification-' + notification.id);
                     })
                   })
@@ -11887,6 +11908,9 @@ function Example() {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
               path: "/home",
               element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_ShowJob__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                setNotifications: setNotifications,
+                setNotificationsCount: setNotificationsCount,
+                notificationsCount: notificationsCount,
                 user: user,
                 updateMessageContext: updateMessageContext,
                 updateJobContext: updateJobContext,
@@ -14353,10 +14377,13 @@ function ShowJob(props) {
           // element.classList.add('gorgeous-notifications-count')
           // element.innerHTML = '1'
           // document.querySelector('.gorgeous-notifications').prepend(element)
-          console.log("HERE IS THE DATA");
-          console.log(data);
-          document.querySelector('.gorgeous-notifications-count').innerHTML = data.totalNotifications;
-          document.querySelector('.gorgeous-notifications-count').classList.remove('d-none');
+
+          props.setNotificationsCount(data.totalNotifications);
+          // props.setNotifications(data.totalNotifications)
+          document.querySelector('.gorgeous-notifications-count').innerHTML = props.notificationsCount;
+          // document.querySelector('.gorgeous-notifications-count').innerHTML = data.totalNotifications
+          // document.querySelector('.gorgeous-notifications-count').classList.remove('d-none')
+
           messages.push(data['message']);
           setReceivedMessages(function (prevMessages) {
             return [].concat(_toConsumableArray(prevMessages), [data['message']]);

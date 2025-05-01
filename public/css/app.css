@@ -12592,6 +12592,12 @@ a {
 	min-height: 100vh;
 }
 
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 
 /*@media(min-width: 568px){*/
 @media(min-width: 100px){
