@@ -189,7 +189,9 @@ class SubmissionController extends Controller
                     ]
                 ]);
 
-                $totalNotifications = Notification::where('user_id', $rejectedSubmission['user_id'])->count();
+                $totalNotifications = Notification::where('user_id', $rejectedSubmission['user_id'])
+                                                    ->where('is_read', false)
+                                                    ->count();
                 event(new \App\Events\MessageEvent(auth()->user(), $details, $totalNotifications));  
             }
 
@@ -209,7 +211,9 @@ class SubmissionController extends Controller
                 ]
             ]);
 
-        $totalNotifications = Notification::where('user_id', $request->user_id)->count();
+        $totalNotifications = Notification::where('user_id', $request->user_id)
+                                            ->where('is_read', false)
+                                            ->count();
 
         event(new \App\Events\MessageEvent(auth()->user(), $request, $totalNotifications));
          

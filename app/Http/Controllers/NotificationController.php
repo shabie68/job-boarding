@@ -23,4 +23,18 @@ class NotificationController extends Controller
 			"notifications" => $notifications
     	]);
     }
+
+    public function getUnreadNotifications() {
+        $notifications = Notification::where('user_id', auth()->user()->id)
+                                        ->where('is_read', false)
+                                        ->count();
+
+        if($notifications > 0) {
+            return response()->json([
+                "total_notifications" => $notifications
+            ]);    
+        }
+
+        
+    }
 }

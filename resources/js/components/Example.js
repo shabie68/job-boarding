@@ -28,6 +28,7 @@ function Example() {
 
     const [messageContext, setMessageContext] = useState([])
     const [notifications, setNotifications] = useState([])
+    const [totalNotifications, setTotalNotifications] = useState(null)
     const updateJobContext = (newContextValue) => {
         setBoardJob(newContextValue);
     };
@@ -47,6 +48,16 @@ function Example() {
     const showNotifications = () => {
         apiClient.get('http://127.0.0.1:8000/api/get-notifications').then(response => {
             setNotifications(response.data.notifications.data)
+        })
+    };
+
+    const getUnreadNotifications = () => {
+        apiClient.get('http://127.0.0.1:8000/api/get-unread-notifications').then(response => {
+            if(response?.data?.total_notifications) {
+                document.querySelector('.gorgeous-notifications-count').innerHTML = response.data.total_notifications
+                document.querySelector('.gorgeous-notifications-count').classList.remove('d-none')    
+            }
+            
         })
     };
 
@@ -96,6 +107,7 @@ function Example() {
         // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) - headerHeight + 'px'
 
         addBackgroundGradient()
+        getUnreadNotifications()
         
 
     }, [])

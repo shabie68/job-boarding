@@ -11402,6 +11402,10 @@ function Example() {
     _useState8 = _slicedToArray(_useState7, 2),
     notifications = _useState8[0],
     setNotifications = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState10 = _slicedToArray(_useState9, 2),
+    totalNotifications = _useState10[0],
+    setTotalNotifications = _useState10[1];
   var updateJobContext = function updateJobContext(newContextValue) {
     setBoardJob(newContextValue);
   };
@@ -11418,6 +11422,15 @@ function Example() {
   var showNotifications = function showNotifications() {
     _services_apiClient__WEBPACK_IMPORTED_MODULE_17__["default"].get('http://127.0.0.1:8000/api/get-notifications').then(function (response) {
       setNotifications(response.data.notifications.data);
+    });
+  };
+  var getUnreadNotifications = function getUnreadNotifications() {
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_17__["default"].get('http://127.0.0.1:8000/api/get-unread-notifications').then(function (response) {
+      var _response$data;
+      if (response !== null && response !== void 0 && (_response$data = response.data) !== null && _response$data !== void 0 && _response$data.total_notifications) {
+        document.querySelector('.gorgeous-notifications-count').innerHTML = response.data.total_notifications;
+        document.querySelector('.gorgeous-notifications-count').classList.remove('d-none');
+      }
     });
   };
   var showMenu = function showMenu() {
@@ -11457,6 +11470,7 @@ function Example() {
     // document.querySelector('.container').style.minHeight = window.outerHeight - (headerHeight + footerHeight - 20) - headerHeight + 'px'
 
     addBackgroundGradient();
+    getUnreadNotifications();
   }, []);
   var addBackgroundGradient = function addBackgroundGradient() {
     if (document.querySelector('body')) if (document.body.classList.contains('bj-gradient')) {
