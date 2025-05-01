@@ -11416,10 +11416,8 @@ function Example() {
     });
   };
   var showNotifications = function showNotifications() {
-    alert("SHOWING NOTIFICATIONS");
-    return;
-    _services_apiClient__WEBPACK_IMPORTED_MODULE_17__["default"].post('http://127.0.0.1:8000/get-notifications').then(function (response) {
-      setNotifications(response.notifications);
+    _services_apiClient__WEBPACK_IMPORTED_MODULE_17__["default"].get('http://127.0.0.1:8000/api/get-notifications').then(function (response) {
+      setNotifications(response.data.notifications.data);
     });
   };
   var showMenu = function showMenu() {
@@ -11668,9 +11666,18 @@ function Example() {
               children: "Your jobs"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
-            className: "bj-back-mb bj-text-align bj-notification bj-d-responsive bj-menubar-selector d-md-flex flex-column",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
+            "data-bs-toggle": "modal",
+            "data-bs-target": "#exampleModal",
+            className: "bj-back-mb bj-text-align bj-d-responsive bj-menubar-selector d-md-flex flex-column",
+            style: {
+              cursor: 'pointer'
+            },
+            onClick: showNotifications,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("span", {
+              className: "gorgeous-notifications position-relative",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("span", {
+                className: "gorgeous-notifications-count d-none"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("svg", {
                 width: "20",
                 height: "20",
                 viewBox: "0 0 24 24",
@@ -11698,10 +11705,9 @@ function Example() {
                     fill: "#ffffff"
                   }), " "]
                 })]
-              })
+              })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
               className: "text-decoration-none text-light",
-              onClick: showNotifications,
               children: "Notifications"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
@@ -11820,6 +11826,49 @@ function Example() {
           className: "container",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
             className: "gorgeous-divider-space"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+            className: "modal",
+            tabIndex: "-1",
+            id: "exampleModal",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+              className: "modal-dialog",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+                className: "modal-content",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+                  className: "modal-header",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("h5", {
+                    className: "modal-title",
+                    children: "Notifications"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("button", {
+                    type: "button",
+                    className: "btn-close",
+                    "data-bs-dismiss": "modal",
+                    "aria-label": "Close"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("div", {
+                  className: "modal-body",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("ul", {
+                    children: notifications === null || notifications === void 0 ? void 0 : notifications.map(function (notification) {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("li", {
+                        children: notification.message.description
+                      }, 'notification-' + notification.id);
+                    })
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+                  className: "modal-footer",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("button", {
+                    type: "button",
+                    className: "btn btn-secondary",
+                    "data-bs-dismiss": "modal",
+                    children: "Close"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)("button", {
+                    type: "button",
+                    className: "btn btn-primary",
+                    children: "Save changes"
+                  })]
+                })]
+              })
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Routes, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Route, {
               path: "/home",
@@ -14286,6 +14335,14 @@ function ShowJob(props) {
         setCompanies(response.data.companies);
         var candidateChannel = pusher.subscribe('private-candidate.' + response.data.authenticatedUser);
         candidateChannel.bind('job-msg', function (data) {
+          // let element = document.createElement('span')
+          // element.classList.add('gorgeous-notifications-count')
+          // element.innerHTML = '1'
+          // document.querySelector('.gorgeous-notifications').prepend(element)
+          console.log("HERE IS THE DATA");
+          console.log(data);
+          document.querySelector('.gorgeous-notifications-count').innerHTML = data.totalNotifications;
+          document.querySelector('.gorgeous-notifications-count').classList.remove('d-none');
           messages.push(data['message']);
           setReceivedMessages(function (prevMessages) {
             return [].concat(_toConsumableArray(prevMessages), [data['message']]);
@@ -14408,6 +14465,7 @@ function ShowJob(props) {
       }]);
     });
     _services_apiClient__WEBPACK_IMPORTED_MODULE_2__["default"].post('http://127.0.0.1:8000/api/send-msg', {
+      // id: Number(company_id),
       id: Number(company_id),
       message: message
     }).then(function (res) {
@@ -14715,7 +14773,7 @@ function ShowJob(props) {
                 }, candidate.id);
               })
             })]
-          }), msgContext === null || msgContext === void 0 ? void 0 : msgContext.map(function (msg) {
+          }), msgContext === null || msgContext === void 0 ? void 0 : msgContext.map(function (msg, idx) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "my-2",
@@ -14725,7 +14783,7 @@ function ShowJob(props) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 children: msg.message
               })]
-            }, msg.message + msg.senderName);
+            }, msg.message + msg.senderName + idx);
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "card-footer p-3 bg-one",

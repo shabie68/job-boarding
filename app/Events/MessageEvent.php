@@ -23,12 +23,15 @@ class MessageEvent implements ShouldBroadcast
     public $user;
     public $recep;
     public $message;
+    public $totalNotifications;
 
-    public function __construct($user, $request)
+    public function __construct($user, $request, $totalNotifications = null)
     {
+        \Log::info("USER*******", ["CANDDIATE" => $request['user_id']]);
         $this->user = $user;
         $this->recep = $request['user_id'];
         $this->message = $request['message'];
+        $this->totalNotifications = $totalNotifications;
     }
 
     /**

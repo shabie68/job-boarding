@@ -219,6 +219,14 @@ function ShowJob(props) {
               const candidateChannel = pusher.subscribe('private-candidate.' + response.data.authenticatedUser)
 
               candidateChannel.bind('job-msg', (data) => {
+                // let element = document.createElement('span')
+                // element.classList.add('gorgeous-notifications-count')
+                // element.innerHTML = '1'
+                // document.querySelector('.gorgeous-notifications').prepend(element)
+                console.log("HERE IS THE DATA")
+                console.log(data)
+                document.querySelector('.gorgeous-notifications-count').innerHTML = data.totalNotifications
+                document.querySelector('.gorgeous-notifications-count').classList.remove('d-none')
 
                 messages.push(data['message'])
 
@@ -300,6 +308,7 @@ function ShowJob(props) {
       // props.updateMessageContext((prevMessages) => [...prevMessages, message])
       props.updateMessageContext((prevObj) => [...prevObj, {senderName: 'You', message: message}])
       apiClient.post('http://127.0.0.1:8000/api/send-msg', {
+          // id: Number(company_id),
           id: Number(company_id),
           message: message
          })
@@ -494,8 +503,8 @@ function ShowJob(props) {
                     </div>
 
                     {
-                      msgContext?.map((msg) => (
-                      <div key={msg.message+msg.senderName}>
+                      msgContext?.map((msg, idx) => (
+                      <div key={msg.message+msg.senderName + idx}>
                         <div className="my-2"><strong>{msg.senderName}</strong></div>
                         <div>{msg.message}</div>
                       </div>

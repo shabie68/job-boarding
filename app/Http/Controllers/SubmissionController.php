@@ -140,6 +140,7 @@ class SubmissionController extends Controller
     public function acceptCandidate(Request $request, $submissionId) {
 
         $submission = Submission::find($submissionId);
+        // $jobTitle = BoardJob::where("");
         if(!$submission) {
             return;
         }
@@ -165,6 +166,7 @@ class SubmissionController extends Controller
                                     ->update([
                                         'accept_candidate' => 2
                                     ]);
+            $totalNotifications = null;
             foreach($request->rejectedSubmissions as $rejectedSubmission) {
                 $details = [
                     'user_id' => $rejectedSubmission['user_id'],
@@ -176,28 +178,40 @@ class SubmissionController extends Controller
                     'accepted' => false
                 ];
 
-                event(new \App\Events\MessageEvent(auth()->user(), $details));  
+                
+                $jobTitle = $rejectedSubmission['board_job']['title'];
+
+                $notification= Notification::create([
+                    'user_id' => $rejectedSubmission['user_id'],
+                    'message' => [
+                        'accepted' => false,
+                        'description' => 'You have rejected for the job ' . $jobTitle
+                    ]
+                ]);
+
+                $totalNotifications = Notification::where('user_id', $rejectedSubmission['user_id'])->count();
+                event(new \App\Events\MessageEvent(auth()->user(), $details, $totalNotifications));  
             }
 
-            $notification= Notification::create([
-                'user_id' => $rejectedSubmission['user_id'],
-                'message' => [
-                    'accepted' => false,
-                    'description' => 'You have rejected for the job {$rejectedSubmission["board_job"]["title"]}'
-                ]
-            ]);
+            
         // }
         
 
-        event(new \App\Events\MessageEvent(auth()->user(), $request));
-
+        
+        // $jobTitle = $submission->board_job;
+ 
+        
         $notification = Notification::create([
                 'user_id' => $request->user_id,
                 'message' => [
                     'accepted' => true,
-                    'description' => 'You have accepted for the job'
+                    'description' => 'You have accepted for the job ' . $submission->boardJob->title
                 ]
             ]);
+
+        $totalNotifications = Notification::where('user_id', $request->user_id)->count();
+
+        event(new \App\Events\MessageEvent(auth()->user(), $request, $totalNotifications));
          
         return response()->json([
             "message" => "Congratulation! You have been selected",

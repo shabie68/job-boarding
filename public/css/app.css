@@ -12491,6 +12491,16 @@ a {
 	gap: 8px;
 }
 
+.gorgeous-notifications-count {
+	position: absolute;
+	right: 30px;
+	top: -6px;
+	background: red;
+	font-size: 10px;
+	border-radius: 50%;
+	width: 12px;
+}
+
 
 @keyframes apply-pbar{
 	from {

@@ -47,6 +47,7 @@ Route::get("get-submissions", [App\Http\Controllers\SubmissionController::class,
 Route::post('start-chat', [App\Http\Controllers\BoardJobController::class, 'startChat']);
 
 Route::post('send-msg', [App\Http\Controllers\BoardJobController::class, 'sendMessage']);
+Route::get('get-notifications/', [App\Http\Controllers\NotificationController::class, 'getNotifications']);
 
 Route::post('accept/submission/{board_id}', [App\Http\Controllers\SubmissionController::class, 'acceptCandidate']);
 Route::get('get-user-role', function() {

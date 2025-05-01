@@ -143,7 +143,7 @@ class BoardJobController extends Controller
         }
 
 
-        
+        $request['user_id'] = $request['id'];
         event(new \App\Events\MessageEvent(auth()->user(), $request));
         return 'Recruiter sent message';
         
