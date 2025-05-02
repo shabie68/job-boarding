@@ -52,7 +52,9 @@ class SubmissionController extends Controller
 
 
         $company_id = BoardJob::find($board_job_id)->company_id;
-        $company_user_id = Company::find($company_id)->user_id;
+        $company = Company::find($company_id);
+
+        $company_user_id = $company->user_id;
         $resume = null;
 
 
@@ -92,7 +94,21 @@ class SubmissionController extends Controller
         if($request->has('country')) {
             
             // return \App\Models\User::find($company_user_id);
-            \App\Models\User::find($company_user_id)->notify(new ApplicationSubmitted(auth()->user(), ''));
+            $notification = Notification::create([
+                'user_id' => $company_user_id,
+                'message' => [
+                    'description' => "Hi Recruiter {$company->user->name}! You have received new job application for the job {$submission->boardJob->title}"
+                ]
+            ]);
+
+            $totalNotifications = Notification::where('user_id', $company_user_id)
+                                                    ->where('is_read', false)
+                                                    ->count();
+            //can be uncommented or removed
+            // \App\Models\User::find($company_user_id)->notify(new ApplicationSubmitted(auth()->user(), ''));
+
+            //send also msg instead of details
+            event(new \App\Events\MessageEvent($company->user, $details, $totalNotifications));
                  // event(new \App\Events\StatusLiked(auth()->user()->name));     
             // }
            

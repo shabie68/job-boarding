@@ -11687,7 +11687,7 @@ function Example() {
               to: "/your-jobs",
               children: "Your jobs"
             })]
-          }), notificationsCount, " are the count", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)("div", {
             "data-bs-toggle": "modal",
             "data-bs-target": "#exampleModal",
             className: "bj-back-mb bj-text-align bj-d-responsive bj-menubar-selector d-md-flex flex-column",

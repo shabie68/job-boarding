@@ -151,8 +151,6 @@ function Example() {
                         <Link className="text-decoration-none text-light" to="/your-jobs">Your jobs</Link>
                     </div>
 
-                    {notificationsCount} are the count
-
                     <div data-bs-toggle="modal" data-bs-target="#exampleModal" className="bj-back-mb bj-text-align bj-d-responsive bj-menubar-selector d-md-flex flex-column" 
                         style={{ cursor: 'pointer'}}
                         onClick={showNotifications}
