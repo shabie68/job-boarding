@@ -97,7 +97,7 @@ class SubmissionController extends Controller
             $notification = Notification::create([
                 'user_id' => $company_user_id,
                 'message' => [
-                    'description' => "Hi Recruiter {$company->user->name}! You have received new job application for the job {$submission->boardJob->title}"
+                    'description' => "Hi {$company->user->name}! You have received new job application for the job {$submission->boardJob->title}"
                 ]
             ]);
 
@@ -105,10 +105,15 @@ class SubmissionController extends Controller
                                                     ->where('is_read', false)
                                                     ->count();
             //can be uncommented or removed
-            // \App\Models\User::find($company_user_id)->notify(new ApplicationSubmitted(auth()->user(), ''));
+            $details = [
+                'user_id' => $company_user_id,
+                'message' => "Hi {$company->user->name}! You have received new job application for the job {$submission->boardJob->title} from CANDIDATE {$submission->first_name}"
+            ];
 
-            //send also msg instead of details
-            event(new \App\Events\MessageEvent($company->user, $details, $totalNotifications));
+            \App\Models\User::find($company_user_id)->notify(new ApplicationSubmitted(auth()->user(), $details['message'], $totalNotifications));
+
+            
+            // event(new \App\Events\MessageEvent($company->user, $details, $totalNotifications));
                  // event(new \App\Events\StatusLiked(auth()->user()->name));     
             // }
            

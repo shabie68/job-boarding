@@ -185,8 +185,6 @@ function ShowJob(props) {
 
                     setCandidates((prevCandidates) => [...prevCandidates, user])
                   }
-                  
-
                 })  
               }
             }
@@ -195,6 +193,13 @@ function ShowJob(props) {
             const channel = pusher.subscribe('private-company.'+response.data.company_id )
             channel.bind('Illuminate\\Notifications\\Events\\BroadcastNotificationCreated', function(data) {
                 alert("GOOD NEWS")
+
+                if(data?.totalNotifications) {
+                  props.setNotificationsCount(data.totalNotifications)
+                  // props.setNotifications(data.totalNotifications)
+                  document.querySelector('.gorgeous-notifications-count').innerHTML = props.notificationsCount  
+                }
+                
 
                 if(!candidateIds.includes(data['user']['id'])) {
                   setCandidates((prevCandidates) => [...prevCandidates, data['user']])
@@ -223,10 +228,12 @@ function ShowJob(props) {
                 // element.classList.add('gorgeous-notifications-count')
                 // element.innerHTML = '1'
                 // document.querySelector('.gorgeous-notifications').prepend(element)
-
-                props.setNotificationsCount(data.totalNotifications)
-                // props.setNotifications(data.totalNotifications)
-                document.querySelector('.gorgeous-notifications-count').innerHTML = props.notificationsCount
+                if(data?.totalNotifications) {
+                  props.setNotificationsCount(data.totalNotifications)
+                  // props.setNotifications(data.totalNotifications)
+                  document.querySelector('.gorgeous-notifications-count').innerHTML = props.notificationsCount  
+                }
+                
                 // document.querySelector('.gorgeous-notifications-count').innerHTML = data.totalNotifications
                 // document.querySelector('.gorgeous-notifications-count').classList.remove('d-none')
 
@@ -490,9 +497,7 @@ function ShowJob(props) {
                           ))
                         }
                       </select>
-
                       :
-
                       (
                         <select defaultValue={userId} onChange={(e) => {setUserId(e.target.value)}}>
                           {
@@ -527,8 +532,6 @@ function ShowJob(props) {
                     <div className="d-flex justify-content-end">
                       <button className="btn bj-btn-prime text-prime" onClick={() => {sendMessage( role == 1 ? userId : recepient)}}>Send</button>
                     </div>
-                    
-                    
                   </div>
                 </div>
               }
@@ -536,51 +539,5 @@ function ShowJob(props) {
         </div>
     )
 }
-/**
-Below are the three colors that will be used in your website
-#4f4a47 primary color
-#238a85 secondary color
-#f7fffe background color
-
-Todos
-1) Check for spacing i.e padding/margin/gap. Use consistent spacing
-2) Check for font sizes. Use consistent font sizes
-3) Add images to job title................done
-4) Check for text color. Text color should be brown-black
-5) Add accept/reject canidate column(send message for accepted candidate)
-6) Make the save button out of card when adding a company
-7) Handle all responsive break points for less than d-sm-flex viewport
-8) Add menubar icon for mobile sites
-9) Set the height for each grid child (show company page)
-10) Make the card to 100% width for responsive
-
-Following files have been uploaded to hosting site************
-1) BoardJobController
-2) SubmissionController
-3) CompanyController
-4) ProfileController
-5) api.php
-6) web.php
-7) channels.php
-8) console.php
-9) Broadcasting/SubmissionChannel.php
-10) User.php
-11) BoardJob.php
-12) Company.php
-13) Skill.php
-14) Submission.php
-15) Notifications/ApplicationSubmitted
-16) Events/MessageEvent
-17) StatusLiked
-18) app.css
-19) welcome.blade.php
-20) MessageContext
-21) js/countries.js
-
-
-Todos fixes for******
-1) Issue with recruiter applying to a job. You can provide message 
-
-**/
 
 export default ShowJob

@@ -27,7 +27,8 @@ class MessageEvent implements ShouldBroadcast
 
     public function __construct($user, $request, $totalNotifications = null)
     {
-        \Log::info("USER*******", ["CANDDIATE" => $request['user_id']]);
+        \Log::info("USER***", ["USER"=> $user]);
+        \Log::info("USER*******", ["RECRUITER" => $request['user_id']]);
         $this->user = $user;
         $this->recep = $request['user_id'];
         $this->message = $request['message'];
