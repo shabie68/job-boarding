@@ -8,12 +8,24 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Submission;
 use App\Models\Company;
 use App\Notifications\ApplicationSubmitted;
+use Illuminate\Http\JsonResponse;
 use DB;
 
 class BoardJobController extends Controller
 {
     
-    public function store(Request $request) {
+    public function store(Request $request): JsonResponse {
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'location' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
+            'responsibilities' => 'required|string',
+            'requirements' => 'required|string',
+            'salary' => 'required|numeric',
+        ]);
+
     	$job = BoardJob::create([
             "user_id" => auth()->user()->id,
             "company_id" => auth()->user()->company->id,
@@ -28,7 +40,7 @@ class BoardJobController extends Controller
     	
     	return response()->json([
     		"job" => $job
-    	]);
+    	], 201);
     }
 
     public function show(Request $request) {
@@ -40,25 +52,17 @@ class BoardJobController extends Controller
         $companyIds = $submissions->pluck("company_id");
         $companies = Company::find($companyIds);
 
-        // $submissions = null;
-        if(Company::all()->count() < 1) {
-            
+        if(!Company::exists()) {
             return response()->json([
                 "startupCompanies" => [],
                 "role" => auth()->user()->role
-
             ]);
         }
 
         if(auth()->user()->role == 1) {
-            $submissions = [];
-            if(auth()->user()->company) {
-                $submissions = Submission::where('company_id', auth()->user()->company->id)->get();    
-            }
-            // $submissions = BoardJob::where('company_id', auth()->user()->company->id)->first()->submissions;
-            
-
-
+            $submissions = auth()->user()->company 
+                            ? Submission::where('company_id', auth()->user()->company->id)->get()
+                            : collect(); // empty collection if no company 
         }else {
             $submissions = Submission::where('user_id', auth()->user()->id)
                                     ->get();
@@ -76,17 +80,11 @@ class BoardJobController extends Controller
                 "authenticatedUser" => auth()->user()->id,
                 "companies" => $companies,
                 "submissions" => $submissions,
-                "role" => auth()->user()->role
             ]);
         }
         
-        // $jobs = DB::table('board_jobs')
-        //             ->where('title', 'like', '%' . $request->title . '%')
-        //             ->whereNull('deleted_at')
-        //             ->paginate(1);
-        $jobs = BoardJob::where('title', 'LIKE', '%' . $request->title . '%')
-                        ->whereNull('deleted_at')
-                        ->with('company')
+        $jobs = BoardJob::with('company')
+                        ->where('title', 'like', '%' . $request->title . '%')
                         ->paginate(5);
 
         
@@ -99,7 +97,7 @@ class BoardJobController extends Controller
         ]);
     }  
 
-    function getJob($id) {
+    public function getJob($id): JsonResponse {
 
         $job = BoardJob::find($id);
 
@@ -108,44 +106,68 @@ class BoardJobController extends Controller
         ]);
     }
 
-    function filterJobs(Request $request) {
-
-        $jobs = DB::table('board_jobs')
-                    ->where('title', 'like', '%' . $request->title . '%')
-                    ->paginate(1);
-
-        return response()->json([
-            'jobs' => $jobs
+    public function filterJobs(Request $request): JsonResponse
+    {
+        // Validate the input
+        $request->validate([
+            'title' => 'required|string|max:255',
         ]);
-    }
 
-    function startChat(Request $request) {
+        // Use Eloquent query builder for consistency and relationships
+        $jobs = BoardJob::with('company')  // eager load company relationship
+                        ->where('title', 'like', '%' . $request->title . '%')
+                        ->paginate(5); // increased pagination for usability
+
+        // Return JSON response
+        return response()->json([
+            'jobs' => $jobs,
+            'total' => $jobs->total(),
+            'per_page' => $jobs->perPage(),
+            'current_page' => $jobs->currentPage(),
+        ]);
+}
+
+    function startChat(Request $request): string {
 
         event(new \App\Events\StatusLiked(auth()->user()->name, $request));
-
         return "event sent";
- 
-        // event(new \App\Events\StatusLiked("Test"))
     }
 
-    function sendMessage(Request $request) {
-        
-        $company_user_id = null;
+    public function sendMessage(Request $request): JsonResponse
+    {
+        // Validate input
+        $request->validate([
+            'id' => 'required|integer|exists:companies,id',
+            'message' => 'required|string|max:2000',
+        ]);
 
         $company = Company::find($request->id);
-        if($company) {
-            $company_user_id = $company->user_id;
+
+        // Handle HR vs recruiter roles
+        if (auth()->user()->role == 2) { // Normal user sending to company
+            $recipient = User::find($company->user_id);
+
+            if (!$recipient) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'The company does not have a user to notify.'
+                ], 404);
+            }
+
+            $recipient->notify(new ApplicationSubmitted(auth()->user(), $request->message));
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Message sent successfully.'
+            ]);
         }
 
-        if(auth()->user()->role == 2) {
-            \App\Models\User::find($company_user_id)->notify(new ApplicationSubmitted(auth()->user(), $request->message));
-            return "Message sent";
-        }
-
-
-        
+        // Recruiter sending message (role != 2)
         event(new \App\Events\MessageEvent(auth()->user(), $request));
-        return 'Recruiter sent message';
-        
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Recruiter sent message successfully.'
+        ]);
     }
 }
