@@ -12,7 +12,6 @@ jobs:
     env:
       # Laravel environment variables
       APP_ENV: testing
-      APP_KEY: base64:SomeRandomKeyHere==
       DB_CONNECTION: mysql
       DB_DATABASE: laravel_test
       DB_USERNAME: root
@@ -61,6 +60,7 @@ jobs:
       - name: Install dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
 
+	
       # Copy .env and generate app key
       - name: Set up .env
         run: |
@@ -74,3 +74,5 @@ jobs:
       # Run PHPUnit tests
       - name: Run tests
         run: vendor/bin/phpunit --coverage-text --colors=never
+
+
