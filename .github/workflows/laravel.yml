@@ -10,7 +10,7 @@ jobs:
 laravel-tests:
 runs-on: ubuntu-latest
 
-```
+
 env:
   APP_ENV: testing
   DB_CONNECTION: mysql
@@ -80,5 +80,4 @@ steps:
   # Run tests
   - name: Run tests
     run: vendor/bin/phpunit --coverage-text --colors=never
-```
 
