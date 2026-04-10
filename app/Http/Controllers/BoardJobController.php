@@ -43,7 +43,7 @@ class BoardJobController extends Controller
     	], 201);
     }
 
-    public function show(Request $request) {
+    public function show(Request $request) : JsonResponse {
 
         $jobs = null;
         
@@ -116,7 +116,7 @@ class BoardJobController extends Controller
         // Use Eloquent query builder for consistency and relationships
         $jobs = BoardJob::with('company')  // eager load company relationship
                         ->where('title', 'like', '%' . $request->title . '%')
-                        ->paginate(5); // increased pagination for usability
+                        ->paginate(5); 
 
         // Return JSON response
         return response()->json([

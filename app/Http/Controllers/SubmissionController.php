@@ -7,6 +7,7 @@ use App\Mail\ConfirmApplication;
 use App\Mail\SendResume;
 use Illuminate\Support\Facades\Mail;
 use App\Notifications\ApplicationSubmitted;
+use Illuminate\Http\JsonResponse;
 use App\Models\Submission;
 use App\Models\BoardJob;
 use App\Models\Company;
@@ -17,7 +18,7 @@ use Redis;
 class SubmissionController extends Controller
 {
     
-    public function addJobData(Request $request) {
+    public function addJobData(Request $request): JsonResponse {
 
         $submission = Submission::where('user_id', auth()->user()->id)
                                 ->where('board_job_id', $request->jobId)
@@ -47,15 +48,11 @@ class SubmissionController extends Controller
     		'submission' => $submission
     	]);
     }
-    public function saveData(Request $request, $candidate_id, $board_job_id, ConfirmApplication $confirm) {
-
+    public function saveData(Request $request, $candidate_id, $board_job_id, ConfirmApplication $confirm): JsonResponse {
 
         $company_id = BoardJob::find($board_job_id)->company_id;
         $company_user_id = Company::find($company_id)->user_id;
         $resume = null;
-
-
-        // return \App\Models\User::find($company_user_id)->recruiter_of;
 
         if($request->file('resume')){
             $destinationPath = 'uploads';
@@ -63,7 +60,6 @@ class SubmissionController extends Controller
             $request->file('resume')->move(public_path($destinationPath), $resume);  
              
         }
-
 
         $submission = json_decode($request->submission); 
             $submission = Submission::updateOrCreate(
@@ -85,41 +81,25 @@ class SubmissionController extends Controller
             'schedule_interview' => $request->has('schedule_interview') ? $request->schedule_interview : Carbon::parse($submission->schedule_interview)
         	]
         );
-            
-
 
         if($request->has('country')) {
             
-            // return \App\Models\User::find($company_user_id);
             \App\Models\User::find($company_user_id)->notify(new ApplicationSubmitted(auth()->user(), ''));
-                 // event(new \App\Events\StatusLiked(auth()->user()->name));     
-            // }
-           
 
             // Mail::to('test@jfdk.com')->send(new ConfirmApplication(auth()->user(), BoardJob::find($board_job_id)) ); 
             // Mail::to('shabeeulhassan40@gmail.com')->send(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path('uploads\\' .$submission->resume)));
              // Mail::to('fjdkfj@kjdf.com')->queue(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path('uploads\\' .$submission->resume)));
-
-
-
              // Mail::to('fjdkfj@kjdf.com')->queue(new SendResume(auth()->user(), BoardJob::find($board_job_id), public_path('uploads\\' .$submission->resume)));
         }
        
-     
         return response()->json([
          "submission" => $submission
         ]);
     }
 
-    public function getSubmissions() {
-        // return Submission::with(['boardJob'])->where("company_id", auth()->user()->company->id)->get();
+    public function getSubmissions(): JsonResponse {
+        
         $company_id = auth()->user()->company ? auth()->user()->company->id : null;
-
-        // $company_id = auth()->user()->company->id;
-        // $submissions = Submission::where("company_id", $company_id)
-        //                         ->get();
-
-
         $submissions = Submission::with(['boardJob'])
                                 ->where("company_id", $company_id)
                                 ->paginate(10);
@@ -129,19 +109,18 @@ class SubmissionController extends Controller
                                     ->paginate(10);
         }
 
-
         return response()->json([
             "submissions" => $submissions,
             "role" => auth()->user()->role
         ]);
     }
 
-    public function acceptCandidate(Request $request, $submissionId) {
+    public function acceptCandidate(Request $request, $submissionId): JsonResponse {
 
         $submission = Submission::find($submissionId);
 
         if(!$submission) {
-            return;
+            return response()->json(['message' => 'Submission not found'], 404);
         }
 
         if($submission) {
@@ -180,7 +159,6 @@ class SubmissionController extends Controller
             }
         }
         
-
         event(new \App\Events\MessageEvent(auth()->user(), $request));
          
         return response()->json([

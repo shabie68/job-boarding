@@ -1,0 +1,78 @@
+name: Laravel CI - Feature Add Testing
+
+on:
+  push:
+    branches: [ feature/add-testing ]
+  pull_request:
+    branches: [ feature/add-testing ]
+
+jobs:
+  laravel-tests:
+    runs-on: ubuntu-latest
+    env:
+      # Laravel environment variables
+      APP_ENV: testing
+      DB_CONNECTION: mysql
+      DB_DATABASE: laravel_test
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      PUSHER_APP_ID: fake-id
+      PUSHER_APP_KEY: fake-key
+      PUSHER_APP_SECRET: fake-secret
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: laravel_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      # Checkout the repository
+      - uses: actions/checkout@v3
+
+      # Set up PHP
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          extensions: mbstring, bcmath, mysql, xml, curl, json
+          coverage: xdebug
+
+      # Cache composer dependencies for faster runs
+      - name: Cache Composer
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      # Install composer dependencies
+      - name: Install dependencies
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+      
+      # Copy .env and generate app key
+      - name: Set up .env
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      # Run database migrations
+      - name: Run migrations
+        run: php artisan migrate --env=testing --force
+
+      # Run PHPUnit tests
+      - name: Run tests
+        run: vendor/bin/phpunit --coverage-text --colors=never
+
+
