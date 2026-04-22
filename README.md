@@ -1,62 +1,87 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 🚀 Job Board & Recruitment Platform
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+A full-stack job board application built with Laravel and React, featuring role-based access, real-time communication, and an admin dashboard.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📌 Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 👤 Authentication & Authorization
+- Token-based authentication using Laravel Sanctum  
+- Role-based access control (Recruiter & Candidate)  
+- Authorization handled via Gates & Policies  
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 💼 Recruiter Features
+- Create and manage job postings  
+- Manage company profiles  
+- Accept or reject candidates  
+- Real-time notifications on candidate actions  
 
-## Learning Laravel
+### 🧑‍💻 Candidate Features
+- Search and apply for jobs  
+- Provide feedback/reviews for companies  
+- Receive real-time updates on application status  
+- Chat with recruiters  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### ⚡ Real-Time Functionality
+- Instant messaging between recruiters and candidates  
+- Live notifications for job application updates (accept/reject)  
+- Powered by Pusher  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📊 Admin Dashboard
+- Manage users, jobs, and applications  
+- Monitor platform activity  
+- Role-based access for secure operations  
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## 🛠️ Tech Stack
 
-### Premium Partners
+**Backend:**
+- PHP (Laravel 8)
+- Laravel Sanctum (Authentication)
+- RESTful APIs  
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+**Frontend:**
+- React 18  
+- React Router  
+- Formik  
+- Bootstrap 5  
 
-## Contributing
+**Real-Time:**
+- Pusher  
+- Laravel Echo  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Other Tools:**
+- MySQL  
+- Redis (via Predis)  
+- Axios  
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ⚙️ Installation
 
-## Security Vulnerabilities
+```bash
+git clone https://github.com/shabie68/job-boarding.git
+cd your-repo
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Install backend dependencies
+composer install
 
-## License
+# Setup environment
+cp .env.example .env
+php artisan key:generate
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# job-boarding" 
+# Configure your database in .env
+
+# Run migrations
+php artisan migrate
+
+# Install frontend dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Start Laravel server
+php artisan serve
