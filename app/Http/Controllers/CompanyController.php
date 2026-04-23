@@ -5,16 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 
-/**
-Route::get('/{any}', function () {
-    return view('app');
-})->where('any', '.*');
-**/
 class CompanyController extends Controller
 {
     
-    public function show() {
+    public function show(): JsonResponse {
 
     	$companies = Company::paginate(1);
         $hasCompany = false;
@@ -30,9 +26,8 @@ class CompanyController extends Controller
     	]);
     }
 
-    public function store(Request $request) {
-        
-
+    public function store(Request $request): JsonResponse {
+    
         $logo = null;
 
         if($request->file('logo')) {
@@ -54,14 +49,6 @@ class CompanyController extends Controller
     		"industry" => $request->industry
     	]);
 
-       
-        // $user = User::find(auth()->user()->id);
-        // $user->recruiter_of = auth()->user()->name . '-' . $company->title;
-        // $user->save();
-
-// 
-        // auth()->user()->recruiter_of = auth()->user()->name . '-' . $company->title;
-
         return response()->json([
             "company" => $company,
             "user" => auth()->user()
@@ -80,7 +67,6 @@ class CompanyController extends Controller
         
         $feedback[] = json_decode($request->feedback, true);
 
-
         $company->update([
             "feedback" => $feedback
         ]);
@@ -90,7 +76,8 @@ class CompanyController extends Controller
         ]);
     }
 
-    public function getRecentCompanies() {
+    public function getRecentCompanies(): JsonResponse {
+
         $companies = Company::limit(3)->get();
         return response()->json([
             "companies" => $companies

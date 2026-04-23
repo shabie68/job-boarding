@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
 
 class ProfileController extends Controller
 {
     
-    public function saveProfile(Request $request) {
+    public function saveProfile(Request $request): JsonResponse {
 
     	$user = User::find(auth()->user()->id);
 
@@ -18,7 +19,6 @@ class ProfileController extends Controller
     		"phone_number" => $request->phoneNumber,
     		"address" => $request->address,
     		"education" => $request->education
-
     	]);
 
     	return response()->json([
@@ -26,10 +26,9 @@ class ProfileController extends Controller
     	]);
     }
 
-    public function getProfile(Request $request) {
+    public function getProfile(Request $request): JsonResponse {
 
     	$user = User::find(auth()->user()->id);
-
     	return response()->json([
     		"user" =>$user
     	]);
